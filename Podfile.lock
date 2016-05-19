@@ -1,0 +1,12 @@
+PODS:
+  - CodeQuickKit/CoreData (2.2.0):
+    - CodeQuickKit/Foundation
+  - CodeQuickKit/Foundation (2.2.0)
+
+DEPENDENCIES:
+  - CodeQuickKit/CoreData (~> 2.2)
+
+SPEC CHECKSUMS:
+  CodeQuickKit: 1f3c0edc7c11baf8f8d808196956f5373c809989
+
+COCOAPODS: 0.39.0
