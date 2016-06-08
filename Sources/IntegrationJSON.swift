@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// IntegrationJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,41 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
+class IntegrationJSON: SerializableObject {
+    var _id: String = ""
+    var _rev: String?
+    var doc_type: String?
+    var tinyID: String?
+    var number: Int = 0
+    var shouldClean: Bool = false
+    var currentStep: String?
+    var result: String?
+    var buildResultSummary: BuildResultSummaryJSON?
+    var queuedDate: String?
+    var startedTime: String?
+    var endedTime: String?
+    var endedTimeDate: [Int] = [Int]()
+    var duration: Float = 0
+    var success_streak: Int = 0
+    var tags: [String] = [String]()
+    var buildServiceFingerprint: String?
+    var testedDevices: [DeviceJSON] = [DeviceJSON]()
+    var testHierarchy: [String : AnyObject]?
+    var perfMetricNames: [String] = [String]()
+    var perfMetricKeyPaths: [String] = [String]()
+    var assets: IntegrationAssetsJSON?
+    var revisionBlueprint: RevisionBlueprintJSON?
+    var hasCoverageData: Bool?
+    var hasRequestedIssues: Bool = false
+    var hasRequestedCommits: Bool = false
     
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+        if propertyName == "testedDevices" {
+            return DeviceJSON.self
+        }
+        
+        return super.objectClassOfCollectionType(forPropertyname: propertyName)
     }
 }

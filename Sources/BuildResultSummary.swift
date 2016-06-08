@@ -34,19 +34,19 @@ class BuildResultSummary: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
-}
-
-class BuildResultSummaryJSON: SerializableObject {
-    var errorCount: Int = 0
-    var errorChange: Int = 0
-    var warningCount: Int = 0
-    var warningChange: Int = 0
-    var testsCount: Int = 0
-    var testsChange: Int = 0
-    var testFailureCount: Int = 0
-    var testFailureChange: Int = 0
-    var analyzerWarningCount: Int = 0
-    var analyzerWarningChange: Int = 0
-    var regressedPerfTestCount: Int = 0
-    var improvedPerfTestCount: Int = 0
+    
+    func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
+        self.errorCount = summary.errorCount
+        self.errorChange = summary.errorChange
+        self.warningCount = summary.warningCount
+        self.warningChange = summary.warningChange
+        self.testsCount = summary.testsCount
+        self.testsChange = summary.testsChange
+        self.testFailureCount = summary.testFailureCount
+        self.testFailureChange = summary.testFailureChange
+        self.analyzerWarningCount = summary.analyzerWarningCount
+        self.analyzerWarningChange = summary.analyzerWarningChange
+        self.regressedPerfTestCount = summary.regressedPerfTestCount
+        self.improvedPerfTestCount = summary.improvedPerfTestCount
+    }
 }

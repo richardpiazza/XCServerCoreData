@@ -31,12 +31,12 @@ import CodeQuickKit
 
 class Asset: SerializableManagedObject {
     
-}
-
-class AssetJSON: SerializableObject {
-    var allowAnonymousAccess: NSNumber?
-    var fileName: String?
-    var infoDictionary: NSObject?
-    var relativePath: String?
-    var size: NSNumber?
+    func update(withAsset asset: AssetJSON) {
+        self.allowAnonymousAccess = asset.allowAnonymousAccess
+        self.fileName = asset.fileName
+        self.infoDictionary = asset.infoDictionary
+        self.relativePath = asset.relativePath
+        self.size = asset.size
+    }
+    
 }

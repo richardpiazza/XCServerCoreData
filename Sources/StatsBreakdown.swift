@@ -31,13 +31,7 @@ import CodeQuickKit
 
 class StatsBreakdown: SerializableManagedObject {
     
-}
-
-class StatsBreakdownJSON: SerializableObject {
-    var sum: NSNumber?
-    var count: NSNumber?
-    var min: NSNumber?
-    var max: NSNumber?
-    var avg: NSNumber?
-    var stdDev: NSNumber?
+    func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
+        fatalError("Not Implemented")
+    }
 }

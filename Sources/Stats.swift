@@ -36,35 +36,95 @@ class Stats: SerializableManagedObject {
     }
     
     func update(withStats stats: StatsJSON) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
         
+        self.numberOfIntegrations = stats.numberOfIntegrations
+        self.numberOfCommits = stats.numberOfCommits
+        self.testAdditionRate = stats.testAdditionRate
+        self.codeCoveragePercentageDelta = stats.codeCoveragePercentageDelta
+        self.sinceDate = stats.sinceDate
+        
+        if let statsLastCleanIntegrationIdentifier = stats.lastCleanIntegration?.intergraionID {
+            self.lastCleanIntegration = self.bot?.integration(withIdentifier: statsLastCleanIntegrationIdentifier)
+        }
+        
+        if let statsBestSuccessStreakIdentifier = stats.bestSuccessStreak?.integrationID {
+            self.bestSuccessStreak = self.bot?.integration(withIdentifier: statsBestSuccessStreakIdentifier)
+        }
+        
+        if let statsBreakdown = stats.averageIntegrationTime {
+            if self.averageIntegrationTime == nil {
+                self.averageIntegrationTime = StatsBreakdown(managedObjectContext: moc)
+                self.averageIntegrationTime?.inverseAverageIntegrationTime = self
+            }
+            
+            self.averageIntegrationTime?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.analysisWarnings {
+            if self.analysisWarnings == nil {
+                self.analysisWarnings = StatsBreakdown(managedObjectContext: moc)
+                self.analysisWarnings?.inverseAnalysisWarnings = self
+            }
+            
+            self.analysisWarnings?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.testFailures {
+            if self.testFailures == nil {
+                self.testFailures = StatsBreakdown(managedObjectContext: moc)
+                self.testFailures?.inverseTestFailures = self
+            }
+            
+            self.testFailures?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.errors {
+            if self.errors == nil {
+                self.errors = StatsBreakdown(managedObjectContext: moc)
+                self.errors?.inverseErrors = self
+            }
+            
+            self.errors?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.regressedPerfTests {
+            if self.regressedPerfTests == nil {
+                self.regressedPerfTests = StatsBreakdown(managedObjectContext: moc)
+                self.regressedPerfTests?.inverseRegressedPerfTests = self
+            }
+            
+            self.regressedPerfTests?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.warnings {
+            if self.warnings == nil {
+                self.warnings = StatsBreakdown(managedObjectContext: moc)
+                self.warnings?.inverseWarnings = self
+            }
+            
+            self.warnings?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.improvedPerfTests {
+            if self.improvedPerfTests == nil {
+                self.improvedPerfTests = StatsBreakdown(managedObjectContext: moc)
+                self.improvedPerfTests?.inverseImprovedPerfTests = self
+            }
+            
+            self.improvedPerfTests?.update(withStatsBreakdown: statsBreakdown)
+        }
+        
+        if let statsBreakdown = stats.tests {
+            if self.tests == nil {
+                self.tests = StatsBreakdown(managedObjectContext: moc)
+                self.tests?.inverseTests = self
+            }
+            
+            self.tests?.update(withStatsBreakdown: statsBreakdown)
+        }
     }
-}
-
-class StatsJSON: SerializableObject {
-    var lastCleanIntegration: LastCleanIntegrationJSON?
-    var bestSuccessStreak: BestSuccessStreakJSON?
-    var numberOfIntegrations: NSNumber?
-    var numberOfCommits: NSNumber?
-    var averageIntegrationTIme: StatsBreakdownJSON?
-    var testAdditionRate: NSNumber?
-    var analysisWarnings: StatsBreakdownJSON?
-    var testFailures: StatsBreakdownJSON?
-    var errors: StatsBreakdownJSON?
-    var regressedPerfTests: StatsBreakdownJSON?
-    var warnings: StatsBreakdownJSON?
-    var improvedPerfTests: StatsBreakdownJSON?
-    var tests: StatsBreakdownJSON?
-    var codeCoveragePercentageDelta: NSNumber?
-    var sinceDate: NSString?
-}
-
-class LastCleanIntegrationJSON: SerializableObject {
-    var intergraionID: String?
-    var endedTime: String?
-}
-
-class BestSuccessStreakJSON: SerializableObject {
-    var integrationID: String?
-    var success_streak: NSNumber?
-    var endedTime: String?
 }

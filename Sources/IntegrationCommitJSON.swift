@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// IntegrationCommitJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,38 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
+class IntegrationCommitJSON: SerializableObject {
+    var _id: String?
+    var _rev: String?
+    var doc_type: String?
+    var tinyID: String?
+    var integration: String?
+    var botID: String?
+    var botTinyID: String?
+    var endedTimeDate: [Int] = [Int]()
+    var commits: [String : [CommitJSON]] = [String : [CommitJSON]]()
     
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
+    override func initializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        if propertyName == "commits" {
+            var initialized = [String : [CommitJSON]]()
+            
+            guard let cast = data as? [String : [SerializableDictionary]] else {
+                return initialized
+            }
+            
+            for (key, value) in cast {
+                var array = [CommitJSON]()
+                for dictionary in value {
+                    array.append(CommitJSON(withDictionary: dictionary))
+                }
+                initialized[key] = array
+            }
+            
+            return initialized
+        }
+        
+        return super.initializedObject(forPropertyName: propertyName, withData: data)
     }
 }

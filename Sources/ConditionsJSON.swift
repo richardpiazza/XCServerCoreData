@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// ConditionsJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,14 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
-    
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
-    }
+class ConditionsJSON: SerializableObject {
+    var status: Int = 0
+    var onWarnings: Bool = false
+    var onBuildErrors: Bool = false
+    var onInternalErrors: Bool = false
+    var onAnalyzerWarnings: Bool = false
+    var onFailingTests: Bool = false
+    var onSuccess: Bool = false
 }

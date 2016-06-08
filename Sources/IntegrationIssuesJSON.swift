@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// IntegrationIssuesJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,22 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
+class IntegrationIssuesJSON: SerializableObject {
+    var unresolvedIssues: [IssueJSON] = [IssueJSON]()
+    var resolvedIssues: [IssueJSON] = [IssueJSON]()
+    var freshIssues: [IssueJSON] = [IssueJSON]()
     
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+        if propertyName == "unresolvedIssues" {
+            return IssueJSON.self
+        } else if propertyName == "resolvedIssues" {
+            return IssueJSON.self
+        } else if propertyName == "freshIssues" {
+            return IssueJSON.self
+        }
+        
+        return super.objectClassOfCollectionType(forPropertyname: propertyName)
     }
 }

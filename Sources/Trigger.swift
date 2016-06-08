@@ -29,23 +29,41 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-enum TriggerPhase: Int {
-    case BeforeIntegration = 0
-    case AfterIntegration
-}
-
 class Trigger: SerializableManagedObject {
     convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
     }
-}
-
-class TriggerJSON: SerializableObject {
-    var name: String?
-    var type: Int = 0
-    var phase: Int = 0
-    var scriptBody: String?
-    var conditions: ConditionsJSON?
-    var emailConfiguration: EmailConfigurationJSON?
+    
+    func update(withTrigger trigger: TriggerJSON) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        self.name = trigger.name
+        self.type = trigger.type
+        self.phase = trigger.phase
+        self.scriptBody = trigger.scriptBody
+        
+        if let triggerConditions = trigger.conditions {
+            if self.conditions == nil {
+                self.conditions = Conditions(managedObjectContext: moc, trigger: self)
+            }
+            
+            if let conditions = self.conditions {
+                conditions.update(withConditions: triggerConditions)
+            }
+        }
+        
+        if let triggerEmail = trigger.emailConfiguration {
+            if self.emailConfiguration == nil {
+                self.emailConfiguration = EmailConfiguration(managedObjectContext: moc, trigger: self)
+            }
+            
+            if let emailConfiguration = self.emailConfiguration {
+                emailConfiguration.update(withEmailConfiguration: triggerEmail)
+            }
+        }
+    }
 }

@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// ConfigurationJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,31 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
+class ConfigurationJSON: SerializableObject {
+    var schemeName: String!
+    var builtFromClean: Int = 0
+    var performsTestAction: Bool = false
+    var performsAnalyzeAction: Bool = false
+    var performsArchiveAction: Bool = false
+    var testingDestinationType: Int = 0
+    var testingDeviceIDs: [String] = [String]()
+    var scheduleType: Int = 0
+    var periodicScheduleInterval: Int = 0
+    var weeklyScheduleDay: Int = 0
+    var hourOfIntegration: Int = 0
+    var minutesAfterHourToIntegrate: Int = 0
+    var triggers: [TriggerJSON] = [TriggerJSON]()
+    var sourceControlBlueprint: RevisionBlueprintJSON?
+    var codeCoveragePreference: NSNumber?
+    var deviceSpecification: DeviceSpecificationJSON?
     
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+        if propertyName == "triggers" {
+            return TriggerJSON.self
+        }
+        
+        return super.objectClassOfCollectionType(forPropertyname: propertyName)
     }
 }

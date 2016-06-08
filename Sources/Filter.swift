@@ -34,18 +34,24 @@ class Filter: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.deviceSpecification = deviceSpecification
     }
-}
-
-class FilterJSON: SerializableObject {
-    var platform: PlatformJSON?
-    var filterType: NSNumber?
-    var architectureType: NSNumber?
     
-    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
-        if propertyName == "platform" {
-            return PlatformJSON.self
+    func update(withFilter filter: FilterJSON) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
         }
         
-        return super.objectClassOfCollectionType(forPropertyname: propertyName)
+        self.filterType = filter.filterType
+        self.architectureType = filter.architectureType
+        
+        if let filterPlatform = filter.platform {
+            if self.platform == nil {
+                self.platform = Platform(managedObjectContext: moc, filter: self)
+            }
+            
+            if let platform = self.platform {
+                platform.update(withPlatform: filterPlatform)
+            }
+        }
     }
 }

@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// Extensions.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,15 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
-import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
-    
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
+extension NSSet {
+    func setByRemovingObject(anObject: NSObject) -> NSSet {
+        if !self.containsObject(anObject) {
+            return self
+        }
+        
+        let set = NSMutableSet(set: self)
+        set.removeObject(anObject)
+        return set
     }
 }

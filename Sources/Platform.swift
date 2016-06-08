@@ -34,14 +34,14 @@ class Platform: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.filter = filter
     }
-}
-
-class PlatformJSON: SerializableObject {
-    var _id: String?
-    var displayName: String?
-    var _rev: String?
-    var simulatorIdentifier: String?
-    var identifier: String?
-    var buildNumber: String?
-    var version: String?
+    
+    func update(withPlatform platform: PlatformJSON) {
+        self.identifier = platform._id
+        self.revision = platform._rev
+        self.displayName = platform.displayName
+        self.simulatorIdentifier = platform.simulatorIdentifier
+        self.platformIdentifier = platform.identifier
+        self.buildNumber = platform.buildNumber
+        self.version = platform.version
+    }
 }

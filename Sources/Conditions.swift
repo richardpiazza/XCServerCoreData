@@ -34,14 +34,14 @@ class Conditions: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
     }
-}
-
-class ConditionsJSON: SerializableObject {
-    var status: Int = 0
-    var onWarnings: Bool = false
-    var onBuildErrors: Bool = false
-    var onInternalErrors: Bool = false
-    var onAnalyzerWarnings: Bool = false
-    var onFailingTests: Bool = false
-    var onSuccess: Bool = false
+    
+    func update(withConditions conditions: ConditionsJSON) {
+        self.status = conditions.status
+        self.onWarnings = conditions.onWarnings
+        self.onBuildErrors = conditions.onBuildErrors
+        self.onInternalErrors = conditions.onInternalErrors
+        self.onAnalyzerWarnings = conditions.onAnalyzerWarnings
+        self.onFailingTests = conditions.onFailingTests
+        self.onSucess = conditions.onSuccess
+    }
 }

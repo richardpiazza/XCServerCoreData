@@ -36,33 +36,68 @@ class Configuration: SerializableManagedObject {
     }
     
     func update(withConfiguration configuration: ConfigurationJSON) {
-        
-    }
-}
-
-class ConfigurationJSON: SerializableObject {
-    var schemeName: String!
-    var builtFromClean: Int = 0
-    var performsTestAction: Bool = false
-    var performsAnalyzeAction: Bool = false
-    var performsArchiveAction: Bool = false
-    var testingDestinationType: Int = 0
-    var testingDeviceIDs: [String] = [String]()
-    var scheduleType: Int = 0
-    var periodicScheduleInterval: Int = 0
-    var weeklyScheduleDay: Int = 0
-    var hourOfIntegration: Int = 0
-    var minutesAfterHourToIntegrate: Int = 0
-    var triggers: [TriggerJSON] = [TriggerJSON]()
-    var sourceControlBlueprint: RevisionBlueprintJSON?
-    var codeCoveragePreference: NSNumber?
-    var deviceSpecification: DeviceSpecificationJSON?
-    
-    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
-        if propertyName == "triggers" {
-            return TriggerJSON.self
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
         }
         
-        return super.objectClassOfCollectionType(forPropertyname: propertyName)
+        self.schemeName = configuration.schemeName
+        self.builtFromClean = configuration.builtFromClean
+        self.performsTestAction = configuration.performsTestAction
+        self.performsAnalyzeAction = configuration.performsAnalyzeAction
+        self.performsArchiveAction = configuration.performsArchiveAction
+        self.testingDestinationType = configuration.testingDestinationType
+        self.scheduleType = configuration.scheduleType
+        self.periodicScheduleInterval = configuration.periodicScheduleInterval
+        self.weeklyScheduleDay = configuration.weeklyScheduleDay
+        self.hourOfIntegration = configuration.hourOfIntegration
+        self.minutesAfterHourToIntegrate = configuration.minutesAfterHourToIntegrate
+        self.codeCoveragePreference = configuration.codeCoveragePreference
+        
+        // Repositories
+        if let configurationBlueprint = configuration.sourceControlBlueprint {
+            if let repositories = self.repositories as? Set<Repository> {
+                for repository in repositories {
+                    repository.configurations = repository.configurations?.setByRemovingObject(repository)
+                }
+            }
+            
+            if let remoteRepositories = configurationBlueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
+                for remoteRepository in remoteRepositories {
+                    if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
+                        let repository = moc.repository(withIdentifier: identifier)
+                        repository.configurations = repository.configurations?.setByAddingObject(self)
+                        repository.update(withRevisionBlueprint: configurationBlueprint)
+                    }
+                }
+            }
+        }
+        
+        // Device Specification
+        if let configurationDeviceSpecification = configuration.deviceSpecification {
+            if self.deviceSpecification == nil {
+                self.deviceSpecification = DeviceSpecification(managedObjectContext: moc, configuration: self)
+            }
+            
+            if let deviceSpecification = self.deviceSpecification {
+                deviceSpecification.update(withDeviceSpecification: configurationDeviceSpecification)
+            }
+        }
+        
+        // Triggers
+        if let triggers = self.triggers as? Set<Trigger> {
+            for trigger in triggers {
+                moc.deleteObject(trigger)
+            }
+        }
+        
+        self.triggers = NSSet()
+        
+        for configurationTrigger in configuration.triggers {
+            if let trigger = Trigger(managedObjectContext: moc, configuration: self) {
+                trigger.update(withTrigger: configurationTrigger)
+                self.triggers = self.triggers?.setByAddingObject(trigger)
+            }
+        }
     }
 }

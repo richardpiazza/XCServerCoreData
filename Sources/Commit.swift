@@ -34,56 +34,8 @@ class Commit: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.repository = repository
     }
-}
-
-class CommitJSON: SerializableObject {
-    var XCSCommitHash: String?
-    var XCSCommitMessage: String?
-    var XCSCommitContributor: CommitContributorJSON?
-    var XCSCommitTimestamp: String?
-    var XCSCommitTimestampDate: [Int] = [Int]()
-    var XCSBlueprintRepositoryID: String?
-    var XCSCommitCommitChangeFilePaths: [CommitChangeJSON] = [CommitChangeJSON]()
     
-    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
-        if propertyName == "XCSCommitCommitChangeFilePaths" {
-            return CommitChangeJSON.self
-        }
-        
-        return super.objectClassOfCollectionType(forPropertyname: propertyName)
-    }
-}
-
-class IntegrationCommitJSON: SerializableObject {
-    var _id: String?
-    var _rev: String?
-    var doc_type: String?
-    var tinyID: String?
-    var integration: String?
-    var botID: String?
-    var botTinyID: String?
-    var endedTimeDate: [Int] = [Int]()
-    var commits: [String : [CommitJSON]] = [String : [CommitJSON]]()
-    
-    override func initializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        if propertyName == "commits" {
-            var initialized = [String : [CommitJSON]]()
-            
-            guard let cast = data as? [String : [SerializableDictionary]] else {
-                return initialized
-            }
-            
-            for (key, value) in cast {
-                var array = [CommitJSON]()
-                for dictionary in value {
-                    array.append(CommitJSON(withDictionary: dictionary))
-                }
-                initialized[key] = array
-            }
-            
-            return initialized
-        }
-        
-        return super.initializedObject(forPropertyName: propertyName, withData: data)
+    func update(withCommit commit: CommitJSON) {
+        fatalError("Not Implemented")
     }
 }

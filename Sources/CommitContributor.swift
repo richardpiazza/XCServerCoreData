@@ -34,10 +34,8 @@ class CommitContributor: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
     }
-}
-
-class CommitContributorJSON: SerializableObject {
-    var XCSContributorEmails: [String] = [String]()
-    var XCSContributorName: String?
-    var XCSContributorDisplayName: String?
+    
+    func update(withCommitContributor contributor: CommitContributorJSON) {
+        fatalError("Not Implemented")
+    }
 }

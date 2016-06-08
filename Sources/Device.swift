@@ -31,22 +31,7 @@ import CodeQuickKit
 
 class Device: SerializableManagedObject {
     
-}
-
-class DeviceJSON: SerializableObject {
-    var ID: String?
-    var revision: String?
-    var doc_type: String?
-    var name: String?
-    var deviceType: String?
-    var connected: Bool = false
-    var simulator: Bool = false
-    var osVersion: String?
-    var supported: Bool = false
-    var identifier: String?
-    var enabledForDevelopment: Bool = false
-    var architecture: String?
-    var isServer: Bool = false
-    var platformIdentifier: String?
-    var retina: Bool = false
+    func update(withDevice device: DeviceJSON) {
+        fatalError("Not Implemented")
+    }
 }

@@ -67,7 +67,16 @@ class Bot: SerializableManagedObject {
             }
         }
         
-        moc.updateRepositories(withBlueprint: bot.lastRevisionBlueprint)
+        if let blueprint = bot.lastRevisionBlueprint {
+            if let remoteRepositories = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
+                for remoteRepository in remoteRepositories {
+                    if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
+                        let repository = moc.repository(withIdentifier: identifier)
+                        repository.update(withRevisionBlueprint: blueprint)
+                    }
+                }
+            }
+        }
     }
     
     func integration(withIdentifier identifier: String) -> Integration? {
@@ -82,27 +91,5 @@ class Bot: SerializableManagedObject {
         }
         
         return integration
-    }
-}
-
-class BotJSON: SerializableObject {
-    var _id: String = ""
-    var _rev: String?
-    var doc_type: String?
-    var tinyID: String?
-    var name: String?
-    var type: Int = 0
-    var integration_counter: Int = 0
-    var requiresUpgrade: Bool = false
-    var configuration: ConfigurationJSON?
-    var lastRevisionBlueprint: RevisionBlueprintJSON?
-    var integrations: [IntegrationJSON] = [IntegrationJSON]()
-    
-    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
-        if propertyName == "integrations" {
-            return IntegrationJSON.self
-        }
-        
-        return super.objectClassOfCollectionType(forPropertyname: propertyName)
     }
 }

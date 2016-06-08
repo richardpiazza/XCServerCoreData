@@ -29,47 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-enum IssueType: String {
-    case Unknown = "unknown"
-    case BuildServiceError = "buildServiceError"
-    case BuildServiceWarning = "buildServiceWarning"
-    case TriggerError = "triggerError"
-    case Error = "error"
-    case Warning = "warning"
-    case TestFailure = "testFailure"
-    case AnalyzerWarning = "analyzerWarning"
-    
-    var isWarning: Bool {
-        switch self {
-        case .Warning, .BuildServiceWarning: return true
-        default: return false
-        }
-    }
-    
-    var isError: Bool {
-        switch self {
-        case .TriggerError, .Error, .BuildServiceError, .TestFailure: return true
-        default: return false
-        }
-    }
-}
-
 class Issue: SerializableManagedObject {
     
-}
-
-class IssueJSON: SerializableObject {
-    var _id: String?
-    var _rev: String?
-    var status: Int = 0
-    var target: String?
-    var testCase: String?
-    var lineNumber: Int?
-    var documentLocationData: String?
-    var documentFilePath: String?
-    var age: Int = 0
-    var message: String?
-    var integrationID: String?
-    var type: String?
-    var issueType: String?
+    func update(withIssue issue: IssueJSON) {
+        fatalError("Not Implemented")
+    }
 }

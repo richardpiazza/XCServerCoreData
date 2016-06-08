@@ -28,14 +28,6 @@
 import Foundation
 import CodeQuickKit
 
-enum DocumentType: String {
-    case Version = "version"
-    case Bot = "bot"
-    case Integration = "integration"
-    case Device = "device"
-    case Commit = "commit"
-}
-
 class BotsResponse: SerializableObject {
     var count: Int = 0
     var results: [BotJSON] = [BotJSON]()

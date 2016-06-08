@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// IntegrationAssetsJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,14 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
-    
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
-    }
+class IntegrationAssetsJSON: SerializableObject {
+    var archive: AssetJSON?
+    var buildServiceLog: AssetJSON?
+    var product: AssetJSON?
+    var sourceControlLog: AssetJSON?
+    var triggerAssets: [AssetJSON]?
+    var xcodebuildLog: AssetJSON?
+    var xcodebuildOutput: AssetJSON?
 }

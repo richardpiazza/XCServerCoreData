@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// DeviceJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,22 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
-    
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
-    }
+class DeviceJSON: SerializableObject {
+    var ID: String?
+    var revision: String?
+    var doc_type: String?
+    var name: String?
+    var deviceType: String?
+    var connected: Bool = false
+    var simulator: Bool = false
+    var osVersion: String?
+    var supported: Bool = false
+    var identifier: String?
+    var enabledForDevelopment: Bool = false
+    var architecture: String?
+    var isServer: Bool = false
+    var platformIdentifier: String?
+    var retina: Bool = false
 }

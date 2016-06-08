@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationIssues.swift
+// CommitJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -26,16 +26,22 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CoreData
 import CodeQuickKit
 
-class IntegrationIssues: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
-        self.init(managedObjectContext: managedObjectContext)
-        self.integration = integration
-    }
+class CommitJSON: SerializableObject {
+    var XCSCommitHash: String?
+    var XCSCommitMessage: String?
+    var XCSCommitContributor: CommitContributorJSON?
+    var XCSCommitTimestamp: String?
+    var XCSCommitTimestampDate: [Int] = [Int]()
+    var XCSBlueprintRepositoryID: String?
+    var XCSCommitCommitChangeFilePaths: [CommitChangeJSON] = [CommitChangeJSON]()
     
-    func update(withIntegrationIssues issues: IntegrationIssuesJSON) {
-        fatalError("Not Implemented")
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+        if propertyName == "XCSCommitCommitChangeFilePaths" {
+            return CommitChangeJSON.self
+        }
+        
+        return super.objectClassOfCollectionType(forPropertyname: propertyName)
     }
 }

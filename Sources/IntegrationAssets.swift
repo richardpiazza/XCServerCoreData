@@ -34,14 +34,8 @@ class IntegrationAssets: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
-}
-
-class IntegrationAssetsJSON: SerializableObject {
-    var archive: AssetJSON?
-    var buildServiceLog: AssetJSON?
-    var product: AssetJSON?
-    var sourceControlLog: AssetJSON?
-    var triggerAssets: [AssetJSON]?
-    var xcodebuildLog: AssetJSON?
-    var xcodebuildOutput: AssetJSON?
+    
+    func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
+        fatalError("Not Implemented")
+    }
 }

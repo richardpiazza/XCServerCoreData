@@ -14,6 +14,37 @@
 		E16242551CE3943F00283B2E /* XCServerCoreData.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E16242541CE3943F00283B2E /* XCServerCoreData.podspec */; };
 		E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16242561CE3956A00283B2E /* XCServerCoreData.swift */; };
 		E162425A1CE3992A00283B2E /* XCServerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E16242581CE3992A00283B2E /* XCServerCoreData.xcdatamodeld */; };
+		E1BA57B81D08821A00B82DFD /* AssetJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57B71D08821A00B82DFD /* AssetJSON.swift */; };
+		E1BA57BA1D08823E00B82DFD /* BotJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57B91D08823E00B82DFD /* BotJSON.swift */; };
+		E1BA57BC1D08827400B82DFD /* BuildResultSummaryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */; };
+		E1BA57BE1D08829800B82DFD /* IntegrationCommitJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57BD1D08829800B82DFD /* IntegrationCommitJSON.swift */; };
+		E1BA57C01D0882B900B82DFD /* CommitJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57BF1D0882B900B82DFD /* CommitJSON.swift */; };
+		E1BA57C21D0882E100B82DFD /* CommitChangeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57C11D0882E100B82DFD /* CommitChangeJSON.swift */; };
+		E1BA57C41D08830900B82DFD /* CommitContributorJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57C31D08830900B82DFD /* CommitContributorJSON.swift */; };
+		E1BA57C61D08832E00B82DFD /* ConditionsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57C51D08832E00B82DFD /* ConditionsJSON.swift */; };
+		E1BA57C81D08835400B82DFD /* ConfigurationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57C71D08835400B82DFD /* ConfigurationJSON.swift */; };
+		E1BA57CA1D08837200B82DFD /* DeviceJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57C91D08837200B82DFD /* DeviceJSON.swift */; };
+		E1BA57CC1D08839600B82DFD /* DeviceSpecificationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57CB1D08839600B82DFD /* DeviceSpecificationJSON.swift */; };
+		E1BA57CE1D0883BD00B82DFD /* EmailConfigurationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57CD1D0883BD00B82DFD /* EmailConfigurationJSON.swift */; };
+		E1BA57D01D0883D900B82DFD /* FilterJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57CF1D0883D900B82DFD /* FilterJSON.swift */; };
+		E1BA57D21D08841000B82DFD /* IntegrationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D11D08841000B82DFD /* IntegrationJSON.swift */; };
+		E1BA57D51D08845000B82DFD /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D41D08845000B82DFD /* Enumerations.swift */; };
+		E1BA57D71D0884A600B82DFD /* IntegrationAssetsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D61D0884A600B82DFD /* IntegrationAssetsJSON.swift */; };
+		E1BA57D91D08859D00B82DFD /* IntegrationIssuesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D81D08859D00B82DFD /* IntegrationIssuesJSON.swift */; };
+		E1BA57DB1D0885C400B82DFD /* IssueJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57DA1D0885C400B82DFD /* IssueJSON.swift */; };
+		E1BA57DD1D0885DE00B82DFD /* PlatformJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57DC1D0885DE00B82DFD /* PlatformJSON.swift */; };
+		E1BA57DF1D0885F900B82DFD /* RepositoryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57DE1D0885F900B82DFD /* RepositoryJSON.swift */; };
+		E1BA57E11D08861E00B82DFD /* RevisionBlueprintJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E01D08861E00B82DFD /* RevisionBlueprintJSON.swift */; };
+		E1BA57E31D08864C00B82DFD /* AuthenticationStrategyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E21D08864C00B82DFD /* AuthenticationStrategyJSON.swift */; };
+		E1BA57E51D08867B00B82DFD /* BlueprintLocationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E41D08867B00B82DFD /* BlueprintLocationJSON.swift */; };
+		E1BA57E71D0886A900B82DFD /* RepositoryLocationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E61D0886A900B82DFD /* RepositoryLocationJSON.swift */; };
+		E1BA57E91D0886CC00B82DFD /* RemoteRepositoryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E81D0886CC00B82DFD /* RemoteRepositoryJSON.swift */; };
+		E1BA57EB1D0886EF00B82DFD /* StatsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57EA1D0886EF00B82DFD /* StatsJSON.swift */; };
+		E1BA57ED1D0886FA00B82DFD /* LastCleanIntegrationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57EC1D0886FA00B82DFD /* LastCleanIntegrationJSON.swift */; };
+		E1BA57EF1D08870400B82DFD /* BestSuccessStreakJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57EE1D08870400B82DFD /* BestSuccessStreakJSON.swift */; };
+		E1BA57F11D08876F00B82DFD /* StatsBreakdownJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F01D08876F00B82DFD /* StatsBreakdownJSON.swift */; };
+		E1BA57F31D08878F00B82DFD /* TriggerJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F21D08878F00B82DFD /* TriggerJSON.swift */; };
+		E1BA57F51D08A0B200B82DFD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F41D08A0B200B82DFD /* Extensions.swift */; };
 		E1D825BE1CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */; };
 		E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */; };
 		E1D825C01CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */; };
@@ -97,6 +128,37 @@
 		E16242541CE3943F00283B2E /* XCServerCoreData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XCServerCoreData.podspec; sourceTree = "<group>"; };
 		E16242561CE3956A00283B2E /* XCServerCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCServerCoreData.swift; sourceTree = "<group>"; };
 		E16242591CE3992A00283B2E /* XCServerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E1BA57B71D08821A00B82DFD /* AssetJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetJSON.swift; sourceTree = "<group>"; };
+		E1BA57B91D08823E00B82DFD /* BotJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotJSON.swift; sourceTree = "<group>"; };
+		E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildResultSummaryJSON.swift; sourceTree = "<group>"; };
+		E1BA57BD1D08829800B82DFD /* IntegrationCommitJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationCommitJSON.swift; sourceTree = "<group>"; };
+		E1BA57BF1D0882B900B82DFD /* CommitJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitJSON.swift; sourceTree = "<group>"; };
+		E1BA57C11D0882E100B82DFD /* CommitChangeJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitChangeJSON.swift; sourceTree = "<group>"; };
+		E1BA57C31D08830900B82DFD /* CommitContributorJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommitContributorJSON.swift; sourceTree = "<group>"; };
+		E1BA57C51D08832E00B82DFD /* ConditionsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionsJSON.swift; sourceTree = "<group>"; };
+		E1BA57C71D08835400B82DFD /* ConfigurationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationJSON.swift; sourceTree = "<group>"; };
+		E1BA57C91D08837200B82DFD /* DeviceJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceJSON.swift; sourceTree = "<group>"; };
+		E1BA57CB1D08839600B82DFD /* DeviceSpecificationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSpecificationJSON.swift; sourceTree = "<group>"; };
+		E1BA57CD1D0883BD00B82DFD /* EmailConfigurationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailConfigurationJSON.swift; sourceTree = "<group>"; };
+		E1BA57CF1D0883D900B82DFD /* FilterJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterJSON.swift; sourceTree = "<group>"; };
+		E1BA57D11D08841000B82DFD /* IntegrationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationJSON.swift; sourceTree = "<group>"; };
+		E1BA57D41D08845000B82DFD /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		E1BA57D61D0884A600B82DFD /* IntegrationAssetsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationAssetsJSON.swift; sourceTree = "<group>"; };
+		E1BA57D81D08859D00B82DFD /* IntegrationIssuesJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationIssuesJSON.swift; sourceTree = "<group>"; };
+		E1BA57DA1D0885C400B82DFD /* IssueJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueJSON.swift; sourceTree = "<group>"; };
+		E1BA57DC1D0885DE00B82DFD /* PlatformJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformJSON.swift; sourceTree = "<group>"; };
+		E1BA57DE1D0885F900B82DFD /* RepositoryJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryJSON.swift; sourceTree = "<group>"; };
+		E1BA57E01D08861E00B82DFD /* RevisionBlueprintJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevisionBlueprintJSON.swift; sourceTree = "<group>"; };
+		E1BA57E21D08864C00B82DFD /* AuthenticationStrategyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStrategyJSON.swift; sourceTree = "<group>"; };
+		E1BA57E41D08867B00B82DFD /* BlueprintLocationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueprintLocationJSON.swift; sourceTree = "<group>"; };
+		E1BA57E61D0886A900B82DFD /* RepositoryLocationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryLocationJSON.swift; sourceTree = "<group>"; };
+		E1BA57E81D0886CC00B82DFD /* RemoteRepositoryJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteRepositoryJSON.swift; sourceTree = "<group>"; };
+		E1BA57EA1D0886EF00B82DFD /* StatsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsJSON.swift; sourceTree = "<group>"; };
+		E1BA57EC1D0886FA00B82DFD /* LastCleanIntegrationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastCleanIntegrationJSON.swift; sourceTree = "<group>"; };
+		E1BA57EE1D08870400B82DFD /* BestSuccessStreakJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BestSuccessStreakJSON.swift; sourceTree = "<group>"; };
+		E1BA57F01D08876F00B82DFD /* StatsBreakdownJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsBreakdownJSON.swift; sourceTree = "<group>"; };
+		E1BA57F21D08878F00B82DFD /* TriggerJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerJSON.swift; sourceTree = "<group>"; };
+		E1BA57F41D08A0B200B82DFD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RevisionBlueprint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevisionBlueprint.swift; sourceTree = "<group>"; };
 		E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -244,10 +306,56 @@
 		E16242521CE3935800283B2E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E1BA57D31D08844100B82DFD /* Common */,
+				E1BA57B51D0881D500B82DFD /* API */,
+				E1BA57B61D0881E400B82DFD /* CoreData */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E1BA57B51D0881D500B82DFD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E1D825EE1CEB881000BBF4F6 /* APIResponses.swift */,
+				E1BA57B71D08821A00B82DFD /* AssetJSON.swift */,
+				E1BA57E21D08864C00B82DFD /* AuthenticationStrategyJSON.swift */,
+				E1BA57EE1D08870400B82DFD /* BestSuccessStreakJSON.swift */,
+				E1BA57E41D08867B00B82DFD /* BlueprintLocationJSON.swift */,
+				E1BA57B91D08823E00B82DFD /* BotJSON.swift */,
+				E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */,
+				E1BA57C11D0882E100B82DFD /* CommitChangeJSON.swift */,
+				E1BA57C31D08830900B82DFD /* CommitContributorJSON.swift */,
+				E1BA57BF1D0882B900B82DFD /* CommitJSON.swift */,
+				E1BA57C51D08832E00B82DFD /* ConditionsJSON.swift */,
+				E1BA57C71D08835400B82DFD /* ConfigurationJSON.swift */,
+				E1BA57C91D08837200B82DFD /* DeviceJSON.swift */,
+				E1BA57CB1D08839600B82DFD /* DeviceSpecificationJSON.swift */,
+				E1BA57CD1D0883BD00B82DFD /* EmailConfigurationJSON.swift */,
+				E1BA57CF1D0883D900B82DFD /* FilterJSON.swift */,
+				E1BA57D11D08841000B82DFD /* IntegrationJSON.swift */,
+				E1BA57D61D0884A600B82DFD /* IntegrationAssetsJSON.swift */,
+				E1BA57BD1D08829800B82DFD /* IntegrationCommitJSON.swift */,
+				E1BA57D81D08859D00B82DFD /* IntegrationIssuesJSON.swift */,
+				E1BA57DA1D0885C400B82DFD /* IssueJSON.swift */,
+				E1BA57EC1D0886FA00B82DFD /* LastCleanIntegrationJSON.swift */,
+				E1BA57DC1D0885DE00B82DFD /* PlatformJSON.swift */,
+				E1BA57E81D0886CC00B82DFD /* RemoteRepositoryJSON.swift */,
+				E1BA57DE1D0885F900B82DFD /* RepositoryJSON.swift */,
+				E1BA57E61D0886A900B82DFD /* RepositoryLocationJSON.swift */,
+				E1BA57E01D08861E00B82DFD /* RevisionBlueprintJSON.swift */,
+				E1BA57EA1D0886EF00B82DFD /* StatsJSON.swift */,
+				E1BA57F01D08876F00B82DFD /* StatsBreakdownJSON.swift */,
+				E1BA57F21D08878F00B82DFD /* TriggerJSON.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		E1BA57B61D0881E400B82DFD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
 				E16242581CE3992A00283B2E /* XCServerCoreData.xcdatamodeld */,
 				E16242561CE3956A00283B2E /* XCServerCoreData.swift */,
 				E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */,
-				E1D825EE1CEB881000BBF4F6 /* APIResponses.swift */,
 				E1D825A21CEB6D5700BBF4F6 /* Asset+CoreDataProperties.swift */,
 				E1D825A31CEB6D5700BBF4F6 /* Asset.swift */,
 				E1D825AE1CEB6D5700BBF4F6 /* Bot+CoreDataProperties.swift */,
@@ -295,7 +403,16 @@
 				E1D825B61CEB6D5700BBF4F6 /* XcodeServer+CoreDataProperties.swift */,
 				E1D825B71CEB6D5700BBF4F6 /* XcodeServer.swift */,
 			);
-			path = Sources;
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		E1BA57D31D08844100B82DFD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E1BA57D41D08845000B82DFD /* Enumerations.swift */,
+				E1BA57F41D08A0B200B82DFD /* Extensions.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,25 +568,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1D825C11CEB6D5700BBF4F6 /* Commit.swift in Sources */,
+				E1BA57C01D0882B900B82DFD /* CommitJSON.swift in Sources */,
 				E1D825D91CEB6D5700BBF4F6 /* Filter.swift in Sources */,
 				E1D825C71CEB6D5700BBF4F6 /* IntegrationAssets.swift in Sources */,
 				E1D825E41CEB6D5700BBF4F6 /* XcodeServer+CoreDataProperties.swift in Sources */,
+				E1BA57C41D08830900B82DFD /* CommitContributorJSON.swift in Sources */,
 				E1D825E01CEB6D5700BBF4F6 /* BuildResultSummary+CoreDataProperties.swift in Sources */,
 				E1D825E61CEB6D5700BBF4F6 /* Issue+CoreDataProperties.swift in Sources */,
 				E1D825DF1CEB6D5700BBF4F6 /* Device.swift in Sources */,
 				E1D825C21CEB6D5700BBF4F6 /* Configuration+CoreDataProperties.swift in Sources */,
 				E1D825C01CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift in Sources */,
+				E1BA57C61D08832E00B82DFD /* ConditionsJSON.swift in Sources */,
 				E1D825C41CEB6D5700BBF4F6 /* DeviceSpecification+CoreDataProperties.swift in Sources */,
+				E1BA57DB1D0885C400B82DFD /* IssueJSON.swift in Sources */,
 				E162425A1CE3992A00283B2E /* XCServerCoreData.xcdatamodeld in Sources */,
 				E1D825DD1CEB6D5700BBF4F6 /* Bot.swift in Sources */,
+				E1BA57D01D0883D900B82DFD /* FilterJSON.swift in Sources */,
 				E1D825D51CEB6D5700BBF4F6 /* IntegrationIssues.swift in Sources */,
+				E1BA57D91D08859D00B82DFD /* IntegrationIssuesJSON.swift in Sources */,
 				E1D825E91CEB6D5700BBF4F6 /* Stats.swift in Sources */,
+				E1BA57F11D08876F00B82DFD /* StatsBreakdownJSON.swift in Sources */,
 				E1D825C51CEB6D5700BBF4F6 /* DeviceSpecification.swift in Sources */,
 				E1D825E11CEB6D5700BBF4F6 /* BuildResultSummary.swift in Sources */,
 				E1D825E81CEB6D5700BBF4F6 /* Stats+CoreDataProperties.swift in Sources */,
+				E1BA57EB1D0886EF00B82DFD /* StatsJSON.swift in Sources */,
 				E1D825C91CEB6D5700BBF4F6 /* Repository.swift in Sources */,
+				E1BA57F31D08878F00B82DFD /* TriggerJSON.swift in Sources */,
 				E1D825D31CEB6D5700BBF4F6 /* Integration.swift in Sources */,
+				E1BA57F51D08A0B200B82DFD /* Extensions.swift in Sources */,
+				E1BA57BA1D08823E00B82DFD /* BotJSON.swift in Sources */,
+				E1BA57C81D08835400B82DFD /* ConfigurationJSON.swift in Sources */,
 				E1D825D21CEB6D5700BBF4F6 /* Integration+CoreDataProperties.swift in Sources */,
+				E1BA57E51D08867B00B82DFD /* BlueprintLocationJSON.swift in Sources */,
 				E1D825CE1CEB6D5700BBF4F6 /* CommitContributor+CoreDataProperties.swift in Sources */,
 				E1D825D41CEB6D5700BBF4F6 /* IntegrationIssues+CoreDataProperties.swift in Sources */,
 				E1D825DB1CEB6D5700BBF4F6 /* Platform.swift in Sources */,
@@ -480,25 +610,43 @@
 				E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */,
 				E1D825EB1CEB6D5700BBF4F6 /* Trigger.swift in Sources */,
 				E1D825ED1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift in Sources */,
+				E1BA57CC1D08839600B82DFD /* DeviceSpecificationJSON.swift in Sources */,
 				E1D825D61CEB6D5700BBF4F6 /* EmailConfiguration+CoreDataProperties.swift in Sources */,
+				E1BA57CE1D0883BD00B82DFD /* EmailConfigurationJSON.swift in Sources */,
 				E1D825DC1CEB6D5700BBF4F6 /* Bot+CoreDataProperties.swift in Sources */,
 				E1D825C31CEB6D5700BBF4F6 /* Configuration.swift in Sources */,
+				E1BA57DF1D0885F900B82DFD /* RepositoryJSON.swift in Sources */,
+				E1BA57B81D08821A00B82DFD /* AssetJSON.swift in Sources */,
+				E1BA57BE1D08829800B82DFD /* IntegrationCommitJSON.swift in Sources */,
+				E1BA57E91D0886CC00B82DFD /* RemoteRepositoryJSON.swift in Sources */,
 				E1D825D71CEB6D5700BBF4F6 /* EmailConfiguration.swift in Sources */,
 				E1D825E31CEB6D5700BBF4F6 /* StatsBreakdown.swift in Sources */,
+				E1BA57D71D0884A600B82DFD /* IntegrationAssetsJSON.swift in Sources */,
+				E1BA57BC1D08827400B82DFD /* BuildResultSummaryJSON.swift in Sources */,
+				E1BA57D21D08841000B82DFD /* IntegrationJSON.swift in Sources */,
+				E1BA57E11D08861E00B82DFD /* RevisionBlueprintJSON.swift in Sources */,
 				E1D825D11CEB6D5700BBF4F6 /* Asset.swift in Sources */,
+				E1BA57E71D0886A900B82DFD /* RepositoryLocationJSON.swift in Sources */,
+				E1BA57EF1D08870400B82DFD /* BestSuccessStreakJSON.swift in Sources */,
+				E1BA57DD1D0885DE00B82DFD /* PlatformJSON.swift in Sources */,
 				E1D825E51CEB6D5700BBF4F6 /* XcodeServer.swift in Sources */,
 				E1D825D81CEB6D5700BBF4F6 /* Filter+CoreDataProperties.swift in Sources */,
 				E1D825CD1CEB6D5700BBF4F6 /* Conditions.swift in Sources */,
 				E1D825C81CEB6D5700BBF4F6 /* Repository+CoreDataProperties.swift in Sources */,
 				E1D825CB1CEB6D5700BBF4F6 /* CommitChange.swift in Sources */,
+				E1BA57CA1D08837200B82DFD /* DeviceJSON.swift in Sources */,
 				E1D825EF1CEB881000BBF4F6 /* APIResponses.swift in Sources */,
 				E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */,
 				E1D825CA1CEB6D5700BBF4F6 /* CommitChange+CoreDataProperties.swift in Sources */,
 				E1D825C61CEB6D5700BBF4F6 /* IntegrationAssets+CoreDataProperties.swift in Sources */,
+				E1BA57E31D08864C00B82DFD /* AuthenticationStrategyJSON.swift in Sources */,
+				E1BA57C21D0882E100B82DFD /* CommitChangeJSON.swift in Sources */,
 				E1D825EA1CEB6D5700BBF4F6 /* Trigger+CoreDataProperties.swift in Sources */,
 				E1D825E21CEB6D5700BBF4F6 /* StatsBreakdown+CoreDataProperties.swift in Sources */,
 				E1D825DE1CEB6D5700BBF4F6 /* Device+CoreDataProperties.swift in Sources */,
 				E1D825DA1CEB6D5700BBF4F6 /* Platform+CoreDataProperties.swift in Sources */,
+				E1BA57D51D08845000B82DFD /* Enumerations.swift in Sources */,
+				E1BA57ED1D0886FA00B82DFD /* LastCleanIntegrationJSON.swift in Sources */,
 				E1D825CC1CEB6D5700BBF4F6 /* Conditions+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

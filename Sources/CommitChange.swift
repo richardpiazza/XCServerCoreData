@@ -34,9 +34,8 @@ class CommitChange: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
     }
-}
-
-class CommitChangeJSON: SerializableObject {
-    var status: Int = 0
-    var filePath: String?
+    
+    func update(withCommitChange change: CommitChangeJSON) {
+        fatalError("Not Implemented")
+    }
 }

@@ -34,11 +34,11 @@ class EmailConfiguration: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
     }
-}
-
-class EmailConfigurationJSON: SerializableObject {
-    var emailCommitters: Bool = false
-    var additionalRecipients: [String] = [String]()
-    var includeCommitMessages: Bool = false
-    var includeIssueDetails: Bool = false
+    
+    func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
+        self.emailComitters = configuration.emailCommitters
+        self.additionalRecipients = configuration.additionalRecipients.joinWithSeparator(",")
+        self.includeCommitMessages = configuration.includeCommitMessages
+        self.includeIssueDetails = configuration.includeIssueDetails
+    }
 }

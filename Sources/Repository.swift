@@ -31,8 +31,11 @@ import CodeQuickKit
 
 class Repository: SerializableManagedObject {
     
-}
-
-class RepositoryJSON: SerializableObject {
+    func update(withRepository repository: RepositoryJSON) {
+        fatalError("Not Implemented")
+    }
     
+    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON) {
+        fatalError("Not Implemented")
+    }
 }

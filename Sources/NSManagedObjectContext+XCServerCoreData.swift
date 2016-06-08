@@ -31,8 +31,9 @@ import CodeQuickKit
 
 extension NSManagedObjectContext {
     // MARK: XcodeServer
-    func xcodeServer(withFQDN: String) -> XcodeServer? {
+    func xcodeServer(withFQDN identifier: String) -> XcodeServer? {
         let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
+        fetchRequest.predicate = NSPredicate(format: "fqdn = %@", argumentArray: [identifier])
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [XcodeServer], result = results.first {
                 return result
@@ -45,8 +46,9 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Bot
-    func bot(withIdentifier: String) -> Bot? {
+    func bot(withIdentifier identifier: String) -> Bot? {
         let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
+        fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Bot], result = results.first {
                 return result
@@ -59,8 +61,9 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Integration
-    func integration(withIdentifier: String) -> Integration? {
+    func integration(withIdentifier identifier: String) -> Integration? {
         let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
+        fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Integration], result = results.first {
                 return result
@@ -73,8 +76,11 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Repository
-    func repository(withIdentifier: String) -> Repository? {
+    
+    /// Returns a `Repository` with the specified identifier. A new entity is created in none is found.
+    func repository(withIdentifier identifier: String) -> Repository {
         let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
+        fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Repository], result = results.first {
                 return result
@@ -83,20 +89,19 @@ extension NSManagedObjectContext {
             Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
         }
         
-        return nil
-    }
-    
-    func updateRepositories(withBlueprint blueprint: RevisionBlueprintJSON?) {
-        guard let blueprint = blueprint else {
-            return
+        guard let repository = Repository(managedObjectContext: self) else {
+            fatalError("Failed to create new `Repository`")
         }
         
+        repository.identifier = identifier
         
+        return repository
     }
     
     // MARK: Commit
-    func commit(withHash: String) -> Commit? {
+    func commit(withHash identifier: String) -> Commit? {
         let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
+        fetchRequest.predicate = NSPredicate(format: "commitHash = %@", argumentArray: [identifier])
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Commit], result = results.first {
                 return result
@@ -106,5 +111,28 @@ extension NSManagedObjectContext {
         }
         
         return nil
+    }
+    
+    // MARK: Device
+    
+    /// Returns a `Device` with the specified identifier. A new entity is created in none is found.
+    func device(withIdentifier identifier: String) -> Device {
+        let fetchRequest = NSFetchRequest(entityName: Device.entityName)
+        fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [Device], result = results.first {
+                return result
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        guard let device = Device(managedObjectContext: self) else {
+            fatalError("Failed to create new Device")
+        }
+        
+        device.identifier = identifier
+        
+        return device
     }
 }

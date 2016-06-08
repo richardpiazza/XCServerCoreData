@@ -34,17 +34,41 @@ class DeviceSpecification: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
     }
-}
-
-class DeviceSpecificationJSON: SerializableObject {
-    var filters: [FilterJSON]?
-    var deviceIdentifers: [String]?
     
-    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
-        if propertyName == "filters" {
-            return FilterJSON.self
+    func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
         }
         
-        return super.objectClassOfCollectionType(forPropertyname: propertyName)
+        if let specificationFilters = specification.filters {
+            if let filters = self.filters as? Set<Filter> {
+                for filter in filters {
+                    moc.deleteObject(filter)
+                }
+            }
+            
+            self.filters = NSSet()
+            
+            for specificationFilter in specificationFilters {
+                if let filter = Filter(managedObjectContext: moc, deviceSpecification: self) {
+                    filter.update(withFilter: specificationFilter)
+                    self.filters = self.filters?.setByAddingObject(filter)
+                }
+            }
+        }
+        
+        if let specificationDeviceIdentifiers = specification.deviceIdentifers {
+            if let devices = self.devices as? Set<Device> {
+                for device in devices {
+                    device.deviceSpecifications = device.deviceSpecifications?.setByRemovingObject(device)
+                }
+            }
+            
+            for specificationDeviceIdentifier in specificationDeviceIdentifiers {
+                let device = moc.device(withIdentifier: specificationDeviceIdentifier)
+                device.deviceSpecifications = device.deviceSpecifications?.setByAddingObject(device)
+            }
+        }
     }
 }
