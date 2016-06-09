@@ -39,11 +39,51 @@ class Integration: SerializableManagedObject {
     }
     
     func update(withIntegration integration: IntegrationJSON) {
-        fatalError("Not Implemented")
-//        guard let moc = self.managedObjectContext else {
-//            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
-//            return
-//        }
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        self.identifier = integration._id
+        self.number = integration.number
+        self.shouldClean = integration.shouldClean
+        self.currentStep = integration.currentStep
+        self.result = integration.result
+        self.queuedDate = integration.queuedDate
+        self.startedTime = integration.startedTime
+        self.endedTime = integration.endedTime
+        self.duration = integration.duration
+        self.success_streak = integration.success_streak
+        self.testHierachy = integration.testHierarchy
+        self.hasCoverageData = integration.hasCoverageData
+        
+        // Build Results Summary
+        if let summary = integration.buildResultSummary {
+            self.buildResultSummary?.update(withBuildResultSummary: summary)
+        }
+        
+        // Assets
+        if let assets = integration.assets {
+            self.assets?.update(withIntegrationAssets: assets)
+        }
+        
+        // Tested Devices
+        for testedDevice in integration.testedDevices {
+            let device = moc.device(withIdentifier: testedDevice.ID)
+            device.update(withDevice: testedDevice)
+            
+            if self.testedDevices == nil {
+                self.testedDevices = NSSet()
+            }
+            
+            if let devices = self.testedDevices {
+                if !devices.containsObject(device) {
+                    self.testedDevices = devices.setByAddingObject(device)
+                }
+            }
+        }
+        
+        // Revision Blueprint
         
     }
 }

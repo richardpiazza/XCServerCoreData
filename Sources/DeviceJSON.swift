@@ -29,7 +29,7 @@ import Foundation
 import CodeQuickKit
 
 class DeviceJSON: SerializableObject {
-    var ID: String?
+    var ID: String = ""
     var revision: String?
     var doc_type: String?
     var name: String?
@@ -38,7 +38,7 @@ class DeviceJSON: SerializableObject {
     var simulator: Bool = false
     var osVersion: String?
     var supported: Bool = false
-    var identifier: String?
+    var identifier: String = ""
     var enabledForDevelopment: Bool = false
     var architecture: String?
     var isServer: Bool = false

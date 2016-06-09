@@ -32,6 +32,11 @@ import CodeQuickKit
 class StatsBreakdown: SerializableManagedObject {
     
     func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
-        fatalError("Not Implemented")
+        self.sum = breakdown.sum
+        self.count = breakdown.count
+        self.min = breakdown.min
+        self.max = breakdown.max
+        self.avg = breakdown.avg
+        self.stdDev = breakdown.stdDev
     }
 }

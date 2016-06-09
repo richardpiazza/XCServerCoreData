@@ -29,5 +29,26 @@ import Foundation
 import CodeQuickKit
 
 class RepositoryJSON: SerializableObject {
+    var identifier: String = ""
+    var branchIdentifier: String?
+    var branchOptions: NSNumber?
+    var locationType: String?
+    var system: String?
+    var url: String?
+    var workingCopyPath: String?
+    var workingCopyState: NSNumber?
     
+    func update(withRemoteRepository remoteRepository: RemoteRepositoryJSON) {
+        if let repositoryIdentifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
+            self.identifier = repositoryIdentifier
+        }
+        self.system = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey
+        self.url = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey
+    }
+    
+    func update(withBlueprintLocation blueprintLocation: BlueprintLocationJSON) {
+        self.branchIdentifier = blueprintLocation.DVTSourceControlBranchIdentifierKey
+        self.branchOptions = blueprintLocation.DVTSourceControlBranchOptionsKey
+        self.locationType = blueprintLocation.DVTSourceControlWorkspaceBlueprintLocationTypeKey
+    }
 }

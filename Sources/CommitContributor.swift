@@ -36,6 +36,8 @@ class CommitContributor: SerializableManagedObject {
     }
     
     func update(withCommitContributor contributor: CommitContributorJSON) {
-        fatalError("Not Implemented")
+        self.name = contributor.XCSContributorName
+        self.displayName = contributor.XCSContributorDisplayName
+        self.emails = contributor.XCSContributorEmails
     }
 }

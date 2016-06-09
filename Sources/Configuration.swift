@@ -67,7 +67,7 @@ class Configuration: SerializableManagedObject {
                     if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
                         let repository = moc.repository(withIdentifier: identifier)
                         repository.configurations = repository.configurations?.setByAddingObject(self)
-                        repository.update(withRevisionBlueprint: configurationBlueprint)
+                        moc.update(withRevisionBlueprint: configurationBlueprint)
                     }
                 }
             }

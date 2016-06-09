@@ -71,8 +71,8 @@ class Bot: SerializableManagedObject {
             if let remoteRepositories = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
                 for remoteRepository in remoteRepositories {
                     if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
-                        let repository = moc.repository(withIdentifier: identifier)
-                        repository.update(withRevisionBlueprint: blueprint)
+                        let _ = moc.repository(withIdentifier: identifier)
+                        moc.update(withRevisionBlueprint: blueprint)
                     }
                 }
             }

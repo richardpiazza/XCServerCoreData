@@ -53,8 +53,6 @@ class IntegrationJSON: SerializableObject {
     var assets: IntegrationAssetsJSON?
     var revisionBlueprint: RevisionBlueprintJSON?
     var hasCoverageData: Bool?
-    var hasRequestedIssues: Bool = false
-    var hasRequestedCommits: Bool = false
     
     override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "testedDevices" {

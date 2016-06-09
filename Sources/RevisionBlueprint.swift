@@ -30,8 +30,4 @@ import CoreData
 import CodeQuickKit
 
 class RevisionBlueprint: SerializableManagedObject {
-    
-    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON) {
-        fatalError("Not Implemented")
-    }
 }

@@ -47,7 +47,7 @@ extension Issue {
     @NSManaged var inverseFreshAnalyserWarnings: IntegrationIssues?
     @NSManaged var inverseFreshErrors: IntegrationIssues?
     @NSManaged var inverseFreshTestFailures: IntegrationIssues?
-    @NSManaged var inverseFresshWarnings: IntegrationIssues?
+    @NSManaged var inverseFreshWarnings: IntegrationIssues?
     @NSManaged var inverseResolvedAnalyzerWarnings: IntegrationIssues?
     @NSManaged var inverseResolvedErrors: IntegrationIssues?
     @NSManaged var inverseResolvedTestFailures: IntegrationIssues?

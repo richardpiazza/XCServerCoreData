@@ -29,7 +29,7 @@ import Foundation
 import CodeQuickKit
 
 class IssueJSON: SerializableObject {
-    var _id: String?
+    var _id: String = ""
     var _rev: String?
     var status: Int = 0
     var target: String?

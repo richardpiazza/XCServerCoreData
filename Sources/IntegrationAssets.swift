@@ -36,6 +36,113 @@ class IntegrationAssets: SerializableManagedObject {
     }
     
     func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
-        fatalError("Not Implemented")
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        // Archive
+        if let archiveAsset = assets.archive {
+            if let archive = self.archive {
+                moc.deleteObject(archive)
+                self.archive = nil
+            }
+        
+            if let asset = Asset(managedObjectContext: moc) {
+                asset.inverseArchive = self
+                asset.update(withAsset: archiveAsset)
+                self.archive = asset
+            }
+        }
+        
+        // Build Service Log
+        if let logAsset = assets.buildServiceLog {
+            if let buildServiceLog = self.buildServiceLog {
+                moc.deleteObject(buildServiceLog)
+                self.buildServiceLog = nil
+            }
+            
+            if let asset = Asset(managedObjectContext: moc) {
+                asset.inverseBuildServiceLog = self
+                asset.update(withAsset: logAsset)
+                self.buildServiceLog = asset
+            }
+        }
+        
+        // Product
+        if let productAsset = assets.product {
+            if let product = self.product {
+                moc.deleteObject(product)
+                self.product = nil
+            }
+            
+            if let asset = Asset(managedObjectContext: moc) {
+                asset.inverseProduct = self
+                asset.update(withAsset: productAsset)
+                self.product = asset
+            }
+        }
+        
+        // Source Control Log
+        if let logAsset = assets.sourceControlLog {
+            if let sourceControlLog = self.sourceControlLog {
+                moc.deleteObject(sourceControlLog)
+                self.sourceControlLog = nil
+            }
+            
+            if let asset = Asset(managedObjectContext: moc) {
+                asset.inverseSourceControlLog = self
+                asset.update(withAsset: logAsset)
+                self.sourceControlLog = asset
+            }
+        }
+        
+        // Xcode Build Log
+        if let logAsset = assets.xcodebuildLog {
+            if let xcodebuildLog = self.xcodebuildLog {
+                moc.deleteObject(xcodebuildLog)
+                self.xcodebuildLog = nil
+            }
+            
+            if let asset = Asset(managedObjectContext: moc) {
+                asset.inverseXcodebuildLog = self
+                asset.update(withAsset: logAsset)
+                self.xcodebuildLog = asset
+            }
+        }
+        
+        // Xcode Build Output
+        if let outputAsset = assets.xcodebuildOutput {
+            if let xcodebuildOutput = self.xcodebuildOutput {
+                moc.deleteObject(xcodebuildOutput)
+                self.xcodebuildOutput = nil
+            }
+            
+            if let asset = Asset(managedObjectContext: moc) {
+                asset.inverseXcodebuildOutput = self
+                asset.update(withAsset: outputAsset)
+                self.xcodebuildOutput = asset
+            }
+        }
+        
+        // Trigger Assets
+        if let triggerAssets = assets.triggerAssets {
+            if let set = self.triggerAssets as? Set<Asset> {
+                for asset in set {
+                    moc.deleteObject(asset)
+                }
+            }
+            
+            self.triggerAssets = NSSet()
+            
+            for triggerAsset in triggerAssets {
+                if let asset = Asset(managedObjectContext: moc) {
+                    asset.inverseTriggerAssets = self
+                    asset.update(withAsset: triggerAsset)
+                    self.triggerAssets = self.triggerAssets?.setByAddingObject(asset)
+                }
+            }
+        }
+        
     }
 }

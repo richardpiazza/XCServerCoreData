@@ -29,7 +29,7 @@ import Foundation
 import CodeQuickKit
 
 class CommitJSON: SerializableObject {
-    var XCSCommitHash: String?
+    var XCSCommitHash: String = ""
     var XCSCommitMessage: String?
     var XCSCommitContributor: CommitContributorJSON?
     var XCSCommitTimestamp: String?

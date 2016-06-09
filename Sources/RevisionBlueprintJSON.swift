@@ -82,4 +82,51 @@ class RevisionBlueprintJSON: SerializableObject {
         
         return super.initializedObject(forPropertyName: propertyName, withData: data)
     }
+    
+    /// Translates keyed Revision Blueprint dictionaries into structured objects.
+    var repositories: [RepositoryJSON] {
+        var repos = [RepositoryJSON]()
+        
+        if let remoteRepositories = DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
+            for remoteRepository in remoteRepositories {
+                let repository = repos.filter({ (repository: RepositoryJSON) -> Bool in
+                    return repository.identifier == remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey
+                }).first
+                
+                if let repository = repository {
+                    repos.append(repository)
+                }
+            }
+        }
+        
+        for (key, blueprintLocation) in DVTSourceControlWorkspaceBlueprintLocationsKey {
+            let repository = repos.filter({ (repository: RepositoryJSON) -> Bool in
+                return repository.identifier == key
+            }).first
+            
+            repository?.update(withBlueprintLocation: blueprintLocation)
+        }
+        
+        if let workingCopyStates = self.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey {
+            for (key, value) in workingCopyStates {
+                let repository = repos.filter({ (repository: RepositoryJSON) -> Bool in
+                    return repository.identifier == key
+                }).first
+                
+                repository?.workingCopyState = value
+            }
+        }
+        
+        if let workingCopyPaths = self.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey {
+            for (key, value) in workingCopyPaths {
+                let repository = repos.filter({ (repository: RepositoryJSON) -> Bool in
+                    return repository.identifier == key
+                }).first
+                
+                repository?.workingCopyPath = value
+            }
+        }
+        
+        return repos
+    }
 }

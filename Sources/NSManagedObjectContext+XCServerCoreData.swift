@@ -98,6 +98,23 @@ extension NSManagedObjectContext {
         return repository
     }
     
+    /// Updates and creates `Repository` entities based on `RevisionBlueprintJSON` objects
+    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON) {
+        for blueprintRepository in blueprint.repositories {
+            let repository = self.repository(withIdentifier: blueprintRepository.identifier)
+            repository.update(withRepository: blueprintRepository)
+        }
+    }
+    
+    func update(withIntegrationCommits integrationCommits: IntegrationCommitsResponse) {
+        for integrationCommit in integrationCommits.results {
+            for (key, commits) in integrationCommit.commits {
+                let repository = self.repository(withIdentifier: key)
+                repository.update(withCommits: commits)
+            }
+        }
+    }
+    
     // MARK: Commit
     func commit(withHash identifier: String) -> Commit? {
         let fetchRequest = NSFetchRequest(entityName: Commit.entityName)

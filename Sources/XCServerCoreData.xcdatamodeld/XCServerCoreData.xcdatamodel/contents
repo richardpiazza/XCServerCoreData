@@ -167,7 +167,7 @@
         <relationship name="freshAnalyzerWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshAnalyserWarnings" inverseEntity="Issue" syncable="YES"/>
         <relationship name="freshErrors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshErrors" inverseEntity="Issue" syncable="YES"/>
         <relationship name="freshTestFailures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshTestFailures" inverseEntity="Issue" syncable="YES"/>
-        <relationship name="freshWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFresshWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="freshWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshWarnings" inverseEntity="Issue" syncable="YES"/>
         <relationship name="integration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="issues" inverseEntity="Integration" syncable="YES"/>
         <relationship name="resolvedAnalyzerWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseResolvedAnalyzerWarnings" inverseEntity="Issue" syncable="YES"/>
         <relationship name="resolvedErrors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseResolvedErrors" inverseEntity="Issue" syncable="YES"/>
@@ -196,7 +196,7 @@
         <relationship name="inverseFreshAnalyserWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshAnalyzerWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseFreshErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseFreshTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshTestFailures" inverseEntity="IntegrationIssues" syncable="YES"/>
-        <relationship name="inverseFresshWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseFreshWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseResolvedAnalyzerWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedAnalyzerWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseResolvedErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseResolvedTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedTestFailures" inverseEntity="IntegrationIssues" syncable="YES"/>

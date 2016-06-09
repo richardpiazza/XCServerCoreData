@@ -32,10 +32,41 @@ import CodeQuickKit
 class Repository: SerializableManagedObject {
     
     func update(withRepository repository: RepositoryJSON) {
-        fatalError("Not Implemented")
+        self.identifier = repository.identifier
+        self.branchIdentifier = repository.branchIdentifier
+        self.branchOptions = repository.branchOptions
+        self.locationType = repository.locationType
+        self.system = repository.system
+        self.url = repository.url
+        self.workingCopyPath = repository.workingCopyPath
+        self.workingCopyState = repository.workingCopyState
     }
     
-    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON) {
-        fatalError("Not Implemented")
+    func update(withCommits commits: [CommitJSON]) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        for commitsCommit in commits {
+            var commit = self.commit(withCommitHash: commitsCommit.XCSCommitHash)
+            if commit == nil {
+                commit = Commit(managedObjectContext: moc, repository: self)
+            }
+            
+            commit?.update(withCommit: commitsCommit)
+        }
+    }
+    
+    func commit(withCommitHash hash: String) -> Commit? {
+        guard let commits = self.commits as? Set<Commit> else {
+            return nil
+        }
+        
+        let commit = commits.filter { (c: Commit) -> Bool in
+            return c.commitHash == hash
+        }.first
+        
+        return commit
     }
 }

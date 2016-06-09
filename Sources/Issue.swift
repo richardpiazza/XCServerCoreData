@@ -32,6 +32,16 @@ import CodeQuickKit
 class Issue: SerializableManagedObject {
     
     func update(withIssue issue: IssueJSON) {
-        fatalError("Not Implemented")
+        self.identifier = issue._id
+        self.revision = issue._rev
+        self.status = issue.status
+        self.target = issue.target
+        self.testCase = issue.testCase
+        self.lineNumber = issue.lineNumber
+        self.documentLocationData = issue.documentLocationData
+        self.documentFilePath = issue.documentFilePath
+        self.age = issue.age
+        self.type = issue.type
+        self.issueType = issue.issueType
     }
 }

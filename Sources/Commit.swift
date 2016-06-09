@@ -36,6 +36,36 @@ class Commit: SerializableManagedObject {
     }
     
     func update(withCommit commit: CommitJSON) {
-        fatalError("Not Implemented")
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        self.commitHash = commit.XCSCommitHash
+        self.message = commit.XCSCommitMessage
+        self.timestamp = commit.XCSCommitTimestamp
+        
+        if let contributor = commit.XCSCommitContributor {
+            if self.commitContributor == nil {
+                self.commitContributor = CommitContributor(managedObjectContext: moc, commit: self)
+            }
+            
+            self.commitContributor?.update(withCommitContributor: contributor)
+        }
+        
+        if let filePaths = self.commitChanges as? Set<CommitChange> {
+            for filePath in filePaths {
+                moc.deleteObject(filePath)
+            }
+        }
+        
+        self.commitChanges = NSSet()
+        
+        for filePath in commit.XCSCommitCommitChangeFilePaths {
+            if let change = CommitChange(managedObjectContext: moc, commit: self) {
+                change.update(withCommitChange: filePath)
+                self.commitChanges = self.commitChanges?.setByAddingObject(change)
+            }
+        }
     }
 }

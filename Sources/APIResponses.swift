@@ -58,7 +58,6 @@ class IntegrationCommitsResponse : SerializableObject {
     var count: Int = 0
     var results: [IntegrationCommitJSON] = [IntegrationCommitJSON]()
     
-    
     override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "results" {
             return IntegrationCommitJSON.self
