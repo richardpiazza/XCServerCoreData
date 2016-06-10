@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */; };
+		E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEC1D0B520700789436 /* pb_BotResponse.txt */; };
+		E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */; };
+		E1448FF11D0B527900789436 /* mep_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FF01D0B527900789436 /* mep_BotResponse.txt */; };
+		E1448FF31D0B52B700789436 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1448FF21D0B52B700789436 /* Resources.swift */; };
 		E162423B1CE3930F00283B2E /* XCServerCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = E162423A1CE3930F00283B2E /* XCServerCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16242421CE3930F00283B2E /* XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16242371CE3930F00283B2E /* XCServerCoreData.framework */; };
 		E16242531CE3935800283B2E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E16242511CE3935800283B2E /* Podfile */; };
@@ -95,7 +99,7 @@
 		E1D825EF1CEB881000BBF4F6 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825EE1CEB881000BBF4F6 /* APIResponses.swift */; };
 		E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */; };
 		E1D825F31CEB8EBE00BBF4F6 /* StatsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F21CEB8EBE00BBF4F6 /* StatsResponse.txt */; };
-		E1D825F51CEB8ED500BBF4F6 /* BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F41CEB8ED500BBF4F6 /* BotResponse.txt */; };
+		E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */; };
 		E1D825F71CEB8F1500BBF4F6 /* IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F61CEB8F1500BBF4F6 /* IntegrationsResponse.txt */; };
 		E1D825F91CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F81CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt */; };
 		E1D825FB1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825FA1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt */; };
@@ -119,6 +123,10 @@
 		635AEA34D4C23774C68339E9 /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		711E86785DEBFE0F7D4B5B2E /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCObjectTests.swift; sourceTree = "<group>"; };
+		E1448FEC1D0B520700789436 /* pb_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_BotResponse.txt; sourceTree = "<group>"; };
+		E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_BotResponse.txt; sourceTree = "<group>"; };
+		E1448FF01D0B527900789436 /* mep_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_BotResponse.txt; sourceTree = "<group>"; };
+		E1448FF21D0B52B700789436 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E16242371CE3930F00283B2E /* XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E162423A1CE3930F00283B2E /* XCServerCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCServerCoreData.h; sourceTree = "<group>"; };
 		E162423C1CE3930F00283B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,7 +217,7 @@
 		E1D825EE1CEB881000BBF4F6 /* APIResponses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BotsResponse.txt; sourceTree = "<group>"; };
 		E1D825F21CEB8EBE00BBF4F6 /* StatsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StatsResponse.txt; sourceTree = "<group>"; };
-		E1D825F41CEB8ED500BBF4F6 /* BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BotResponse.txt; sourceTree = "<group>"; };
+		E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_BotResponse.txt; sourceTree = "<group>"; };
 		E1D825F61CEB8F1500BBF4F6 /* IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationsResponse.txt; sourceTree = "<group>"; };
 		E1D825F81CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationIssuesResponse.txt; sourceTree = "<group>"; };
 		E1D825FA1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationCommitsResponse.txt; sourceTree = "<group>"; };
@@ -291,12 +299,16 @@
 			children = (
 				E16242481CE3930F00283B2E /* Info.plist */,
 				E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */,
-				E1D825F41CEB8ED500BBF4F6 /* BotResponse.txt */,
+				E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */,
+				E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */,
+				E1448FF01D0B527900789436 /* mep_BotResponse.txt */,
+				E1448FEC1D0B520700789436 /* pb_BotResponse.txt */,
 				E1D825F21CEB8EBE00BBF4F6 /* StatsResponse.txt */,
 				E1D825F61CEB8F1500BBF4F6 /* IntegrationsResponse.txt */,
 				E1D825F81CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt */,
 				E1D825FA1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt */,
 				E1D825FC1CEB8FC300BBF4F6 /* IntegrationResponse.txt */,
+				E1448FF21D0B52B700789436 /* Resources.swift */,
 				E1D825FE1CEB8FEE00BBF4F6 /* JSONResponseTests.swift */,
 				E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */,
 			);
@@ -517,12 +529,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1448FF11D0B527900789436 /* mep_BotResponse.txt in Resources */,
 				E1D825F71CEB8F1500BBF4F6 /* IntegrationsResponse.txt in Resources */,
+				E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */,
 				E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */,
 				E1D825FD1CEB8FC300BBF4F6 /* IntegrationResponse.txt in Resources */,
 				E1D825F91CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt in Resources */,
 				E1D825F31CEB8EBE00BBF4F6 /* StatsResponse.txt in Resources */,
-				E1D825F51CEB8ED500BBF4F6 /* BotResponse.txt in Resources */,
+				E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */,
+				E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */,
 				E1D825FB1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1448FF31D0B52B700789436 /* Resources.swift in Sources */,
 				E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */,
 				E1D825FF1CEB8FEE00BBF4F6 /* JSONResponseTests.swift in Sources */,
 			);

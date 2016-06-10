@@ -30,141 +30,6 @@ import XCTest
 
 class JSONResponseTests: XCTestCase {
     
-    static var botsResponse: BotsResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("BotsResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let response = BotsResponse(withJSON: json)
-        guard response.count > 0 && response.results.count > 0 else {
-            return nil
-        }
-        
-        return response
-    }
-    
-    static var bot: BotJSON? {
-        guard let path = NSBundle(forClass: self).pathForResource("BotResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let bot = BotJSON(withJSON: json)
-        guard bot._id != "" else {
-            return nil
-        }
-        
-        return bot
-    }
-    
-    static var statsResponse: StatsJSON? {
-        guard let path = NSBundle(forClass: self).pathForResource("StatsResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let stats = StatsJSON(withJSON: json)
-        
-        return stats
-    }
-    
-    static var integrationsResponse: IntegrationsResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationsResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let response = IntegrationsResponse(withJSON: json)
-        guard response.count > 0 && response.results.count > 0 else {
-            return nil
-        }
-        
-        return response
-    }
-    
-    static var integration: IntegrationJSON? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let integration = IntegrationJSON(withJSON: json)
-        
-        return integration
-    }
-    
-    static var integrationIssuesResponse: IntegrationIssuesResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationIssuesResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let response = IntegrationIssuesResponse(withJSON: json)
-        
-        return response
-    }
-    
-    static var integrationCommitsResponse: IntegrationCommitsResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationCommitsResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let response = IntegrationCommitsResponse(withJSON: json)
-        
-        return response
-    }
-    
     override func setUp() {
         super.setUp()
     }
@@ -174,7 +39,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testBotsResponse() {
-        guard let response = JSONResponseTests.botsResponse else {
+        guard let response = Resources.botsResponse else {
             XCTFail()
             return
         }
@@ -191,7 +56,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testBotResponse() {
-        guard let bot = JSONResponseTests.bot else {
+        guard let bot = Resources.CodeQuickKit.Bot else {
             XCTFail()
             return
         }
@@ -220,7 +85,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testStatsResponse() {
-        guard let stats = JSONResponseTests.statsResponse else {
+        guard let stats = Resources.statsResponse else {
             XCTFail()
             return
         }
@@ -243,7 +108,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationsResponse() {
-        guard let response = JSONResponseTests.integrationsResponse else {
+        guard let response = Resources.integrationsResponse else {
             XCTFail()
             return
         }
@@ -262,7 +127,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationResponse() {
-        guard let integration = JSONResponseTests.integration else {
+        guard let integration = Resources.integration else {
             XCTFail()
             return
         }
@@ -325,7 +190,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationIssuesResponse() {
-        guard let response = JSONResponseTests.integrationIssuesResponse else {
+        guard let response = Resources.integrationIssuesResponse else {
             XCTFail()
             return
         }
@@ -348,7 +213,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationCommitsResponse() {
-        guard let response = JSONResponseTests.integrationCommitsResponse else {
+        guard let response = Resources.integrationCommitsResponse else {
             XCTFail()
             return
         }

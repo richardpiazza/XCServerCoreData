@@ -73,7 +73,7 @@ class MOCObjectTests: XCTestCase {
     }
     
     func testImportBots() {
-        guard let response = JSONResponseTests.botsResponse else {
+        guard let response = Resources.botsResponse else {
             XCTFail()
             return
         }
@@ -90,7 +90,7 @@ class MOCObjectTests: XCTestCase {
     }
     
     func testImportIntegrations() {
-        guard let response = JSONResponseTests.integrationsResponse else {
+        guard let response = Resources.integrationsResponse else {
             XCTFail()
             return
         }
@@ -102,8 +102,13 @@ class MOCObjectTests: XCTestCase {
         
         bakeshopBot.update(withIntegrations: response.results)
         
-        let integrations = bakeshopBot.integrations
+        guard let integrations = bakeshopBot.integrations as? Set<Integration> else {
+            XCTFail()
+            return
+        }
         
-        XCTAssertNotNil(integrations)
+        for integration in integrations {
+            print("Integration '\(integration.integrationNumber)' Step: \(integration.integrationStep.description), Result: \(integration.integrationResult.description)")
+        }
     }
 }

@@ -88,4 +88,36 @@ class Integration: SerializableManagedObject {
             moc.update(withRevisionBlueprint: blueprint, integration: self)
         }
     }
+    
+    var integrationNumber: Int {
+        guard let value = self.number else {
+            return 0
+        }
+        
+        return value.integerValue
+    }
+    
+    var integrationStep: IntegrationStep {
+        guard let rawValue = self.currentStep else {
+            return .Unknown
+        }
+        
+        guard let enumeration = IntegrationStep(rawValue: rawValue) else {
+            return .Unknown
+        }
+        
+        return enumeration
+    }
+    
+    var integrationResult: IntegrationResult {
+        guard let rawValue = self.result else {
+            return .Unknown
+        }
+        
+        guard let enumeration = IntegrationResult(rawValue: rawValue) else {
+            return .Unknown
+        }
+        
+        return enumeration
+    }
 }
