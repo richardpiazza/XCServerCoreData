@@ -99,10 +99,32 @@ extension NSManagedObjectContext {
     }
     
     /// Updates and creates `Repository` entities based on `RevisionBlueprintJSON` objects
-    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON) {
+    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
         for blueprintRepository in blueprint.repositories {
             let repository = self.repository(withIdentifier: blueprintRepository.identifier)
             repository.update(withRepository: blueprintRepository)
+            
+            if let integration = integration, commitHash = blueprintRepository.commitHash {
+                if integration.revisionBlueprints == nil {
+                    integration.revisionBlueprints = NSSet()
+                }
+                
+                let commit = self.commit(withHash: commitHash)
+                
+                if let revisionBlueprints = integration.revisionBlueprints as? Set<RevisionBlueprint> {
+                    let existing = revisionBlueprints.filter({ (blueprint: RevisionBlueprint) -> Bool in
+                        return blueprint.commit == commit
+                    }).first
+                    
+                    if existing == nil {
+                        if let revisionBlueprint = RevisionBlueprint(managedObjectContext: self) {
+                            revisionBlueprint.commit = commit
+                            revisionBlueprint.integration = integration
+                            integration.revisionBlueprints = integration.revisionBlueprints?.setByAddingObject(revisionBlueprint)
+                        }
+                    }
+                }
+            }
         }
     }
     

@@ -37,6 +37,7 @@ class RepositoryJSON: SerializableObject {
     var url: String?
     var workingCopyPath: String?
     var workingCopyState: NSNumber?
+    var commitHash: String?
     
     func update(withRemoteRepository remoteRepository: RemoteRepositoryJSON) {
         if let repositoryIdentifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
@@ -50,5 +51,6 @@ class RepositoryJSON: SerializableObject {
         self.branchIdentifier = blueprintLocation.DVTSourceControlBranchIdentifierKey
         self.branchOptions = blueprintLocation.DVTSourceControlBranchOptionsKey
         self.locationType = blueprintLocation.DVTSourceControlWorkspaceBlueprintLocationTypeKey
+        self.commitHash = blueprintLocation.DVTSourceControlLocationRevisionKey
     }
 }

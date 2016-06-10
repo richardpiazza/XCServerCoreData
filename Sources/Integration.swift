@@ -84,6 +84,8 @@ class Integration: SerializableManagedObject {
         }
         
         // Revision Blueprint
-        
+        if let blueprint = integration.revisionBlueprint {
+            moc.update(withRevisionBlueprint: blueprint, integration: self)
+        }
     }
 }
