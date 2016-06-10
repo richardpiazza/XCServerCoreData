@@ -52,20 +52,7 @@ class Bot: SerializableManagedObject {
             self.configuration?.update(withConfiguration: configuration)
         }
         
-        if let integrationsSet = self.integrations as? Set<Integration> {
-            var integrations = integrationsSet
-            
-            for item in bot.integrations {
-                if let existing = self.integration(withIdentifier: item._id) {
-                    existing.update(withIntegration: item)
-                } else {
-                    if let integration = Integration(managedObjectContext: moc, bot: self) {
-                        integration.update(withIntegration: item)
-                        integrations.insert(integration)
-                    }
-                }
-            }
-        }
+        self.update(withIntegrations: bot.integrations)
         
         if let blueprint = bot.lastRevisionBlueprint {
             if let remoteRepositories = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
@@ -75,6 +62,26 @@ class Bot: SerializableManagedObject {
                         moc.update(withRevisionBlueprint: blueprint)
                     }
                 }
+            }
+        }
+    }
+    
+    func update(withIntegrations integrations: [IntegrationJSON]) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        for element in integrations {
+            if let existing = self.integration(withIdentifier: element._id) {
+                existing.update(withIntegration: element)
+                continue
+            }
+            
+            if let integration = Integration(managedObjectContext: moc, bot: self) {
+                integration.update(withIntegration: element)
+            
+                self.integrations = self.integrations?.setByAddingObject(integration)
             }
         }
     }

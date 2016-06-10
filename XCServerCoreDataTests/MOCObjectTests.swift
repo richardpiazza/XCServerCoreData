@@ -31,11 +31,32 @@ import CodeQuickKit
 
 class MOCObjectTests: XCTestCase {
 
+    struct CDConfig: CoreDataConfiguration {
+        var persistentStoreType: StoreType {
+            return .SQLite
+        }
+        
+        var persistentStoreURL: NSURL {
+            let path = NSFileManager.defaultManager().sandboxDirectory?.URLByAppendingPathComponent("coredata.sqlite")
+            return path!
+        }
+        
+        var persistentStoreOptions: [String : AnyObject] {
+            return [String : AnyObject]()
+        }
+    }
+    
+    static let coreDataConfig = CDConfig()
     
     lazy var coreData: CoreData = {
-        return CoreData(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: nil)!
+        return CoreData(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: MOCObjectTests.coreDataConfig)!
     }()
+    
     lazy var server: XcodeServer = {
+        if let server = self.coreData.managedObjectContext.xcodeServer(withFQDN: "test.server.com") {
+            return server
+        }
+        
         let dictionary: SerializableDictionary = ["fqdn" : "test.server.com"]
         return XcodeServer(managedObjectContext: self.coreData.managedObjectContext, withDictionary: dictionary)!
     }()
@@ -60,5 +81,29 @@ class MOCObjectTests: XCTestCase {
         server.update(withBots: response.results)
         
         XCTAssertEqual(server.bots?.count, 4)
+        
+        do {
+            try coreData.managedObjectContext.save()
+        } catch {
+            XCTFail((error as NSError).localizedDescription)
+        }
+    }
+    
+    func testImportIntegrations() {
+        guard let response = JSONResponseTests.integrationsResponse else {
+            XCTFail()
+            return
+        }
+        
+        guard let bakeshopBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e040bb4") else {
+            XCTFail()
+            return
+        }
+        
+        bakeshopBot.update(withIntegrations: response.results)
+        
+        let integrations = bakeshopBot.integrations
+        
+        XCTAssertNotNil(integrations)
     }
 }

@@ -30,9 +30,6 @@ import CoreData
 import CodeQuickKit
 
 class XcodeServer: SerializableManagedObject {
-    override func setDefaults() {
-        self.bots = Set<Bot>()
-    }
     
     func update(withBots data: [BotJSON]) {
         guard let moc = self.managedObjectContext else {
@@ -68,6 +65,8 @@ class XcodeServer: SerializableManagedObject {
                 bots.remove(bot)
             }
         }
+        
+        self.bots = bots
     }
     
     func bot(withIdentifier identifier: String) -> Bot? {

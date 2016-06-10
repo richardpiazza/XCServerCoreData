@@ -31,6 +31,19 @@ import CodeQuickKit
 
 extension NSManagedObjectContext {
     // MARK: XcodeServer
+    func xcodeServers() -> [XcodeServer] {
+        let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [XcodeServer] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        return [XcodeServer]()
+    }
+    
     func xcodeServer(withFQDN identifier: String) -> XcodeServer? {
         let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
         fetchRequest.predicate = NSPredicate(format: "fqdn = %@", argumentArray: [identifier])
