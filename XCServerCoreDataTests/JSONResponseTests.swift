@@ -39,7 +39,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testBotsResponse() {
-        guard let response = Resources.botsResponse else {
+        guard let response = Resources.Bots else {
             XCTFail()
             return
         }
@@ -85,7 +85,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testStatsResponse() {
-        guard let stats = Resources.statsResponse else {
+        guard let stats = Resources.Bakeshop.Stats else {
             XCTFail()
             return
         }
@@ -108,7 +108,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationsResponse() {
-        guard let response = Resources.integrationsResponse else {
+        guard let response = Resources.Bakeshop.Integrations else {
             XCTFail()
             return
         }
@@ -127,7 +127,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationResponse() {
-        guard let integration = Resources.integration else {
+        guard let integration = Resources.Bakeshop.Integration else {
             XCTFail()
             return
         }
@@ -190,7 +190,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationIssuesResponse() {
-        guard let response = Resources.integrationIssuesResponse else {
+        guard let response = Resources.Bakeshop.Issues else {
             XCTFail()
             return
         }
@@ -213,7 +213,7 @@ class JSONResponseTests: XCTestCase {
     }
     
     func testIntegrationCommitsResponse() {
-        guard let response = Resources.integrationCommitsResponse else {
+        guard let response = Resources.Bakeshop.Commits else {
             XCTFail()
             return
         }

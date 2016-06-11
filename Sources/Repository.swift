@@ -31,15 +31,86 @@ import CodeQuickKit
 
 class Repository: SerializableManagedObject {
     
-    func update(withRepository repository: RepositoryJSON) {
-        self.identifier = repository.identifier
-        self.branchIdentifier = repository.branchIdentifier
-        self.branchOptions = repository.branchOptions
-        self.locationType = repository.locationType
-        self.system = repository.system
-        self.url = repository.url
-        self.workingCopyPath = repository.workingCopyPath
-        self.workingCopyState = repository.workingCopyState
+    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
+        self.init(managedObjectContext: managedObjectContext)
+        self.identifier = identifier
+    }
+    
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "configurations":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
+    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
+        guard let moc = self.managedObjectContext else {
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            return
+        }
+        
+        guard blueprint.repositoryIds.contains(self.identifier) else {
+            return
+        }
+        
+        // Remote Repository
+        if let remoteRepositorys = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
+            if let remoteRepository = remoteRepositorys.filter({ (repo: RemoteRepositoryJSON) -> Bool in
+                return repo.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey == self.identifier
+            }).first {
+                self.system = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey
+                self.url = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey
+            }
+        }
+        
+        if let blueprintLocation = blueprint.DVTSourceControlWorkspaceBlueprintLocationsKey[self.identifier] {
+            self.branchIdentifier = blueprintLocation.DVTSourceControlBranchIdentifierKey
+            self.branchOptions = blueprintLocation.DVTSourceControlBranchOptionsKey
+            self.locationType = blueprintLocation.DVTSourceControlWorkspaceBlueprintLocationTypeKey
+            
+            if let integration = integration, commitHash = blueprintLocation.DVTSourceControlLocationRevisionKey {
+                var commit = self.commit(withCommitHash: commitHash)
+                if commit == nil {
+                    commit = Commit(managedObjectContext: moc, repository: self)
+                }
+                
+                if let commit = commit, revisionBlueprints = integration.revisionBlueprints as? Set<RevisionBlueprint> {
+                    let existing = revisionBlueprints.filter({ (rb: RevisionBlueprint) -> Bool in
+                        return rb.commit == commit
+                    }).first
+                    
+                    if existing == nil {
+                        if let revisionBlueprint = RevisionBlueprint(managedObjectContext: moc) {
+                            revisionBlueprint.commit = commit
+                            revisionBlueprint.integration = integration
+                            integration.revisionBlueprints = integration.revisionBlueprints?.setByAddingObject(revisionBlueprint)
+                        }
+                    }
+                }
+            }
+        }
+        
+        if let workingCopyStates = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey, state = workingCopyStates[self.identifier] {
+            self.workingCopyState = state
+        }
+        
+        if let workingCopyPaths = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey, path = workingCopyPaths[self.identifier] {
+            self.workingCopyPath = path
+        }
+    }
+    
+    func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
+        for integrationCommit in commits {
+            for (key, value) in integrationCommit.commits {
+                guard key == self.identifier else {
+                    continue
+                }
+                
+                self.update(withCommits: value)
+            }
+        }
     }
     
     func update(withCommits commits: [CommitJSON]) {

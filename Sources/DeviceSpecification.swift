@@ -35,6 +35,15 @@ class DeviceSpecification: SerializableManagedObject {
         self.configuration = configuration
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "configuration":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)

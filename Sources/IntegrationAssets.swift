@@ -35,6 +35,15 @@ class IntegrationAssets: SerializableManagedObject {
         self.integration = integration
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "integration":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)

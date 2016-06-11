@@ -35,6 +35,15 @@ class Platform: SerializableManagedObject {
         self.filter = filter
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "filter":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withPlatform platform: PlatformJSON) {
         self.identifier = platform._id
         self.revision = platform._rev

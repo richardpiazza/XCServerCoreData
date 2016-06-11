@@ -72,43 +72,158 @@ class MOCObjectTests: XCTestCase {
         super.tearDown()
     }
     
-    func testImportBots() {
-        guard let response = Resources.botsResponse else {
-            XCTFail()
-            return
+    func testCoreDataImportFromAPIModels() {
+        if let apiResponse = Resources.Bots {
+            server.update(withBots: apiResponse.results)
         }
         
-        server.update(withBots: response.results)
-        
-        XCTAssertEqual(server.bots?.count, 4)
-        
-        do {
-            try coreData.managedObjectContext.save()
-        } catch {
-            XCTFail((error as NSError).localizedDescription)
-        }
-    }
-    
-    func testImportIntegrations() {
-        guard let response = Resources.integrationsResponse else {
-            XCTFail()
-            return
-        }
-        
+        // Bakeshop
         guard let bakeshopBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e040bb4") else {
             XCTFail()
             return
         }
         
-        bakeshopBot.update(withIntegrations: response.results)
+        if let apiResponse = Resources.Bakeshop.Integrations {
+            bakeshopBot.update(withIntegrations: apiResponse.results)
+        }
         
-        guard let integrations = bakeshopBot.integrations as? Set<Integration> else {
+        if let apiResponse = Resources.Bakeshop.Stats {
+            bakeshopBot.stats?.update(withStats: apiResponse)
+        }
+        
+        guard let bakeshopIntegration = bakeshopBot.integration(withIdentifier: "bba9b6ff6d6f0899a63d1e347e4be8f0") else {
             XCTFail()
             return
         }
         
-        for integration in integrations {
-            print("Integration '\(integration.integrationNumber)' Step: \(integration.integrationStep.description), Result: \(integration.integrationResult.description)")
+        if let apiResponse = Resources.Bakeshop.Issues {
+            bakeshopIntegration.issues?.update(withIntegrationIssues: apiResponse)
+        }
+        
+        guard let bakeshopRepository = coreData.managedObjectContext.repository(withIdentifier: "6139C8319FDE4527BFD4EA6334BA1CE5BC0DE9DF") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.Bakeshop.Commits {
+            bakeshopRepository.update(withIntegrationCommits: apiResponse.results)
+        }
+        
+        // Pocket Bot
+        guard let pocketBotBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e00ff15") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.PocketBot.Integrations {
+            pocketBotBot.update(withIntegrations: apiResponse.results)
+        }
+        
+        if let apiResponse = Resources.PocketBot.Stats {
+            pocketBotBot.stats?.update(withStats: apiResponse)
+        }
+        
+        guard let pocketBotIntegration = pocketBotBot.integration(withIdentifier: "445abd7c9c9ac0ab2d3b474f6a1f12ad") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.PocketBot.Issues {
+            pocketBotIntegration.issues?.update(withIntegrationIssues: apiResponse)
+        }
+        
+        guard let pocketBotRepository = coreData.managedObjectContext.repository(withIdentifier: "6D9FFC92170BF5EE19CA25700175BFFFBA40751A") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.PocketBot.Commits {
+            pocketBotRepository.update(withIntegrationCommits: apiResponse.results)
+        }
+        
+        // Code Quick Kit
+        guard let codeQuickKitBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e081b6a") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.CodeQuickKit.Integrations {
+            codeQuickKitBot.update(withIntegrations: apiResponse.results)
+        }
+        
+        if let apiResponse = Resources.CodeQuickKit.Stats {
+            codeQuickKitBot.stats?.update(withStats: apiResponse)
+        }
+        
+        guard let codeQuickKitIntegration = codeQuickKitBot.integration(withIdentifier: "d268530a92c37b78d5fe9634cd09d585") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.CodeQuickKit.Issues {
+            codeQuickKitIntegration.issues?.update(withIntegrationIssues: apiResponse)
+        }
+        
+        guard let codeQuickKitRepository = coreData.managedObjectContext.repository(withIdentifier: "3CBDEDAE95CE25E53B615AC684AAEE3F90A98DFE") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.CodeQuickKit.Commits {
+            codeQuickKitRepository.update(withIntegrationCommits: apiResponse.results)
+        }
+        
+        // Mise En Place
+        guard let miseEnPlaceBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e100570") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.MiseEnPlace.Integrations {
+            miseEnPlaceBot.update(withIntegrations: apiResponse.results)
+        }
+        
+        if let apiResponse = Resources.MiseEnPlace.Stats {
+            miseEnPlaceBot.stats?.update(withStats: apiResponse)
+        }
+        
+        guard let miseEnPlaceIntegration = miseEnPlaceBot.integration(withIdentifier: "bba9b6ff6d6f0899a63d1e347e100e75") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.MiseEnPlace.Issues {
+            miseEnPlaceIntegration.issues?.update(withIntegrationIssues: apiResponse)
+        }
+        
+        guard let miseEnPlaceRepository = coreData.managedObjectContext.repository(withIdentifier: "E72555C40C59CF258F530ADBA0314A60534D9864") else {
+            XCTFail()
+            return
+        }
+        
+        if let apiResponse = Resources.MiseEnPlace.Commits {
+            miseEnPlaceRepository.update(withIntegrationCommits: apiResponse.results)
+        }
+        
+        do {
+            try coreData.managedObjectContext.save()
+        } catch {
+            print(error)
+            XCTFail()
+        }
+        
+        // VERIFY
+        
+        for server in coreData.managedObjectContext.xcodeServers() {
+            let json = server.json
+            XCTAssertNotNil(json)
+            print(json!)
+        }
+        
+        for repository in coreData.managedObjectContext.repositories() {
+            let json = repository.json
+            XCTAssertNotNil(json)
+            print(json!)
         }
     }
 }

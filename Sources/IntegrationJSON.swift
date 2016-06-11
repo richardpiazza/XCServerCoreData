@@ -54,6 +54,14 @@ class IntegrationJSON: SerializableObject {
     var revisionBlueprint: RevisionBlueprintJSON?
     var hasCoverageData: Bool?
     
+    override func propertyName(forSerializedKey serializedKey: String) -> String? {
+        if serializedKey == "lastRevisionBlueprint" {
+            return "revisionBlueprint"
+        }
+        
+        return super.propertyName(forSerializedKey: serializedKey)
+    }
+    
     override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "testedDevices" {
             return DeviceJSON.self

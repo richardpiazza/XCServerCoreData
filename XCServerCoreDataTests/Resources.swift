@@ -11,100 +11,8 @@ import Foundation
 
 class Resources {
     
-    struct Bakeshop {
-        static var Bot: BotJSON? {
-            guard let path = NSBundle(forClass: Resources.self).pathForResource("bs_BotResponse", ofType: "txt") else {
-                return nil
-            }
-            
-            var json: String
-            do {
-                json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-            } catch {
-                print(error)
-                return nil
-            }
-            
-            let bot = BotJSON(withJSON: json)
-            guard bot._id != "" else {
-                return nil
-            }
-            
-            return bot
-        }
-    }
-    
-    struct CodeQuickKit {
-        static var Bot: BotJSON? {
-            guard let path = NSBundle(forClass: Resources.self).pathForResource("cqk_BotResponse", ofType: "txt") else {
-                return nil
-            }
-            
-            var json: String
-            do {
-                json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-            } catch {
-                print(error)
-                return nil
-            }
-            
-            let bot = BotJSON(withJSON: json)
-            guard bot._id != "" else {
-                return nil
-            }
-            
-            return bot
-        }
-    }
-    
-    struct MiseEnPlace {
-        static var Bot: BotJSON? {
-            guard let path = NSBundle(forClass: Resources.self).pathForResource("mep_BotResponse", ofType: "txt") else {
-                return nil
-            }
-            
-            var json: String
-            do {
-                json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-            } catch {
-                print(error)
-                return nil
-            }
-            
-            let bot = BotJSON(withJSON: json)
-            guard bot._id != "" else {
-                return nil
-            }
-            
-            return bot
-        }
-    }
-    
-    struct PocketBot {
-        static var Bot: BotJSON? {
-            guard let path = NSBundle(forClass: Resources.self).pathForResource("pb_BotResponse", ofType: "txt") else {
-                return nil
-            }
-            
-            var json: String
-            do {
-                json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-            } catch {
-                print(error)
-                return nil
-            }
-            
-            let bot = BotJSON(withJSON: json)
-            guard bot._id != "" else {
-                return nil
-            }
-            
-            return bot
-        }
-    }
-    
-    static var botsResponse: BotsResponse? {
-        guard let path = NSBundle(forClass: Resources.self).pathForResource("BotsResponse", ofType: "txt") else {
+    private static func bot(forPrefix prefix: String) -> BotJSON? {
+        guard let path = NSBundle(forClass: Resources.self).pathForResource("\(prefix)_BotResponse", ofType: "txt") else {
             return nil
         }
         
@@ -116,34 +24,16 @@ class Resources {
             return nil
         }
         
-        let response = BotsResponse(withJSON: json)
-        guard response.count > 0 && response.results.count > 0 else {
+        let bot = BotJSON(withJSON: json)
+        guard bot._id != "" else {
             return nil
         }
         
-        return response
+        return bot
     }
     
-    static var statsResponse: StatsJSON? {
-        guard let path = NSBundle(forClass: self).pathForResource("StatsResponse", ofType: "txt") else {
-            return nil
-        }
-        
-        var json: String
-        do {
-            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {
-            print(error)
-            return nil
-        }
-        
-        let stats = StatsJSON(withJSON: json)
-        
-        return stats
-    }
-    
-    static var integrationsResponse: IntegrationsResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationsResponse", ofType: "txt") else {
+    private static func integrations(forPrefix prefix: String) -> IntegrationsResponse? {
+        guard let path = NSBundle(forClass: self).pathForResource("\(prefix)_IntegrationsResponse", ofType: "txt") else {
             return nil
         }
         
@@ -163,8 +53,8 @@ class Resources {
         return response
     }
     
-    static var integration: IntegrationJSON? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationResponse", ofType: "txt") else {
+    private static func integration(forPrefix prefix: String) -> IntegrationJSON? {
+        guard let path = NSBundle(forClass: self).pathForResource("\(prefix)_Integration", ofType: "txt") else {
             return nil
         }
         
@@ -176,13 +66,49 @@ class Resources {
             return nil
         }
         
-        let integration = IntegrationJSON(withJSON: json)
+        let response = IntegrationJSON(withJSON: json)
         
-        return integration
+        return response
     }
     
-    static var integrationIssuesResponse: IntegrationIssuesResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationIssuesResponse", ofType: "txt") else {
+    private static func stats(forPrefix prefix: String) -> StatsJSON? {
+        guard let path = NSBundle(forClass: self).pathForResource("\(prefix)_Stats", ofType: "txt") else {
+            return nil
+        }
+        
+        var json: String
+        do {
+            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
+        } catch {
+            print(error)
+            return nil
+        }
+        
+        let response = StatsJSON(withJSON: json)
+        
+        return response
+    }
+    
+    private static func commits(forPrefix prefix: String) -> IntegrationCommitsResponse? {
+        guard let path = NSBundle(forClass: self).pathForResource("\(prefix)_Commits", ofType: "txt") else {
+            return nil
+        }
+        
+        var json: String
+        do {
+            json = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
+        } catch {
+            print(error)
+            return nil
+        }
+        
+        let response = IntegrationCommitsResponse(withJSON: json)
+        
+        return response
+    }
+    
+    private static func issues(forPrefix prefix: String) -> IntegrationIssuesResponse? {
+        guard let path = NSBundle(forClass: self).pathForResource("\(prefix)_Issues", ofType: "txt") else {
             return nil
         }
         
@@ -199,8 +125,48 @@ class Resources {
         return response
     }
     
-    static var integrationCommitsResponse: IntegrationCommitsResponse? {
-        guard let path = NSBundle(forClass: self).pathForResource("IntegrationCommitsResponse", ofType: "txt") else {
+    struct Bakeshop {
+        static let prefix: String = "bs"
+        static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
+        static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
+        static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
+        static let Stats: StatsJSON? = Resources.stats(forPrefix: prefix)
+        static let Commits: IntegrationCommitsResponse? = Resources.commits(forPrefix: prefix)
+        static let Issues: IntegrationIssuesResponse? = Resources.issues(forPrefix: prefix)
+    }
+    
+    struct CodeQuickKit {
+        static let prefix: String = "cqk"
+        static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
+        static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
+        static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
+        static let Stats: StatsJSON? = Resources.stats(forPrefix: prefix)
+        static let Commits: IntegrationCommitsResponse? = Resources.commits(forPrefix: prefix)
+        static let Issues: IntegrationIssuesResponse? = Resources.issues(forPrefix: prefix)
+    }
+    
+    struct MiseEnPlace {
+        static let prefix: String = "mep"
+        static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
+        static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
+        static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
+        static let Stats: StatsJSON? = Resources.stats(forPrefix: prefix)
+        static let Commits: IntegrationCommitsResponse? = Resources.commits(forPrefix: prefix)
+        static let Issues: IntegrationIssuesResponse? = Resources.issues(forPrefix: prefix)
+    }
+    
+    struct PocketBot {
+        static let prefix: String = "pb"
+        static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
+        static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
+        static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
+        static let Stats: StatsJSON? = Resources.stats(forPrefix: prefix)
+        static let Commits: IntegrationCommitsResponse? = Resources.commits(forPrefix: prefix)
+        static let Issues: IntegrationIssuesResponse? = Resources.issues(forPrefix: prefix)
+    }
+    
+    static var Bots: BotsResponse? {
+        guard let path = NSBundle(forClass: Resources.self).pathForResource("BotsResponse", ofType: "txt") else {
             return nil
         }
         
@@ -212,7 +178,10 @@ class Resources {
             return nil
         }
         
-        let response = IntegrationCommitsResponse(withJSON: json)
+        let response = BotsResponse(withJSON: json)
+        guard response.count > 0 && response.results.count > 0 else {
+            return nil
+        }
         
         return response
     }

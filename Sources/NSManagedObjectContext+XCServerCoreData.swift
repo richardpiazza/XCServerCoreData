@@ -89,9 +89,21 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Repository
+    func repositories() -> [Repository] {
+        let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [Repository] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        return [Repository]()
+    }
     
     /// Returns a `Repository` with the specified identifier. A new entity is created in none is found.
-    func repository(withIdentifier identifier: String) -> Repository {
+    func repository(withIdentifier identifier: String) -> Repository? {
         let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
@@ -102,52 +114,7 @@ extension NSManagedObjectContext {
             Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
         }
         
-        guard let repository = Repository(managedObjectContext: self) else {
-            fatalError("Failed to create new `Repository`")
-        }
-        
-        repository.identifier = identifier
-        
-        return repository
-    }
-    
-    /// Updates and creates `Repository` entities based on `RevisionBlueprintJSON` objects
-    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
-        for blueprintRepository in blueprint.repositories {
-            let repository = self.repository(withIdentifier: blueprintRepository.identifier)
-            repository.update(withRepository: blueprintRepository)
-            
-            if let integration = integration, commitHash = blueprintRepository.commitHash {
-                if integration.revisionBlueprints == nil {
-                    integration.revisionBlueprints = NSSet()
-                }
-                
-                let commit = self.commit(withHash: commitHash)
-                
-                if let revisionBlueprints = integration.revisionBlueprints as? Set<RevisionBlueprint> {
-                    let existing = revisionBlueprints.filter({ (blueprint: RevisionBlueprint) -> Bool in
-                        return blueprint.commit == commit
-                    }).first
-                    
-                    if existing == nil {
-                        if let revisionBlueprint = RevisionBlueprint(managedObjectContext: self) {
-                            revisionBlueprint.commit = commit
-                            revisionBlueprint.integration = integration
-                            integration.revisionBlueprints = integration.revisionBlueprints?.setByAddingObject(revisionBlueprint)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func update(withIntegrationCommits integrationCommits: IntegrationCommitsResponse) {
-        for integrationCommit in integrationCommits.results {
-            for (key, commits) in integrationCommit.commits {
-                let repository = self.repository(withIdentifier: key)
-                repository.update(withCommits: commits)
-            }
-        }
+        return nil
     }
     
     // MARK: Commit

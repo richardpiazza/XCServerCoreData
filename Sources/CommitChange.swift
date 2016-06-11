@@ -35,6 +35,15 @@ class CommitChange: SerializableManagedObject {
         self.commit = commit
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "commit":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withCommitChange change: CommitChangeJSON) {
         self.status = change.status
         self.filePath = change.filePath

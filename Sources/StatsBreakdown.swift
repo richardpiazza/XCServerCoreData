@@ -31,6 +31,16 @@ import CodeQuickKit
 
 class StatsBreakdown: SerializableManagedObject {
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "inverseAnalysisWarnings", "inverseAverageIntegrationTime", "inverseErrors", "inverseImprovedPerfTests",
+            "inverseRegressedPerfTests", "inverseTestFailures", "inverseTests", "inverseWarnings":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
         self.sum = breakdown.sum
         self.count = breakdown.count

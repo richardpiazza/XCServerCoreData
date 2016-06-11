@@ -31,6 +31,15 @@ import CodeQuickKit
 
 class Device: SerializableManagedObject {
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "deviceSpecifications", "inverseActiveProxiedDevice", "integrations":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withDevice device: DeviceJSON) {
         self.identifier = device.ID
         self.name = device.name

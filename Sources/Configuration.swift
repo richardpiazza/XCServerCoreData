@@ -35,6 +35,15 @@ class Configuration: SerializableManagedObject {
         self.bot = bot
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "bot", "repositories":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withConfiguration configuration: ConfigurationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
@@ -65,9 +74,17 @@ class Configuration: SerializableManagedObject {
             if let remoteRepositories = configurationBlueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
                 for remoteRepository in remoteRepositories {
                     if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
-                        let repository = moc.repository(withIdentifier: identifier)
+                        var repo = moc.repository(withIdentifier: identifier)
+                        if repo == nil {
+                            repo = Repository(managedObjectContext: moc)
+                        }
+                        
+                        guard let repository = repo else {
+                            continue
+                        }
+                        
                         repository.configurations = repository.configurations?.setByAddingObject(self)
-                        moc.update(withRevisionBlueprint: configurationBlueprint)
+                        repository.update(withRevisionBlueprint: configurationBlueprint)
                     }
                 }
             }

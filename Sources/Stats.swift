@@ -35,6 +35,15 @@ class Stats: SerializableManagedObject {
         self.bot = bot
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "bot":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withStats stats: StatsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)

@@ -35,6 +35,15 @@ class BuildResultSummary: SerializableManagedObject {
         self.integration = integration
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "integration":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
         self.errorCount = summary.errorCount
         self.errorChange = summary.errorChange

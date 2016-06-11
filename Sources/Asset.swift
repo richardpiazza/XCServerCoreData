@@ -31,6 +31,15 @@ import CodeQuickKit
 
 class Asset: SerializableManagedObject {
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "inverseArchive", "inverseBuildServiceLog", "inverseProduct", "inverseSourceControlLog", "inverseTriggerAssets", "inverseXcodebuildLog", "inverseXcodebuildOutput":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withAsset asset: AssetJSON) {
         self.allowAnonymousAccess = asset.allowAnonymousAccess
         self.fileName = asset.fileName

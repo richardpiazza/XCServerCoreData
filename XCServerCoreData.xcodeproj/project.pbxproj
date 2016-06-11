@@ -37,7 +37,6 @@
 		E1BA57D91D08859D00B82DFD /* IntegrationIssuesJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D81D08859D00B82DFD /* IntegrationIssuesJSON.swift */; };
 		E1BA57DB1D0885C400B82DFD /* IssueJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57DA1D0885C400B82DFD /* IssueJSON.swift */; };
 		E1BA57DD1D0885DE00B82DFD /* PlatformJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57DC1D0885DE00B82DFD /* PlatformJSON.swift */; };
-		E1BA57DF1D0885F900B82DFD /* RepositoryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57DE1D0885F900B82DFD /* RepositoryJSON.swift */; };
 		E1BA57E11D08861E00B82DFD /* RevisionBlueprintJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E01D08861E00B82DFD /* RevisionBlueprintJSON.swift */; };
 		E1BA57E31D08864C00B82DFD /* AuthenticationStrategyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E21D08864C00B82DFD /* AuthenticationStrategyJSON.swift */; };
 		E1BA57E51D08867B00B82DFD /* BlueprintLocationJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57E41D08867B00B82DFD /* BlueprintLocationJSON.swift */; };
@@ -49,6 +48,26 @@
 		E1BA57F11D08876F00B82DFD /* StatsBreakdownJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F01D08876F00B82DFD /* StatsBreakdownJSON.swift */; };
 		E1BA57F31D08878F00B82DFD /* TriggerJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F21D08878F00B82DFD /* TriggerJSON.swift */; };
 		E1BA57F51D08A0B200B82DFD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F41D08A0B200B82DFD /* Extensions.swift */; };
+		E1BA57F71D0B62EF00B82DFD /* pb_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57F61D0B62EF00B82DFD /* pb_IntegrationsResponse.txt */; };
+		E1BA57F91D0B632800B82DFD /* bs_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57F81D0B632800B82DFD /* bs_IntegrationsResponse.txt */; };
+		E1BA57FB1D0B640000B82DFD /* cqk_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57FA1D0B640000B82DFD /* cqk_IntegrationsResponse.txt */; };
+		E1BA57FD1D0B642900B82DFD /* mep_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57FC1D0B642900B82DFD /* mep_IntegrationsResponse.txt */; };
+		E1BA57FF1D0B682900B82DFD /* pb_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57FE1D0B682900B82DFD /* pb_Stats.txt */; };
+		E1BA58011D0B685700B82DFD /* bs_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58001D0B685700B82DFD /* bs_Stats.txt */; };
+		E1BA58031D0B687800B82DFD /* cqk_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58021D0B687800B82DFD /* cqk_Stats.txt */; };
+		E1BA58051D0B689B00B82DFD /* mep_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58041D0B689B00B82DFD /* mep_Stats.txt */; };
+		E1BA58071D0CA3CA00B82DFD /* pb_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58061D0CA3CA00B82DFD /* pb_Integration.txt */; };
+		E1BA58091D0CA41F00B82DFD /* bs_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58081D0CA41F00B82DFD /* bs_Integration.txt */; };
+		E1BA580B1D0CA43900B82DFD /* cqk_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA580A1D0CA43900B82DFD /* cqk_Integration.txt */; };
+		E1BA580D1D0CA45700B82DFD /* mep_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA580C1D0CA45700B82DFD /* mep_Integration.txt */; };
+		E1BA580F1D0CA54E00B82DFD /* pb_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA580E1D0CA54E00B82DFD /* pb_Commits.txt */; };
+		E1BA58111D0CA57400B82DFD /* bs_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58101D0CA57400B82DFD /* bs_Commits.txt */; };
+		E1BA58131D0CA58C00B82DFD /* cqk_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58121D0CA58C00B82DFD /* cqk_Commits.txt */; };
+		E1BA58151D0CA5B200B82DFD /* mep_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58141D0CA5B200B82DFD /* mep_Commits.txt */; };
+		E1BA58171D0CA66000B82DFD /* pb_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58161D0CA66000B82DFD /* pb_Issues.txt */; };
+		E1BA58191D0CA67900B82DFD /* bs_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58181D0CA67900B82DFD /* bs_Issues.txt */; };
+		E1BA581B1D0CA69200B82DFD /* cqk_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA581A1D0CA69200B82DFD /* cqk_Issues.txt */; };
+		E1BA581D1D0CA6C100B82DFD /* mep_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA581C1D0CA6C100B82DFD /* mep_Issues.txt */; };
 		E1D825BE1CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */; };
 		E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */; };
 		E1D825C01CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */; };
@@ -98,12 +117,7 @@
 		E1D825ED1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */; };
 		E1D825EF1CEB881000BBF4F6 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825EE1CEB881000BBF4F6 /* APIResponses.swift */; };
 		E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */; };
-		E1D825F31CEB8EBE00BBF4F6 /* StatsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F21CEB8EBE00BBF4F6 /* StatsResponse.txt */; };
 		E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */; };
-		E1D825F71CEB8F1500BBF4F6 /* IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F61CEB8F1500BBF4F6 /* IntegrationsResponse.txt */; };
-		E1D825F91CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F81CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt */; };
-		E1D825FB1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825FA1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt */; };
-		E1D825FD1CEB8FC300BBF4F6 /* IntegrationResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825FC1CEB8FC300BBF4F6 /* IntegrationResponse.txt */; };
 		E1D825FF1CEB8FEE00BBF4F6 /* JSONResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825FE1CEB8FEE00BBF4F6 /* JSONResponseTests.swift */; };
 		E633E9F4778FA1E1B5BFDCCB /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D9044BBFE3E127BCD5FC19 /* Pods_XCServerCoreData.framework */; };
 /* End PBXBuildFile section */
@@ -155,7 +169,6 @@
 		E1BA57D81D08859D00B82DFD /* IntegrationIssuesJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntegrationIssuesJSON.swift; sourceTree = "<group>"; };
 		E1BA57DA1D0885C400B82DFD /* IssueJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueJSON.swift; sourceTree = "<group>"; };
 		E1BA57DC1D0885DE00B82DFD /* PlatformJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformJSON.swift; sourceTree = "<group>"; };
-		E1BA57DE1D0885F900B82DFD /* RepositoryJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryJSON.swift; sourceTree = "<group>"; };
 		E1BA57E01D08861E00B82DFD /* RevisionBlueprintJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevisionBlueprintJSON.swift; sourceTree = "<group>"; };
 		E1BA57E21D08864C00B82DFD /* AuthenticationStrategyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationStrategyJSON.swift; sourceTree = "<group>"; };
 		E1BA57E41D08867B00B82DFD /* BlueprintLocationJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueprintLocationJSON.swift; sourceTree = "<group>"; };
@@ -167,6 +180,26 @@
 		E1BA57F01D08876F00B82DFD /* StatsBreakdownJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsBreakdownJSON.swift; sourceTree = "<group>"; };
 		E1BA57F21D08878F00B82DFD /* TriggerJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerJSON.swift; sourceTree = "<group>"; };
 		E1BA57F41D08A0B200B82DFD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E1BA57F61D0B62EF00B82DFD /* pb_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_IntegrationsResponse.txt; sourceTree = "<group>"; };
+		E1BA57F81D0B632800B82DFD /* bs_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_IntegrationsResponse.txt; sourceTree = "<group>"; };
+		E1BA57FA1D0B640000B82DFD /* cqk_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_IntegrationsResponse.txt; sourceTree = "<group>"; };
+		E1BA57FC1D0B642900B82DFD /* mep_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_IntegrationsResponse.txt; sourceTree = "<group>"; };
+		E1BA57FE1D0B682900B82DFD /* pb_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Stats.txt; sourceTree = "<group>"; };
+		E1BA58001D0B685700B82DFD /* bs_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Stats.txt; sourceTree = "<group>"; };
+		E1BA58021D0B687800B82DFD /* cqk_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Stats.txt; sourceTree = "<group>"; };
+		E1BA58041D0B689B00B82DFD /* mep_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Stats.txt; sourceTree = "<group>"; };
+		E1BA58061D0CA3CA00B82DFD /* pb_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Integration.txt; sourceTree = "<group>"; };
+		E1BA58081D0CA41F00B82DFD /* bs_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Integration.txt; sourceTree = "<group>"; };
+		E1BA580A1D0CA43900B82DFD /* cqk_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Integration.txt; sourceTree = "<group>"; };
+		E1BA580C1D0CA45700B82DFD /* mep_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Integration.txt; sourceTree = "<group>"; };
+		E1BA580E1D0CA54E00B82DFD /* pb_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Commits.txt; sourceTree = "<group>"; };
+		E1BA58101D0CA57400B82DFD /* bs_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Commits.txt; sourceTree = "<group>"; };
+		E1BA58121D0CA58C00B82DFD /* cqk_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Commits.txt; sourceTree = "<group>"; };
+		E1BA58141D0CA5B200B82DFD /* mep_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Commits.txt; sourceTree = "<group>"; };
+		E1BA58161D0CA66000B82DFD /* pb_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Issues.txt; sourceTree = "<group>"; };
+		E1BA58181D0CA67900B82DFD /* bs_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Issues.txt; sourceTree = "<group>"; };
+		E1BA581A1D0CA69200B82DFD /* cqk_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Issues.txt; sourceTree = "<group>"; };
+		E1BA581C1D0CA6C100B82DFD /* mep_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Issues.txt; sourceTree = "<group>"; };
 		E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RevisionBlueprint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevisionBlueprint.swift; sourceTree = "<group>"; };
 		E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -216,12 +249,7 @@
 		E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+XCServerCoreData.swift"; sourceTree = "<group>"; };
 		E1D825EE1CEB881000BBF4F6 /* APIResponses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BotsResponse.txt; sourceTree = "<group>"; };
-		E1D825F21CEB8EBE00BBF4F6 /* StatsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StatsResponse.txt; sourceTree = "<group>"; };
 		E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_BotResponse.txt; sourceTree = "<group>"; };
-		E1D825F61CEB8F1500BBF4F6 /* IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationsResponse.txt; sourceTree = "<group>"; };
-		E1D825F81CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationIssuesResponse.txt; sourceTree = "<group>"; };
-		E1D825FA1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationCommitsResponse.txt; sourceTree = "<group>"; };
-		E1D825FC1CEB8FC300BBF4F6 /* IntegrationResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IntegrationResponse.txt; sourceTree = "<group>"; };
 		E1D825FE1CEB8FEE00BBF4F6 /* JSONResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONResponseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,14 +328,29 @@
 				E16242481CE3930F00283B2E /* Info.plist */,
 				E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */,
 				E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */,
+				E1BA58101D0CA57400B82DFD /* bs_Commits.txt */,
+				E1BA58081D0CA41F00B82DFD /* bs_Integration.txt */,
+				E1BA57F81D0B632800B82DFD /* bs_IntegrationsResponse.txt */,
+				E1BA58181D0CA67900B82DFD /* bs_Issues.txt */,
+				E1BA58001D0B685700B82DFD /* bs_Stats.txt */,
 				E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */,
+				E1BA58121D0CA58C00B82DFD /* cqk_Commits.txt */,
+				E1BA580A1D0CA43900B82DFD /* cqk_Integration.txt */,
+				E1BA57FA1D0B640000B82DFD /* cqk_IntegrationsResponse.txt */,
+				E1BA581A1D0CA69200B82DFD /* cqk_Issues.txt */,
+				E1BA58021D0B687800B82DFD /* cqk_Stats.txt */,
 				E1448FF01D0B527900789436 /* mep_BotResponse.txt */,
+				E1BA58141D0CA5B200B82DFD /* mep_Commits.txt */,
+				E1BA580C1D0CA45700B82DFD /* mep_Integration.txt */,
+				E1BA57FC1D0B642900B82DFD /* mep_IntegrationsResponse.txt */,
+				E1BA581C1D0CA6C100B82DFD /* mep_Issues.txt */,
+				E1BA58041D0B689B00B82DFD /* mep_Stats.txt */,
 				E1448FEC1D0B520700789436 /* pb_BotResponse.txt */,
-				E1D825F21CEB8EBE00BBF4F6 /* StatsResponse.txt */,
-				E1D825F61CEB8F1500BBF4F6 /* IntegrationsResponse.txt */,
-				E1D825F81CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt */,
-				E1D825FA1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt */,
-				E1D825FC1CEB8FC300BBF4F6 /* IntegrationResponse.txt */,
+				E1BA580E1D0CA54E00B82DFD /* pb_Commits.txt */,
+				E1BA58061D0CA3CA00B82DFD /* pb_Integration.txt */,
+				E1BA57F61D0B62EF00B82DFD /* pb_IntegrationsResponse.txt */,
+				E1BA58161D0CA66000B82DFD /* pb_Issues.txt */,
+				E1BA57FE1D0B682900B82DFD /* pb_Stats.txt */,
 				E1448FF21D0B52B700789436 /* Resources.swift */,
 				E1D825FE1CEB8FEE00BBF4F6 /* JSONResponseTests.swift */,
 				E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */,
@@ -352,7 +395,6 @@
 				E1BA57EC1D0886FA00B82DFD /* LastCleanIntegrationJSON.swift */,
 				E1BA57DC1D0885DE00B82DFD /* PlatformJSON.swift */,
 				E1BA57E81D0886CC00B82DFD /* RemoteRepositoryJSON.swift */,
-				E1BA57DE1D0885F900B82DFD /* RepositoryJSON.swift */,
 				E1BA57E61D0886A900B82DFD /* RepositoryLocationJSON.swift */,
 				E1BA57E01D08861E00B82DFD /* RevisionBlueprintJSON.swift */,
 				E1BA57EA1D0886EF00B82DFD /* StatsJSON.swift */,
@@ -530,15 +572,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1448FF11D0B527900789436 /* mep_BotResponse.txt in Resources */,
-				E1D825F71CEB8F1500BBF4F6 /* IntegrationsResponse.txt in Resources */,
 				E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */,
+				E1BA58151D0CA5B200B82DFD /* mep_Commits.txt in Resources */,
 				E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */,
-				E1D825FD1CEB8FC300BBF4F6 /* IntegrationResponse.txt in Resources */,
-				E1D825F91CEB8F4A00BBF4F6 /* IntegrationIssuesResponse.txt in Resources */,
-				E1D825F31CEB8EBE00BBF4F6 /* StatsResponse.txt in Resources */,
+				E1BA58111D0CA57400B82DFD /* bs_Commits.txt in Resources */,
+				E1BA58131D0CA58C00B82DFD /* cqk_Commits.txt in Resources */,
+				E1BA58011D0B685700B82DFD /* bs_Stats.txt in Resources */,
+				E1BA58171D0CA66000B82DFD /* pb_Issues.txt in Resources */,
+				E1BA58191D0CA67900B82DFD /* bs_Issues.txt in Resources */,
+				E1BA58051D0B689B00B82DFD /* mep_Stats.txt in Resources */,
+				E1BA57F91D0B632800B82DFD /* bs_IntegrationsResponse.txt in Resources */,
+				E1BA581D1D0CA6C100B82DFD /* mep_Issues.txt in Resources */,
+				E1BA58031D0B687800B82DFD /* cqk_Stats.txt in Resources */,
+				E1BA57FF1D0B682900B82DFD /* pb_Stats.txt in Resources */,
+				E1BA580D1D0CA45700B82DFD /* mep_Integration.txt in Resources */,
+				E1BA57FB1D0B640000B82DFD /* cqk_IntegrationsResponse.txt in Resources */,
+				E1BA580F1D0CA54E00B82DFD /* pb_Commits.txt in Resources */,
+				E1BA57F71D0B62EF00B82DFD /* pb_IntegrationsResponse.txt in Resources */,
+				E1BA581B1D0CA69200B82DFD /* cqk_Issues.txt in Resources */,
+				E1BA58071D0CA3CA00B82DFD /* pb_Integration.txt in Resources */,
+				E1BA580B1D0CA43900B82DFD /* cqk_Integration.txt in Resources */,
 				E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */,
+				E1BA58091D0CA41F00B82DFD /* bs_Integration.txt in Resources */,
+				E1BA57FD1D0B642900B82DFD /* mep_IntegrationsResponse.txt in Resources */,
 				E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */,
-				E1D825FB1CEB8F9600BBF4F6 /* IntegrationCommitsResponse.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,7 +687,6 @@
 				E1BA57CE1D0883BD00B82DFD /* EmailConfigurationJSON.swift in Sources */,
 				E1D825DC1CEB6D5700BBF4F6 /* Bot+CoreDataProperties.swift in Sources */,
 				E1D825C31CEB6D5700BBF4F6 /* Configuration.swift in Sources */,
-				E1BA57DF1D0885F900B82DFD /* RepositoryJSON.swift in Sources */,
 				E1BA57B81D08821A00B82DFD /* AssetJSON.swift in Sources */,
 				E1BA57BE1D08829800B82DFD /* IntegrationCommitJSON.swift in Sources */,
 				E1BA57E91D0886CC00B82DFD /* RemoteRepositoryJSON.swift in Sources */,

@@ -35,6 +35,15 @@ class Conditions: SerializableManagedObject {
         self.trigger = trigger
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "trigger":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withConditions conditions: ConditionsJSON) {
         self.status = conditions.status
         self.onWarnings = conditions.onWarnings

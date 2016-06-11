@@ -38,6 +38,15 @@ class Bot: SerializableManagedObject {
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "xcodeServer":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withBot bot: BotJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
@@ -55,13 +64,13 @@ class Bot: SerializableManagedObject {
         self.update(withIntegrations: bot.integrations)
         
         if let blueprint = bot.lastRevisionBlueprint {
-            if let remoteRepositories = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
-                for remoteRepository in remoteRepositories {
-                    if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
-                        let _ = moc.repository(withIdentifier: identifier)
-                        moc.update(withRevisionBlueprint: blueprint)
-                    }
+            for id in blueprint.repositoryIds {
+                var repository = moc.repository(withIdentifier: id)
+                if repository == nil {
+                    repository = Repository(managedObjectContext: moc, identifier: id)
                 }
+                
+                repository?.update(withRevisionBlueprint: blueprint)
             }
         }
     }

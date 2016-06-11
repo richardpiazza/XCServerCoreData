@@ -38,6 +38,15 @@ class Integration: SerializableManagedObject {
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
     }
     
+    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+        switch propertyName {
+        case "bot", "inverseBestSuccessStreak", "inverseLastCleanIntegration":
+            return nil
+        default:
+            return super.serializedObject(forPropertyName: propertyName, withData: data)
+        }
+    }
+    
     func update(withIntegration integration: IntegrationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
@@ -85,7 +94,14 @@ class Integration: SerializableManagedObject {
         
         // Revision Blueprint
         if let blueprint = integration.revisionBlueprint {
-            moc.update(withRevisionBlueprint: blueprint, integration: self)
+            for id in blueprint.repositoryIds {
+                var repository = moc.repository(withIdentifier: id)
+                if repository == nil {
+                    repository = Repository(managedObjectContext: moc, identifier: id)
+                }
+                
+                repository?.update(withRevisionBlueprint: blueprint, integration: self)
+            }
         }
     }
     
