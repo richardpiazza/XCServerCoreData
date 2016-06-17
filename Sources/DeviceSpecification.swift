@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class DeviceSpecification: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
@@ -68,19 +69,19 @@ class DeviceSpecification: SerializableManagedObject {
         if let specificationDeviceIdentifiers = specification.deviceIdentifers {
             if let devices = self.devices as? Set<Device> {
                 for device in devices {
-                    device.deviceSpecifications = device.deviceSpecifications?.setByRemovingObject(device)
+                    device.deviceSpecifications = device.deviceSpecifications?.setByRemovingObject(self)
                 }
             }
             
             for specificationDeviceIdentifier in specificationDeviceIdentifiers {
-                var device = moc.device(withIdentifier: specificationDeviceIdentifier)
-                if device == nil {
-                    device = Device(managedObjectContext: moc)
-                    device?.identifier = specificationDeviceIdentifier
+                if let device = moc.device(withIdentifier: specificationDeviceIdentifier) {
+                    device.deviceSpecifications = device.deviceSpecifications?.setByAddingObject(self)
+                    continue
                 }
                 
-                if let d = device {
-                    d.deviceSpecifications = d.deviceSpecifications?.setByAddingObject(d)
+                if let device = Device(managedObjectContext: moc) {
+                    device.identifier = specificationDeviceIdentifier
+                    device.deviceSpecifications = device.deviceSpecifications?.setByAddingObject(self)
                 }
             }
         }

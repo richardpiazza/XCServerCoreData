@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class IntegrationIssues: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
@@ -63,24 +64,21 @@ class IntegrationIssues: SerializableManagedObject {
             if let issue = Issue(managedObjectContext: moc) {
                 issue.update(withIssue: error)
                 issue.inverseBuildServiceErrors = self
-                self.buildServiceErrors = self.buildServiceErrors?.setByAddingObject(issue)
             }
         }
         
         // Build Service Warnings
         if let set = self.buildServiceWarnings as? Set<Issue> {
             for issue in set {
+                issue.inverseBuildServiceWarnings = nil
                 moc.deleteObject(issue)
             }
         }
-        
-        self.buildServiceWarnings = NSSet()
         
         for warning in issues.buildServiceWarnings {
             if let issue = Issue(managedObjectContext: moc) {
                 issue.update(withIssue: warning)
                 issue.inverseBuildServiceWarnings = self
-                self.buildServiceWarnings = self.buildServiceWarnings?.setByAddingObject(issue)
             }
         }
         
@@ -88,31 +86,29 @@ class IntegrationIssues: SerializableManagedObject {
         if let errors = issues.errors {
             if let set = self.unresolvedErrors as? Set<Issue> {
                 for issue in set {
+                    issue.inverseUnresolvedErrors = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.resolvedErrors as? Set<Issue> {
                 for issue in set {
+                    issue.inverseResolvedErrors = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.freshErrors as? Set<Issue> {
                 for issue in set {
+                    issue.inverseFreshErrors = nil
                     moc.deleteObject(issue)
                 }
             }
-            
-            self.unresolvedErrors = NSSet()
-            self.resolvedErrors = NSSet()
-            self.freshErrors = NSSet()
             
             for unresolvedIssue in errors.unresolvedIssues {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: unresolvedIssue)
                     issue.inverseUnresolvedErrors = self
-                    self.unresolvedErrors = self.unresolvedErrors?.setByAddingObject(issue)
                 }
             }
             
@@ -120,7 +116,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: resolvedIssue)
                     issue.inverseResolvedErrors = self
-                    self.resolvedErrors = self.resolvedErrors?.setByAddingObject(issue)
                 }
             }
             
@@ -128,7 +123,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: freshIssue)
                     issue.inverseFreshErrors = self
-                    self.freshErrors = self.freshErrors?.setByAddingObject(issue)
                 }
             }
         }
@@ -137,31 +131,29 @@ class IntegrationIssues: SerializableManagedObject {
         if let warnings = issues.warnings {
             if let set = self.unresolvedWarnings as? Set<Issue> {
                 for issue in set {
+                    issue.inverseUnresolvedWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.resolvedWarnings as? Set<Issue> {
                 for issue in set {
+                    issue.inverseResolvedWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.freshWarnings as? Set<Issue> {
                 for issue in set {
+                    issue.inverseFreshWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
-            
-            self.unresolvedWarnings = NSSet()
-            self.resolvedWarnings = NSSet()
-            self.freshWarnings = NSSet()
             
             for unresolvedIssue in warnings.unresolvedIssues {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: unresolvedIssue)
                     issue.inverseUnresolvedWarnings = self
-                    self.unresolvedWarnings = self.unresolvedWarnings?.setByAddingObject(issue)
                 }
             }
             
@@ -169,7 +161,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: resolvedIssue)
                     issue.inverseResolvedWarnings = self
-                    self.resolvedWarnings = self.resolvedWarnings?.setByAddingObject(issue)
                 }
             }
             
@@ -177,7 +168,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: freshIssue)
                     issue.inverseFreshWarnings = self
-                    self.freshWarnings = self.freshWarnings?.setByAddingObject(issue)
                 }
             }
         }
@@ -186,31 +176,29 @@ class IntegrationIssues: SerializableManagedObject {
         if let analyzerWarnings = issues.analyzerWarnings {
             if let set = self.unresolvedAnalyzerWarnings as? Set<Issue> {
                 for issue in set {
+                    issue.inverseUnresolvedAnalyzerWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.resolvedAnalyzerWarnings as? Set<Issue> {
                 for issue in set {
+                    issue.inverseResolvedAnalyzerWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.freshAnalyzerWarnings as? Set<Issue> {
                 for issue in set {
+                    issue.inverseFreshAnalyserWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
-            
-            self.unresolvedAnalyzerWarnings = NSSet()
-            self.resolvedAnalyzerWarnings = NSSet()
-            self.freshAnalyzerWarnings = NSSet()
             
             for unresolvedIssue in analyzerWarnings.unresolvedIssues {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: unresolvedIssue)
                     issue.inverseUnresolvedAnalyzerWarnings = self
-                    self.unresolvedAnalyzerWarnings = self.unresolvedAnalyzerWarnings?.setByAddingObject(issue)
                 }
             }
             
@@ -218,7 +206,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: resolvedIssue)
                     issue.inverseResolvedAnalyzerWarnings = self
-                    self.resolvedAnalyzerWarnings = self.resolvedAnalyzerWarnings?.setByAddingObject(issue)
                 }
             }
             
@@ -226,7 +213,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: freshIssue)
                     issue.inverseFreshAnalyserWarnings = self
-                    self.freshAnalyzerWarnings = self.resolvedAnalyzerWarnings?.setByAddingObject(issue)
                 }
             }
         }
@@ -235,31 +221,29 @@ class IntegrationIssues: SerializableManagedObject {
         if let testFailures = issues.testFailures {
             if let set = self.unresolvedTestFailures as? Set<Issue> {
                 for issue in set {
+                    issue.inverseUnresolvedTestFailures = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.resolvedTestFailures as? Set<Issue> {
                 for issue in set {
+                    issue.inverseResolvedTestFailures = nil
                     moc.deleteObject(issue)
                 }
             }
             
             if let set = self.freshTestFailures as? Set<Issue> {
                 for issue in set {
+                    issue.inverseFreshTestFailures = nil
                     moc.deleteObject(issue)
                 }
             }
-            
-            self.unresolvedTestFailures = NSSet()
-            self.resolvedTestFailures = NSSet()
-            self.freshTestFailures = NSSet()
             
             for unresolvedIssue in testFailures.unresolvedIssues {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: unresolvedIssue)
                     issue.inverseUnresolvedTestFailures = self
-                    self.unresolvedTestFailures = self.unresolvedTestFailures?.setByAddingObject(issue)
                 }
             }
             
@@ -267,7 +251,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: resolvedIssue)
                     issue.inverseResolvedAnalyzerWarnings = self
-                    self.resolvedTestFailures = self.resolvedTestFailures?.setByAddingObject(issue)
                 }
             }
             
@@ -275,7 +258,6 @@ class IntegrationIssues: SerializableManagedObject {
                 if let issue = Issue(managedObjectContext: moc) {
                     issue.update(withIssue: freshIssue)
                     issue.inverseFreshTestFailures = self
-                    self.freshTestFailures = self.freshTestFailures?.setByAddingObject(issue)
                 }
             }
         }

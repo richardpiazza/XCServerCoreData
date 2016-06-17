@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class Configuration: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
@@ -83,8 +84,8 @@ class Configuration: SerializableManagedObject {
                     }
                     
                     if let repository = Repository(managedObjectContext: moc, identifier: identifier) {
-                        self.repositories = self.repositories?.setByAddingObject(repository)
                         repository.update(withRevisionBlueprint: configurationBlueprint)
+                        self.repositories = self.repositories?.setByAddingObject(repository)
                     }
                 }
             }

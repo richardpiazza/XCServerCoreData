@@ -34,6 +34,8 @@ class Repository: SerializableManagedObject {
     convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
+        
+        Logger.verbose("Created entity `Repository` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
@@ -88,14 +90,11 @@ class Repository: SerializableManagedObject {
             return
         }
         
-        var commit = moc.commit(withHash: commitHash)
-        if commit != nil {
+        if let _ = moc.commit(withHash: commitHash) {
             return
         }
         
-        commit = Commit(managedObjectContext: moc, repository: self)
-        commit?.commitHash = commitHash
-        if let commit = commit {
+        if let commit = Commit(managedObjectContext: moc, identifier: commitHash, repository: self) {
             var revisionBlueprint = moc.revisionBlueprint(withCommit: commit, andIntegration: integration)
             if revisionBlueprint == nil {
                 revisionBlueprint = RevisionBlueprint(managedObjectContext: moc)
@@ -124,13 +123,14 @@ class Repository: SerializableManagedObject {
         }
         
         for commitsCommit in commits {
-            var commit = moc.commit(withHash: commitsCommit.XCSCommitHash)
-            if commit == nil {
-                commit = Commit(managedObjectContext: moc, repository: self)
-                commit?.commitHash = commitsCommit.XCSCommitHash
+            if let commit = moc.commit(withHash: commitsCommit.XCSCommitHash) {
+                commit.update(withCommit: commitsCommit)
+                continue
             }
             
-            commit?.update(withCommit: commitsCommit)
+            if let commit = Commit(managedObjectContext: moc, identifier: commitsCommit.XCSCommitHash, repository: self) {
+                commit.update(withCommit: commitsCommit)
+            }
         }
     }
 }

@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class Conditions: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger

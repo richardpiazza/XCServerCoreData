@@ -64,6 +64,8 @@ class MOCObjectTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        Logger.minimumConsoleLevel = .Verbose
+        
         XCTAssertNotNil(coreData)
         XCTAssertNotNil(server)
         
@@ -246,29 +248,6 @@ class MOCObjectTests: XCTestCase {
         
         XCTAssertTrue(commits.count == 7)
         XCTAssertTrue(integrations.count == 11)
-        
-        guard let
-            commitRevisionBlueprints = commit.revisionBlueprints as? Set<RevisionBlueprint>,
-            crb = commitRevisionBlueprints.first else {
-            XCTFail()
-            return
-        }
-        
-        XCTAssertTrue(commitRevisionBlueprints.count == 1)
-        
-        let crbIntegration = crb.integration
-        let crbCommit = crb.commit
-        
-        for integration in integrations {
-            print(integration.objectID.URIRepresentation())
-            
-            if let integrationRevisionBlueprints = integration.revisionBlueprints as? Set<RevisionBlueprint> {
-                let objectIds = integrationRevisionBlueprints.map({ (rb: RevisionBlueprint) -> NSURL in
-                    return rb.objectID.URIRepresentation()
-                })
-                print(objectIds)
-            }
-        }
     }
     
     func testPocketBotData() {

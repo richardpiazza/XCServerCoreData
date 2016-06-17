@@ -31,6 +31,13 @@ import CodeQuickKit
 
 class Device: SerializableManagedObject {
     
+    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
+        self.init(managedObjectContext: managedObjectContext)
+        self.identifier = identifier
+        
+        Logger.verbose("Created entity `Device` with identifier '\(identifier)'", callingClass: self.dynamicType)
+    }
+    
     override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "deviceSpecifications", "inverseActiveProxiedDevice", "integrations":
@@ -41,14 +48,12 @@ class Device: SerializableManagedObject {
     }
     
     func update(withDevice device: DeviceJSON) {
-        self.identifier = device.ID
         self.name = device.name
         self.deviceType = device.deviceType
         self.connected = device.connected
         self.simulator = device.simulator
         self.osVersion = device.osVersion
         self.supported = device.supported
-        self.identifier = device.identifier
         self.enabledForDevelopment = device.enabledForDevelopment
         self.architecture = device.architecture
         self.isServer = device.isServer

@@ -30,12 +30,16 @@ import CoreData
 import CodeQuickKit
 
 class Bot: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, server: XcodeServer) {
+    
+    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, server: XcodeServer) {
         self.init(managedObjectContext: managedObjectContext)
+        self.identifier = identifier
         self.xcodeServer = server
         self.integrations = Set<Integration>()
         self.configuration = Configuration(managedObjectContext: managedObjectContext, bot: self)
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
+        
+        Logger.verbose("Created entity `Bot` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
@@ -53,7 +57,6 @@ class Bot: SerializableManagedObject {
             return
         }
         
-        self.identifier = bot._id
         self.name = bot.name
         self.type = bot.type
         
@@ -65,13 +68,13 @@ class Bot: SerializableManagedObject {
         
         if let blueprint = bot.lastRevisionBlueprint {
             for id in blueprint.repositoryIds {
-                var repository = moc.repository(withIdentifier: id)
-                if repository == nil {
-                    repository = Repository(managedObjectContext: moc, identifier: id)
-                    repository?.identifier = id
+                if let repository = moc.repository(withIdentifier: id) {
+                    repository.update(withRevisionBlueprint: blueprint)
+                    continue
                 }
-                
-                repository?.update(withRevisionBlueprint: blueprint)
+                if let repository = Repository(managedObjectContext: moc, identifier: id) {
+                    repository.update(withRevisionBlueprint: blueprint)
+                }
             }
         }
     }
@@ -83,12 +86,12 @@ class Bot: SerializableManagedObject {
         }
         
         for element in integrations {
-            if let existing = moc.integration(withIdentifier: element._id) {
-                existing.update(withIntegration: element)
+            if let integration = moc.integration(withIdentifier: element._id) {
+                integration.update(withIntegration: element)
                 continue
             }
             
-            if let integration = Integration(managedObjectContext: moc, bot: self) {
+            if let integration = Integration(managedObjectContext: moc, identifier: element._id, bot: self) {
                 integration.update(withIntegration: element)
             }
         }

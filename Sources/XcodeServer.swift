@@ -37,49 +37,32 @@ class XcodeServer: SerializableManagedObject {
             return
         }
         
-        guard let botsSet = self.bots as? Set<Bot> else {
+        guard let bots = self.bots as? Set<Bot> else {
             return
         }
         
-        var bots = botsSet
-        
         var ids: [String] = bots.map({ $0.identifier })
         
-        for item in data {
-            if let index = ids.indexOf(item._id) {
+        for element in data {
+            if let index = ids.indexOf(element._id) {
                 ids.removeAtIndex(index)
             }
             
-            if let existing = self.bot(withIdentifier: item._id) {
-                existing.update(withDictionary: item.dictionary)
-            } else {
-                if let bot = Bot(managedObjectContext: moc, server: self) {
-                    bot.update(withBot: item)
-                    bots.insert(bot)
-                }
+            if let bot = moc.bot(withIdentifier: element._id) {
+                bot.update(withBot: element)
+                continue
+            }
+            
+            if let bot = Bot(managedObjectContext: moc, identifier: element._id, server: self) {
+                bot.update(withBot: element)
             }
         }
         
         for id in ids {
-            if let bot = self.bot(withIdentifier: id) {
-                bots.remove(bot)
+            if let bot = moc.bot(withIdentifier: id) {
+                bot.xcodeServer = nil
+                moc.deleteObject(bot)
             }
         }
-        
-        self.bots = bots
-    }
-    
-    func bot(withIdentifier identifier: String) -> Bot? {
-        guard let bots = self.bots as? Set<Bot> else {
-            return nil
-        }
-        
-        let results = bots.filter { (bot: Bot) -> Bool in return bot.identifier == identifier }
-        
-        guard let bot = results.first else {
-            return nil
-        }
-        
-        return bot
     }
 }

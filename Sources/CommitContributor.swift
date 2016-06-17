@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class CommitContributor: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit

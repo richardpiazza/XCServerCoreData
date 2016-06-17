@@ -30,12 +30,16 @@ import CoreData
 import CodeQuickKit
 
 class Integration: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
+    
+    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
+        self.identifier = identifier
         self.bot = bot
         self.buildResultSummary = BuildResultSummary(managedObjectContext: managedObjectContext, integration: self)
         self.assets = IntegrationAssets(managedObjectContext: managedObjectContext)
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
+        
+        Logger.verbose("Created entity `Integration` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
@@ -53,7 +57,6 @@ class Integration: SerializableManagedObject {
             return
         }
         
-        self.identifier = integration._id
         self.number = integration.number
         self.shouldClean = integration.shouldClean
         self.currentStep = integration.currentStep
@@ -78,32 +81,28 @@ class Integration: SerializableManagedObject {
         
         // Tested Devices
         for testedDevice in integration.testedDevices {
-            var device = moc.device(withIdentifier: testedDevice.ID)
-            if device == nil {
-                device = Device(managedObjectContext: moc)
+            if let device = moc.device(withIdentifier: testedDevice.ID) {
+                self.testedDevices = self.testedDevices?.setByAddingObject(device)
+                continue
             }
             
-            if let d = device {
-                d.update(withDevice: testedDevice)
-                
-                if let devices = self.testedDevices {
-                    if !devices.containsObject(d) {
-                        self.testedDevices = devices.setByAddingObject(d)
-                    }
-                }
+            if let device = Device(managedObjectContext: moc, identifier: testedDevice.ID) {
+                device.update(withDevice: testedDevice)
+                self.testedDevices = self.testedDevices?.setByAddingObject(device)
             }
         }
         
         // Revision Blueprint
         if let blueprint = integration.revisionBlueprint {
             for id in blueprint.repositoryIds {
-                var repository = moc.repository(withIdentifier: id)
-                if repository == nil {
-                    repository = Repository(managedObjectContext: moc, identifier: id)
-                    repository?.identifier = id
+                if let repository = moc.repository(withIdentifier: id) {
+                    repository.update(withRevisionBlueprint: blueprint, integration: self)
+                    continue
                 }
                 
-                repository?.update(withRevisionBlueprint: blueprint, integration: self)
+                if let repository = Repository(managedObjectContext: moc, identifier: id) {
+                    repository.update(withRevisionBlueprint: blueprint, integration: self)
+                }
             }
         }
     }

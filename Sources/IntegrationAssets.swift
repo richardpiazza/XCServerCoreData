@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class IntegrationAssets: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
@@ -138,17 +139,15 @@ class IntegrationAssets: SerializableManagedObject {
         if let triggerAssets = assets.triggerAssets {
             if let set = self.triggerAssets as? Set<Asset> {
                 for asset in set {
+                    asset.inverseTriggerAssets = nil
                     moc.deleteObject(asset)
                 }
             }
-            
-            self.triggerAssets = NSSet()
             
             for triggerAsset in triggerAssets {
                 if let asset = Asset(managedObjectContext: moc) {
                     asset.inverseTriggerAssets = self
                     asset.update(withAsset: triggerAsset)
-                    self.triggerAssets = self.triggerAssets?.setByAddingObject(asset)
                 }
             }
         }

@@ -30,9 +30,13 @@ import CoreData
 import CodeQuickKit
 
 class Commit: SerializableManagedObject {
-    convenience init?(managedObjectContext: NSManagedObjectContext, repository: Repository) {
+    
+    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, repository: Repository) {
         self.init(managedObjectContext: managedObjectContext)
+        self.commitHash = identifier
         self.repository = repository
+        
+        Logger.verbose("Created entity `Commit` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
@@ -50,7 +54,6 @@ class Commit: SerializableManagedObject {
             return
         }
         
-        self.commitHash = commit.XCSCommitHash
         self.message = commit.XCSCommitMessage
         if let commitTimestamp = commit.XCSCommitTimestamp {
             self.timestamp = commitTimestamp

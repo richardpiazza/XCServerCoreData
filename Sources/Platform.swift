@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 class Platform: SerializableManagedObject {
+    
     convenience init?(managedObjectContext: NSManagedObjectContext, filter: Filter) {
         self.init(managedObjectContext: managedObjectContext)
         self.filter = filter
