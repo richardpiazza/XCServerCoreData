@@ -30,20 +30,20 @@ import CoreData
 
 extension IntegrationIssues {
 
-    @NSManaged var buildServiceErrors: NSSet?
-    @NSManaged var buildServiceWarnings: NSSet?
-    @NSManaged var freshAnalyzerWarnings: NSSet?
-    @NSManaged var freshErrors: NSSet?
-    @NSManaged var freshTestFailures: NSSet?
-    @NSManaged var freshWarnings: NSSet?
+    @NSManaged var buildServiceErrors: Set<Issue>?
+    @NSManaged var buildServiceWarnings: Set<Issue>?
+    @NSManaged var freshAnalyzerWarnings: Set<Issue>?
+    @NSManaged var freshErrors: Set<Issue>?
+    @NSManaged var freshTestFailures: Set<Issue>?
+    @NSManaged var freshWarnings: Set<Issue>?
     @NSManaged var integration: Integration?
-    @NSManaged var resolvedAnalyzerWarnings: NSSet?
-    @NSManaged var resolvedErrors: NSSet?
-    @NSManaged var resolvedTestFailures: NSSet?
-    @NSManaged var resolvedWarnings: NSSet?
-    @NSManaged var unresolvedAnalyzerWarnings: NSSet?
-    @NSManaged var unresolvedErrors: NSSet?
-    @NSManaged var unresolvedTestFailures: NSSet?
-    @NSManaged var unresolvedWarnings: NSSet?
+    @NSManaged var resolvedAnalyzerWarnings: Set<Issue>?
+    @NSManaged var resolvedErrors: Set<Issue>?
+    @NSManaged var resolvedTestFailures: Set<Issue>?
+    @NSManaged var resolvedWarnings: Set<Issue>?
+    @NSManaged var unresolvedAnalyzerWarnings: Set<Issue>?
+    @NSManaged var unresolvedErrors: Set<Issue>?
+    @NSManaged var unresolvedTestFailures: Set<Issue>?
+    @NSManaged var unresolvedWarnings: Set<Issue>?
 
 }

@@ -48,7 +48,7 @@ extension Integration {
     @NSManaged var inverseBestSuccessStreak: Integration?
     @NSManaged var inverseLastCleanIntegration: Integration?
     @NSManaged var issues: IntegrationIssues?
-    @NSManaged var revisionBlueprints: NSSet?
-    @NSManaged var testedDevices: NSSet?
+    @NSManaged var revisionBlueprints: Set<RevisionBlueprint>?
+    @NSManaged var testedDevices: Set<Device>?
 
 }

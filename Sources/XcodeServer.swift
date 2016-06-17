@@ -37,7 +37,7 @@ class XcodeServer: SerializableManagedObject {
             return
         }
         
-        guard let bots = self.bots as? Set<Bot> else {
+        guard let bots = self.bots else {
             return
         }
         

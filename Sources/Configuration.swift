@@ -66,9 +66,9 @@ class Configuration: SerializableManagedObject {
         
         // Repositories
         if let configurationBlueprint = configuration.sourceControlBlueprint {
-            if let repositories = self.repositories as? Set<Repository> {
+            if let repositories = self.repositories {
                 for repository in repositories {
-                    repository.configurations = repository.configurations?.setByRemovingObject(repository)
+                    repository.configurations?.remove(self)
                 }
             }
             
@@ -85,7 +85,7 @@ class Configuration: SerializableManagedObject {
                     
                     if let repository = Repository(managedObjectContext: moc, identifier: identifier) {
                         repository.update(withRevisionBlueprint: configurationBlueprint)
-                        self.repositories = self.repositories?.setByAddingObject(repository)
+                        self.repositories?.insert(repository)
                     }
                 }
             }
@@ -103,7 +103,7 @@ class Configuration: SerializableManagedObject {
         }
         
         // Triggers
-        if let triggers = self.triggers as? Set<Trigger> {
+        if let triggers = self.triggers {
             for trigger in triggers {
                 trigger.configuration = nil
                 moc.deleteObject(trigger)

@@ -137,7 +137,7 @@ class IntegrationAssets: SerializableManagedObject {
         
         // Trigger Assets
         if let triggerAssets = assets.triggerAssets {
-            if let set = self.triggerAssets as? Set<Asset> {
+            if let set = self.triggerAssets {
                 for asset in set {
                     asset.inverseTriggerAssets = nil
                     moc.deleteObject(asset)

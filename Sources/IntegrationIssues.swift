@@ -52,13 +52,12 @@ class IntegrationIssues: SerializableManagedObject {
         }
         
         // Build Service Errors
-        if let set = self.buildServiceErrors as? Set<Issue> {
+        if let set = self.buildServiceErrors {
             for issue in set {
+                issue.inverseBuildServiceErrors = nil
                 moc.deleteObject(issue)
             }
         }
-        
-        self.buildServiceErrors = NSSet()
         
         for error in issues.buildServiceErrors {
             if let issue = Issue(managedObjectContext: moc) {
@@ -68,7 +67,7 @@ class IntegrationIssues: SerializableManagedObject {
         }
         
         // Build Service Warnings
-        if let set = self.buildServiceWarnings as? Set<Issue> {
+        if let set = self.buildServiceWarnings {
             for issue in set {
                 issue.inverseBuildServiceWarnings = nil
                 moc.deleteObject(issue)
@@ -84,21 +83,21 @@ class IntegrationIssues: SerializableManagedObject {
         
         // Errors
         if let errors = issues.errors {
-            if let set = self.unresolvedErrors as? Set<Issue> {
+            if let set = self.unresolvedErrors {
                 for issue in set {
                     issue.inverseUnresolvedErrors = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.resolvedErrors as? Set<Issue> {
+            if let set = self.resolvedErrors {
                 for issue in set {
                     issue.inverseResolvedErrors = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.freshErrors as? Set<Issue> {
+            if let set = self.freshErrors {
                 for issue in set {
                     issue.inverseFreshErrors = nil
                     moc.deleteObject(issue)
@@ -129,21 +128,21 @@ class IntegrationIssues: SerializableManagedObject {
         
         // Warnings
         if let warnings = issues.warnings {
-            if let set = self.unresolvedWarnings as? Set<Issue> {
+            if let set = self.unresolvedWarnings {
                 for issue in set {
                     issue.inverseUnresolvedWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.resolvedWarnings as? Set<Issue> {
+            if let set = self.resolvedWarnings {
                 for issue in set {
                     issue.inverseResolvedWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.freshWarnings as? Set<Issue> {
+            if let set = self.freshWarnings {
                 for issue in set {
                     issue.inverseFreshWarnings = nil
                     moc.deleteObject(issue)
@@ -174,21 +173,21 @@ class IntegrationIssues: SerializableManagedObject {
         
         // Analyzer Warnings
         if let analyzerWarnings = issues.analyzerWarnings {
-            if let set = self.unresolvedAnalyzerWarnings as? Set<Issue> {
+            if let set = self.unresolvedAnalyzerWarnings {
                 for issue in set {
                     issue.inverseUnresolvedAnalyzerWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.resolvedAnalyzerWarnings as? Set<Issue> {
+            if let set = self.resolvedAnalyzerWarnings {
                 for issue in set {
                     issue.inverseResolvedAnalyzerWarnings = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.freshAnalyzerWarnings as? Set<Issue> {
+            if let set = self.freshAnalyzerWarnings {
                 for issue in set {
                     issue.inverseFreshAnalyserWarnings = nil
                     moc.deleteObject(issue)
@@ -219,21 +218,21 @@ class IntegrationIssues: SerializableManagedObject {
         
         // Test Failures
         if let testFailures = issues.testFailures {
-            if let set = self.unresolvedTestFailures as? Set<Issue> {
+            if let set = self.unresolvedTestFailures {
                 for issue in set {
                     issue.inverseUnresolvedTestFailures = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.resolvedTestFailures as? Set<Issue> {
+            if let set = self.resolvedTestFailures {
                 for issue in set {
                     issue.inverseResolvedTestFailures = nil
                     moc.deleteObject(issue)
                 }
             }
             
-            if let set = self.freshTestFailures as? Set<Issue> {
+            if let set = self.freshTestFailures {
                 for issue in set {
                     issue.inverseFreshTestFailures = nil
                     moc.deleteObject(issue)

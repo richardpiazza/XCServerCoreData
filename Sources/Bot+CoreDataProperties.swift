@@ -34,7 +34,7 @@ extension Bot {
     @NSManaged var name: String?
     @NSManaged var type: NSNumber?
     @NSManaged var configuration: Configuration?
-    @NSManaged var integrations: NSSet?
+    @NSManaged var integrations: Set<Integration>?
     @NSManaged var stats: Stats?
     @NSManaged var xcodeServer: XcodeServer?
 

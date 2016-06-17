@@ -32,6 +32,6 @@ extension XcodeServer {
 
     @NSManaged var fqdn: String
     @NSManaged var lastUpdate: NSDate?
-    @NSManaged var bots: NSSet?
+    @NSManaged var bots: Set<Bot>?
 
 }

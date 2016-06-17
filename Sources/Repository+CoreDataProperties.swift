@@ -38,7 +38,7 @@ extension Repository {
     @NSManaged var url: String?
     @NSManaged var workingCopyPath: String?
     @NSManaged var workingCopyState: NSNumber?
-    @NSManaged var commits: NSSet?
-    @NSManaged var configurations: NSSet?
+    @NSManaged var commits: Set<Commit>?
+    @NSManaged var configurations: Set<Configuration>?
 
 }

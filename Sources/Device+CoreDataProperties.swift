@@ -48,8 +48,8 @@ extension Device {
     @NSManaged var supported: NSNumber?
     @NSManaged var trusted: NSNumber?
     @NSManaged var activeProxiedDevice: Device?
-    @NSManaged var integrations: NSSet?
+    @NSManaged var integrations: Set<Integration>?
     @NSManaged var inverseActiveProxiedDevice: Device?
-    @NSManaged var deviceSpecifications: NSSet?
+    @NSManaged var deviceSpecifications: Set<DeviceSpecification>?
 
 }

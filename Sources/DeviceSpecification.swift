@@ -52,7 +52,7 @@ class DeviceSpecification: SerializableManagedObject {
         }
         
         if let specificationFilters = specification.filters {
-            if let filters = self.filters as? Set<Filter> {
+            if let filters = self.filters {
                 for filter in filters {
                     filter.deviceSpecification = nil
                     moc.deleteObject(filter)
@@ -67,21 +67,21 @@ class DeviceSpecification: SerializableManagedObject {
         }
         
         if let specificationDeviceIdentifiers = specification.deviceIdentifers {
-            if let devices = self.devices as? Set<Device> {
+            if let devices = self.devices {
                 for device in devices {
-                    device.deviceSpecifications = device.deviceSpecifications?.setByRemovingObject(self)
+                    device.deviceSpecifications?.insert(self)
                 }
             }
             
             for specificationDeviceIdentifier in specificationDeviceIdentifiers {
                 if let device = moc.device(withIdentifier: specificationDeviceIdentifier) {
-                    device.deviceSpecifications = device.deviceSpecifications?.setByAddingObject(self)
+                    device.deviceSpecifications?.insert(self)
                     continue
                 }
                 
                 if let device = Device(managedObjectContext: moc) {
                     device.identifier = specificationDeviceIdentifier
-                    device.deviceSpecifications = device.deviceSpecifications?.setByAddingObject(self)
+                    device.deviceSpecifications?.insert(self)
                 }
             }
         }

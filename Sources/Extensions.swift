@@ -26,15 +26,3 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-
-extension NSSet {
-    func setByRemovingObject(anObject: NSObject) -> NSSet {
-        if !self.containsObject(anObject) {
-            return self
-        }
-        
-        let set = NSMutableSet(set: self)
-        set.removeObject(anObject)
-        return set
-    }
-}

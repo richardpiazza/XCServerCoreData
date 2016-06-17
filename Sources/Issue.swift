@@ -56,4 +56,16 @@ class Issue: SerializableManagedObject {
         self.type = issue.type
         self.issueType = issue.issueType
     }
+    
+    var typeOfIssue: IssueType {
+        guard let rawValue = self.type else {
+            return .Unknown
+        }
+        
+        guard let enumeration = IssueType(rawValue: rawValue) else {
+            return .Unknown
+        }
+        
+        return enumeration
+    }
 }

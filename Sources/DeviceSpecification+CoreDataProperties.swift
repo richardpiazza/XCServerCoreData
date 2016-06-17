@@ -31,7 +31,7 @@ import CoreData
 extension DeviceSpecification {
 
     @NSManaged var configuration: Configuration?
-    @NSManaged var filters: NSSet?
-    @NSManaged var devices: NSSet?
+    @NSManaged var filters: Set<Filter>?
+    @NSManaged var devices: Set<Device>?
 
 }

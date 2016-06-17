@@ -67,7 +67,7 @@ class Commit: SerializableManagedObject {
             self.commitContributor?.update(withCommitContributor: contributor)
         }
         
-        if let commitChanges = self.commitChanges as? Set<CommitChange> {
+        if let commitChanges = self.commitChanges {
             for commitChange in commitChanges {
                 commitChange.commit = nil
                 moc.deleteObject(commitChange)

@@ -44,7 +44,7 @@ extension Configuration {
     @NSManaged var weeklyScheduleDay: NSNumber?
     @NSManaged var bot: Bot?
     @NSManaged var deviceSpecification: DeviceSpecification?
-    @NSManaged var repositories: NSSet?
-    @NSManaged var triggers: NSSet?
+    @NSManaged var repositories: Set<Repository>?
+    @NSManaged var triggers: Set<Trigger>?
 
 }

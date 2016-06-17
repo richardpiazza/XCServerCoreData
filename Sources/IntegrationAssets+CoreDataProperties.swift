@@ -35,7 +35,7 @@ extension IntegrationAssets {
     @NSManaged var integration: Integration?
     @NSManaged var product: Asset?
     @NSManaged var sourceControlLog: Asset?
-    @NSManaged var triggerAssets: NSSet?
+    @NSManaged var triggerAssets: Set<Asset>?
     @NSManaged var xcodebuildLog: Asset?
     @NSManaged var xcodebuildOutput: Asset?
 

@@ -82,13 +82,13 @@ class Integration: SerializableManagedObject {
         // Tested Devices
         for testedDevice in integration.testedDevices {
             if let device = moc.device(withIdentifier: testedDevice.ID) {
-                self.testedDevices = self.testedDevices?.setByAddingObject(device)
+                self.testedDevices?.insert(device)
                 continue
             }
             
             if let device = Device(managedObjectContext: moc, identifier: testedDevice.ID) {
                 device.update(withDevice: testedDevice)
-                self.testedDevices = self.testedDevices?.setByAddingObject(device)
+                self.testedDevices?.insert(device)
             }
         }
         
