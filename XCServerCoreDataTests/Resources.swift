@@ -127,6 +127,9 @@ class Resources {
     
     struct Bakeshop {
         static let prefix: String = "bs"
+        static let botIdentifier: String = "bba9b6ff6d6f0899a63d1e347e040bb4"
+        static let integrationIdentifier: String = "bba9b6ff6d6f0899a63d1e347e4be8f0"
+        static let repositoryIdentifier: String = "6139C8319FDE4527BFD4EA6334BA1CE5BC0DE9DF"
         static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
         static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
         static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
@@ -137,6 +140,9 @@ class Resources {
     
     struct CodeQuickKit {
         static let prefix: String = "cqk"
+        static let botIdentifier: String = "bba9b6ff6d6f0899a63d1e347e081b6a"
+        static let integrationIdentifier: String = "d268530a92c37b78d5fe9634cd09d585"
+        static let repositoryIdentifier: String = "3CBDEDAE95CE25E53B615AC684AAEE3F90A98DFE"
         static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
         static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
         static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
@@ -147,6 +153,9 @@ class Resources {
     
     struct MiseEnPlace {
         static let prefix: String = "mep"
+        static let botIdentifier: String = "bba9b6ff6d6f0899a63d1e347e100570"
+        static let integrationIdentifier: String = "bba9b6ff6d6f0899a63d1e347e100e75"
+        static let repositoryIdentifier: String = "E72555C40C59CF258F530ADBA0314A60534D9864"
         static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
         static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
         static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)
@@ -157,6 +166,9 @@ class Resources {
     
     struct PocketBot {
         static let prefix: String = "pb"
+        static let botIdentifier: String = "bba9b6ff6d6f0899a63d1e347e00ff15"
+        static let integrationIdentifier: String = "445abd7c9c9ac0ab2d3b474f6a1f12ad"
+        static let repositoryIdentifier: String = "6D9FFC92170BF5EE19CA25700175BFFFBA40751A"
         static let Bot: BotJSON? = Resources.bot(forPrefix: prefix)
         static let Integrations: IntegrationsResponse? = Resources.integrations(forPrefix: prefix)
         static let Integration: IntegrationJSON? = Resources.integration(forPrefix: prefix)

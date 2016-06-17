@@ -57,11 +57,11 @@ class Stats: SerializableManagedObject {
         self.sinceDate = stats.sinceDate
         
         if let statsLastCleanIntegrationIdentifier = stats.lastCleanIntegration?.intergraionID {
-            self.lastCleanIntegration = self.bot?.integration(withIdentifier: statsLastCleanIntegrationIdentifier)
+            self.lastCleanIntegration = moc.integration(withIdentifier: statsLastCleanIntegrationIdentifier)
         }
         
         if let statsBestSuccessStreakIdentifier = stats.bestSuccessStreak?.integrationID {
-            self.bestSuccessStreak = self.bot?.integration(withIdentifier: statsBestSuccessStreakIdentifier)
+            self.bestSuccessStreak = moc.integration(withIdentifier: statsBestSuccessStreakIdentifier)
         }
         
         if let statsBreakdown = stats.averageIntegrationTime {

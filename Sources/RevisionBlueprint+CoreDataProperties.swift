@@ -30,7 +30,7 @@ import CoreData
 
 extension RevisionBlueprint {
 
-    @NSManaged var commit: NSManagedObject?
-    @NSManaged var integration: NSManagedObject?
+    @NSManaged var commit: Commit?
+    @NSManaged var integration: Integration?
 
 }

@@ -73,17 +73,17 @@ class Configuration: SerializableManagedObject {
             
             if let remoteRepositories = configurationBlueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
                 for remoteRepository in remoteRepositories {
-                    if let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey {
-                        var repo = moc.repository(withIdentifier: identifier)
-                        if repo == nil {
-                            repo = Repository(managedObjectContext: moc)
-                        }
-                        
-                        guard let repository = repo else {
-                            continue
-                        }
-                        
-                        repository.configurations = repository.configurations?.setByAddingObject(self)
+                    guard let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey else {
+                        continue
+                    }
+                    
+                    if let repository = moc.repository(withIdentifier: identifier) {
+                        repository.update(withRevisionBlueprint: configurationBlueprint)
+                        continue
+                    }
+                    
+                    if let repository = Repository(managedObjectContext: moc, identifier: identifier) {
+                        self.repositories = self.repositories?.setByAddingObject(repository)
                         repository.update(withRevisionBlueprint: configurationBlueprint)
                     }
                 }
@@ -104,16 +104,14 @@ class Configuration: SerializableManagedObject {
         // Triggers
         if let triggers = self.triggers as? Set<Trigger> {
             for trigger in triggers {
+                trigger.configuration = nil
                 moc.deleteObject(trigger)
             }
         }
         
-        self.triggers = NSSet()
-        
         for configurationTrigger in configuration.triggers {
             if let trigger = Trigger(managedObjectContext: moc, configuration: self) {
                 trigger.update(withTrigger: configurationTrigger)
-                self.triggers = self.triggers?.setByAddingObject(trigger)
             }
         }
     }

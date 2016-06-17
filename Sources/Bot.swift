@@ -68,6 +68,7 @@ class Bot: SerializableManagedObject {
                 var repository = moc.repository(withIdentifier: id)
                 if repository == nil {
                     repository = Repository(managedObjectContext: moc, identifier: id)
+                    repository?.identifier = id
                 }
                 
                 repository?.update(withRevisionBlueprint: blueprint)
@@ -82,30 +83,14 @@ class Bot: SerializableManagedObject {
         }
         
         for element in integrations {
-            if let existing = self.integration(withIdentifier: element._id) {
+            if let existing = moc.integration(withIdentifier: element._id) {
                 existing.update(withIntegration: element)
                 continue
             }
             
             if let integration = Integration(managedObjectContext: moc, bot: self) {
                 integration.update(withIntegration: element)
-            
-                self.integrations = self.integrations?.setByAddingObject(integration)
             }
         }
-    }
-    
-    func integration(withIdentifier identifier: String) -> Integration? {
-        guard let integrations = self.integrations as? Set<Integration> else {
-            return nil
-        }
-        
-        let results = integrations.filter({ (integration: Integration) -> Bool in return integration.identifier == identifier })
-        
-        guard let integration = results.first else {
-            return nil
-        }
-        
-        return integration
     }
 }

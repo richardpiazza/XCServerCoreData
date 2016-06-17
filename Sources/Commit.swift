@@ -52,7 +52,9 @@ class Commit: SerializableManagedObject {
         
         self.commitHash = commit.XCSCommitHash
         self.message = commit.XCSCommitMessage
-        self.timestamp = commit.XCSCommitTimestamp
+        if let commitTimestamp = commit.XCSCommitTimestamp {
+            self.timestamp = commitTimestamp
+        }
         
         if let contributor = commit.XCSCommitContributor {
             if self.commitContributor == nil {
@@ -62,18 +64,16 @@ class Commit: SerializableManagedObject {
             self.commitContributor?.update(withCommitContributor: contributor)
         }
         
-        if let filePaths = self.commitChanges as? Set<CommitChange> {
-            for filePath in filePaths {
-                moc.deleteObject(filePath)
+        if let commitChanges = self.commitChanges as? Set<CommitChange> {
+            for commitChange in commitChanges {
+                commitChange.commit = nil
+                moc.deleteObject(commitChange)
             }
         }
         
-        self.commitChanges = NSSet()
-        
-        for filePath in commit.XCSCommitCommitChangeFilePaths {
+        for commitChange in commit.XCSCommitCommitChangeFilePaths {
             if let change = CommitChange(managedObjectContext: moc, commit: self) {
-                change.update(withCommitChange: filePath)
-                self.commitChanges = self.commitChanges?.setByAddingObject(change)
+                change.update(withCommitChange: commitChange)
             }
         }
     }

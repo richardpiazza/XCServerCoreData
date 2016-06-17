@@ -78,16 +78,18 @@ class Integration: SerializableManagedObject {
         
         // Tested Devices
         for testedDevice in integration.testedDevices {
-            let device = moc.device(withIdentifier: testedDevice.ID)
-            device.update(withDevice: testedDevice)
-            
-            if self.testedDevices == nil {
-                self.testedDevices = NSSet()
+            var device = moc.device(withIdentifier: testedDevice.ID)
+            if device == nil {
+                device = Device(managedObjectContext: moc)
             }
             
-            if let devices = self.testedDevices {
-                if !devices.containsObject(device) {
-                    self.testedDevices = devices.setByAddingObject(device)
+            if let d = device {
+                d.update(withDevice: testedDevice)
+                
+                if let devices = self.testedDevices {
+                    if !devices.containsObject(d) {
+                        self.testedDevices = devices.setByAddingObject(d)
+                    }
                 }
             }
         }
@@ -98,6 +100,7 @@ class Integration: SerializableManagedObject {
                 var repository = moc.repository(withIdentifier: id)
                 if repository == nil {
                     repository = Repository(managedObjectContext: moc, identifier: id)
+                    repository?.identifier = id
                 }
                 
                 repository?.update(withRevisionBlueprint: blueprint, integration: self)

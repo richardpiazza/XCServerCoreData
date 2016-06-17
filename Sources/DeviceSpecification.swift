@@ -53,16 +53,14 @@ class DeviceSpecification: SerializableManagedObject {
         if let specificationFilters = specification.filters {
             if let filters = self.filters as? Set<Filter> {
                 for filter in filters {
+                    filter.deviceSpecification = nil
                     moc.deleteObject(filter)
                 }
             }
             
-            self.filters = NSSet()
-            
             for specificationFilter in specificationFilters {
                 if let filter = Filter(managedObjectContext: moc, deviceSpecification: self) {
                     filter.update(withFilter: specificationFilter)
-                    self.filters = self.filters?.setByAddingObject(filter)
                 }
             }
         }
@@ -75,8 +73,15 @@ class DeviceSpecification: SerializableManagedObject {
             }
             
             for specificationDeviceIdentifier in specificationDeviceIdentifiers {
-                let device = moc.device(withIdentifier: specificationDeviceIdentifier)
-                device.deviceSpecifications = device.deviceSpecifications?.setByAddingObject(device)
+                var device = moc.device(withIdentifier: specificationDeviceIdentifier)
+                if device == nil {
+                    device = Device(managedObjectContext: moc)
+                    device?.identifier = specificationDeviceIdentifier
+                }
+                
+                if let d = device {
+                    d.deviceSpecifications = d.deviceSpecifications?.setByAddingObject(d)
+                }
             }
         }
     }

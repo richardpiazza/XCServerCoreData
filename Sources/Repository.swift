@@ -55,7 +55,14 @@ class Repository: SerializableManagedObject {
             return
         }
         
-        // Remote Repository
+        if let workingCopyStates = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey, state = workingCopyStates[self.identifier] {
+            self.workingCopyState = state
+        }
+        
+        if let workingCopyPaths = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey, path = workingCopyPaths[self.identifier] {
+            self.workingCopyPath = path
+        }
+        
         if let remoteRepositorys = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
             if let remoteRepository = remoteRepositorys.filter({ (repo: RemoteRepositoryJSON) -> Bool in
                 return repo.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey == self.identifier
@@ -65,39 +72,36 @@ class Repository: SerializableManagedObject {
             }
         }
         
-        if let blueprintLocation = blueprint.DVTSourceControlWorkspaceBlueprintLocationsKey[self.identifier] {
-            self.branchIdentifier = blueprintLocation.DVTSourceControlBranchIdentifierKey
-            self.branchOptions = blueprintLocation.DVTSourceControlBranchOptionsKey
-            self.locationType = blueprintLocation.DVTSourceControlWorkspaceBlueprintLocationTypeKey
-            
-            if let integration = integration, commitHash = blueprintLocation.DVTSourceControlLocationRevisionKey {
-                var commit = self.commit(withCommitHash: commitHash)
-                if commit == nil {
-                    commit = Commit(managedObjectContext: moc, repository: self)
-                }
-                
-                if let commit = commit, revisionBlueprints = integration.revisionBlueprints as? Set<RevisionBlueprint> {
-                    let existing = revisionBlueprints.filter({ (rb: RevisionBlueprint) -> Bool in
-                        return rb.commit == commit
-                    }).first
-                    
-                    if existing == nil {
-                        if let revisionBlueprint = RevisionBlueprint(managedObjectContext: moc) {
-                            revisionBlueprint.commit = commit
-                            revisionBlueprint.integration = integration
-                            integration.revisionBlueprints = integration.revisionBlueprints?.setByAddingObject(revisionBlueprint)
-                        }
-                    }
-                }
+        guard let blueprintLocation = blueprint.DVTSourceControlWorkspaceBlueprintLocationsKey[self.identifier] else {
+            return
+        }
+        
+        self.branchIdentifier = blueprintLocation.DVTSourceControlBranchIdentifierKey
+        self.branchOptions = blueprintLocation.DVTSourceControlBranchOptionsKey
+        self.locationType = blueprintLocation.DVTSourceControlWorkspaceBlueprintLocationTypeKey
+        
+        guard let integration = integration else {
+            return
+        }
+        
+        guard let commitHash = blueprintLocation.DVTSourceControlLocationRevisionKey else {
+            return
+        }
+        
+        var commit = moc.commit(withHash: commitHash)
+        if commit != nil {
+            return
+        }
+        
+        commit = Commit(managedObjectContext: moc, repository: self)
+        commit?.commitHash = commitHash
+        if let commit = commit {
+            var revisionBlueprint = moc.revisionBlueprint(withCommit: commit, andIntegration: integration)
+            if revisionBlueprint == nil {
+                revisionBlueprint = RevisionBlueprint(managedObjectContext: moc)
+                revisionBlueprint?.commit = commit
+                revisionBlueprint?.integration = integration
             }
-        }
-        
-        if let workingCopyStates = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey, state = workingCopyStates[self.identifier] {
-            self.workingCopyState = state
-        }
-        
-        if let workingCopyPaths = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey, path = workingCopyPaths[self.identifier] {
-            self.workingCopyPath = path
         }
     }
     
@@ -120,24 +124,13 @@ class Repository: SerializableManagedObject {
         }
         
         for commitsCommit in commits {
-            var commit = self.commit(withCommitHash: commitsCommit.XCSCommitHash)
+            var commit = moc.commit(withHash: commitsCommit.XCSCommitHash)
             if commit == nil {
                 commit = Commit(managedObjectContext: moc, repository: self)
+                commit?.commitHash = commitsCommit.XCSCommitHash
             }
             
             commit?.update(withCommit: commitsCommit)
         }
-    }
-    
-    func commit(withCommitHash hash: String) -> Commit? {
-        guard let commits = self.commits as? Set<Commit> else {
-            return nil
-        }
-        
-        let commit = commits.filter { (c: Commit) -> Bool in
-            return c.commitHash == hash
-        }.first
-        
-        return commit
     }
 }

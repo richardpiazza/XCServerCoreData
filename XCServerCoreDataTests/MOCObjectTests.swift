@@ -66,19 +66,13 @@ class MOCObjectTests: XCTestCase {
         
         XCTAssertNotNil(coreData)
         XCTAssertNotNil(server)
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testCoreDataImportFromAPIModels() {
+        
         if let apiResponse = Resources.Bots {
             server.update(withBots: apiResponse.results)
         }
         
         // Bakeshop
-        guard let bakeshopBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e040bb4") else {
+        guard let bakeshopBot = coreData.managedObjectContext.bot(withIdentifier: Resources.Bakeshop.botIdentifier) else {
             XCTFail()
             return
         }
@@ -91,7 +85,7 @@ class MOCObjectTests: XCTestCase {
             bakeshopBot.stats?.update(withStats: apiResponse)
         }
         
-        guard let bakeshopIntegration = bakeshopBot.integration(withIdentifier: "bba9b6ff6d6f0899a63d1e347e4be8f0") else {
+        guard let bakeshopIntegration = coreData.managedObjectContext.integration(withIdentifier: Resources.Bakeshop.integrationIdentifier) else {
             XCTFail()
             return
         }
@@ -100,7 +94,7 @@ class MOCObjectTests: XCTestCase {
             bakeshopIntegration.issues?.update(withIntegrationIssues: apiResponse)
         }
         
-        guard let bakeshopRepository = coreData.managedObjectContext.repository(withIdentifier: "6139C8319FDE4527BFD4EA6334BA1CE5BC0DE9DF") else {
+        guard let bakeshopRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.Bakeshop.repositoryIdentifier) else {
             XCTFail()
             return
         }
@@ -110,7 +104,7 @@ class MOCObjectTests: XCTestCase {
         }
         
         // Pocket Bot
-        guard let pocketBotBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e00ff15") else {
+        guard let pocketBotBot = coreData.managedObjectContext.bot(withIdentifier: Resources.PocketBot.botIdentifier) else {
             XCTFail()
             return
         }
@@ -123,7 +117,7 @@ class MOCObjectTests: XCTestCase {
             pocketBotBot.stats?.update(withStats: apiResponse)
         }
         
-        guard let pocketBotIntegration = pocketBotBot.integration(withIdentifier: "445abd7c9c9ac0ab2d3b474f6a1f12ad") else {
+        guard let pocketBotIntegration = coreData.managedObjectContext.integration(withIdentifier: Resources.PocketBot.integrationIdentifier) else {
             XCTFail()
             return
         }
@@ -132,7 +126,7 @@ class MOCObjectTests: XCTestCase {
             pocketBotIntegration.issues?.update(withIntegrationIssues: apiResponse)
         }
         
-        guard let pocketBotRepository = coreData.managedObjectContext.repository(withIdentifier: "6D9FFC92170BF5EE19CA25700175BFFFBA40751A") else {
+        guard let pocketBotRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.PocketBot.repositoryIdentifier) else {
             XCTFail()
             return
         }
@@ -142,7 +136,7 @@ class MOCObjectTests: XCTestCase {
         }
         
         // Code Quick Kit
-        guard let codeQuickKitBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e081b6a") else {
+        guard let codeQuickKitBot = coreData.managedObjectContext.bot(withIdentifier: Resources.CodeQuickKit.botIdentifier) else {
             XCTFail()
             return
         }
@@ -155,7 +149,7 @@ class MOCObjectTests: XCTestCase {
             codeQuickKitBot.stats?.update(withStats: apiResponse)
         }
         
-        guard let codeQuickKitIntegration = codeQuickKitBot.integration(withIdentifier: "d268530a92c37b78d5fe9634cd09d585") else {
+        guard let codeQuickKitIntegration = coreData.managedObjectContext.integration(withIdentifier: Resources.CodeQuickKit.integrationIdentifier) else {
             XCTFail()
             return
         }
@@ -164,7 +158,7 @@ class MOCObjectTests: XCTestCase {
             codeQuickKitIntegration.issues?.update(withIntegrationIssues: apiResponse)
         }
         
-        guard let codeQuickKitRepository = coreData.managedObjectContext.repository(withIdentifier: "3CBDEDAE95CE25E53B615AC684AAEE3F90A98DFE") else {
+        guard let codeQuickKitRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.CodeQuickKit.repositoryIdentifier) else {
             XCTFail()
             return
         }
@@ -174,7 +168,7 @@ class MOCObjectTests: XCTestCase {
         }
         
         // Mise En Place
-        guard let miseEnPlaceBot = coreData.managedObjectContext.bot(withIdentifier: "bba9b6ff6d6f0899a63d1e347e100570") else {
+        guard let miseEnPlaceBot = coreData.managedObjectContext.bot(withIdentifier: Resources.MiseEnPlace.botIdentifier) else {
             XCTFail()
             return
         }
@@ -187,7 +181,7 @@ class MOCObjectTests: XCTestCase {
             miseEnPlaceBot.stats?.update(withStats: apiResponse)
         }
         
-        guard let miseEnPlaceIntegration = miseEnPlaceBot.integration(withIdentifier: "bba9b6ff6d6f0899a63d1e347e100e75") else {
+        guard let miseEnPlaceIntegration = coreData.managedObjectContext.integration(withIdentifier: Resources.MiseEnPlace.integrationIdentifier) else {
             XCTFail()
             return
         }
@@ -196,7 +190,7 @@ class MOCObjectTests: XCTestCase {
             miseEnPlaceIntegration.issues?.update(withIntegrationIssues: apiResponse)
         }
         
-        guard let miseEnPlaceRepository = coreData.managedObjectContext.repository(withIdentifier: "E72555C40C59CF258F530ADBA0314A60534D9864") else {
+        guard let miseEnPlaceRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.MiseEnPlace.repositoryIdentifier) else {
             XCTFail()
             return
         }
@@ -212,18 +206,95 @@ class MOCObjectTests: XCTestCase {
             XCTFail()
         }
         
-        // VERIFY
+        let xcodeServers = coreData.managedObjectContext.xcodeServers()
+        XCTAssertTrue(xcodeServers.count == 1)
         
-        for server in coreData.managedObjectContext.xcodeServers() {
-            let json = server.json
-            XCTAssertNotNil(json)
-            print(json!)
+        let repositories = coreData.managedObjectContext.repositories()
+        XCTAssertTrue(repositories.count == 4)
+        
+        let commits = coreData.managedObjectContext.commits()
+        XCTAssertTrue(commits.count == 26)
+        
+        let bots = coreData.managedObjectContext.bots()
+        XCTAssertTrue(bots.count == 4)
+        
+        let integrations = coreData.managedObjectContext.integrations()
+        XCTAssertTrue(integrations.count == 23)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+    }
+    
+    func testBakeshopData() {
+        guard let
+            repository = coreData.managedObjectContext.repository(withIdentifier: Resources.Bakeshop.repositoryIdentifier),
+            bot = coreData.managedObjectContext.bot(withIdentifier: Resources.Bakeshop.botIdentifier),
+            commit = coreData.managedObjectContext.commit(withHash: "acb245fde35565f98e09b02a5540f8735fd18682") else {
+                XCTFail()
+                return
         }
         
-        for repository in coreData.managedObjectContext.repositories() {
-            let json = repository.json
-            XCTAssertNotNil(json)
-            print(json!)
+        XCTAssertTrue(repository.url == "ssh://bitbucket.org/richardpiazza/com.richardpiazza.bakeshop.git")
+        
+        guard let
+            commits = repository.commits as? Set<Commit>,
+            integrations = bot.integrations as? Set<Integration> else {
+                XCTFail()
+                return
         }
+        
+        XCTAssertTrue(commits.count == 7)
+        XCTAssertTrue(integrations.count == 11)
+        
+        guard let
+            commitRevisionBlueprints = commit.revisionBlueprints as? Set<RevisionBlueprint>,
+            crb = commitRevisionBlueprints.first else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertTrue(commitRevisionBlueprints.count == 1)
+        
+        let crbIntegration = crb.integration
+        let crbCommit = crb.commit
+        
+        for integration in integrations {
+            print(integration.objectID.URIRepresentation())
+            
+            if let integrationRevisionBlueprints = integration.revisionBlueprints as? Set<RevisionBlueprint> {
+                let objectIds = integrationRevisionBlueprints.map({ (rb: RevisionBlueprint) -> NSURL in
+                    return rb.objectID.URIRepresentation()
+                })
+                print(objectIds)
+            }
+        }
+    }
+    
+    func testPocketBotData() {
+        guard let pocketBotRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.PocketBot.repositoryIdentifier) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertTrue(pocketBotRepository.url == "ssh://bitbucket.org/richardpiazza/com.richardpiazza.pocketbot.git")
+    }
+    
+    func testCodeQuickKitData() {
+        guard let codeQuickKitRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.CodeQuickKit.repositoryIdentifier) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertTrue(codeQuickKitRepository.url == "https://github.com/richardpiazza/CodeQuickKit")
+    }
+    
+    func testMiseEnPlaceData() {
+        guard let miseEnPlaceRepository = coreData.managedObjectContext.repository(withIdentifier: Resources.MiseEnPlace.repositoryIdentifier) else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertTrue(miseEnPlaceRepository.url == "https://github.com/richardpiazza/MiseEnPlace")
     }
 }

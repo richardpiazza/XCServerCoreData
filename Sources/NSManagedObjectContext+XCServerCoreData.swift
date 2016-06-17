@@ -30,6 +30,7 @@ import CoreData
 import CodeQuickKit
 
 extension NSManagedObjectContext {
+    
     // MARK: XcodeServer
     func xcodeServers() -> [XcodeServer] {
         let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
@@ -41,7 +42,7 @@ extension NSManagedObjectContext {
             Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
         }
         
-        return [XcodeServer]()
+        return []
     }
     
     func xcodeServer(withFQDN identifier: String) -> XcodeServer? {
@@ -59,6 +60,19 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Bot
+    func bots() -> [Bot] {
+        let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [Bot] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        return []
+    }
+    
     func bot(withIdentifier identifier: String) -> Bot? {
         let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
@@ -74,6 +88,19 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Integration
+    func integrations() -> [Integration] {
+        let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [Integration] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        return []
+    }
+    
     func integration(withIdentifier identifier: String) -> Integration? {
         let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
@@ -99,10 +126,9 @@ extension NSManagedObjectContext {
             Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
         }
         
-        return [Repository]()
+        return []
     }
     
-    /// Returns a `Repository` with the specified identifier. A new entity is created in none is found.
     func repository(withIdentifier identifier: String) -> Repository? {
         let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
@@ -118,6 +144,19 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Commit
+    func commits() -> [Commit] {
+        let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [Commit] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        return []
+    }
+    
     func commit(withHash identifier: String) -> Commit? {
         let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
         fetchRequest.predicate = NSPredicate(format: "commitHash = %@", argumentArray: [identifier])
@@ -133,9 +172,20 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Device
+    func devices() -> [Device] {
+        let fetchRequest = NSFetchRequest(entityName: Device.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [Device] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
+        
+        return []
+    }
     
-    /// Returns a `Device` with the specified identifier. A new entity is created in none is found.
-    func device(withIdentifier identifier: String) -> Device {
+    func device(withIdentifier identifier: String) -> Device? {
         let fetchRequest = NSFetchRequest(entityName: Device.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
@@ -146,12 +196,34 @@ extension NSManagedObjectContext {
             Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
         }
         
-        guard let device = Device(managedObjectContext: self) else {
-            fatalError("Failed to create new Device")
+        return nil
+    }
+    
+    // MARK: Revision Blueprints
+    func revisionBlueprints() -> [RevisionBlueprint] {
+        let fetchRequest = NSFetchRequest(entityName: RevisionBlueprint.entityName)
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [RevisionBlueprint] {
+                return results
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
         }
         
-        device.identifier = identifier
+        return []
+    }
+    
+    func revisionBlueprint(withCommit commit: Commit, andIntegration integration: Integration) -> RevisionBlueprint? {
+        let fetchRequest = NSFetchRequest(entityName: RevisionBlueprint.entityName)
+        fetchRequest.predicate = NSPredicate(format: "commit = %@ AND integration = %@", argumentArray: [commit, integration])
+        do {
+            if let results = try self.executeFetchRequest(fetchRequest) as? [RevisionBlueprint], result = results.first {
+                return result
+            }
+        } catch {
+            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+        }
         
-        return device
+        return nil
     }
 }
