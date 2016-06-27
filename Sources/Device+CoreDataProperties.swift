@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Device {
+public extension Device {
 
     @NSManaged var architecture: String?
     @NSManaged var connected: NSNumber?

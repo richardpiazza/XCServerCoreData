@@ -29,16 +29,16 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Repository: SerializableManagedObject {
+public class Repository: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
         
         Logger.verbose("Created entity `Repository` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "configurations":
             return nil
@@ -47,7 +47,7 @@ class Repository: SerializableManagedObject {
         }
     }
     
-    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
+    public func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -104,7 +104,7 @@ class Repository: SerializableManagedObject {
         }
     }
     
-    func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
+    public func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
         for integrationCommit in commits {
             for (key, value) in integrationCommit.commits {
                 guard key == self.identifier else {
@@ -116,7 +116,7 @@ class Repository: SerializableManagedObject {
         }
     }
     
-    func update(withCommits commits: [CommitJSON]) {
+    public func update(withCommits commits: [CommitJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

@@ -27,7 +27,7 @@
 
 import Foundation
 
-enum DocumentType: String {
+public enum DocumentType: String {
     case Version = "version"
     case Bot = "bot"
     case Integration = "integration"
@@ -35,7 +35,7 @@ enum DocumentType: String {
     case Commit = "commit"
 }
 
-enum IntegrationStep: String {
+public enum IntegrationStep: String {
     case Unknown
     case Pending = "pending"
     case Checkout = "checkout"
@@ -47,7 +47,7 @@ enum IntegrationStep: String {
     case Uploading = "uploading"
     case Completed = "completed"
     
-    var description: String {
+    public var description: String {
         switch self {
         case .Unknown: return "Unknown"
         case .Pending: return "Pending"
@@ -63,7 +63,7 @@ enum IntegrationStep: String {
     }
 }
 
-enum IntegrationResult: String {
+public enum IntegrationResult: String {
     case Unknown
     case BuildErrors = "build-errors"
     case BuildFailed = "build-failed"
@@ -72,7 +72,7 @@ enum IntegrationResult: String {
     case InternalBuildError = "internal-build-error"
     case Succeeded = "succeeded"
     
-    var description: String {
+    public var description: String {
         switch self {
         case .Unknown: return "Unknown"
         case .BuildErrors: return "Build Errors"
@@ -85,7 +85,7 @@ enum IntegrationResult: String {
     }
 }
 
-enum IssueType: String {
+public enum IssueType: String {
     case Unknown = "unknown"
     case BuildServiceError = "buildServiceError"
     case BuildServiceWarning = "buildServiceWarning"
@@ -95,14 +95,14 @@ enum IssueType: String {
     case TestFailure = "testFailure"
     case AnalyzerWarning = "analyzerWarning"
     
-    var isWarning: Bool {
+    public var isWarning: Bool {
         switch self {
         case .Warning, .BuildServiceWarning: return true
         default: return false
         }
     }
     
-    var isError: Bool {
+    public var isError: Bool {
         switch self {
         case .TriggerError, .Error, .BuildServiceError, .TestFailure: return true
         default: return false
@@ -110,7 +110,7 @@ enum IssueType: String {
     }
 }
 
-enum TriggerPhase: Int {
+public enum TriggerPhase: Int {
     case BeforeIntegration = 0
     case AfterIntegration
 }

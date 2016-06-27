@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Conditions {
+public extension Conditions {
 
     @NSManaged var onAnalyzerWarnings: NSNumber?
     @NSManaged var onBuildErrors: NSNumber?

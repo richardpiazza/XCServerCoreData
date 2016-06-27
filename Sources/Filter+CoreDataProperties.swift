@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Filter {
+public extension Filter {
 
     @NSManaged var architectureType: NSNumber?
     @NSManaged var filterType: NSNumber?

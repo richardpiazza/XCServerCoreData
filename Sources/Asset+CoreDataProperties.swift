@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Asset {
+public extension Asset {
 
     @NSManaged var allowAnonymousAccess: NSNumber?
     @NSManaged var fileName: String?

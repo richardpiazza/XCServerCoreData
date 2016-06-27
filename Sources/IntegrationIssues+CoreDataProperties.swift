@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension IntegrationIssues {
+public extension IntegrationIssues {
 
     @NSManaged var buildServiceErrors: Set<Issue>?
     @NSManaged var buildServiceWarnings: Set<Issue>?

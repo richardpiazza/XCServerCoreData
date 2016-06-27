@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Trigger {
+public extension Trigger {
 
     @NSManaged var name: String?
     @NSManaged var phase: NSNumber?

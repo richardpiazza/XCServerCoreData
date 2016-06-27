@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension IntegrationAssets {
+public extension IntegrationAssets {
 
     @NSManaged var archive: Asset?
     @NSManaged var buildServiceLog: Asset?

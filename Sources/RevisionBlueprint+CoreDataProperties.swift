@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension RevisionBlueprint {
+public extension RevisionBlueprint {
 
     @NSManaged var commit: Commit?
     @NSManaged var integration: Integration?

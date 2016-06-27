@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class DeviceSpecification: SerializableManagedObject {
+public class DeviceSpecification: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "configuration":
             return nil
@@ -45,7 +45,7 @@ class DeviceSpecification: SerializableManagedObject {
         }
     }
     
-    func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
+    public func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

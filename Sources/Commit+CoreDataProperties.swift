@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Commit {
+public extension Commit {
 
     @NSManaged var commitHash: String
     @NSManaged var message: String?

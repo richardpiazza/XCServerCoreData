@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension CommitChange {
+public extension CommitChange {
 
     @NSManaged var filePath: String?
     @NSManaged var status: NSNumber?

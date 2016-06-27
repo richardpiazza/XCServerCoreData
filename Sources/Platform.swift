@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Platform: SerializableManagedObject {
+public class Platform: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, filter: Filter) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, filter: Filter) {
         self.init(managedObjectContext: managedObjectContext)
         self.filter = filter
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "filter":
             return nil
@@ -45,7 +45,7 @@ class Platform: SerializableManagedObject {
         }
     }
     
-    func update(withPlatform platform: PlatformJSON) {
+    public func update(withPlatform platform: PlatformJSON) {
         self.identifier = platform._id
         self.revision = platform._rev
         self.displayName = platform.displayName

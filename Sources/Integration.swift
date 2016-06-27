@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Integration: SerializableManagedObject {
+public class Integration: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
         self.bot = bot
@@ -42,7 +42,7 @@ class Integration: SerializableManagedObject {
         Logger.verbose("Created entity `Integration` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "bot", "inverseBestSuccessStreak", "inverseLastCleanIntegration":
             return nil
@@ -51,7 +51,7 @@ class Integration: SerializableManagedObject {
         }
     }
     
-    func update(withIntegration integration: IntegrationJSON) {
+    public func update(withIntegration integration: IntegrationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -107,7 +107,7 @@ class Integration: SerializableManagedObject {
         }
     }
     
-    var integrationNumber: Int {
+    public var integrationNumber: Int {
         guard let value = self.number else {
             return 0
         }
@@ -115,7 +115,7 @@ class Integration: SerializableManagedObject {
         return value.integerValue
     }
     
-    var integrationStep: IntegrationStep {
+    public var integrationStep: IntegrationStep {
         guard let rawValue = self.currentStep else {
             return .Unknown
         }
@@ -127,7 +127,7 @@ class Integration: SerializableManagedObject {
         return enumeration
     }
     
-    var integrationResult: IntegrationResult {
+    public var integrationResult: IntegrationResult {
         guard let rawValue = self.result else {
             return .Unknown
         }

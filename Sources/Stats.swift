@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Stats: SerializableManagedObject {
+public class Stats: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "bot":
             return nil
@@ -45,7 +45,7 @@ class Stats: SerializableManagedObject {
         }
     }
     
-    func update(withStats stats: StatsJSON) {
+    public func update(withStats stats: StatsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

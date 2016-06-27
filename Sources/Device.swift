@@ -29,16 +29,16 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Device: SerializableManagedObject {
+public class Device: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
         
         Logger.verbose("Created entity `Device` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "deviceSpecifications", "inverseActiveProxiedDevice", "integrations":
             return nil
@@ -47,7 +47,7 @@ class Device: SerializableManagedObject {
         }
     }
     
-    func update(withDevice device: DeviceJSON) {
+    public func update(withDevice device: DeviceJSON) {
         self.name = device.name
         self.deviceType = device.deviceType
         self.connected = device.connected

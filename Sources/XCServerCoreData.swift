@@ -52,7 +52,7 @@ public class XCServerCoreData: CoreData {
     private static let config = Config()
     
     public convenience init?() {
-        self.init(fromBundle: NSBundle.mainBundle(), modelName: "XCServerCoreData", delegate: XCServerCoreData.config)
+        self.init(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: XCServerCoreData.config)
     }
     
     

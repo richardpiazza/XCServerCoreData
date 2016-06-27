@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension XcodeServer {
+public extension XcodeServer {
 
     @NSManaged var fqdn: String
     @NSManaged var lastUpdate: NSDate?

@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension DeviceSpecification {
+public extension DeviceSpecification {
 
     @NSManaged var configuration: Configuration?
     @NSManaged var filters: Set<Filter>?

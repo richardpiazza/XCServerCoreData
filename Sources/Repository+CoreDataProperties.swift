@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Repository {
+public extension Repository {
 
     @NSManaged var branchIdentifier: String?
     @NSManaged var branchOptions: NSNumber?

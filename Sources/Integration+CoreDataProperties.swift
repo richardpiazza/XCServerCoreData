@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Integration {
+public extension Integration {
 
     @NSManaged var currentStep: String?
     @NSManaged var duration: NSNumber?

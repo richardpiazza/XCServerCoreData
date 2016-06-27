@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class CommitChange: SerializableManagedObject {
+public class CommitChange: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "commit":
             return nil
@@ -45,7 +45,7 @@ class CommitChange: SerializableManagedObject {
         }
     }
     
-    func update(withCommitChange change: CommitChangeJSON) {
+    public func update(withCommitChange change: CommitChangeJSON) {
         self.status = change.status
         self.filePath = change.filePath
     }

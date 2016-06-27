@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension StatsBreakdown {
+public extension StatsBreakdown {
 
     @NSManaged var avg: NSNumber?
     @NSManaged var count: NSNumber?

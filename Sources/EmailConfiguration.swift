@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class EmailConfiguration: SerializableManagedObject {
+public class EmailConfiguration: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "trigger":
             return nil
@@ -45,7 +45,7 @@ class EmailConfiguration: SerializableManagedObject {
         }
     }
     
-    func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
+    public func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
         self.emailComitters = configuration.emailCommitters
         self.additionalRecipients = configuration.additionalRecipients.joinWithSeparator(",")
         self.includeCommitMessages = configuration.includeCommitMessages

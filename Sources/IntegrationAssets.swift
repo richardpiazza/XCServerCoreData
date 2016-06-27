@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class IntegrationAssets: SerializableManagedObject {
+public class IntegrationAssets: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -45,7 +45,7 @@ class IntegrationAssets: SerializableManagedObject {
         }
     }
     
-    func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
+    public func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

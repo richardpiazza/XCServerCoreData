@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Bot: SerializableManagedObject {
+public class Bot: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, server: XcodeServer) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, server: XcodeServer) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
         self.xcodeServer = server
@@ -42,7 +42,7 @@ class Bot: SerializableManagedObject {
         Logger.verbose("Created entity `Bot` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "xcodeServer":
             return nil
@@ -51,7 +51,7 @@ class Bot: SerializableManagedObject {
         }
     }
     
-    func update(withBot bot: BotJSON) {
+    public func update(withBot bot: BotJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -79,7 +79,7 @@ class Bot: SerializableManagedObject {
         }
     }
     
-    func update(withIntegrations integrations: [IntegrationJSON]) {
+    public func update(withIntegrations integrations: [IntegrationJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

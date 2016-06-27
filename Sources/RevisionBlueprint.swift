@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class RevisionBlueprint: SerializableManagedObject {
+public class RevisionBlueprint: SerializableManagedObject {
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil

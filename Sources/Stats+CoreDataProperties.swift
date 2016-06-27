@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Stats {
+public extension Stats {
 
     @NSManaged var codeCoveragePercentageDelta: NSNumber?
     @NSManaged var numberOfCommits: NSNumber?

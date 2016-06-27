@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Configuration {
+public extension Configuration {
 
     @NSManaged var builtFromClean: NSNumber?
     @NSManaged var codeCoveragePreference: NSNumber?

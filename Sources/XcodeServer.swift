@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class XcodeServer: SerializableManagedObject {
+public class XcodeServer: SerializableManagedObject {
     
-    func update(withBots data: [BotJSON]) {
+    public func update(withBots data: [BotJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

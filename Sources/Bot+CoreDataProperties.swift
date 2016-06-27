@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Bot {
+public extension Bot {
 
     @NSManaged var identifier: String
     @NSManaged var name: String?

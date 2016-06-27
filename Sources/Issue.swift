@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Issue: SerializableManagedObject {
+public class Issue: SerializableManagedObject {
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "inverseBuildServiceErrors", "inverseBuildServiceWarnings",
              "inverseFreshAnalyserWarnings", "inverseFreshErrors", "inverseFreshTestFailures", "inverseFreshWarnings",
@@ -43,7 +43,7 @@ class Issue: SerializableManagedObject {
         }
     }
     
-    func update(withIssue issue: IssueJSON) {
+    public func update(withIssue issue: IssueJSON) {
         self.identifier = issue._id
         self.revision = issue._rev
         self.status = issue.status
@@ -57,7 +57,7 @@ class Issue: SerializableManagedObject {
         self.issueType = issue.issueType
     }
     
-    var typeOfIssue: IssueType {
+    public var typeOfIssue: IssueType {
         guard let rawValue = self.type else {
             return .Unknown
         }

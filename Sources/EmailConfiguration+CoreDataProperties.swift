@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension EmailConfiguration {
+public extension EmailConfiguration {
 
     @NSManaged var additionalRecipients: String?
     @NSManaged var emailComitters: NSNumber?

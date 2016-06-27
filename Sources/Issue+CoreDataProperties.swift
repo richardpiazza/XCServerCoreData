@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Issue {
+public extension Issue {
 
     @NSManaged var age: NSNumber?
     @NSManaged var documentFilePath: String?

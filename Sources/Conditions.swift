@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Conditions: SerializableManagedObject {
+public class Conditions: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "trigger":
             return nil
@@ -45,7 +45,7 @@ class Conditions: SerializableManagedObject {
         }
     }
     
-    func update(withConditions conditions: ConditionsJSON) {
+    public func update(withConditions conditions: ConditionsJSON) {
         self.status = conditions.status
         self.onWarnings = conditions.onWarnings
         self.onBuildErrors = conditions.onBuildErrors

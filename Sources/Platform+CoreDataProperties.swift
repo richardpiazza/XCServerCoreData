@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension Platform {
+public extension Platform {
 
     @NSManaged var buildNumber: String?
     @NSManaged var displayName: String?

@@ -29,10 +29,10 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-extension NSManagedObjectContext {
+public extension NSManagedObjectContext {
     
     // MARK: XcodeServer
-    func xcodeServers() -> [XcodeServer] {
+    public func xcodeServers() -> [XcodeServer] {
         let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [XcodeServer] {
@@ -45,7 +45,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func xcodeServer(withFQDN identifier: String) -> XcodeServer? {
+    public func xcodeServer(withFQDN identifier: String) -> XcodeServer? {
         let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
         fetchRequest.predicate = NSPredicate(format: "fqdn = %@", argumentArray: [identifier])
         do {
@@ -60,7 +60,7 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Bot
-    func bots() -> [Bot] {
+    public func bots() -> [Bot] {
         let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Bot] {
@@ -73,7 +73,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func bot(withIdentifier identifier: String) -> Bot? {
+    public func bot(withIdentifier identifier: String) -> Bot? {
         let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
@@ -88,7 +88,7 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Integration
-    func integrations() -> [Integration] {
+    public func integrations() -> [Integration] {
         let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Integration] {
@@ -101,7 +101,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func integration(withIdentifier identifier: String) -> Integration? {
+    public func integration(withIdentifier identifier: String) -> Integration? {
         let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
@@ -116,7 +116,7 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Repository
-    func repositories() -> [Repository] {
+    public func repositories() -> [Repository] {
         let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Repository] {
@@ -129,7 +129,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func repository(withIdentifier identifier: String) -> Repository? {
+    public func repository(withIdentifier identifier: String) -> Repository? {
         let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
@@ -144,7 +144,7 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Commit
-    func commits() -> [Commit] {
+    public func commits() -> [Commit] {
         let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Commit] {
@@ -157,7 +157,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func commit(withHash identifier: String) -> Commit? {
+    public func commit(withHash identifier: String) -> Commit? {
         let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
         fetchRequest.predicate = NSPredicate(format: "commitHash = %@", argumentArray: [identifier])
         do {
@@ -172,7 +172,7 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Device
-    func devices() -> [Device] {
+    public func devices() -> [Device] {
         let fetchRequest = NSFetchRequest(entityName: Device.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [Device] {
@@ -185,7 +185,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func device(withIdentifier identifier: String) -> Device? {
+    public func device(withIdentifier identifier: String) -> Device? {
         let fetchRequest = NSFetchRequest(entityName: Device.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
@@ -200,7 +200,7 @@ extension NSManagedObjectContext {
     }
     
     // MARK: Revision Blueprints
-    func revisionBlueprints() -> [RevisionBlueprint] {
+    public func revisionBlueprints() -> [RevisionBlueprint] {
         let fetchRequest = NSFetchRequest(entityName: RevisionBlueprint.entityName)
         do {
             if let results = try self.executeFetchRequest(fetchRequest) as? [RevisionBlueprint] {
@@ -213,7 +213,7 @@ extension NSManagedObjectContext {
         return []
     }
     
-    func revisionBlueprint(withCommit commit: Commit, andIntegration integration: Integration) -> RevisionBlueprint? {
+    public func revisionBlueprint(withCommit commit: Commit, andIntegration integration: Integration) -> RevisionBlueprint? {
         let fetchRequest = NSFetchRequest(entityName: RevisionBlueprint.entityName)
         fetchRequest.predicate = NSPredicate(format: "commit = %@ AND integration = %@", argumentArray: [commit, integration])
         do {

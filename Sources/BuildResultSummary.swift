@@ -29,14 +29,14 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class BuildResultSummary: SerializableManagedObject {
+public class BuildResultSummary: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -45,7 +45,7 @@ class BuildResultSummary: SerializableManagedObject {
         }
     }
     
-    func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
+    public func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
         self.errorCount = summary.errorCount
         self.errorChange = summary.errorChange
         self.warningCount = summary.warningCount

@@ -29,7 +29,7 @@
 import Foundation
 import CoreData
 
-extension CommitContributor {
+public extension CommitContributor {
 
     @NSManaged var displayName: String?
     @NSManaged var emails: NSObject?

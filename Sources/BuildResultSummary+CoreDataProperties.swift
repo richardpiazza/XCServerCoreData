@@ -28,7 +28,7 @@
 import Foundation
 import CoreData
 
-extension BuildResultSummary {
+public extension BuildResultSummary {
 
     @NSManaged var analyzerWarningChange: NSNumber?
     @NSManaged var analyzerWarningCount: NSNumber?

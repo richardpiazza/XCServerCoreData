@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Commit: SerializableManagedObject {
+public class Commit: SerializableManagedObject {
     
-    convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, repository: Repository) {
+    public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, repository: Repository) {
         self.init(managedObjectContext: managedObjectContext)
         self.commitHash = identifier
         self.repository = repository
@@ -39,7 +39,7 @@ class Commit: SerializableManagedObject {
         Logger.verbose("Created entity `Commit` with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "repository", "revisionBlueprints":
             return nil
@@ -48,7 +48,7 @@ class Commit: SerializableManagedObject {
         }
     }
     
-    func update(withCommit commit: CommitJSON) {
+    public func update(withCommit commit: CommitJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

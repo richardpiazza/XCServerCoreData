@@ -29,9 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
-class Asset: SerializableManagedObject {
+public class Asset: SerializableManagedObject {
     
-    override func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "inverseArchive", "inverseBuildServiceLog", "inverseProduct", "inverseSourceControlLog", "inverseTriggerAssets", "inverseXcodebuildLog", "inverseXcodebuildOutput":
             return nil
@@ -40,7 +40,7 @@ class Asset: SerializableManagedObject {
         }
     }
     
-    func update(withAsset asset: AssetJSON) {
+    public func update(withAsset asset: AssetJSON) {
         self.allowAnonymousAccess = asset.allowAnonymousAccess
         self.fileName = asset.fileName
         self.infoDictionary = asset.infoDictionary
