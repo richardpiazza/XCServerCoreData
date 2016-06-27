@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CEFEA4FBED6851A7764AB02 /* Pods_XCServerCoreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */; };
+		6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */; };
 		E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */; };
 		E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEC1D0B520700789436 /* pb_BotResponse.txt */; };
 		E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */; };
@@ -17,7 +19,8 @@
 		E16242531CE3935800283B2E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E16242511CE3935800283B2E /* Podfile */; };
 		E16242551CE3943F00283B2E /* XCServerCoreData.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E16242541CE3943F00283B2E /* XCServerCoreData.podspec */; };
 		E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16242561CE3956A00283B2E /* XCServerCoreData.swift */; };
-		E162425A1CE3992A00283B2E /* XCServerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E16242581CE3992A00283B2E /* XCServerCoreData.xcdatamodeld */; };
+		E1A1D5061D21E0130082793F /* XCServerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */; };
+		E1A1D5081D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */; };
 		E1BA57B81D08821A00B82DFD /* AssetJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57B71D08821A00B82DFD /* AssetJSON.swift */; };
 		E1BA57BA1D08823E00B82DFD /* BotJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57B91D08823E00B82DFD /* BotJSON.swift */; };
 		E1BA57BC1D08827400B82DFD /* BuildResultSummaryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */; };
@@ -119,7 +122,6 @@
 		E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */; };
 		E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */; };
 		E1D825FF1CEB8FEE00BBF4F6 /* JSONResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825FE1CEB8FEE00BBF4F6 /* JSONResponseTests.swift */; };
-		E633E9F4778FA1E1B5BFDCCB /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D9044BBFE3E127BCD5FC19 /* Pods_XCServerCoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,9 +135,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12D9044BBFE3E127BCD5FC19 /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		635AEA34D4C23774C68339E9 /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
-		711E86785DEBFE0F7D4B5B2E /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
+		0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreDataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		241E97D293A69C76BE38BE80 /* Pods-XCServerCoreDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreDataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BDF2BB4F6C3425C772ED3F2 /* Pods-XCServerCoreDataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreDataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9730B4BB5CFE81B9C72334DD /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
+		AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCObjectTests.swift; sourceTree = "<group>"; };
 		E1448FEC1D0B520700789436 /* pb_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_BotResponse.txt; sourceTree = "<group>"; };
 		E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_BotResponse.txt; sourceTree = "<group>"; };
@@ -149,7 +154,9 @@
 		E16242511CE3935800283B2E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E16242541CE3943F00283B2E /* XCServerCoreData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XCServerCoreData.podspec; sourceTree = "<group>"; };
 		E16242561CE3956A00283B2E /* XCServerCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCServerCoreData.swift; sourceTree = "<group>"; };
-		E16242591CE3992A00283B2E /* XCServerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E1A1D5041D21E0130082793F /* XCServerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData.xcdatamodel; sourceTree = "<group>"; };
+		E1A1D5051D21E0130082793F /* XCServerCoreData1.1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData1.1.0.xcdatamodel; sourceTree = "<group>"; };
+		E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.0.0to1.1.0.xcmappingmodel; sourceTree = "<group>"; };
 		E1BA57B71D08821A00B82DFD /* AssetJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetJSON.swift; sourceTree = "<group>"; };
 		E1BA57B91D08823E00B82DFD /* BotJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotJSON.swift; sourceTree = "<group>"; };
 		E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildResultSummaryJSON.swift; sourceTree = "<group>"; };
@@ -258,7 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E633E9F4778FA1E1B5BFDCCB /* Pods_XCServerCoreData.framework in Frameworks */,
+				6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,25 +274,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E16242421CE3930F00283B2E /* XCServerCoreData.framework in Frameworks */,
+				5CEFEA4FBED6851A7764AB02 /* Pods_XCServerCoreDataTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0882F4FD54C391B257A3172C /* Pods */ = {
+		C0EA240D215F436C7CA6A6DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				635AEA34D4C23774C68339E9 /* Pods-XCServerCoreData.debug.xcconfig */,
-				711E86785DEBFE0F7D4B5B2E /* Pods-XCServerCoreData.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D357F47AE1ECD7425C9098A1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				12D9044BBFE3E127BCD5FC19 /* Pods_XCServerCoreData.framework */,
+				AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */,
+				0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -296,11 +296,12 @@
 				E16242541CE3943F00283B2E /* XCServerCoreData.podspec */,
 				E16242511CE3935800283B2E /* Podfile */,
 				E16242521CE3935800283B2E /* Sources */,
+				E1A1D5021D21E0130082793F /* Resources */,
 				E16242391CE3930F00283B2E /* XCServerCoreData */,
 				E16242451CE3930F00283B2E /* XCServerCoreDataTests */,
 				E16242381CE3930F00283B2E /* Products */,
-				0882F4FD54C391B257A3172C /* Pods */,
-				D357F47AE1ECD7425C9098A1 /* Frameworks */,
+				F49CC9175CF2907348293CB5 /* Pods */,
+				C0EA240D215F436C7CA6A6DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -368,6 +369,15 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		E1A1D5021D21E0130082793F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */,
+				E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E1BA57B51D0881D500B82DFD /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,7 +417,6 @@
 		E1BA57B61D0881E400B82DFD /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				E16242581CE3992A00283B2E /* XCServerCoreData.xcdatamodeld */,
 				E16242561CE3956A00283B2E /* XCServerCoreData.swift */,
 				E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */,
 				E1D825A21CEB6D5700BBF4F6 /* Asset+CoreDataProperties.swift */,
@@ -469,6 +478,17 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		F49CC9175CF2907348293CB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9730B4BB5CFE81B9C72334DD /* Pods-XCServerCoreData.debug.xcconfig */,
+				B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */,
+				6BDF2BB4F6C3425C772ED3F2 /* Pods-XCServerCoreDataTests.debug.xcconfig */,
+				241E97D293A69C76BE38BE80 /* Pods-XCServerCoreDataTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -487,12 +507,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E162424B1CE3930F00283B2E /* Build configuration list for PBXNativeTarget "XCServerCoreData" */;
 			buildPhases = (
-				B0CF60D35092789A3EE2EA88 /* Check Pods Manifest.lock */,
+				374A36D81362B948A6BEAF1F /* [CP] Check Pods Manifest.lock */,
 				E16242321CE3930F00283B2E /* Sources */,
 				E16242331CE3930F00283B2E /* Frameworks */,
 				E16242341CE3930F00283B2E /* Headers */,
 				E16242351CE3930F00283B2E /* Resources */,
-				9C46B9BD524FA04FE306FDC9 /* Copy Pods Resources */,
+				8A282B916545EDCEAC16028E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -507,9 +527,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E162424E1CE3930F00283B2E /* Build configuration list for PBXNativeTarget "XCServerCoreDataTests" */;
 			buildPhases = (
+				B92A8381D9619482033629D0 /* [CP] Check Pods Manifest.lock */,
 				E162423D1CE3930F00283B2E /* Sources */,
 				E162423E1CE3930F00283B2E /* Frameworks */,
 				E162423F1CE3930F00283B2E /* Resources */,
+				5DB144CECCD2D29257BC2CB0 /* [CP] Embed Pods Frameworks */,
+				7E07A15E0BB900754E31B86F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -602,14 +625,59 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9C46B9BD524FA04FE306FDC9 /* Copy Pods Resources */ = {
+		374A36D81362B948A6BEAF1F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5DB144CECCD2D29257BC2CB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E07A15E0BB900754E31B86F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A282B916545EDCEAC16028E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,14 +685,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B0CF60D35092789A3EE2EA88 /* Check Pods Manifest.lock */ = {
+		B92A8381D9619482033629D0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,10 +721,10 @@
 				E1BA57C61D08832E00B82DFD /* ConditionsJSON.swift in Sources */,
 				E1D825C41CEB6D5700BBF4F6 /* DeviceSpecification+CoreDataProperties.swift in Sources */,
 				E1BA57DB1D0885C400B82DFD /* IssueJSON.swift in Sources */,
-				E162425A1CE3992A00283B2E /* XCServerCoreData.xcdatamodeld in Sources */,
 				E1D825DD1CEB6D5700BBF4F6 /* Bot.swift in Sources */,
 				E1BA57D01D0883D900B82DFD /* FilterJSON.swift in Sources */,
 				E1D825D51CEB6D5700BBF4F6 /* IntegrationIssues.swift in Sources */,
+				E1A1D5061D21E0130082793F /* XCServerCoreData.xcdatamodeld in Sources */,
 				E1BA57D91D08859D00B82DFD /* IntegrationIssuesJSON.swift in Sources */,
 				E1D825E91CEB6D5700BBF4F6 /* Stats.swift in Sources */,
 				E1BA57F11D08876F00B82DFD /* StatsBreakdownJSON.swift in Sources */,
@@ -675,6 +743,7 @@
 				E1D825CE1CEB6D5700BBF4F6 /* CommitContributor+CoreDataProperties.swift in Sources */,
 				E1D825D41CEB6D5700BBF4F6 /* IntegrationIssues+CoreDataProperties.swift in Sources */,
 				E1D825DB1CEB6D5700BBF4F6 /* Platform.swift in Sources */,
+				E1A1D5081D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel in Sources */,
 				E1D825D01CEB6D5700BBF4F6 /* Asset+CoreDataProperties.swift in Sources */,
 				E1D825BE1CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift in Sources */,
 				E1D825E71CEB6D5700BBF4F6 /* Issue.swift in Sources */,
@@ -836,7 +905,7 @@
 		};
 		E162424C1CE3930F00283B2E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 635AEA34D4C23774C68339E9 /* Pods-XCServerCoreData.debug.xcconfig */;
+			baseConfigurationReference = 9730B4BB5CFE81B9C72334DD /* Pods-XCServerCoreData.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -855,7 +924,7 @@
 		};
 		E162424D1CE3930F00283B2E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 711E86785DEBFE0F7D4B5B2E /* Pods-XCServerCoreData.release.xcconfig */;
+			baseConfigurationReference = B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -873,6 +942,7 @@
 		};
 		E162424F1CE3930F00283B2E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BDF2BB4F6C3425C772ED3F2 /* Pods-XCServerCoreDataTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = XCServerCoreDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -883,6 +953,7 @@
 		};
 		E16242501CE3930F00283B2E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 241E97D293A69C76BE38BE80 /* Pods-XCServerCoreDataTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = XCServerCoreDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -924,12 +995,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E16242581CE3992A00283B2E /* XCServerCoreData.xcdatamodeld */ = {
+		E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E16242591CE3992A00283B2E /* XCServerCoreData.xcdatamodel */,
+				E1A1D5041D21E0130082793F /* XCServerCoreData.xcdatamodel */,
+				E1A1D5051D21E0130082793F /* XCServerCoreData1.1.0.xcdatamodel */,
 			);
-			currentVersion = E16242591CE3992A00283B2E /* XCServerCoreData.xcdatamodel */;
+			currentVersion = E1A1D5041D21E0130082793F /* XCServerCoreData.xcdatamodel */;
 			path = XCServerCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

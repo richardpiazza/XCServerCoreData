@@ -32,6 +32,10 @@ extension XcodeServer {
 
     @NSManaged var fqdn: String
     @NSManaged var lastUpdate: NSDate?
+    @NSManaged var os: String?
+    @NSManaged var xcode: String?
+    @NSManaged var xcodeServer: String?
+    @NSManaged var server: String?
     @NSManaged var bots: Set<Bot>?
 
 }
