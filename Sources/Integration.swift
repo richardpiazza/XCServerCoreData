@@ -29,6 +29,8 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
+public typealias TestResult = (name: String, passed: Bool)
+
 public class Integration: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
@@ -137,5 +139,78 @@ public class Integration: SerializableManagedObject {
         }
         
         return enumeration
+    }
+    
+    public var queuedTimestamp: NSDate? {
+        guard let timestamp = self.queuedDate else {
+            return nil
+        }
+        
+        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+    }
+    
+    public var startedTimestamp: NSDate? {
+        guard let timestamp = self.startedTime else {
+            return nil
+        }
+        
+        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+    }
+    
+    public var endedTimestamp: NSDate? {
+        guard let timestamp = self.endedTime else {
+            return nil
+        }
+        
+        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+    }
+    
+    public var testResults: [TestResult]? {
+        guard let testHierachy = self.testHierachy as? [String : AnyObject] else {
+            return nil
+        }
+        
+        guard testHierachy.keys.count > 0 else {
+            return nil
+        }
+        
+        var results = [TestResult]()
+        
+        for target in testHierachy.keys {
+            guard let suite = testHierachy[target] as? [String : AnyObject] else {
+                continue
+            }
+            
+            let suiteClasses = suite.keys.filter({ (key: String) -> Bool in
+                return !key.hasPrefix("_")
+            })
+            
+            for suiteClass in suiteClasses {
+                guard let classMethods = suite[suiteClass] as? [String : AnyObject] else {
+                    continue
+                }
+                
+                let methodNames = classMethods.keys.filter({ (key: String) -> Bool in
+                    return !key.hasPrefix("_")
+                })
+                
+                for method in methodNames {
+                    guard let devices = classMethods[method] as? [String : Bool] else {
+                        continue
+                    }
+                    
+                    var passed = true
+                    for device in devices {
+                        if device.1 == false {
+                            passed = false
+                        }
+                    }
+                    
+                    results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
+                }
+            }
+        }
+        
+        return results
     }
 }

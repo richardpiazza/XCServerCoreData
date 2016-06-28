@@ -29,6 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
+/// An `XcodeServer` is one of the root elements in the object graph.
+/// This represents a single Xcode Server, uniquely identified by its
+/// FQDN (Fully Qualified Domain Name)
 public class XcodeServer: SerializableManagedObject {
     
     public func update(withBots data: [BotJSON]) {

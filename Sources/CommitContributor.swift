@@ -50,4 +50,39 @@ public class CommitContributor: SerializableManagedObject {
         self.displayName = contributor.XCSContributorDisplayName
         self.emails = contributor.XCSContributorEmails
     }
+    
+    public var initials: String? {
+        var tempComponents: [String]? = nil
+        
+        if let name = self.name {
+            tempComponents = name.componentsSeparatedByString(" ")
+        } else if let displayName = self.displayName {
+            tempComponents = displayName.componentsSeparatedByString(" ")
+        }
+        
+        guard let components = tempComponents else {
+            return nil
+        }
+        
+        var initials = ""
+        
+        for component in components {
+            guard component != "" else {
+                continue
+            }
+            
+            let character = component.substringToIndex(component.startIndex.advancedBy(1))
+            initials.appendContentsOf(character)
+        }
+        
+        return initials
+    }
+    
+    public var emailAddresses: [String] {
+        guard let emails = self.emails as? [String] else {
+            return []
+        }
+        
+        return emails
+    }
 }

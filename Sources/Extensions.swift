@@ -26,3 +26,81 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
+
+public extension NSDateFormatter {
+    private static var _xcServerISO8601Formatter: NSDateFormatter?
+    public static var xcServerISO8601Formatter: NSDateFormatter {
+        if let formatter = _xcServerISO8601Formatter {
+            return formatter
+        }
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        
+        _xcServerISO8601Formatter = formatter
+        
+        return formatter
+    }
+}
+
+public extension String {
+    mutating public func replace(prefix prefix: String, with: String?) {
+        guard hasPrefix(prefix) else {
+            return
+        }
+        
+        let range = startIndex..<startIndex.advancedBy(prefix.characters.count)
+        if let with = with {
+            replaceRange(range, with: with)
+        } else {
+            replaceRange(range, with: "")
+        }
+    }
+    
+    mutating public func replace(suffix suffix: String, with: String?) {
+        guard hasSuffix(suffix) else {
+            return
+        }
+        
+        let range = endIndex.advancedBy(-suffix.characters.count)..<endIndex
+        if let with = with {
+            replaceRange(range, with: with)
+        } else {
+            replaceRange(range, with: "")
+        }
+    }
+    
+    public func character(atIndex index: Int, isInCharacterSet characterSet: NSCharacterSet) -> Bool {
+        guard index >= 0 && index < self.characters.count else {
+            return false
+        }
+        
+        let c = self.utf16[self.utf16.startIndex.advancedBy(index)]
+        return characterSet.characterIsMember(c)
+    }
+    
+    public var xcServerTestMethodName: String {
+        let characterSet = NSCharacterSet.uppercaseLetterCharacterSet()
+        
+        var result = self
+        result.replace(prefix: "test", with: nil)
+        result.replace(suffix: "()", with: nil)
+        
+        for (index, character) in result.characters.enumerate().reverse() {
+            guard index > 0 else {
+                continue
+            }
+            
+            let thisCharacter = result.character(atIndex: index, isInCharacterSet: characterSet)
+            let precedingCharacter = result.character(atIndex: index.advancedBy(-1), isInCharacterSet: characterSet)
+            
+            if thisCharacter && !precedingCharacter {
+                let range = result.startIndex.advancedBy(index)...result.startIndex.advancedBy(index)
+                result.replaceRange(range, with: " \(character)")
+            }
+        }
+        
+        return result
+    }
+}

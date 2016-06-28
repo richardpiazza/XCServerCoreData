@@ -80,4 +80,12 @@ public class Commit: SerializableManagedObject {
             }
         }
     }
+    
+    public var commitTimestamp: NSDate? {
+        guard let timestamp = self.timestamp else {
+            return nil
+        }
+        
+        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+    }
 }

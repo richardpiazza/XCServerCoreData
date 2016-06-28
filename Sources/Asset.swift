@@ -47,5 +47,4 @@ public class Asset: SerializableManagedObject {
         self.relativePath = asset.relativePath
         self.size = asset.size
     }
-    
 }
