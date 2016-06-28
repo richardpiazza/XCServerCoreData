@@ -45,7 +45,7 @@ public class XCServerCoreData: CoreData {
         }
         
         var persistentStoreOptions: [String : AnyObject] {
-            return [String : AnyObject]()
+            return [NSMigratePersistentStoresAutomaticallyOption : true, NSInferMappingModelAutomaticallyOption : true]
         }
     }
     
@@ -55,5 +55,5 @@ public class XCServerCoreData: CoreData {
         self.init(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: XCServerCoreData.config)
     }
     
-    
+    public static let sharedInstance = XCServerCoreData()
 }
