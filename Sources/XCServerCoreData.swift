@@ -49,7 +49,7 @@ public class XCServerCoreData: CoreData {
         }
     }
     
-    public convenience init?() {
+    public convenience init() {
         self.init(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: Config())
     }
     
