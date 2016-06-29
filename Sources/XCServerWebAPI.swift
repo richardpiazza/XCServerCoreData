@@ -90,8 +90,8 @@ public class XCServerWebAPI: WebAPI {
         }
     }
     
-    public static var sessionDelegate = XCServerDefaultSessionDelegate()
-    public static var credentialDelegate = XCServerDefaultCredentialDelegate()
+    public static var sessionDelegate: NSURLSessionDelegate = XCServerDefaultSessionDelegate()
+    public static var credentialDelegate: XCServerWebAPICredentialDelegate = XCServerDefaultCredentialDelegate()
     private static var apis = [String : XCServerWebAPI]()
     
     public static func api(forServer xcodeServer: XcodeServer) -> XCServerWebAPI {

@@ -34,6 +34,13 @@ import CodeQuickKit
 /// FQDN (Fully Qualified Domain Name).
 public class XcodeServer: SerializableManagedObject {
     
+    public convenience init?(managedObjectContext: NSManagedObjectContext, fqdn: String) {
+        self.init(managedObjectContext: managedObjectContext)
+        self.fqdn = fqdn
+        
+        Logger.verbose("Created entity `XcodeServer` with FQDN '\(fqdn)'", callingClass: self.dynamicType)
+    }
+    
     func update(withVersion version: VersionJSON) {
         self.os = version.os
         self.server = version.server

@@ -47,7 +47,7 @@ class MOCObjectTests: XCTestCase {
     }
     
     static let coreDataConfig = CDConfig()
-    static let coreData = CoreData(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: MOCObjectTests.coreDataConfig)!
+    static let coreData = CoreData(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: MOCObjectTests.coreDataConfig)
     static var server: XcodeServer = {
         if let server = coreData.managedObjectContext.xcodeServer(withFQDN: "test.server.com") {
             return server

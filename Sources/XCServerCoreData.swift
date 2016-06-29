@@ -53,13 +53,7 @@ public class XCServerCoreData: CoreData {
         self.init(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: Config())
     }
     
-    public static var sharedInstance: XCServerCoreData {
-        guard let instance = XCServerCoreData() else {
-            fatalError()
-        }
-        
-        return instance
-    }
+    public static var sharedInstance = XCServerCoreData()
     
     public typealias XCServerCoreDataCompletion = (error: NSError?) -> Void
     
@@ -137,27 +131,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                xcodeServer.update(withVersion: version)
-                xcodeServer.lastUpdate = NSDate()
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let server = privateContext.objectWithID(xcodeServer.objectID) as? XcodeServer {
+                    server.update(withVersion: version)
+                    server.lastUpdate = NSDate()
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -181,27 +163,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                xcodeServer.update(withBots: bots)
-                xcodeServer.lastUpdate = NSDate()
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let server = privateContext.objectWithID(xcodeServer.objectID) as? XcodeServer {
+                    server.update(withBots: bots)
+                    server.lastUpdate = NSDate()
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -230,27 +200,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                bot.update(withBot: responseBot)
-                bot.lastUpdate = NSDate()
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let b = privateContext.objectWithID(bot.objectID) as? Bot {
+                    b.update(withBot: responseBot)
+                    b.lastUpdate = NSDate()
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -279,26 +237,14 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                bot.stats?.update(withStats: stats)
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let b = privateContext.objectWithID(bot.objectID) as? Bot {
+                    b.stats?.update(withStats: stats)
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -327,27 +273,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                bot.update(withIntegrations: [integration])
-                bot.lastUpdate = NSDate()
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let b = privateContext.objectWithID(bot.objectID) as? Bot {
+                    b.update(withIntegrations: [integration])
+                    b.lastUpdate = NSDate()
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -376,27 +310,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                bot.update(withIntegrations: integrations)
-                bot.lastUpdate = NSDate()
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let b = privateContext.objectWithID(bot.objectID) as? Bot {
+                    b.update(withIntegrations: integrations)
+                    b.lastUpdate = NSDate()
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -430,27 +352,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                integration.update(withIntegration: responseIntegration)
-                integration.lastUpdate = NSDate()
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let i = privateContext.objectWithID(integration.objectID) as? Integration {
+                    i.update(withIntegration: responseIntegration)
+                    i.lastUpdate = NSDate()
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -489,30 +399,20 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
+            moc.mergeChanges(performingBlock: { (privateContext) in
                 for repository in repositories {
-                    repository.update(withIntegrationCommits: commits)
+                    if let r = privateContext.objectWithID(repository.objectID) as? Repository {
+                        r.update(withIntegrationCommits: commits)
+                    }
                 }
                 
-                integration.hasRetrievedCommits = true
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+                if let i = privateContext.objectWithID(integration.objectID) as? Integration {
+                    i.hasRetrievedCommits = true
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
     
@@ -546,27 +446,15 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            var e = error
-            
-            let privateContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-            privateContext.parentContext = moc
-            
-            moc.registerForDidSaveNotification(privateContext: privateContext)
-            
-            privateContext.performBlockAndWait({
-                integration.issues?.update(withIntegrationIssues: issues)
-                integration.hasRetrievedIssues = true
-                
-                do {
-                    try privateContext.save()
-                } catch {
-                    e = error as NSError
+            moc.mergeChanges(performingBlock: { (privateContext) in
+                if let i = privateContext.objectWithID(integration.objectID) as? Integration {
+                    i.issues?.update(withIntegrationIssues: issues)
+                    i.hasRetrievedIssues = true
                 }
+                
+                }, withCompletion: { (error) in
+                    completion(error: error)
             })
-            
-            moc.unregisterFromDidSaveNotification(privateContext: privateContext)
-            
-            completion(error: e)
         }
     }
 }
