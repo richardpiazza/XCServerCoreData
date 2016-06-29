@@ -51,7 +51,7 @@ public class Bot: SerializableManagedObject {
         }
     }
     
-    public func update(withBot bot: BotJSON) {
+    func update(withBot bot: BotJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -79,7 +79,7 @@ public class Bot: SerializableManagedObject {
         }
     }
     
-    public func update(withIntegrations integrations: [IntegrationJSON]) {
+    func update(withIntegrations integrations: [IntegrationJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

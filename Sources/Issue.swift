@@ -43,7 +43,7 @@ public class Issue: SerializableManagedObject {
         }
     }
     
-    public func update(withIssue issue: IssueJSON) {
+    func update(withIssue issue: IssueJSON) {
         self.identifier = issue._id
         self.revision = issue._rev
         self.status = issue.status

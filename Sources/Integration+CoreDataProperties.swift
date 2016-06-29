@@ -42,6 +42,10 @@ public extension Integration {
     @NSManaged var startedTime: String?
     @NSManaged var success_streak: NSNumber?
     @NSManaged var testHierachy: NSObject?
+    @NSManaged var lastUpdate: NSDate?
+    @NSManaged var hasRetrievedAssets: NSNumber?
+    @NSManaged var hasRetrievedCommits: NSNumber?
+    @NSManaged var hasRetrievedIssues: NSNumber?
     @NSManaged var assets: IntegrationAssets?
     @NSManaged var bot: Bot?
     @NSManaged var buildResultSummary: BuildResultSummary?

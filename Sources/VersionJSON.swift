@@ -1,6 +1,6 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationCommitJSON.swift
+// VersionJSON.swift
 //
 // Copyright (c) 2016 Richard Piazza
 // https://github.com/richardpiazza/XCServerCoreData
@@ -28,36 +28,14 @@
 import Foundation
 import CodeQuickKit
 
-class IntegrationCommitJSON: SerializableObject {
+class VersionJSON: SerializableObject {
     var _id: String?
-    var _rev: String?
-    var doc_type: String?
-    var tinyID: String?
-    var integration: String?
-    var botID: String?
-    var botTinyID: String?
-    var endedTimeDate: [Int] = [Int]()
-    var commits: [String : [CommitJSON]] = [String : [CommitJSON]]()
-    
-    override func initializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        if propertyName == "commits" {
-            var initialized = [String : [CommitJSON]]()
-            
-            guard let cast = data as? [String : [SerializableDictionary]] else {
-                return initialized
-            }
-            
-            for (key, value) in cast {
-                var array = [CommitJSON]()
-                for dictionary in value {
-                    array.append(CommitJSON(withDictionary: dictionary))
-                }
-                initialized[key] = array
-            }
-            
-            return initialized
-        }
-        
-        return super.initializedObject(forPropertyName: propertyName, withData: data)
-    }
+    /// macOS version (i.e. 10.12 (16A201w))
+    var os: String?
+    /// Xcode version used for builds (i.e. 8.0 (8S128d))
+    var xcode: String?
+    /// The Xcode Server API version (i.e. 2.0)
+    var xcodeServer: String?
+    /// The Server.app version (i.e. 5.1.50 (16S1083q))
+    var server: String?
 }

@@ -33,6 +33,7 @@ public extension Bot {
     @NSManaged var identifier: String
     @NSManaged var name: String?
     @NSManaged var type: NSNumber?
+    @NSManaged var lastUpdate: NSDate?
     @NSManaged var configuration: Configuration?
     @NSManaged var integrations: Set<Integration>?
     @NSManaged var stats: Stats?

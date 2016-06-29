@@ -40,7 +40,7 @@ public class Asset: SerializableManagedObject {
         }
     }
     
-    public func update(withAsset asset: AssetJSON) {
+    func update(withAsset asset: AssetJSON) {
         self.allowAnonymousAccess = asset.allowAnonymousAccess
         self.fileName = asset.fileName
         self.infoDictionary = asset.infoDictionary

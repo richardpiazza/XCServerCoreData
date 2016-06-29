@@ -45,7 +45,7 @@ public class Filter: SerializableManagedObject {
         }
     }
     
-    public func update(withFilter filter: FilterJSON) {
+    func update(withFilter filter: FilterJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

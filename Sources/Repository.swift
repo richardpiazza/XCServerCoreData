@@ -47,7 +47,7 @@ public class Repository: SerializableManagedObject {
         }
     }
     
-    public func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
+    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -104,7 +104,7 @@ public class Repository: SerializableManagedObject {
         }
     }
     
-    public func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
+    func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
         for integrationCommit in commits {
             for (key, value) in integrationCommit.commits {
                 guard key == self.identifier else {
@@ -116,7 +116,7 @@ public class Repository: SerializableManagedObject {
         }
     }
     
-    public func update(withCommits commits: [CommitJSON]) {
+    func update(withCommits commits: [CommitJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

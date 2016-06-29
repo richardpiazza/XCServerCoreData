@@ -28,11 +28,11 @@
 import Foundation
 import CodeQuickKit
 
-public class BotsResponse: SerializableObject {
-    public var count: Int = 0
-    public var results: [BotJSON] = [BotJSON]()
+class BotsResponse: SerializableObject {
+    var count: Int = 0
+    var results: [BotJSON] = [BotJSON]()
     
-    override public func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "results" {
             return BotJSON.self
         }
@@ -41,11 +41,11 @@ public class BotsResponse: SerializableObject {
     }
 }
 
-public class IntegrationsResponse : SerializableObject {
-    public var count: Int = 0
-    public var results: [IntegrationJSON] = [IntegrationJSON]()
+class IntegrationsResponse : SerializableObject {
+    var count: Int = 0
+    var results: [IntegrationJSON] = [IntegrationJSON]()
     
-    override public func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "results" {
             return IntegrationJSON.self
         }
@@ -54,11 +54,11 @@ public class IntegrationsResponse : SerializableObject {
     }
 }
 
-public class IntegrationCommitsResponse : SerializableObject {
-    public var count: Int = 0
-    public var results: [IntegrationCommitJSON] = [IntegrationCommitJSON]()
+class IntegrationCommitsResponse : SerializableObject {
+    var count: Int = 0
+    var results: [IntegrationCommitJSON] = [IntegrationCommitJSON]()
     
-    override public func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "results" {
             return IntegrationCommitJSON.self
         }
@@ -67,11 +67,11 @@ public class IntegrationCommitsResponse : SerializableObject {
     }
 }
 
-public class IntegrationIssuesResponse : SerializableObject {
-    public var errors: IntegrationIssuesJSON?
-    public var warnings: IntegrationIssuesJSON?
-    public var analyzerWarnings: IntegrationIssuesJSON?
-    public var testFailures: IntegrationIssuesJSON?
-    public var buildServiceErrors: [IssueJSON] = [IssueJSON]()
-    public var buildServiceWarnings: [IssueJSON] = [IssueJSON]()
+class IntegrationIssuesResponse : SerializableObject {
+    var errors: IntegrationIssuesJSON?
+    var warnings: IntegrationIssuesJSON?
+    var analyzerWarnings: IntegrationIssuesJSON?
+    var testFailures: IntegrationIssuesJSON?
+    var buildServiceErrors: [IssueJSON] = [IssueJSON]()
+    var buildServiceWarnings: [IssueJSON] = [IssueJSON]()
 }

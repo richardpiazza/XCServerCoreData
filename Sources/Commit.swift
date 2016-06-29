@@ -48,7 +48,7 @@ public class Commit: SerializableManagedObject {
         }
     }
     
-    public func update(withCommit commit: CommitJSON) {
+    func update(withCommit commit: CommitJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

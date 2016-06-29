@@ -45,7 +45,7 @@ public class Platform: SerializableManagedObject {
         }
     }
     
-    public func update(withPlatform platform: PlatformJSON) {
+    func update(withPlatform platform: PlatformJSON) {
         self.identifier = platform._id
         self.revision = platform._rev
         self.displayName = platform.displayName

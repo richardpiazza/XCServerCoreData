@@ -45,7 +45,7 @@ public class Stats: SerializableManagedObject {
         }
     }
     
-    public func update(withStats stats: StatsJSON) {
+    func update(withStats stats: StatsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

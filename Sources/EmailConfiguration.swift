@@ -45,7 +45,7 @@ public class EmailConfiguration: SerializableManagedObject {
         }
     }
     
-    public func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
+    func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
         self.emailComitters = configuration.emailCommitters
         self.additionalRecipients = configuration.additionalRecipients.joinWithSeparator(",")
         self.includeCommitMessages = configuration.includeCommitMessages

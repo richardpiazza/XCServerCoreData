@@ -1,14 +1,14 @@
 PODS:
-  - CodeQuickKit/CoreData (2.3.0):
+  - CodeQuickKit/CoreData (2.4.0):
     - CodeQuickKit/Foundation
-  - CodeQuickKit/Foundation (2.3.0)
+  - CodeQuickKit/Foundation (2.4.0)
 
 DEPENDENCIES:
-  - CodeQuickKit/CoreData (~> 2.3)
+  - CodeQuickKit/CoreData (~> 2.4)
 
 SPEC CHECKSUMS:
-  CodeQuickKit: 0f769c8f3c47d3d2ee0f4bb51375982f0969b159
+  CodeQuickKit: 840863001991ecbdb91e7cde5e6cddd9b42ddb77
 
-PODFILE CHECKSUM: dd495f4105f0154cd14c3b588c721d5c9649b4ca
+PODFILE CHECKSUM: 32427631ad33f68dcff8d3bc43c0c5f0e421dc76
 
 COCOAPODS: 1.0.1

@@ -41,7 +41,7 @@ public class StatsBreakdown: SerializableManagedObject {
         }
     }
     
-    public func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
+    func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
         self.sum = breakdown.sum
         self.count = breakdown.count
         self.min = breakdown.min

@@ -45,7 +45,7 @@ public class CommitContributor: SerializableManagedObject {
         }
     }
     
-    public func update(withCommitContributor contributor: CommitContributorJSON) {
+    func update(withCommitContributor contributor: CommitContributorJSON) {
         self.name = contributor.XCSContributorName
         self.displayName = contributor.XCSContributorDisplayName
         self.emails = contributor.XCSContributorEmails

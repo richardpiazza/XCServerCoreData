@@ -1,9 +1,9 @@
 //===----------------------------------------------------------------------===//
 //
-// IntegrationCommitJSON.swift
+// NSManagedObjectContext.swift
 //
 // Copyright (c) 2016 Richard Piazza
-// https://github.com/richardpiazza/XCServerCoreData
+// https://github.com/richardpiazza/CodeQuickKit
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,38 +26,23 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import CodeQuickKit
+import CoreData
 
-class IntegrationCommitJSON: SerializableObject {
-    var _id: String?
-    var _rev: String?
-    var doc_type: String?
-    var tinyID: String?
-    var integration: String?
-    var botID: String?
-    var botTinyID: String?
-    var endedTimeDate: [Int] = [Int]()
-    var commits: [String : [CommitJSON]] = [String : [CommitJSON]]()
+public extension NSManagedObjectContext {
+    /// Registers a parent `NSManagedObjectContext` in the `NSNotificationCenter`
+    /// for watching `NSManagedObjectContextDidSaveNotification` notifications.
+    func registerForDidSaveNotification(privateContext context: NSManagedObjectContext) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NSManagedObjectContext.managedObjectContextDidSave(_:)), name: NSManagedObjectContextDidSaveNotification, object: context)
+    }
     
-    override func initializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        if propertyName == "commits" {
-            var initialized = [String : [CommitJSON]]()
-            
-            guard let cast = data as? [String : [SerializableDictionary]] else {
-                return initialized
-            }
-            
-            for (key, value) in cast {
-                var array = [CommitJSON]()
-                for dictionary in value {
-                    array.append(CommitJSON(withDictionary: dictionary))
-                }
-                initialized[key] = array
-            }
-            
-            return initialized
-        }
-        
-        return super.initializedObject(forPropertyName: propertyName, withData: data)
+    /// Unregisterd a parent `NSManagedObjectContext` from notifications.
+    func unregisterFromDidSaveNotification(privateContext context: NSManagedObjectContext) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSManagedObjectContextDidSaveNotification, object: context)
+    }
+    
+    /// Calls `mergeChangesFromContextDidSaveNotification()` on the `NSManagedObjectContext`
+    /// registered in `registerForDidSaveNotification(privateContext:)`
+    dynamic func managedObjectContextDidSave(notification: NSNotification) {
+        self.mergeChangesFromContextDidSaveNotification(notification)
     }
 }

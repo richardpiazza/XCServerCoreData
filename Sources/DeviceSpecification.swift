@@ -45,7 +45,7 @@ public class DeviceSpecification: SerializableManagedObject {
         }
     }
     
-    public func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
+    func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

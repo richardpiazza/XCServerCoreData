@@ -45,7 +45,7 @@ public class IntegrationAssets: SerializableManagedObject {
         }
     }
     
-    public func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
+    func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -151,6 +151,5 @@ public class IntegrationAssets: SerializableManagedObject {
                 }
             }
         }
-        
     }
 }

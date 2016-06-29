@@ -53,7 +53,7 @@ public class Integration: SerializableManagedObject {
         }
     }
     
-    public func update(withIntegration integration: IntegrationJSON) {
+    func update(withIntegration integration: IntegrationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

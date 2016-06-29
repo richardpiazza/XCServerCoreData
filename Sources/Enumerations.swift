@@ -27,6 +27,8 @@
 
 import Foundation
 
+/// ### DocumentType
+/// The various *types* of documents returned by the Xcode Server API.
 public enum DocumentType: String {
     case Version = "version"
     case Bot = "bot"
@@ -35,6 +37,8 @@ public enum DocumentType: String {
     case Commit = "commit"
 }
 
+/// ### IntegrationStep
+/// Current state of the `Integration` as it moves through the lifecycle.
 public enum IntegrationStep: String {
     case Unknown
     case Pending = "pending"
@@ -63,6 +67,8 @@ public enum IntegrationStep: String {
     }
 }
 
+/// ### IntegrationResult
+/// The outcome of the `Integration`.
 public enum IntegrationResult: String {
     case Unknown
     case BuildErrors = "build-errors"
@@ -85,6 +91,8 @@ public enum IntegrationResult: String {
     }
 }
 
+/// ### IssueType
+/// Identifies the type of an `Integration` issue.
 public enum IssueType: String {
     case Unknown = "unknown"
     case BuildServiceError = "buildServiceError"
@@ -110,6 +118,8 @@ public enum IssueType: String {
     }
 }
 
+/// ### TriggerPhase
+/// When a trigger may be executed during the `Integration` lifecycle.
 public enum TriggerPhase: Int {
     case BeforeIntegration = 0
     case AfterIntegration

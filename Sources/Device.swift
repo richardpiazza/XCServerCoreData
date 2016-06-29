@@ -47,7 +47,7 @@ public class Device: SerializableManagedObject {
         }
     }
     
-    public func update(withDevice device: DeviceJSON) {
+    func update(withDevice device: DeviceJSON) {
         self.name = device.name
         self.deviceType = device.deviceType
         self.connected = device.connected

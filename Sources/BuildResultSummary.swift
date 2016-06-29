@@ -45,7 +45,7 @@ public class BuildResultSummary: SerializableManagedObject {
         }
     }
     
-    public func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
+    func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
         self.errorCount = summary.errorCount
         self.errorChange = summary.errorChange
         self.warningCount = summary.warningCount

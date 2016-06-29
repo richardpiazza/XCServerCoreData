@@ -45,7 +45,7 @@ public class Trigger: SerializableManagedObject {
         }
     }
     
-    public func update(withTrigger trigger: TriggerJSON) {
+    func update(withTrigger trigger: TriggerJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return

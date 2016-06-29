@@ -45,7 +45,7 @@ public class CommitChange: SerializableManagedObject {
         }
     }
     
-    public func update(withCommitChange change: CommitChangeJSON) {
+    func update(withCommitChange change: CommitChangeJSON) {
         self.status = change.status
         self.filePath = change.filePath
     }

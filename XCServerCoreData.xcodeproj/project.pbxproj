@@ -21,6 +21,10 @@
 		E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16242561CE3956A00283B2E /* XCServerCoreData.swift */; };
 		E1A1D5061D21E0130082793F /* XCServerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */; };
 		E1A1D5081D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */; };
+		E1A1D50C1D22DD0E0082793F /* XCServerWebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D50B1D22DD0E0082793F /* XCServerWebAPI.swift */; };
+		E1A1D50E1D22DD630082793F /* VersionJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D50D1D22DD630082793F /* VersionJSON.swift */; };
+		E1A1D5131D241CFE0082793F /* MappingModel1.1.0to1.2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5121D241CFE0082793F /* MappingModel1.1.0to1.2.0.xcmappingmodel */; };
+		E1A1D5151D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5141D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel */; };
 		E1BA57B81D08821A00B82DFD /* AssetJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57B71D08821A00B82DFD /* AssetJSON.swift */; };
 		E1BA57BA1D08823E00B82DFD /* BotJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57B91D08823E00B82DFD /* BotJSON.swift */; };
 		E1BA57BC1D08827400B82DFD /* BuildResultSummaryJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */; };
@@ -157,6 +161,11 @@
 		E1A1D5041D21E0130082793F /* XCServerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		E1A1D5051D21E0130082793F /* XCServerCoreData1.1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData1.1.0.xcdatamodel; sourceTree = "<group>"; };
 		E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.0.0to1.1.0.xcmappingmodel; sourceTree = "<group>"; };
+		E1A1D50B1D22DD0E0082793F /* XCServerWebAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCServerWebAPI.swift; sourceTree = "<group>"; };
+		E1A1D50D1D22DD630082793F /* VersionJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionJSON.swift; sourceTree = "<group>"; };
+		E1A1D5111D241C280082793F /* XCServerCoreData1.2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData1.2.0.xcdatamodel; sourceTree = "<group>"; };
+		E1A1D5121D241CFE0082793F /* MappingModel1.1.0to1.2.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.1.0to1.2.0.xcmappingmodel; sourceTree = "<group>"; };
+		E1A1D5141D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.0.0to1.2.0.xcmappingmodel; sourceTree = "<group>"; };
 		E1BA57B71D08821A00B82DFD /* AssetJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetJSON.swift; sourceTree = "<group>"; };
 		E1BA57B91D08823E00B82DFD /* BotJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotJSON.swift; sourceTree = "<group>"; };
 		E1BA57BB1D08827400B82DFD /* BuildResultSummaryJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildResultSummaryJSON.swift; sourceTree = "<group>"; };
@@ -374,6 +383,8 @@
 			children = (
 				E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */,
 				E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */,
+				E1A1D5121D241CFE0082793F /* MappingModel1.1.0to1.2.0.xcmappingmodel */,
+				E1A1D5141D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -410,6 +421,8 @@
 				E1BA57EA1D0886EF00B82DFD /* StatsJSON.swift */,
 				E1BA57F01D08876F00B82DFD /* StatsBreakdownJSON.swift */,
 				E1BA57F21D08878F00B82DFD /* TriggerJSON.swift */,
+				E1A1D50D1D22DD630082793F /* VersionJSON.swift */,
+				E1A1D50B1D22DD0E0082793F /* XCServerWebAPI.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -724,6 +737,7 @@
 				E1D825DD1CEB6D5700BBF4F6 /* Bot.swift in Sources */,
 				E1BA57D01D0883D900B82DFD /* FilterJSON.swift in Sources */,
 				E1D825D51CEB6D5700BBF4F6 /* IntegrationIssues.swift in Sources */,
+				E1A1D5151D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel in Sources */,
 				E1A1D5061D21E0130082793F /* XCServerCoreData.xcdatamodeld in Sources */,
 				E1BA57D91D08859D00B82DFD /* IntegrationIssuesJSON.swift in Sources */,
 				E1D825E91CEB6D5700BBF4F6 /* Stats.swift in Sources */,
@@ -750,6 +764,7 @@
 				E1D825CF1CEB6D5700BBF4F6 /* CommitContributor.swift in Sources */,
 				E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */,
 				E1D825EB1CEB6D5700BBF4F6 /* Trigger.swift in Sources */,
+				E1A1D50C1D22DD0E0082793F /* XCServerWebAPI.swift in Sources */,
 				E1D825ED1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift in Sources */,
 				E1BA57CC1D08839600B82DFD /* DeviceSpecificationJSON.swift in Sources */,
 				E1D825D61CEB6D5700BBF4F6 /* EmailConfiguration+CoreDataProperties.swift in Sources */,
@@ -764,6 +779,7 @@
 				E1BA57D71D0884A600B82DFD /* IntegrationAssetsJSON.swift in Sources */,
 				E1BA57BC1D08827400B82DFD /* BuildResultSummaryJSON.swift in Sources */,
 				E1BA57D21D08841000B82DFD /* IntegrationJSON.swift in Sources */,
+				E1A1D50E1D22DD630082793F /* VersionJSON.swift in Sources */,
 				E1BA57E11D08861E00B82DFD /* RevisionBlueprintJSON.swift in Sources */,
 				E1D825D11CEB6D5700BBF4F6 /* Asset.swift in Sources */,
 				E1BA57E71D0886A900B82DFD /* RepositoryLocationJSON.swift in Sources */,
@@ -775,6 +791,7 @@
 				E1D825C81CEB6D5700BBF4F6 /* Repository+CoreDataProperties.swift in Sources */,
 				E1D825CB1CEB6D5700BBF4F6 /* CommitChange.swift in Sources */,
 				E1BA57CA1D08837200B82DFD /* DeviceJSON.swift in Sources */,
+				E1A1D5131D241CFE0082793F /* MappingModel1.1.0to1.2.0.xcmappingmodel in Sources */,
 				E1D825EF1CEB881000BBF4F6 /* APIResponses.swift in Sources */,
 				E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */,
 				E1D825CA1CEB6D5700BBF4F6 /* CommitChange+CoreDataProperties.swift in Sources */,
@@ -998,10 +1015,11 @@
 		E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E1A1D5111D241C280082793F /* XCServerCoreData1.2.0.xcdatamodel */,
 				E1A1D5041D21E0130082793F /* XCServerCoreData.xcdatamodel */,
 				E1A1D5051D21E0130082793F /* XCServerCoreData1.1.0.xcdatamodel */,
 			);
-			currentVersion = E1A1D5041D21E0130082793F /* XCServerCoreData.xcdatamodel */;
+			currentVersion = E1A1D5111D241C280082793F /* XCServerCoreData1.2.0.xcdatamodel */;
 			path = XCServerCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

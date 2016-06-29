@@ -28,12 +28,12 @@
 import Foundation
 import CodeQuickKit
 
-public class IntegrationIssuesJSON: SerializableObject {
-    public var unresolvedIssues: [IssueJSON] = [IssueJSON]()
-    public var resolvedIssues: [IssueJSON] = [IssueJSON]()
-    public var freshIssues: [IssueJSON] = [IssueJSON]()
+class IntegrationIssuesJSON: SerializableObject {
+    var unresolvedIssues: [IssueJSON] = [IssueJSON]()
+    var resolvedIssues: [IssueJSON] = [IssueJSON]()
+    var freshIssues: [IssueJSON] = [IssueJSON]()
     
-    override public func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+    override func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
         if propertyName == "unresolvedIssues" {
             return IssueJSON.self
         } else if propertyName == "resolvedIssues" {

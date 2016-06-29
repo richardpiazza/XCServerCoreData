@@ -31,10 +31,17 @@ import CodeQuickKit
 
 /// An `XcodeServer` is one of the root elements in the object graph.
 /// This represents a single Xcode Server, uniquely identified by its
-/// FQDN (Fully Qualified Domain Name)
+/// FQDN (Fully Qualified Domain Name).
 public class XcodeServer: SerializableManagedObject {
     
-    public func update(withBots data: [BotJSON]) {
+    func update(withVersion version: VersionJSON) {
+        self.os = version.os
+        self.server = version.server
+        self.xcodeServer = version.xcodeServer
+        self.xcode = version.xcode
+    }
+    
+    func update(withBots data: [BotJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
             return
@@ -67,5 +74,11 @@ public class XcodeServer: SerializableManagedObject {
                 moc.deleteObject(bot)
             }
         }
+    }
+    
+    /// The root API URL for this `XcodeServer`.
+    /// Apple by default requires the HTTPS scheme and port 20343.
+    public var apiURL: NSURL? {
+        return NSURL(string: "https://\(self.fqdn):20343/api")
     }
 }

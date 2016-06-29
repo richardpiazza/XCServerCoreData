@@ -45,7 +45,7 @@ public class Conditions: SerializableManagedObject {
         }
     }
     
-    public func update(withConditions conditions: ConditionsJSON) {
+    func update(withConditions conditions: ConditionsJSON) {
         self.status = conditions.status
         self.onWarnings = conditions.onWarnings
         self.onBuildErrors = conditions.onBuildErrors
