@@ -115,6 +115,12 @@ public class XCServerWebAPI: WebAPI {
         }
     }
     
+    private let invalidAuthorization = NSError(domain: String(XCServerWebAPI.self), code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "Invalid Authorization",
+        NSLocalizedFailureReasonErrorKey: "The server returned a 401 response code.",
+        NSLocalizedRecoverySuggestionErrorKey: "Have you specified a XCServerWebAPICredentialDelegate to handle authentication?"
+        ])
+    
     private let invalidXcodeServer = NSError(domain: String(XCServerWebAPI.self), code: 0, userInfo: [
         NSLocalizedDescriptionKey: "Invalid Xcode Server",
         NSLocalizedFailureReasonErrorKey: "This class was initialized without an XcodeServer entity.",
@@ -127,7 +133,7 @@ public class XCServerWebAPI: WebAPI {
         NSLocalizedRecoverySuggestionErrorKey: "Check the request is sending a valid response."
         ])
     
-    private var xcodeServer: XcodeServer?
+    public private(set) var xcodeServer: XcodeServer?
     
     public convenience init(xcodeServer: XcodeServer) {
         self.init(baseURL: xcodeServer.apiURL, sessionDelegate: XCServerWebAPI.sessionDelegate)
@@ -170,6 +176,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("version") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(version: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(version: nil, error: error)
                 return
@@ -196,6 +207,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("bots") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(bots: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(bots: nil, error: error)
                 return
@@ -222,6 +238,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("bot/\(bot.identifier)") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(bot: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(bot: nil, error: error)
                 return
@@ -248,6 +269,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("bot/\(bot.identifier)/stats") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(stats: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(stats: nil, error: error)
                 return
@@ -274,6 +300,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.post(nil, path: "bots/\(bot.identifier)/integrations") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(integration: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 201 else {
                 completion(integration: nil, error: error)
                 return
@@ -300,6 +331,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("bots/\(bot.identifier)/integrations") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(integrations: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(integrations: nil, error: error)
                 return
@@ -324,6 +360,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("integrations/\(integration.identifier)") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(integration: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(integration: nil, error: error)
                 return
@@ -350,6 +391,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("integrations/\(integration.identifier)/commits") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(commits: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(commits: nil, error: error)
                 return
@@ -376,6 +422,11 @@ public class XCServerWebAPI: WebAPI {
         }
         
         self.get("integrations/\(integration.identifier)/issues") { (statusCode, response, responseObject, error) in
+            guard statusCode != 401 else {
+                completion(issues: nil, error: self.invalidAuthorization)
+                return
+            }
+            
             guard statusCode == 200 else {
                 completion(issues: nil, error: error)
                 return
