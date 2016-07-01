@@ -36,7 +36,7 @@ public class Commit: SerializableManagedObject {
         self.commitHash = identifier
         self.repository = repository
         
-        Logger.verbose("Created entity `Commit` with identifier '\(identifier)'", callingClass: self.dynamicType)
+        Logger.info("Created `Commit` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

@@ -10,6 +10,7 @@
 		5CEFEA4FBED6851A7764AB02 /* Pods_XCServerCoreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */; };
 		6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */; };
 		E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */; };
+		E12682211D26D355006B4887 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E12682201D26D355006B4887 /* README.md */; };
 		E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEC1D0B520700789436 /* pb_BotResponse.txt */; };
 		E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */; };
 		E1448FF11D0B527900789436 /* mep_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FF01D0B527900789436 /* mep_BotResponse.txt */; };
@@ -146,6 +147,7 @@
 		AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCObjectTests.swift; sourceTree = "<group>"; };
+		E12682201D26D355006B4887 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E1448FEC1D0B520700789436 /* pb_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_BotResponse.txt; sourceTree = "<group>"; };
 		E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_BotResponse.txt; sourceTree = "<group>"; };
 		E1448FF01D0B527900789436 /* mep_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_BotResponse.txt; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				E16242541CE3943F00283B2E /* XCServerCoreData.podspec */,
 				E16242511CE3935800283B2E /* Podfile */,
+				E12682201D26D355006B4887 /* README.md */,
 				E16242521CE3935800283B2E /* Sources */,
 				E1A1D5021D21E0130082793F /* Resources */,
 				E16242391CE3930F00283B2E /* XCServerCoreData */,
@@ -786,6 +789,7 @@
 				E1BA57EF1D08870400B82DFD /* BestSuccessStreakJSON.swift in Sources */,
 				E1BA57DD1D0885DE00B82DFD /* PlatformJSON.swift in Sources */,
 				E1D825E51CEB6D5700BBF4F6 /* XcodeServer.swift in Sources */,
+				E12682211D26D355006B4887 /* README.md in Sources */,
 				E1D825D81CEB6D5700BBF4F6 /* Filter+CoreDataProperties.swift in Sources */,
 				E1D825CD1CEB6D5700BBF4F6 /* Conditions.swift in Sources */,
 				E1D825C81CEB6D5700BBF4F6 /* Repository+CoreDataProperties.swift in Sources */,

@@ -29,6 +29,9 @@ import Foundation
 import CoreData
 import CodeQuickKit
 
+/// ## Bot
+/// Represents an Xcode Server Bot.
+/// "Bots are processes that Xcode Server runs to perform integrations on the current version of a project in a source code repository."
 public class Bot: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, server: XcodeServer) {
@@ -39,7 +42,7 @@ public class Bot: SerializableManagedObject {
         self.configuration = Configuration(managedObjectContext: managedObjectContext, bot: self)
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
         
-        Logger.verbose("Created entity `Bot` with identifier '\(identifier)'", callingClass: self.dynamicType)
+        Logger.info("Created `Bot` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

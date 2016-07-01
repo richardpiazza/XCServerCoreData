@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "XCServerCoreData"
-  s.version = "2.0.3"
+  s.version = "2.0.4"
   s.summary = "Bringing Xcode Server and Core Data together."
   s.description = <<-DESC
   An Apple library that models an Xcode Server into Core Data

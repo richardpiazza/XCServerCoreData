@@ -35,7 +35,7 @@ public class Device: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
         
-        Logger.verbose("Created entity `Device` with identifier '\(identifier)'", callingClass: self.dynamicType)
+        Logger.info("Created `Device` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

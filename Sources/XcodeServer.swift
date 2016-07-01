@@ -38,7 +38,7 @@ public class XcodeServer: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.fqdn = fqdn
         
-        Logger.verbose("Created entity `XcodeServer` with FQDN '\(fqdn)'", callingClass: self.dynamicType)
+        Logger.info("Created `XcodeServer` entity with FQDN '\(fqdn)'", callingClass: self.dynamicType)
     }
     
     func update(withVersion version: VersionJSON) {

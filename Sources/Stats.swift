@@ -34,6 +34,8 @@ public class Stats: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
+        
+        Logger.info("Created `Stats` entity for `Bot` with identifier '\(bot.identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

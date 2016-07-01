@@ -377,11 +377,6 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        guard let repositories = bot.configuration?.repositories else {
-            completion(error: self.invalidRepository)
-            return
-        }
-        
         guard let xcodeServer = bot.xcodeServer else {
             completion(error: self.invalidXcodeServer)
             return
@@ -400,10 +395,10 @@ public class XCServerCoreData: CoreData {
             }
             
             moc.mergeChanges(performingBlock: { (privateContext) in
+                let repositories = privateContext.repositories()
+                
                 for repository in repositories {
-                    if let r = privateContext.objectWithID(repository.objectID) as? Repository {
-                        r.update(withIntegrationCommits: commits)
-                    }
+                    repository.update(withIntegrationCommits: commits)
                 }
                 
                 if let i = privateContext.objectWithID(integration.objectID) as? Integration {

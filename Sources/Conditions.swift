@@ -34,6 +34,8 @@ public class Conditions: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
+        
+        Logger.info("Created `Trigger` entity for `Trigger` '\(trigger.objectID)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

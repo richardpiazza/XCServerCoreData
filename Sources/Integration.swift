@@ -31,6 +31,9 @@ import CodeQuickKit
 
 public typealias TestResult = (name: String, passed: Bool)
 
+/// ## Integration
+/// An Xcode Server Bot integration (run).
+/// "An integration is a single run of a bot. Integrations consist of building, analyzing, testing, and archiving the apps (or other software products) defined in your Xcode projects."
 public class Integration: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
@@ -41,7 +44,7 @@ public class Integration: SerializableManagedObject {
         self.assets = IntegrationAssets(managedObjectContext: managedObjectContext)
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
         
-        Logger.verbose("Created entity `Integration` with identifier '\(identifier)'", callingClass: self.dynamicType)
+        Logger.info("Created `Integration` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

@@ -35,7 +35,7 @@ public class Repository: SerializableManagedObject {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
         
-        Logger.verbose("Created entity `Repository` with identifier '\(identifier)'", callingClass: self.dynamicType)
+        Logger.info("Created `Repository` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
@@ -90,17 +90,19 @@ public class Repository: SerializableManagedObject {
             return
         }
         
-        if let _ = moc.commit(withHash: commitHash) {
-            return
+        var commit: Commit?
+        if let c = moc.commit(withHash: commitHash) {
+            commit = c
+        } else if let c = Commit(managedObjectContext: moc, identifier: commitHash, repository: self) {
+            commit = c
         }
         
-        if let commit = Commit(managedObjectContext: moc, identifier: commitHash, repository: self) {
-            var revisionBlueprint = moc.revisionBlueprint(withCommit: commit, andIntegration: integration)
-            if revisionBlueprint == nil {
-                revisionBlueprint = RevisionBlueprint(managedObjectContext: moc)
-                revisionBlueprint?.commit = commit
-                revisionBlueprint?.integration = integration
+        if let commit = commit {
+            guard moc.revisionBlueprint(withCommit: commit, andIntegration: integration) == nil else {
+                return
             }
+            
+            let _ = RevisionBlueprint(managedObjectContext: moc, commit: commit, integration: integration)
         }
     }
     
