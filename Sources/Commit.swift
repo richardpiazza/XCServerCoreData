@@ -67,14 +67,11 @@ public class Commit: SerializableManagedObject {
             self.commitContributor?.update(withCommitContributor: contributor)
         }
         
-        if let commitChanges = self.commitChanges {
-            for commitChange in commitChanges {
-                commitChange.commit = nil
-                moc.deleteObject(commitChange)
-            }
-        }
-        
         for commitChange in commit.XCSCommitCommitChangeFilePaths {
+            guard self.commitChanges?.contains({ (cc: CommitChange) -> Bool in return cc.filePath == commitChange.filePath }) == false else {
+                continue
+            }
+            
             if let change = CommitChange(managedObjectContext: moc, commit: self) {
                 change.update(withCommitChange: commitChange)
             }
