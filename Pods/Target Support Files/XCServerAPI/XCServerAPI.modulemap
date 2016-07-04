@@ -1,0 +1,6 @@
+framework module XCServerAPI {
+  umbrella header "XCServerAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}

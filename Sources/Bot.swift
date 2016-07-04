@@ -28,6 +28,7 @@
 import Foundation
 import CoreData
 import CodeQuickKit
+import XCServerAPI
 
 /// ## Bot
 /// Represents an Xcode Server Bot.

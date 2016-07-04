@@ -2,9 +2,8 @@
 [![Version](https://img.shields.io/cocoapods/v/XCServerCoreData.svg?style=flat)](http://cocoadocs.org/docsets/XCServerCoreData)
 [![Platform](https://img.shields.io/cocoapods/p/XCServerCoreData.svg?style=flat)](http://cocoadocs.org/docsets/XCServerCoreData)
 
-An API and CoreData Storage framework for working with Xcode Server.
-No extensive knownledge of the Xcode Server API should be needs.
-All API interaction is obfuscated.
+An CoreData Storage framework for working with Xcode Server.
+Depends on the XCServerAPI project for interacting with the API.
 
 #### XCServerCoreData.swift
 
@@ -47,20 +46,3 @@ Methods for the `Integration` entity include:
     XCServerCoreData.syncCommits(forIntegration:, completion:)
     XCServerCoreData.syncIssues(forIntegration:, completion:)
 
-#### XCServerWebAPI.swift
-
-Wraps an `NSURLSession` for each `XcodeServer` entity.
-Two static delegates are available for handling SSL and HTTP Authentication for your server:
-
-    XCServerWebAPI.sessionDelegate: NSURLSessionDelegate
-    XCServerWebAPI.credentialDelegate: XCServerWebAPICredentialDelegate
-
-There are default objects assigned to these properties.
-The default `sessionDelegate` will accept and trust SSL certificates even if self-signed.
-The default `credentialDelegate` will provide no credentials.
-
-The `XCServerWebAPICredentialDelegate` has a default implementation for the method:
-
-credentialsHeader(forAPI:) -> XCServerWebAPICredentialsHeader
-
-that will return a base 64 encoded username password pair for the HTTP Authorization header.

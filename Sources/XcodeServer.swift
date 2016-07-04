@@ -28,6 +28,7 @@
 import Foundation
 import CoreData
 import CodeQuickKit
+import XCServerAPI
 
 /// An `XcodeServer` is one of the root elements in the object graph.
 /// This represents a single Xcode Server, uniquely identified by its

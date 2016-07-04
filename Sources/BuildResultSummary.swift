@@ -28,6 +28,7 @@
 import Foundation
 import CoreData
 import CodeQuickKit
+import XCServerAPI
 
 public class BuildResultSummary: SerializableManagedObject {
     

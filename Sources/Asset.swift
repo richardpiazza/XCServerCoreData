@@ -28,6 +28,7 @@
 import Foundation
 import CoreData
 import CodeQuickKit
+import XCServerAPI
 
 /// ## Asset
 /// "Each integration on your server generates a number of files, known as assets. Assets include log files, Xcode archives and installable products like IPA or PKG files."

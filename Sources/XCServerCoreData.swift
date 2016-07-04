@@ -27,6 +27,7 @@
 import Foundation
 import CoreData
 import CodeQuickKit
+import XCServerAPI
 
 public class XCServerCoreData: CoreData {
     
@@ -96,7 +97,7 @@ public class XCServerCoreData: CoreData {
     /// Ping the Xcode Server.
     /// A Status code of '204' indicates success.
     public static func ping(xcodeServer xcodeServer: XcodeServer, completion: XCServerCoreDataCompletion) {
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
         api.getPing { (statusCode, response, responseObject, error) in
             guard statusCode == 204 else {
                 if let e = error {
@@ -119,7 +120,7 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
         api.getVersion { (version, error) in
             if let e = error {
                 completion(error: e)
@@ -151,7 +152,7 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
         api.getBots { (bots, error) in
             if let e = error {
                 completion(error: e)
@@ -188,8 +189,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.getBot(bot) { (responseBot, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.getBot(bot: bot.identifier) { (responseBot, error) in
             if let e = error {
                 completion(error: e)
                 return
@@ -225,8 +226,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.getStats(forBot: bot) { (stats, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.getStats(forBot: bot.identifier) { (stats, error) in
             if let e = error {
                 completion(error: e)
                 return
@@ -261,8 +262,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.postBot(forBot: bot) { (integration, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.postBot(forBot: bot.identifier) { (integration, error) in
             if let e = error {
                 completion(error: e)
                 return
@@ -298,8 +299,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.getIntegrations(forBot: bot) { (integrations, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.getIntegrations(forBot: bot.identifier) { (integrations, error) in
             if let e = error {
                 completion(error: e)
                 return
@@ -340,8 +341,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.getIntegration(integration) { (responseIntegration, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.getIntegration(integration: integration.identifier) { (responseIntegration, error) in
             if let e = error {
                 completion(error: e)
                 return
@@ -382,8 +383,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.getCommits(forIntegration: integration) { (commits, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.getCommits(forIntegration: integration.identifier) { (commits, error) in
             if let e = error {
                 completion(error: e)
                 return
@@ -429,8 +430,8 @@ public class XCServerCoreData: CoreData {
             return
         }
         
-        let api = XCServerWebAPI.api(forServer: xcodeServer)
-        api.getIssues(forIntegration: integration) { (issues, error) in
+        let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
+        api.getIssues(forIntegration: integration.identifier) { (issues, error) in
             if let e = error {
                 completion(error: e)
                 return

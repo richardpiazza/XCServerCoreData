@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import XCServerAPI
 @testable import XCServerCoreData
 
 class Resources {
