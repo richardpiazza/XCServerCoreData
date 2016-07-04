@@ -29,6 +29,10 @@ import Foundation
 
 public extension NSDateFormatter {
     private static var _xcServerISO8601Formatter: NSDateFormatter?
+    
+    /// ## xcServerISO8601Formatter
+    /// Provides a statically referenced ISO8601 NSDateFormatter.
+    /// - note: This can be removed after iOS 10 is released with the new formatter.
     public static var xcServerISO8601Formatter: NSDateFormatter {
         if let formatter = _xcServerISO8601Formatter {
             return formatter
@@ -45,6 +49,7 @@ public extension NSDateFormatter {
 }
 
 public extension String {
+    /// Replaces a specified prefix string with the provied string.
     mutating public func replace(prefix prefix: String, with: String?) {
         guard hasPrefix(prefix) else {
             return
@@ -58,6 +63,7 @@ public extension String {
         }
     }
     
+    /// Replaces the specified suffix with the provided string.
     mutating public func replace(suffix suffix: String, with: String?) {
         guard hasSuffix(suffix) else {
             return
@@ -71,6 +77,7 @@ public extension String {
         }
     }
     
+    /// Determines if a character at a given index is a member of the provided character set.
     public func character(atIndex index: Int, isInCharacterSet characterSet: NSCharacterSet) -> Bool {
         guard index >= 0 && index < self.characters.count else {
             return false
@@ -80,6 +87,9 @@ public extension String {
         return characterSet.characterIsMember(c)
     }
     
+    /// ## xcServerTestMethodName
+    /// Provides a human-readable form of a method named (in particular XCTest method names).
+    /// - example: testPerformSomeAction() -> 'Perform Some Action'
     public var xcServerTestMethodName: String {
         let characterSet = NSCharacterSet.uppercaseLetterCharacterSet()
         

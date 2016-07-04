@@ -28,6 +28,9 @@
 import Foundation
 import CodeQuickKit
 
+/// ## BotsResponse
+/// This is the response structure received from the Xcode Server API when
+/// querying /bots endpoint.
 class BotsResponse: SerializableObject {
     var count: Int = 0
     var results: [BotJSON] = [BotJSON]()
@@ -41,6 +44,9 @@ class BotsResponse: SerializableObject {
     }
 }
 
+/// ## IntegrationsResponse
+/// This is the response structure received from the Xcode Server API when
+/// querying /bots/{id}/integrations endpoint.
 class IntegrationsResponse : SerializableObject {
     var count: Int = 0
     var results: [IntegrationJSON] = [IntegrationJSON]()
@@ -54,6 +60,9 @@ class IntegrationsResponse : SerializableObject {
     }
 }
 
+/// ## IntegrationCommitsResponse
+/// This is the response structure received from the Xcode Server API when
+/// querying /integrations/{id}/commits endpoint.
 class IntegrationCommitsResponse : SerializableObject {
     var count: Int = 0
     var results: [IntegrationCommitJSON] = [IntegrationCommitJSON]()
@@ -67,6 +76,9 @@ class IntegrationCommitsResponse : SerializableObject {
     }
 }
 
+/// ## IntegrationIssuesResponse
+/// This is the response structure received from the Xcode Server API when
+/// querying /integrations/{id}/issues endpoint.
 class IntegrationIssuesResponse : SerializableObject {
     var errors: IntegrationIssuesJSON?
     var warnings: IntegrationIssuesJSON?

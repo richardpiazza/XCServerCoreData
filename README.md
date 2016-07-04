@@ -26,8 +26,26 @@ Using all defaults:
             return
         }
         
-        // Perform post sync actions; MOC was already saved.
+        // Perform post sync actions; A save() will have been performed on the MOC.
     })
+    
+Other methods for the `XcodeServer` entity include:
+
+    XCServerCoreData.ping(xcodeServer:, completion:)
+    XCServerCoreData.syncVersionData(xcodeServer:, completion:)
+
+Methods for the `Bot` entity include:
+
+    XCServerCoreData.syncBot(bot:, completion:)
+    XCServerCoreData.syncStats(bot:, completion:)
+    XCServerCoreData.triggerIntegration(bot:, completion:)
+    XCServerCoreData.syncIntegrations(bot:, completion:)
+
+Methods for the `Integration` entity include:
+
+    XCServerCoreData.syncIntegration(integration:, completion:)
+    XCServerCoreData.syncCommits(forIntegration:, completion:)
+    XCServerCoreData.syncIssues(forIntegration:, completion:)
 
 #### XCServerWebAPI.swift
 
@@ -36,3 +54,13 @@ Two static delegates are available for handling SSL and HTTP Authentication for 
 
     XCServerWebAPI.sessionDelegate: NSURLSessionDelegate
     XCServerWebAPI.credentialDelegate: XCServerWebAPICredentialDelegate
+
+There are default objects assigned to these properties.
+The default `sessionDelegate` will accept and trust SSL certificates even if self-signed.
+The default `credentialDelegate` will provide no credentials.
+
+The `XCServerWebAPICredentialDelegate` has a default implementation for the method:
+
+credentialsHeader(forAPI:) -> XCServerWebAPICredentialsHeader
+
+that will return a base 64 encoded username password pair for the HTTP Authorization header.
