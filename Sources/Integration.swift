@@ -72,7 +72,9 @@ public class Integration: SerializableManagedObject {
         self.endedTime = integration.endedTime
         self.duration = integration.duration
         self.success_streak = integration.success_streak
-        self.testHierachy = integration.testHierarchy
+        if let value = integration.testHierarchy {
+            self.testHierachy = value
+        }
         self.hasCoverageData = integration.hasCoverageData
         
         // Build Results Summary

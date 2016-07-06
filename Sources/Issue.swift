@@ -56,6 +56,7 @@ public class Issue: SerializableManagedObject {
         self.age = issue.age
         self.type = issue.type
         self.issueType = issue.issueType
+        self.message = issue.message
     }
     
     public var typeOfIssue: IssueType {
