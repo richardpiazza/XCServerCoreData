@@ -35,6 +35,7 @@ public class Configuration: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
+        self.deviceSpecification = DeviceSpecification(managedObjectContext: managedObjectContext, configuration: self)
         
         Logger.info("Created `Configuration` entity for `Bot` with identifier '\(bot.identifier)'", callingClass: self.dynamicType)
     }
@@ -96,16 +97,10 @@ public class Configuration: SerializableManagedObject {
         
         // Device Specification
         if let configurationDeviceSpecification = configuration.deviceSpecification {
-            if self.deviceSpecification == nil {
-                self.deviceSpecification = DeviceSpecification(managedObjectContext: moc, configuration: self)
-            }
-            
-            if let deviceSpecification = self.deviceSpecification {
-                deviceSpecification.update(withDeviceSpecification: configurationDeviceSpecification)
-            }
+            self.deviceSpecification?.update(withDeviceSpecification: configurationDeviceSpecification)
         }
         
-        // Triggers
+        // Triggers        
         if let triggers = self.triggers {
             for trigger in triggers {
                 trigger.configuration = nil

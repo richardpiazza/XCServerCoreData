@@ -1,12 +1,12 @@
 PODS:
-  - CodeQuickKit (2.5.1):
-    - CodeQuickKit/iOS (= 2.5.1)
-  - CodeQuickKit/CoreData (2.5.1):
+  - CodeQuickKit (2.5.2):
+    - CodeQuickKit/iOS (= 2.5.2)
+  - CodeQuickKit/CoreData (2.5.2):
     - CodeQuickKit/Foundation
-  - CodeQuickKit/Foundation (2.5.1)
-  - CodeQuickKit/iOS (2.5.1):
+  - CodeQuickKit/Foundation (2.5.2)
+  - CodeQuickKit/iOS (2.5.2):
     - CodeQuickKit/UIKit
-  - CodeQuickKit/UIKit (2.5.1):
+  - CodeQuickKit/UIKit (2.5.2):
     - CodeQuickKit/Foundation
   - XCServerAPI (1.0.1):
     - CodeQuickKit (~> 2.5)
@@ -16,7 +16,7 @@ DEPENDENCIES:
   - XCServerAPI (~> 1.0)
 
 SPEC CHECKSUMS:
-  CodeQuickKit: b7b94d042a7c5105885cb81c5f09bb4101c79b3a
+  CodeQuickKit: f2819945ce35bc6bd9c61a1411b83b5597378656
   XCServerAPI: dc43e142f06c731d513a8e2bf646bc558639003a
 
 PODFILE CHECKSUM: acc1c3c3818ba40bb144cdecdacd96e028965839
