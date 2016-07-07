@@ -35,8 +35,6 @@ public class IntegrationIssues: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
-        
-        Logger.info("Created `IntegrationIssues` entity for `Integration` with identifier '\(integration.identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

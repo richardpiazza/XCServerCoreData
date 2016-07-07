@@ -35,8 +35,6 @@ public class DeviceSpecification: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
-        
-        Logger.info("Created `DeviceSpecification` entity for `Configuration` '\(configuration.objectID)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

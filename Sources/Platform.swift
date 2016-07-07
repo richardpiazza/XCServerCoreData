@@ -35,8 +35,6 @@ public class Platform: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, filter: Filter) {
         self.init(managedObjectContext: managedObjectContext)
         self.filter = filter
-        
-        Logger.info("Created `Platform` entity for `Filter` '\(filter.objectID)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

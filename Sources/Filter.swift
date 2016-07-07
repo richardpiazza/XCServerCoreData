@@ -35,8 +35,6 @@ public class Filter: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, deviceSpecification: DeviceSpecification) {
         self.init(managedObjectContext: managedObjectContext)
         self.deviceSpecification = deviceSpecification
-        
-        Logger.info("Created `Filter` entity for `DeviceSpecification` '\(deviceSpecification.objectID)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

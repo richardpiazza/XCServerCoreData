@@ -35,8 +35,6 @@ public class CommitContributor: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
-        
-        Logger.info("Created `CommitContributor` entity for `Commit` with hash '\(commit.commitHash)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

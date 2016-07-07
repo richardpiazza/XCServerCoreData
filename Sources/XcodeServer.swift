@@ -38,8 +38,6 @@ public class XcodeServer: SerializableManagedObject {
     public convenience init?(managedObjectContext: NSManagedObjectContext, fqdn: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.fqdn = fqdn
-        
-        Logger.info("Created `XcodeServer` entity with FQDN '\(fqdn)'", callingClass: self.dynamicType)
     }
     
     func update(withVersion version: VersionJSON) {

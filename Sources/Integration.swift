@@ -44,8 +44,6 @@ public class Integration: SerializableManagedObject {
         self.buildResultSummary = BuildResultSummary(managedObjectContext: managedObjectContext, integration: self)
         self.assets = IntegrationAssets(managedObjectContext: managedObjectContext)
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
-        
-        Logger.info("Created `Integration` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {

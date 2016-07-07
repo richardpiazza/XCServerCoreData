@@ -42,8 +42,6 @@ public class Bot: SerializableManagedObject {
         self.integrations = Set<Integration>()
         self.configuration = Configuration(managedObjectContext: managedObjectContext, bot: self)
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
-        
-        Logger.info("Created `Bot` entity with identifier '\(identifier)'", callingClass: self.dynamicType)
     }
     
     override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
