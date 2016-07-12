@@ -80,14 +80,23 @@ public class Configuration: SerializableManagedObject {
                         continue
                     }
                     
-                    if let repository = moc.repository(withIdentifier: identifier) {
-                        repository.update(withRevisionBlueprint: configurationBlueprint)
+                    var repo: Repository?
+                    if let r = moc.repository(withIdentifier: identifier) {
+                        repo = r
+                    } else if let r = Repository(managedObjectContext: moc, identifier: identifier) {
+                        repo = r
+                    }
+                    
+                    guard let repository = repo else {
                         continue
                     }
                     
-                    if let repository = Repository(managedObjectContext: moc, identifier: identifier) {
-                        repository.update(withRevisionBlueprint: configurationBlueprint)
-                        self.repositories?.insert(repository)
+                    repository.update(withRevisionBlueprint: configurationBlueprint)
+                    
+                    if let repositories = self.repositories {
+                        if !repositories.contains(repository) {
+                            self.repositories?.insert(repository)
+                        }
                     }
                 }
             }
