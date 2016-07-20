@@ -108,6 +108,8 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
+            Logger.info("Pinged Server '\(xcodeServer.fqdn)'", callingClass: self)
+            
             completion(error: nil)
         }
     }
@@ -131,6 +133,8 @@ public class XCServerCoreData: CoreData {
                 completion(error: self.invalidResponse)
                 return
             }
+            
+            Logger.info("Retrieved Version Data for Server '\(xcodeServer.fqdn)'", callingClass: self)
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let server = privateContext.objectWithID(xcodeServer.objectID) as? XcodeServer {
@@ -163,6 +167,8 @@ public class XCServerCoreData: CoreData {
                 completion(error: self.invalidResponse)
                 return
             }
+            
+            Logger.info("Retrieved Bots for Server '\(xcodeServer.fqdn)'", callingClass: self)
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let server = privateContext.objectWithID(xcodeServer.objectID) as? XcodeServer {
@@ -201,6 +207,8 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
+            Logger.info("Retrieved Bot '\(bot.identifier)'", callingClass: self)
+            
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.objectWithID(bot.objectID) as? Bot {
                     b.update(withBot: responseBot)
@@ -238,6 +246,8 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
+            Logger.info("Retrieved Stats for Bot '\(bot.identifier)'", callingClass: self)
+            
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.objectWithID(bot.objectID) as? Bot {
                     b.stats?.update(withStats: stats)
@@ -273,6 +283,8 @@ public class XCServerCoreData: CoreData {
                 completion(error: self.invalidResponse)
                 return
             }
+            
+            Logger.info("Triggered Integration for Bot '\(bot.identifier)'", callingClass: self)
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.objectWithID(bot.objectID) as? Bot {
@@ -310,6 +322,8 @@ public class XCServerCoreData: CoreData {
                 completion(error: self.invalidResponse)
                 return
             }
+            
+            Logger.info("Retrieved Integrations for Bot '\(bot.identifier)'", callingClass: self)
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.objectWithID(bot.objectID) as? Bot {
@@ -353,6 +367,8 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
+            Logger.info("Retrieved Integration '\(integration.identifier)'", callingClass: self)
+            
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let i = privateContext.objectWithID(integration.objectID) as? Integration {
                     i.update(withIntegration: responseIntegration)
@@ -394,6 +410,8 @@ public class XCServerCoreData: CoreData {
                 completion(error: self.invalidResponse)
                 return
             }
+            
+            Logger.info("Retrieved Commits for Integration '\(integration.identifier)'", callingClass: self)
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 let repositories = privateContext.repositories()
@@ -441,6 +459,8 @@ public class XCServerCoreData: CoreData {
                 completion(error: self.invalidResponse)
                 return
             }
+            
+            Logger.info("Retrieved Issues for Integration '\(integration.identifier)'", callingClass: self)
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let i = privateContext.objectWithID(integration.objectID) as? Integration {

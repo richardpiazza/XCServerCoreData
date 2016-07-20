@@ -124,12 +124,14 @@ public class Repository: SerializableManagedObject {
         }
         
         for commitsCommit in commits {
-            if let commit = moc.commit(withHash: commitsCommit.XCSCommitHash) {
-                commit.update(withCommit: commitsCommit)
-                continue
+            var commit: Commit?
+            if let c = moc.commit(withHash: commitsCommit.XCSCommitHash) {
+                commit = c
+            } else if let c = Commit(managedObjectContext: moc, identifier: commitsCommit.XCSCommitHash, repository: self) {
+                commit = c
             }
             
-            if let commit = Commit(managedObjectContext: moc, identifier: commitsCommit.XCSCommitHash, repository: self) {
+            if let commit = commit {
                 commit.update(withCommit: commitsCommit)
             }
         }
