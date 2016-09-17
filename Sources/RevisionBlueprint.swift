@@ -30,7 +30,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class RevisionBlueprint: SerializableManagedObject {
+open class RevisionBlueprint: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
@@ -38,7 +38,7 @@ public class RevisionBlueprint: SerializableManagedObject {
         self.integration = integration
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil

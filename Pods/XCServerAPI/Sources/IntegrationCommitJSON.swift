@@ -44,7 +44,7 @@ public class IntegrationCommitJSON: SerializableObject {
             var initialized = [String : [CommitJSON]]()
             
             guard let cast = data as? [String : [SerializableDictionary]] else {
-                return initialized
+                return initialized as NSObject?
             }
             
             for (key, value) in cast {
@@ -55,7 +55,7 @@ public class IntegrationCommitJSON: SerializableObject {
                 initialized[key] = array
             }
             
-            return initialized
+            return initialized as NSObject?
         }
         
         return super.initializedObject(forPropertyName: propertyName, withData: data)

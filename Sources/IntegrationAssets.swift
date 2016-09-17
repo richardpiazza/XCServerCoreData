@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class IntegrationAssets: SerializableManagedObject {
+open class IntegrationAssets: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -48,14 +48,14 @@ public class IntegrationAssets: SerializableManagedObject {
     
     func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
         // Archive
         if let archiveAsset = assets.archive {
             if let archive = self.archive {
-                moc.deleteObject(archive)
+                moc.delete(archive)
                 self.archive = nil
             }
         
@@ -69,7 +69,7 @@ public class IntegrationAssets: SerializableManagedObject {
         // Build Service Log
         if let logAsset = assets.buildServiceLog {
             if let buildServiceLog = self.buildServiceLog {
-                moc.deleteObject(buildServiceLog)
+                moc.delete(buildServiceLog)
                 self.buildServiceLog = nil
             }
             
@@ -83,7 +83,7 @@ public class IntegrationAssets: SerializableManagedObject {
         // Product
         if let productAsset = assets.product {
             if let product = self.product {
-                moc.deleteObject(product)
+                moc.delete(product)
                 self.product = nil
             }
             
@@ -97,7 +97,7 @@ public class IntegrationAssets: SerializableManagedObject {
         // Source Control Log
         if let logAsset = assets.sourceControlLog {
             if let sourceControlLog = self.sourceControlLog {
-                moc.deleteObject(sourceControlLog)
+                moc.delete(sourceControlLog)
                 self.sourceControlLog = nil
             }
             
@@ -111,7 +111,7 @@ public class IntegrationAssets: SerializableManagedObject {
         // Xcode Build Log
         if let logAsset = assets.xcodebuildLog {
             if let xcodebuildLog = self.xcodebuildLog {
-                moc.deleteObject(xcodebuildLog)
+                moc.delete(xcodebuildLog)
                 self.xcodebuildLog = nil
             }
             
@@ -125,7 +125,7 @@ public class IntegrationAssets: SerializableManagedObject {
         // Xcode Build Output
         if let outputAsset = assets.xcodebuildOutput {
             if let xcodebuildOutput = self.xcodebuildOutput {
-                moc.deleteObject(xcodebuildOutput)
+                moc.delete(xcodebuildOutput)
                 self.xcodebuildOutput = nil
             }
             
@@ -141,7 +141,7 @@ public class IntegrationAssets: SerializableManagedObject {
             if let set = self.triggerAssets {
                 for asset in set {
                     asset.inverseTriggerAssets = nil
-                    moc.deleteObject(asset)
+                    moc.delete(asset)
                 }
             }
             

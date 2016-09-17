@@ -35,7 +35,7 @@ public typealias TestResult = (name: String, passed: Bool)
 /// ## Integration
 /// An Xcode Server Bot integration (run).
 /// "An integration is a single run of a bot. Integrations consist of building, analyzing, testing, and archiving the apps (or other software products) defined in your Xcode projects."
-public class Integration: SerializableManagedObject {
+open class Integration: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
@@ -46,7 +46,7 @@ public class Integration: SerializableManagedObject {
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "bot", "inverseBestSuccessStreak", "inverseLastCleanIntegration":
             return nil
@@ -57,23 +57,23 @@ public class Integration: SerializableManagedObject {
     
     func update(withIntegration integration: IntegrationJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
-        self.number = integration.number
-        self.shouldClean = integration.shouldClean
+        self.number = integration.number as NSNumber?
+        self.shouldClean = integration.shouldClean as NSNumber?
         self.currentStep = integration.currentStep
         self.result = integration.result
         self.queuedDate = integration.queuedDate
         self.startedTime = integration.startedTime
         self.endedTime = integration.endedTime
-        self.duration = integration.duration
-        self.success_streak = integration.success_streak
+        self.duration = integration.duration as NSNumber?
+        self.success_streak = integration.success_streak as NSNumber?
         if let value = integration.testHierarchy {
-            self.testHierachy = value
+            self.testHierachy = value as NSObject?
         }
-        self.hasCoverageData = integration.hasCoverageData
+        self.hasCoverageData = integration.hasCoverageData as NSNumber?
         
         // Build Results Summary
         if let summary = integration.buildResultSummary {
@@ -113,15 +113,15 @@ public class Integration: SerializableManagedObject {
         }
     }
     
-    public var integrationNumber: Int {
+    open var integrationNumber: Int {
         guard let value = self.number else {
             return 0
         }
         
-        return value.integerValue
+        return value.intValue
     }
     
-    public var integrationStep: IntegrationStep {
+    open var integrationStep: IntegrationStep {
         guard let rawValue = self.currentStep else {
             return .Unknown
         }
@@ -133,7 +133,7 @@ public class Integration: SerializableManagedObject {
         return enumeration
     }
     
-    public var integrationResult: IntegrationResult {
+    open var integrationResult: IntegrationResult {
         guard let rawValue = self.result else {
             return .Unknown
         }
@@ -145,31 +145,31 @@ public class Integration: SerializableManagedObject {
         return enumeration
     }
     
-    public var queuedTimestamp: NSDate? {
+    open var queuedTimestamp: Date? {
         guard let timestamp = self.queuedDate else {
             return nil
         }
         
-        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
     }
     
-    public var startedTimestamp: NSDate? {
+    open var startedTimestamp: Date? {
         guard let timestamp = self.startedTime else {
             return nil
         }
         
-        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
     }
     
-    public var endedTimestamp: NSDate? {
+    open var endedTimestamp: Date? {
         guard let timestamp = self.endedTime else {
             return nil
         }
         
-        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
     }
     
-    public var testResults: [TestResult]? {
+    open var testResults: [TestResult]? {
         guard let testHierachy = self.testHierachy as? [String : AnyObject] else {
             return nil
         }

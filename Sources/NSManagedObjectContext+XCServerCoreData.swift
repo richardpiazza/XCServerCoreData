@@ -37,13 +37,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `XcodeServer` entities from the Core Data `NSManagedObjectContext`
     public func xcodeServers() -> [XcodeServer] {
-        let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
+        let fetchRequest = NSFetchRequest<XcodeServer>(entityName: XcodeServer.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [XcodeServer] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -52,14 +50,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `XcodeServer` entity from the Core Data `NSManagedObjectContext`
     /// that matches the specified FQDN identifier.
     public func xcodeServer(withFQDN identifier: String) -> XcodeServer? {
-        let fetchRequest = NSFetchRequest(entityName: XcodeServer.entityName)
+        let fetchRequest = NSFetchRequest<XcodeServer>(entityName: XcodeServer.entityName)
         fetchRequest.predicate = NSPredicate(format: "fqdn = %@", argumentArray: [identifier])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [XcodeServer], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil
@@ -69,13 +68,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `Bot` entities from the Core Data `NSManagedObjectContext`
     public func bots() -> [Bot] {
-        let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
+        let fetchRequest = NSFetchRequest<Bot>(entityName: Bot.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Bot] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -84,14 +81,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `Bot` entity from the Core Data `NSManagedObjectContext`
     /// that matches the specified identifier.
     public func bot(withIdentifier identifier: String) -> Bot? {
-        let fetchRequest = NSFetchRequest(entityName: Bot.entityName)
+        let fetchRequest = NSFetchRequest<Bot>(entityName: Bot.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Bot], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil
@@ -101,13 +99,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `Integration` entities from the Core Data `NSManagedObjectContext`
     public func integrations() -> [Integration] {
-        let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
+        let fetchRequest = NSFetchRequest<Integration>(entityName: Integration.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Integration] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -116,14 +112,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `Integration` entity from the Core Data `NSManagedObjectContext`
     /// that matches the specified identifier.
     public func integration(withIdentifier identifier: String) -> Integration? {
-        let fetchRequest = NSFetchRequest(entityName: Integration.entityName)
+        let fetchRequest = NSFetchRequest<Integration>(entityName: Integration.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Integration], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil
@@ -133,13 +130,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `Repository` entities from the Core Data `NSManagedObjectContext`
     public func repositories() -> [Repository] {
-        let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
+        let fetchRequest = NSFetchRequest<Repository>(entityName: Repository.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Repository] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -148,14 +143,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `Repository` entity from the Core Data `NSManagedObjectContext`
     /// that matches the specified identifier.
     public func repository(withIdentifier identifier: String) -> Repository? {
-        let fetchRequest = NSFetchRequest(entityName: Repository.entityName)
+        let fetchRequest = NSFetchRequest<Repository>(entityName: Repository.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Repository], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil
@@ -165,13 +161,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `Commit` entities from the Core Data `NSManagedObjectContext`
     public func commits() -> [Commit] {
-        let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
+        let fetchRequest = NSFetchRequest<Commit>(entityName: Commit.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Commit] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -180,14 +174,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `Commit` entity from the Core Data `NSManagedObjectContext`
     /// that matches the specified Hash identifier.
     public func commit(withHash identifier: String) -> Commit? {
-        let fetchRequest = NSFetchRequest(entityName: Commit.entityName)
+        let fetchRequest = NSFetchRequest<Commit>(entityName: Commit.entityName)
         fetchRequest.predicate = NSPredicate(format: "commitHash = %@", argumentArray: [identifier])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Commit], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil
@@ -197,13 +192,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `Device` entities from the Core Data `NSManagedObjectContext`
     public func devices() -> [Device] {
-        let fetchRequest = NSFetchRequest(entityName: Device.entityName)
+        let fetchRequest = NSFetchRequest<Device>(entityName: Device.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Device] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -212,14 +205,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `Device` entity from the Core Data `NSManagedObjectContext`
     /// that matches the specified identifier.
     public func device(withIdentifier identifier: String) -> Device? {
-        let fetchRequest = NSFetchRequest(entityName: Device.entityName)
+        let fetchRequest = NSFetchRequest<Device>(entityName: Device.entityName)
         fetchRequest.predicate = NSPredicate(format: "identifier = %@", argumentArray: [identifier])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [Device], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil
@@ -229,13 +223,11 @@ public extension NSManagedObjectContext {
     
     /// Retrieves all `RevisionBlueprint` entities from the Core Data `NSManagedObjectContext`
     public func revisionBlueprints() -> [RevisionBlueprint] {
-        let fetchRequest = NSFetchRequest(entityName: RevisionBlueprint.entityName)
+        let fetchRequest = NSFetchRequest<RevisionBlueprint>(entityName: RevisionBlueprint.entityName)
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [RevisionBlueprint] {
-                return results
-            }
+            return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return []
@@ -244,14 +236,15 @@ public extension NSManagedObjectContext {
     /// Retrieves the first `RevisionBlueprint` entity from the Core Data `NSManagedObjectContext`
     /// that has a specific `Commit` and `Integration` associated with it.
     public func revisionBlueprint(withCommit commit: Commit, andIntegration integration: Integration) -> RevisionBlueprint? {
-        let fetchRequest = NSFetchRequest(entityName: RevisionBlueprint.entityName)
+        let fetchRequest = NSFetchRequest<RevisionBlueprint>(entityName: RevisionBlueprint.entityName)
         fetchRequest.predicate = NSPredicate(format: "commit = %@ AND integration = %@", argumentArray: [commit, integration])
         do {
-            if let results = try self.executeFetchRequest(fetchRequest) as? [RevisionBlueprint], result = results.first {
+            let results = try self.fetch(fetchRequest)
+            if let result = results.first {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: self.dynamicType)
+            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
         }
         
         return nil

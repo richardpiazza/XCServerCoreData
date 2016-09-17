@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Repository: SerializableManagedObject {
+open class Repository: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "configurations":
             return nil
@@ -48,7 +48,7 @@ public class Repository: SerializableManagedObject {
     
     func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
@@ -56,11 +56,11 @@ public class Repository: SerializableManagedObject {
             return
         }
         
-        if let workingCopyStates = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey, state = workingCopyStates[self.identifier] {
+        if let workingCopyStates = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey, let state = workingCopyStates[self.identifier] {
             self.workingCopyState = state
         }
         
-        if let workingCopyPaths = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey, path = workingCopyPaths[self.identifier] {
+        if let workingCopyPaths = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey, let path = workingCopyPaths[self.identifier] {
             self.workingCopyPath = path
         }
         
@@ -119,7 +119,7 @@ public class Repository: SerializableManagedObject {
     
     func update(withCommits commits: [CommitJSON]) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         

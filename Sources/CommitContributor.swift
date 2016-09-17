@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class CommitContributor: SerializableManagedObject {
+open class CommitContributor: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "commit":
             return nil
@@ -49,16 +49,16 @@ public class CommitContributor: SerializableManagedObject {
     func update(withCommitContributor contributor: CommitContributorJSON) {
         self.name = contributor.XCSContributorName
         self.displayName = contributor.XCSContributorDisplayName
-        self.emails = contributor.XCSContributorEmails
+        self.emails = contributor.XCSContributorEmails as NSObject?
     }
     
-    public var initials: String? {
+    open var initials: String? {
         var tempComponents: [String]? = nil
         
         if let name = self.name {
-            tempComponents = name.componentsSeparatedByString(" ")
+            tempComponents = name.components(separatedBy: " ")
         } else if let displayName = self.displayName {
-            tempComponents = displayName.componentsSeparatedByString(" ")
+            tempComponents = displayName.components(separatedBy: " ")
         }
         
         guard let components = tempComponents else {
@@ -72,14 +72,14 @@ public class CommitContributor: SerializableManagedObject {
                 continue
             }
             
-            let character = component.substringToIndex(component.startIndex.advancedBy(1))
-            initials.appendContentsOf(character)
+            let character = component.substring(to: component.characters.index(component.startIndex, offsetBy: 1))
+            initials.append(character)
         }
         
         return initials
     }
     
-    public var emailAddresses: [String] {
+    open var emailAddresses: [String] {
         guard let emails = self.emails as? [String] else {
             return []
         }

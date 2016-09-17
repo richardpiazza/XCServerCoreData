@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class IntegrationIssues: SerializableManagedObject {
+open class IntegrationIssues: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -48,7 +48,7 @@ public class IntegrationIssues: SerializableManagedObject {
     
     func update(withIntegrationIssues issues: IntegrationIssuesResponse) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
@@ -56,7 +56,7 @@ public class IntegrationIssues: SerializableManagedObject {
         if let set = self.buildServiceErrors {
             for issue in set {
                 issue.inverseBuildServiceErrors = nil
-                moc.deleteObject(issue)
+                moc.delete(issue)
             }
         }
         
@@ -71,7 +71,7 @@ public class IntegrationIssues: SerializableManagedObject {
         if let set = self.buildServiceWarnings {
             for issue in set {
                 issue.inverseBuildServiceWarnings = nil
-                moc.deleteObject(issue)
+                moc.delete(issue)
             }
         }
         
@@ -87,21 +87,21 @@ public class IntegrationIssues: SerializableManagedObject {
             if let set = self.unresolvedErrors {
                 for issue in set {
                     issue.inverseUnresolvedErrors = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.resolvedErrors {
                 for issue in set {
                     issue.inverseResolvedErrors = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.freshErrors {
                 for issue in set {
                     issue.inverseFreshErrors = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
@@ -132,21 +132,21 @@ public class IntegrationIssues: SerializableManagedObject {
             if let set = self.unresolvedWarnings {
                 for issue in set {
                     issue.inverseUnresolvedWarnings = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.resolvedWarnings {
                 for issue in set {
                     issue.inverseResolvedWarnings = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.freshWarnings {
                 for issue in set {
                     issue.inverseFreshWarnings = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
@@ -177,21 +177,21 @@ public class IntegrationIssues: SerializableManagedObject {
             if let set = self.unresolvedAnalyzerWarnings {
                 for issue in set {
                     issue.inverseUnresolvedAnalyzerWarnings = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.resolvedAnalyzerWarnings {
                 for issue in set {
                     issue.inverseResolvedAnalyzerWarnings = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.freshAnalyzerWarnings {
                 for issue in set {
                     issue.inverseFreshAnalyserWarnings = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
@@ -222,21 +222,21 @@ public class IntegrationIssues: SerializableManagedObject {
             if let set = self.unresolvedTestFailures {
                 for issue in set {
                     issue.inverseUnresolvedTestFailures = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.resolvedTestFailures {
                 for issue in set {
                     issue.inverseResolvedTestFailures = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             
             if let set = self.freshTestFailures {
                 for issue in set {
                     issue.inverseFreshTestFailures = nil
-                    moc.deleteObject(issue)
+                    moc.delete(issue)
                 }
             }
             

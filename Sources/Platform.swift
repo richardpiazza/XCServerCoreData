@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Platform: SerializableManagedObject {
+open class Platform: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, filter: Filter) {
         self.init(managedObjectContext: managedObjectContext)
         self.filter = filter
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "filter":
             return nil

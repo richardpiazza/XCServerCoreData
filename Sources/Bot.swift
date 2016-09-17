@@ -33,7 +33,7 @@ import XCServerAPI
 /// ## Bot
 /// Represents an Xcode Server Bot.
 /// "Bots are processes that Xcode Server runs to perform integrations on the current version of a project in a source code repository."
-public class Bot: SerializableManagedObject {
+open class Bot: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, server: XcodeServer) {
         self.init(managedObjectContext: managedObjectContext)
@@ -44,7 +44,7 @@ public class Bot: SerializableManagedObject {
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "xcodeServer":
             return nil
@@ -55,12 +55,12 @@ public class Bot: SerializableManagedObject {
     
     func update(withBot bot: BotJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
         self.name = bot.name
-        self.type = bot.type
+        self.type = bot.type as NSNumber?
         
         if let configuration = bot.configuration {
             self.configuration?.update(withConfiguration: configuration)
@@ -83,7 +83,7 @@ public class Bot: SerializableManagedObject {
     
     func update(withIntegrations integrations: [IntegrationJSON]) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         

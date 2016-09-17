@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Trigger: SerializableManagedObject {
+open class Trigger: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "configuration":
             return nil
@@ -48,13 +48,13 @@ public class Trigger: SerializableManagedObject {
     
     func update(withTrigger trigger: TriggerJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
         self.name = trigger.name
-        self.type = trigger.type
-        self.phase = trigger.phase
+        self.type = trigger.type as NSNumber?
+        self.phase = trigger.phase as NSNumber?
         self.scriptBody = trigger.scriptBody
         
         if let triggerConditions = trigger.conditions {

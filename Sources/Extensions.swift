@@ -27,20 +27,20 @@
 
 import Foundation
 
-public extension NSDateFormatter {
-    private static var _xcServerISO8601Formatter: NSDateFormatter?
+public extension DateFormatter {
+    fileprivate static var _xcServerISO8601Formatter: DateFormatter?
     
     /// ## xcServerISO8601Formatter
     /// Provides a statically referenced ISO8601 NSDateFormatter.
     /// - note: This can be removed after iOS 10 is released with the new formatter.
-    public static var xcServerISO8601Formatter: NSDateFormatter {
+    public static var xcServerISO8601Formatter: DateFormatter {
         if let formatter = _xcServerISO8601Formatter {
             return formatter
         }
         
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         
         _xcServerISO8601Formatter = formatter
         
@@ -50,64 +50,64 @@ public extension NSDateFormatter {
 
 public extension String {
     /// Replaces a specified prefix string with the provied string.
-    mutating public func replace(prefix prefix: String, with: String?) {
+    mutating public func replace(prefix: String, with: String?) {
         guard hasPrefix(prefix) else {
             return
         }
         
-        let range = startIndex..<startIndex.advancedBy(prefix.characters.count)
+        let range = startIndex..<index(startIndex, offsetBy: prefix.characters.count)
         if let with = with {
-            replaceRange(range, with: with)
+            replaceSubrange(range, with: with)
         } else {
-            replaceRange(range, with: "")
+            replaceSubrange(range, with: "")
         }
     }
     
     /// Replaces the specified suffix with the provided string.
-    mutating public func replace(suffix suffix: String, with: String?) {
+    mutating public func replace(suffix: String, with: String?) {
         guard hasSuffix(suffix) else {
             return
         }
         
-        let range = endIndex.advancedBy(-suffix.characters.count)..<endIndex
+        let range = index(endIndex, offsetBy: -suffix.characters.count)..<endIndex
         if let with = with {
-            replaceRange(range, with: with)
+            replaceSubrange(range, with: with)
         } else {
-            replaceRange(range, with: "")
+            replaceSubrange(range, with: "")
         }
     }
     
     /// Determines if a character at a given index is a member of the provided character set.
-    public func character(atIndex index: Int, isInCharacterSet characterSet: NSCharacterSet) -> Bool {
+    public func character(atIndex index: Int, isInCharacterSet characterSet: CharacterSet) -> Bool {
         guard index >= 0 && index < self.characters.count else {
             return false
         }
         
-        let c = self.utf16[self.utf16.startIndex.advancedBy(index)]
-        return characterSet.characterIsMember(c)
+        let c = self.utf16[self.utf16.startIndex.advanced(by: index)]
+        return characterSet.contains(UnicodeScalar(c)!)
     }
     
     /// ## xcServerTestMethodName
     /// Provides a human-readable form of a method named (in particular XCTest method names).
     /// - example: testPerformSomeAction() -> 'Perform Some Action'
     public var xcServerTestMethodName: String {
-        let characterSet = NSCharacterSet.uppercaseLetterCharacterSet()
+        let characterSet = CharacterSet.uppercaseLetters
         
         var result = self
         result.replace(prefix: "test", with: nil)
         result.replace(suffix: "()", with: nil)
         
-        for (index, character) in result.characters.enumerate().reverse() {
+        for (index, character) in result.characters.enumerated().reversed() {
             guard index > 0 else {
                 continue
             }
             
             let thisCharacter = result.character(atIndex: index, isInCharacterSet: characterSet)
-            let precedingCharacter = result.character(atIndex: index.advancedBy(-1), isInCharacterSet: characterSet)
+            let precedingCharacter = result.character(atIndex: index.advanced(by: -1), isInCharacterSet: characterSet)
             
             if thisCharacter && !precedingCharacter {
-                let range = result.startIndex.advancedBy(index)...result.startIndex.advancedBy(index)
-                result.replaceRange(range, with: " \(character)")
+                let range = result.characters.index(result.startIndex, offsetBy: index)...result.characters.index(result.startIndex, offsetBy: index)
+                result.replaceSubrange(range, with: " \(character)")
             }
         }
         

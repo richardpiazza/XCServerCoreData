@@ -30,7 +30,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Commit: SerializableManagedObject {
+open class Commit: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, repository: Repository) {
         self.init(managedObjectContext: managedObjectContext)
@@ -38,7 +38,7 @@ public class Commit: SerializableManagedObject {
         self.repository = repository
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "repository", "revisionBlueprints":
             return nil
@@ -49,7 +49,7 @@ public class Commit: SerializableManagedObject {
     
     func update(withCommit commit: CommitJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
@@ -67,7 +67,7 @@ public class Commit: SerializableManagedObject {
         }
         
         for commitChange in commit.XCSCommitCommitChangeFilePaths {
-            guard self.commitChanges?.contains({ (cc: CommitChange) -> Bool in return cc.filePath == commitChange.filePath }) == false else {
+            guard self.commitChanges?.contains(where: { (cc: CommitChange) -> Bool in return cc.filePath == commitChange.filePath }) == false else {
                 continue
             }
             
@@ -77,11 +77,11 @@ public class Commit: SerializableManagedObject {
         }
     }
     
-    public var commitTimestamp: NSDate? {
+    open var commitTimestamp: Date? {
         guard let timestamp = self.timestamp else {
             return nil
         }
         
-        return NSDateFormatter.xcServerISO8601Formatter.dateFromString(timestamp)
+        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
     }
 }

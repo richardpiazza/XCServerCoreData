@@ -86,4 +86,13 @@ public class IntegrationIssuesResponse : SerializableObject {
     public var testFailures: IntegrationIssuesJSON?
     public var buildServiceErrors: [IssueJSON] = [IssueJSON]()
     public var buildServiceWarnings: [IssueJSON] = [IssueJSON]()
+    
+    override public func objectClassOfCollectionType(forPropertyname propertyName: String) -> AnyClass? {
+        switch propertyName {
+        case "buildServiceErrors", "buildServiceWarnings":
+            return IssueJSON.self
+        default:
+            return super.objectClassOfCollectionType(forPropertyname: propertyName)
+        }
+    }
 }

@@ -46,38 +46,38 @@ public class RevisionBlueprintJSON: SerializableObject {
             var initialized = [String : BlueprintLocationJSON]()
             
             guard let cast = data as? [String : SerializableDictionary] else {
-                return initialized
+                return initialized as NSObject?
             }
             
             for (key, value) in cast {
                 initialized[key] = BlueprintLocationJSON(withDictionary: value)
             }
             
-            return initialized
+            return initialized as NSObject?
         } else if propertyName == "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" {
             var initialized = [String : RepositoryLocationJSON]()
             
             guard let cast = data as? [String : SerializableDictionary] else {
-                return initialized
+                return initialized as NSObject?
             }
             
             for (key, value) in cast {
                 initialized[key] = RepositoryLocationJSON(withDictionary: value)
             }
             
-            return initialized
+            return initialized as NSObject?
         } else if propertyName == "DVTSourceControlWorkspaceBlueprintRemoteRepositoryAuthenticationStrategiesKey" {
             var initialized = [String : AuthenticationStrategyJSON]()
             
             guard let cast = data as? [String : SerializableDictionary] else {
-                return initialized
+                return initialized as NSObject?
             }
             
             for (key, value) in cast {
                 initialized[key] = AuthenticationStrategyJSON(withDictionary: value)
             }
             
-            return initialized
+            return initialized as NSObject?
         }
         
         return super.initializedObject(forPropertyName: propertyName, withData: data)

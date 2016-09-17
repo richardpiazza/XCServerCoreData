@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class BuildResultSummary: SerializableManagedObject {
+open class BuildResultSummary: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -47,17 +47,17 @@ public class BuildResultSummary: SerializableManagedObject {
     }
     
     func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
-        self.errorCount = summary.errorCount
-        self.errorChange = summary.errorChange
-        self.warningCount = summary.warningCount
-        self.warningChange = summary.warningChange
-        self.testsCount = summary.testsCount
-        self.testsChange = summary.testsChange
-        self.testFailureCount = summary.testFailureCount
-        self.testFailureChange = summary.testFailureChange
-        self.analyzerWarningCount = summary.analyzerWarningCount
-        self.analyzerWarningChange = summary.analyzerWarningChange
-        self.regressedPerfTestCount = summary.regressedPerfTestCount
-        self.improvedPerfTestCount = summary.improvedPerfTestCount
+        self.errorCount = summary.errorCount as NSNumber?
+        self.errorChange = summary.errorChange as NSNumber?
+        self.warningCount = summary.warningCount as NSNumber?
+        self.warningChange = summary.warningChange as NSNumber?
+        self.testsCount = summary.testsCount as NSNumber?
+        self.testsChange = summary.testsChange as NSNumber?
+        self.testFailureCount = summary.testFailureCount as NSNumber?
+        self.testFailureChange = summary.testFailureChange as NSNumber?
+        self.analyzerWarningCount = summary.analyzerWarningCount as NSNumber?
+        self.analyzerWarningChange = summary.analyzerWarningChange as NSNumber?
+        self.regressedPerfTestCount = summary.regressedPerfTestCount as NSNumber?
+        self.improvedPerfTestCount = summary.improvedPerfTestCount as NSNumber?
     }
 }

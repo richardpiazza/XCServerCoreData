@@ -121,7 +121,7 @@ public enum IssueType: String {
 /// ### TriggerPhase
 /// When a trigger may be executed during the `Integration` lifecycle.
 public enum TriggerPhase: Int {
-    case BeforeIntegration = 0
-    case AfterIntegration
+    case beforeIntegration = 0
+    case afterIntegration
 }
 

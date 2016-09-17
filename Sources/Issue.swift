@@ -30,9 +30,9 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Issue: SerializableManagedObject {
+open class Issue: SerializableManagedObject {
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "inverseBuildServiceErrors", "inverseBuildServiceWarnings",
              "inverseFreshAnalyserWarnings", "inverseFreshErrors", "inverseFreshTestFailures", "inverseFreshWarnings",
@@ -47,19 +47,19 @@ public class Issue: SerializableManagedObject {
     func update(withIssue issue: IssueJSON) {
         self.identifier = issue._id
         self.revision = issue._rev
-        self.status = issue.status
+        self.status = issue.status as NSNumber?
         self.target = issue.target
         self.testCase = issue.testCase
-        self.lineNumber = issue.lineNumber
+        self.lineNumber = issue.lineNumber as NSNumber?
         self.documentLocationData = issue.documentLocationData
         self.documentFilePath = issue.documentFilePath
-        self.age = issue.age
+        self.age = issue.age as NSNumber?
         self.type = issue.type
         self.issueType = issue.issueType
         self.message = issue.message
     }
     
-    public var typeOfIssue: IssueType {
+    open var typeOfIssue: IssueType {
         guard let rawValue = self.type else {
             return .Unknown
         }

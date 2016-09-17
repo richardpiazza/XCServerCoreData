@@ -30,7 +30,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Configuration: SerializableManagedObject {
+open class Configuration: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
@@ -38,7 +38,7 @@ public class Configuration: SerializableManagedObject {
         self.deviceSpecification = DeviceSpecification(managedObjectContext: managedObjectContext, configuration: self)
     }
     
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "bot", "repositories":
             return nil
@@ -49,28 +49,28 @@ public class Configuration: SerializableManagedObject {
     
     func update(withConfiguration configuration: ConfigurationJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: self.dynamicType)
+            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
         }
         
         self.schemeName = configuration.schemeName
-        self.builtFromClean = configuration.builtFromClean
-        self.performsTestAction = configuration.performsTestAction
-        self.performsAnalyzeAction = configuration.performsAnalyzeAction
-        self.performsArchiveAction = configuration.performsArchiveAction
-        self.testingDestinationType = configuration.testingDestinationType
-        self.scheduleType = configuration.scheduleType
-        self.periodicScheduleInterval = configuration.periodicScheduleInterval
-        self.weeklyScheduleDay = configuration.weeklyScheduleDay
-        self.hourOfIntegration = configuration.hourOfIntegration
-        self.minutesAfterHourToIntegrate = configuration.minutesAfterHourToIntegrate
+        self.builtFromClean = configuration.builtFromClean as NSNumber?
+        self.performsTestAction = configuration.performsTestAction as NSNumber?
+        self.performsAnalyzeAction = configuration.performsAnalyzeAction as NSNumber?
+        self.performsArchiveAction = configuration.performsArchiveAction as NSNumber?
+        self.testingDestinationType = configuration.testingDestinationType as NSNumber?
+        self.scheduleType = configuration.scheduleType as NSNumber?
+        self.periodicScheduleInterval = configuration.periodicScheduleInterval as NSNumber?
+        self.weeklyScheduleDay = configuration.weeklyScheduleDay as NSNumber?
+        self.hourOfIntegration = configuration.hourOfIntegration as NSNumber?
+        self.minutesAfterHourToIntegrate = configuration.minutesAfterHourToIntegrate as NSNumber?
         self.codeCoveragePreference = configuration.codeCoveragePreference
         
         // Repositories
         if let configurationBlueprint = configuration.sourceControlBlueprint {
             if let repositories = self.repositories {
                 for repository in repositories {
-                    repository.configurations?.remove(self)
+                    let _ = repository.configurations?.remove(self)
                 }
             }
             
@@ -111,7 +111,7 @@ public class Configuration: SerializableManagedObject {
         if let triggers = self.triggers {
             for trigger in triggers {
                 trigger.configuration = nil
-                moc.deleteObject(trigger)
+                moc.delete(trigger)
             }
         }
         

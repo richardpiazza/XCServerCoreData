@@ -31,36 +31,30 @@ import CodeQuickKit
 
 class MOCObjectTests: XCTestCase {
 
-    struct CDConfig: CoreDataConfiguration {
-        var persistentStoreType: StoreType {
-            return .SQLite
-        }
-        
-        var persistentStoreURL: NSURL {
-            let path = NSFileManager.defaultManager().sandboxDirectory?.URLByAppendingPathComponent("coredata.sqlite")
-            return path!
-        }
-        
-        var persistentStoreOptions: [String : AnyObject] {
-            return [String : AnyObject]()
+    fileprivate struct CDConfiguration {
+        var config: PersistentStoreConfiguration {
+            var config = PersistentStoreConfiguration()
+            config.storeType = .sqlite
+            config.url = FileManager.default.sandboxDirectory?.appendingPathComponent("coredata.sqlite")
+            return config
         }
     }
     
-    static let coreDataConfig = CDConfig()
-    static let coreData = CoreData(fromBundle: NSBundle(forClass: XCServerCoreData.self), modelName: "XCServerCoreData", delegate: MOCObjectTests.coreDataConfig)
+    fileprivate static let coreDataConfig = CDConfiguration()
+    static let coreData = CoreData(fromBundle: Bundle(for: XCServerCoreData.self), modelName: "XCServerCoreData", configuration: MOCObjectTests.coreDataConfig.config)
     static var server: XcodeServer = {
         if let server = coreData.managedObjectContext.xcodeServer(withFQDN: "test.server.com") {
             return server
         }
         
-        let dictionary: SerializableDictionary = ["fqdn" : "test.server.com"]
+        let dictionary: SerializableDictionary = ["fqdn" : "test.server.com" as NSObject]
         return XcodeServer(managedObjectContext: coreData.managedObjectContext, withDictionary: dictionary)!
     }()
     
     override static func setUp() {
         super.setUp()
         
-        Logger.minimumConsoleLevel = .Verbose
+        Logger.minimumConsoleLevel = .verbose
         
         if let apiResponse = Resources.Bots {
             server.update(withBots: apiResponse.results)
@@ -228,15 +222,15 @@ class MOCObjectTests: XCTestCase {
     func testBakeshopData() {
         guard let
             repository = MOCObjectTests.coreData.managedObjectContext.repository(withIdentifier: Resources.Bakeshop.repositoryIdentifier),
-            bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.Bakeshop.botIdentifier),
-            commit = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "acb245fde35565f98e09b02a5540f8735fd18682") else {
+            let bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.Bakeshop.botIdentifier),
+            let commit = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "acb245fde35565f98e09b02a5540f8735fd18682") else {
                 XCTFail()
                 return
         }
         
         XCTAssertTrue(repository.url == "ssh://bitbucket.org/richardpiazza/com.richardpiazza.bakeshop.git")
         
-        guard let commits = repository.commits, integrations = bot.integrations else {
+        guard let commits = repository.commits, let integrations = bot.integrations else {
             XCTFail()
             return
         }
@@ -244,7 +238,7 @@ class MOCObjectTests: XCTestCase {
         XCTAssertTrue(commits.count == 7)
         XCTAssertTrue(integrations.count == 11)
         
-        let integrationNumbers = integrations.map({ $0.integrationNumber }).sort()
+        let integrationNumbers = integrations.map({ $0.integrationNumber }).sorted()
         guard let revisionIntegration = commit.revisionBlueprints!.map({ $0.integration! }).first else {
             XCTFail()
             return
@@ -261,66 +255,66 @@ class MOCObjectTests: XCTestCase {
         XCTAssertNotNil(contributorEmails.first)
         
         for integration in integrations {
-            guard let buildResultSummary = integration.buildResultSummary, issues = integration.issues else {
+            guard let buildResultSummary = integration.buildResultSummary, let issues = integration.issues else {
                 XCTFail()
                 continue
             }
             
             XCTAssertNotNil(buildResultSummary.warningChange)
             
-            if let buildServiceErrors = issues.buildServiceErrors where buildServiceErrors.count > 0 {
+            if let buildServiceErrors = issues.buildServiceErrors , buildServiceErrors.count > 0 {
                 print(buildServiceErrors)
             }
             
-            if let buildServiceWarnings = issues.buildServiceWarnings where buildServiceWarnings.count > 0 {
+            if let buildServiceWarnings = issues.buildServiceWarnings , buildServiceWarnings.count > 0 {
                 print(buildServiceWarnings)
             }
             
-            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings where freshAnalyzerWarnings.count > 0 {
+            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings , freshAnalyzerWarnings.count > 0 {
                 print(freshAnalyzerWarnings)
             }
             
-            if let freshErrors = issues.freshErrors where freshErrors.count > 0 {
+            if let freshErrors = issues.freshErrors , freshErrors.count > 0 {
                 print(freshErrors)
             }
             
-            if let freshTestFailures = issues.freshTestFailures where freshTestFailures.count > 0 {
+            if let freshTestFailures = issues.freshTestFailures , freshTestFailures.count > 0 {
                 print(freshTestFailures)
             }
             
-            if let freshWarnings = issues.freshWarnings where freshWarnings.count > 0 {
+            if let freshWarnings = issues.freshWarnings , freshWarnings.count > 0 {
                 print(freshWarnings)
             }
             
-            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings where unresolvedAnalyzerWarnings.count > 0 {
+            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings , unresolvedAnalyzerWarnings.count > 0 {
                 print(unresolvedAnalyzerWarnings)
             }
             
-            if let unresolvedErrors = issues.unresolvedErrors where unresolvedErrors.count > 0 {
+            if let unresolvedErrors = issues.unresolvedErrors , unresolvedErrors.count > 0 {
                 print(unresolvedErrors)
             }
             
-            if let unresolvedTestFailures = issues.unresolvedTestFailures where unresolvedTestFailures.count > 0 {
+            if let unresolvedTestFailures = issues.unresolvedTestFailures , unresolvedTestFailures.count > 0 {
                 print(unresolvedTestFailures)
             }
             
-            if let unresolvedWarnings = issues.unresolvedWarnings where unresolvedWarnings.count > 0 {
+            if let unresolvedWarnings = issues.unresolvedWarnings , unresolvedWarnings.count > 0 {
                 print(unresolvedWarnings)
             }
             
-            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings where resolvedAnalyzerWarnings.count > 0 {
+            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings , resolvedAnalyzerWarnings.count > 0 {
                 print(resolvedAnalyzerWarnings)
             }
             
-            if let resolvedErrors = issues.resolvedErrors where resolvedErrors.count > 0 {
+            if let resolvedErrors = issues.resolvedErrors , resolvedErrors.count > 0 {
                 print(resolvedErrors)
             }
             
-            if let resolvedTestFailures = issues.resolvedTestFailures where resolvedTestFailures.count > 0 {
+            if let resolvedTestFailures = issues.resolvedTestFailures , resolvedTestFailures.count > 0 {
                 print(resolvedTestFailures)
             }
             
-            if let resolvedWarnings = issues.resolvedWarnings where resolvedWarnings.count > 0 {
+            if let resolvedWarnings = issues.resolvedWarnings , resolvedWarnings.count > 0 {
                 print(resolvedWarnings)
             }
         }
@@ -329,15 +323,15 @@ class MOCObjectTests: XCTestCase {
     func testPocketBotData() {
         guard let
             repository = MOCObjectTests.coreData.managedObjectContext.repository(withIdentifier: Resources.PocketBot.repositoryIdentifier),
-            bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.PocketBot.botIdentifier),
-            commit = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "c5b0b0b4d93217ad892109212fb082e03b969f60") else {
+            let bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.PocketBot.botIdentifier),
+            let commit = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "c5b0b0b4d93217ad892109212fb082e03b969f60") else {
                 XCTFail()
                 return
         }
         
         XCTAssertTrue(repository.url == "ssh://bitbucket.org/richardpiazza/com.richardpiazza.pocketbot.git")
         
-        guard let commits = repository.commits, integrations = bot.integrations else {
+        guard let commits = repository.commits, let integrations = bot.integrations else {
             XCTFail()
             return
         }
@@ -345,7 +339,7 @@ class MOCObjectTests: XCTestCase {
         XCTAssertTrue(commits.count == 8)
         XCTAssertTrue(integrations.count == 9)
         
-        let integrationNumbers = integrations.map({ $0.integrationNumber }).sort()
+        let integrationNumbers = integrations.map({ $0.integrationNumber }).sorted()
         guard let revisionIntegration = commit.revisionBlueprints!.map({ $0.integration! }).first else {
             XCTFail()
             return
@@ -362,66 +356,66 @@ class MOCObjectTests: XCTestCase {
         XCTAssertNotNil(contributorEmails.first)
         
         for integration in integrations {
-            guard let buildResultSummary = integration.buildResultSummary, issues = integration.issues else {
+            guard let buildResultSummary = integration.buildResultSummary, let issues = integration.issues else {
                 XCTFail()
                 continue
             }
             
             XCTAssertNotNil(buildResultSummary.warningChange)
             
-            if let buildServiceErrors = issues.buildServiceErrors where buildServiceErrors.count > 0 {
+            if let buildServiceErrors = issues.buildServiceErrors , buildServiceErrors.count > 0 {
                 print(buildServiceErrors)
             }
             
-            if let buildServiceWarnings = issues.buildServiceWarnings where buildServiceWarnings.count > 0 {
+            if let buildServiceWarnings = issues.buildServiceWarnings , buildServiceWarnings.count > 0 {
                 print(buildServiceWarnings)
             }
             
-            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings where freshAnalyzerWarnings.count > 0 {
+            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings , freshAnalyzerWarnings.count > 0 {
                 print(freshAnalyzerWarnings)
             }
             
-            if let freshErrors = issues.freshErrors where freshErrors.count > 0 {
+            if let freshErrors = issues.freshErrors , freshErrors.count > 0 {
                 print(freshErrors)
             }
             
-            if let freshTestFailures = issues.freshTestFailures where freshTestFailures.count > 0 {
+            if let freshTestFailures = issues.freshTestFailures , freshTestFailures.count > 0 {
                 print(freshTestFailures)
             }
             
-            if let freshWarnings = issues.freshWarnings where freshWarnings.count > 0 {
+            if let freshWarnings = issues.freshWarnings , freshWarnings.count > 0 {
                 print(freshWarnings)
             }
             
-            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings where unresolvedAnalyzerWarnings.count > 0 {
+            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings , unresolvedAnalyzerWarnings.count > 0 {
                 print(unresolvedAnalyzerWarnings)
             }
             
-            if let unresolvedErrors = issues.unresolvedErrors where unresolvedErrors.count > 0 {
+            if let unresolvedErrors = issues.unresolvedErrors , unresolvedErrors.count > 0 {
                 print(unresolvedErrors)
             }
             
-            if let unresolvedTestFailures = issues.unresolvedTestFailures where unresolvedTestFailures.count > 0 {
+            if let unresolvedTestFailures = issues.unresolvedTestFailures , unresolvedTestFailures.count > 0 {
                 print(unresolvedTestFailures)
             }
             
-            if let unresolvedWarnings = issues.unresolvedWarnings where unresolvedWarnings.count > 0 {
+            if let unresolvedWarnings = issues.unresolvedWarnings , unresolvedWarnings.count > 0 {
                 print(unresolvedWarnings)
             }
             
-            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings where resolvedAnalyzerWarnings.count > 0 {
+            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings , resolvedAnalyzerWarnings.count > 0 {
                 print(resolvedAnalyzerWarnings)
             }
             
-            if let resolvedErrors = issues.resolvedErrors where resolvedErrors.count > 0 {
+            if let resolvedErrors = issues.resolvedErrors , resolvedErrors.count > 0 {
                 print(resolvedErrors)
             }
             
-            if let resolvedTestFailures = issues.resolvedTestFailures where resolvedTestFailures.count > 0 {
+            if let resolvedTestFailures = issues.resolvedTestFailures , resolvedTestFailures.count > 0 {
                 print(resolvedTestFailures)
             }
             
-            if let resolvedWarnings = issues.resolvedWarnings where resolvedWarnings.count > 0 {
+            if let resolvedWarnings = issues.resolvedWarnings , resolvedWarnings.count > 0 {
                 print(resolvedWarnings)
             }
         }
@@ -430,15 +424,15 @@ class MOCObjectTests: XCTestCase {
     func testCodeQuickKitData() {
         guard let
             repository = MOCObjectTests.coreData.managedObjectContext.repository(withIdentifier: Resources.CodeQuickKit.repositoryIdentifier),
-            bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.CodeQuickKit.botIdentifier),
-            _ = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "8ea5096b51c8b266fbb0b5c73100114414518539") else {
+            let bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.CodeQuickKit.botIdentifier),
+            let _ = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "8ea5096b51c8b266fbb0b5c73100114414518539") else {
             XCTFail()
             return
         }
         
         XCTAssertTrue(repository.url == "https://github.com/richardpiazza/CodeQuickKit")
         
-        guard let commits = repository.commits, integrations = bot.integrations else {
+        guard let commits = repository.commits, let integrations = bot.integrations else {
             XCTFail()
             return
         }
@@ -448,66 +442,66 @@ class MOCObjectTests: XCTestCase {
         
         
         for integration in integrations {
-            guard let buildResultSummary = integration.buildResultSummary, issues = integration.issues else {
+            guard let buildResultSummary = integration.buildResultSummary, let issues = integration.issues else {
                 XCTFail()
                 continue
             }
             
             XCTAssertNotNil(buildResultSummary.warningChange)
             
-            if let buildServiceErrors = issues.buildServiceErrors where buildServiceErrors.count > 0 {
+            if let buildServiceErrors = issues.buildServiceErrors , buildServiceErrors.count > 0 {
                 print(buildServiceErrors)
             }
             
-            if let buildServiceWarnings = issues.buildServiceWarnings where buildServiceWarnings.count > 0 {
+            if let buildServiceWarnings = issues.buildServiceWarnings , buildServiceWarnings.count > 0 {
                 print(buildServiceWarnings)
             }
             
-            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings where freshAnalyzerWarnings.count > 0 {
+            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings , freshAnalyzerWarnings.count > 0 {
                 print(freshAnalyzerWarnings)
             }
             
-            if let freshErrors = issues.freshErrors where freshErrors.count > 0 {
+            if let freshErrors = issues.freshErrors , freshErrors.count > 0 {
                 print(freshErrors)
             }
             
-            if let freshTestFailures = issues.freshTestFailures where freshTestFailures.count > 0 {
+            if let freshTestFailures = issues.freshTestFailures , freshTestFailures.count > 0 {
                 print(freshTestFailures)
             }
             
-            if let freshWarnings = issues.freshWarnings where freshWarnings.count > 0 {
+            if let freshWarnings = issues.freshWarnings , freshWarnings.count > 0 {
                 print(freshWarnings)
             }
             
-            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings where unresolvedAnalyzerWarnings.count > 0 {
+            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings , unresolvedAnalyzerWarnings.count > 0 {
                 print(unresolvedAnalyzerWarnings)
             }
             
-            if let unresolvedErrors = issues.unresolvedErrors where unresolvedErrors.count > 0 {
+            if let unresolvedErrors = issues.unresolvedErrors , unresolvedErrors.count > 0 {
                 print(unresolvedErrors)
             }
             
-            if let unresolvedTestFailures = issues.unresolvedTestFailures where unresolvedTestFailures.count > 0 {
+            if let unresolvedTestFailures = issues.unresolvedTestFailures , unresolvedTestFailures.count > 0 {
                 print(unresolvedTestFailures)
             }
             
-            if let unresolvedWarnings = issues.unresolvedWarnings where unresolvedWarnings.count > 0 {
+            if let unresolvedWarnings = issues.unresolvedWarnings , unresolvedWarnings.count > 0 {
                 print(unresolvedWarnings)
             }
             
-            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings where resolvedAnalyzerWarnings.count > 0 {
+            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings , resolvedAnalyzerWarnings.count > 0 {
                 print(resolvedAnalyzerWarnings)
             }
             
-            if let resolvedErrors = issues.resolvedErrors where resolvedErrors.count > 0 {
+            if let resolvedErrors = issues.resolvedErrors , resolvedErrors.count > 0 {
                 print(resolvedErrors)
             }
             
-            if let resolvedTestFailures = issues.resolvedTestFailures where resolvedTestFailures.count > 0 {
+            if let resolvedTestFailures = issues.resolvedTestFailures , resolvedTestFailures.count > 0 {
                 print(resolvedTestFailures)
             }
             
-            if let resolvedWarnings = issues.resolvedWarnings where resolvedWarnings.count > 0 {
+            if let resolvedWarnings = issues.resolvedWarnings , resolvedWarnings.count > 0 {
                 print(resolvedWarnings)
             }
         }
@@ -516,15 +510,15 @@ class MOCObjectTests: XCTestCase {
     func testMiseEnPlaceData() {
         guard let
             repository = MOCObjectTests.coreData.managedObjectContext.repository(withIdentifier: Resources.MiseEnPlace.repositoryIdentifier),
-            bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.MiseEnPlace.botIdentifier),
-            commit = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "65efef11763de43f0d898c4d1fa9ecdeaf292d45") else {
+            let bot = MOCObjectTests.coreData.managedObjectContext.bot(withIdentifier: Resources.MiseEnPlace.botIdentifier),
+            let commit = MOCObjectTests.coreData.managedObjectContext.commit(withHash: "65efef11763de43f0d898c4d1fa9ecdeaf292d45") else {
             XCTFail()
             return
         }
         
         XCTAssertTrue(repository.url == "https://github.com/richardpiazza/MiseEnPlace")
         
-        guard let commits = repository.commits, integrations = bot.integrations else {
+        guard let commits = repository.commits, let integrations = bot.integrations else {
             XCTFail()
             return
         }
@@ -532,7 +526,7 @@ class MOCObjectTests: XCTestCase {
         XCTAssertTrue(commits.count == 3)
         XCTAssertTrue(integrations.count == 1)
         
-        let integrationNumbers = integrations.map({ $0.integrationNumber }).sort()
+        let integrationNumbers = integrations.map({ $0.integrationNumber }).sorted()
         guard let revisionIntegration = commit.revisionBlueprints!.map({ $0.integration! }).first else {
             XCTFail()
             return
@@ -549,66 +543,66 @@ class MOCObjectTests: XCTestCase {
         XCTAssertNotNil(contributorEmails.first)
         
         for integration in integrations {
-            guard let buildResultSummary = integration.buildResultSummary, issues = integration.issues else {
+            guard let buildResultSummary = integration.buildResultSummary, let issues = integration.issues else {
                 XCTFail()
                 continue
             }
             
             XCTAssertNotNil(buildResultSummary.warningChange)
             
-            if let buildServiceErrors = issues.buildServiceErrors where buildServiceErrors.count > 0 {
+            if let buildServiceErrors = issues.buildServiceErrors , buildServiceErrors.count > 0 {
                 print(buildServiceErrors)
             }
             
-            if let buildServiceWarnings = issues.buildServiceWarnings where buildServiceWarnings.count > 0 {
+            if let buildServiceWarnings = issues.buildServiceWarnings , buildServiceWarnings.count > 0 {
                 print(buildServiceWarnings)
             }
             
-            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings where freshAnalyzerWarnings.count > 0 {
+            if let freshAnalyzerWarnings = issues.freshAnalyzerWarnings , freshAnalyzerWarnings.count > 0 {
                 print(freshAnalyzerWarnings)
             }
             
-            if let freshErrors = issues.freshErrors where freshErrors.count > 0 {
+            if let freshErrors = issues.freshErrors , freshErrors.count > 0 {
                 print(freshErrors)
             }
             
-            if let freshTestFailures = issues.freshTestFailures where freshTestFailures.count > 0 {
+            if let freshTestFailures = issues.freshTestFailures , freshTestFailures.count > 0 {
                 print(freshTestFailures)
             }
             
-            if let freshWarnings = issues.freshWarnings where freshWarnings.count > 0 {
+            if let freshWarnings = issues.freshWarnings , freshWarnings.count > 0 {
                 print(freshWarnings)
             }
             
-            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings where unresolvedAnalyzerWarnings.count > 0 {
+            if let unresolvedAnalyzerWarnings = issues.unresolvedAnalyzerWarnings , unresolvedAnalyzerWarnings.count > 0 {
                 print(unresolvedAnalyzerWarnings)
             }
             
-            if let unresolvedErrors = issues.unresolvedErrors where unresolvedErrors.count > 0 {
+            if let unresolvedErrors = issues.unresolvedErrors , unresolvedErrors.count > 0 {
                 print(unresolvedErrors)
             }
             
-            if let unresolvedTestFailures = issues.unresolvedTestFailures where unresolvedTestFailures.count > 0 {
+            if let unresolvedTestFailures = issues.unresolvedTestFailures , unresolvedTestFailures.count > 0 {
                 print(unresolvedTestFailures)
             }
             
-            if let unresolvedWarnings = issues.unresolvedWarnings where unresolvedWarnings.count > 0 {
+            if let unresolvedWarnings = issues.unresolvedWarnings , unresolvedWarnings.count > 0 {
                 print(unresolvedWarnings)
             }
             
-            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings where resolvedAnalyzerWarnings.count > 0 {
+            if let resolvedAnalyzerWarnings = issues.resolvedAnalyzerWarnings , resolvedAnalyzerWarnings.count > 0 {
                 print(resolvedAnalyzerWarnings)
             }
             
-            if let resolvedErrors = issues.resolvedErrors where resolvedErrors.count > 0 {
+            if let resolvedErrors = issues.resolvedErrors , resolvedErrors.count > 0 {
                 print(resolvedErrors)
             }
             
-            if let resolvedTestFailures = issues.resolvedTestFailures where resolvedTestFailures.count > 0 {
+            if let resolvedTestFailures = issues.resolvedTestFailures , resolvedTestFailures.count > 0 {
                 print(resolvedTestFailures)
             }
             
-            if let resolvedWarnings = issues.resolvedWarnings where resolvedWarnings.count > 0 {
+            if let resolvedWarnings = issues.resolvedWarnings , resolvedWarnings.count > 0 {
                 print(resolvedWarnings)
             }
         }

@@ -31,7 +31,7 @@ import CoreData
 public extension XcodeServer {
 
     @NSManaged var fqdn: String
-    @NSManaged var lastUpdate: NSDate?
+    @NSManaged var lastUpdate: Date?
     @NSManaged var os: String?
     @NSManaged var xcode: String?
     @NSManaged var xcodeServer: String?
