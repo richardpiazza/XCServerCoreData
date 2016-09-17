@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class CommitContributor: SerializableManagedObject {
+public class CommitContributor: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "commit":
             return nil
@@ -46,13 +46,13 @@ open class CommitContributor: SerializableManagedObject {
         }
     }
     
-    func update(withCommitContributor contributor: CommitContributorJSON) {
+    internal func update(withCommitContributor contributor: CommitContributorJSON) {
         self.name = contributor.XCSContributorName
         self.displayName = contributor.XCSContributorDisplayName
         self.emails = contributor.XCSContributorEmails as NSObject?
     }
     
-    open var initials: String? {
+    public var initials: String? {
         var tempComponents: [String]? = nil
         
         if let name = self.name {
@@ -79,7 +79,7 @@ open class CommitContributor: SerializableManagedObject {
         return initials
     }
     
-    open var emailAddresses: [String] {
+    public var emailAddresses: [String] {
         guard let emails = self.emails as? [String] else {
             return []
         }

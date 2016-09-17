@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class IntegrationAssets: SerializableManagedObject {
+public class IntegrationAssets: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -46,7 +46,7 @@ open class IntegrationAssets: SerializableManagedObject {
         }
     }
     
-    func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
+    internal func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return

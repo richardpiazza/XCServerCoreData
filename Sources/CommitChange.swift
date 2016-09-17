@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class CommitChange: SerializableManagedObject {
+public class CommitChange: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, commit: Commit) {
         self.init(managedObjectContext: managedObjectContext)
         self.commit = commit
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "commit":
             return nil
@@ -46,7 +46,7 @@ open class CommitChange: SerializableManagedObject {
         }
     }
     
-    func update(withCommitChange change: CommitChangeJSON) {
+    internal func update(withCommitChange change: CommitChangeJSON) {
         self.status = change.status as NSNumber?
         self.filePath = change.filePath
     }

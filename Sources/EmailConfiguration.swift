@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class EmailConfiguration: SerializableManagedObject {
+public class EmailConfiguration: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "trigger":
             return nil
@@ -46,7 +46,7 @@ open class EmailConfiguration: SerializableManagedObject {
         }
     }
     
-    func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
+    internal func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
         self.emailComitters = configuration.emailCommitters as NSNumber?
         self.additionalRecipients = configuration.additionalRecipients.joined(separator: ",")
         self.includeCommitMessages = configuration.includeCommitMessages as NSNumber?

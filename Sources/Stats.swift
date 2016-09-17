@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class Stats: SerializableManagedObject {
+public class Stats: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "bot":
             return nil
@@ -46,7 +46,7 @@ open class Stats: SerializableManagedObject {
         }
     }
     
-    func update(withStats stats: StatsJSON) {
+    internal func update(withStats stats: StatsJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return

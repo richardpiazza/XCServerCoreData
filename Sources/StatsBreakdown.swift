@@ -30,9 +30,9 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class StatsBreakdown: SerializableManagedObject {
+public class StatsBreakdown: SerializableManagedObject {
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "inverseAnalysisWarnings", "inverseAverageIntegrationTime", "inverseErrors", "inverseImprovedPerfTests",
             "inverseRegressedPerfTests", "inverseTestFailures", "inverseTests", "inverseWarnings":
@@ -42,7 +42,7 @@ open class StatsBreakdown: SerializableManagedObject {
         }
     }
     
-    func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
+    internal func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
         self.sum = breakdown.sum
         self.count = breakdown.count
         self.min = breakdown.min

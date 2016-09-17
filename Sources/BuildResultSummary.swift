@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class BuildResultSummary: SerializableManagedObject {
+public class BuildResultSummary: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "integration":
             return nil
@@ -46,7 +46,7 @@ open class BuildResultSummary: SerializableManagedObject {
         }
     }
     
-    func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
+    internal func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
         self.errorCount = summary.errorCount as NSNumber?
         self.errorChange = summary.errorChange as NSNumber?
         self.warningCount = summary.warningCount as NSNumber?

@@ -33,7 +33,7 @@ import CodeQuickKit
 /// to XCServerCoreData
 public extension NSManagedObjectContext {
     
-    // MARK: XcodeServer
+    // MARK: - XcodeServer -
     
     /// Retrieves all `XcodeServer` entities from the Core Data `NSManagedObjectContext`
     public func xcodeServers() -> [XcodeServer] {
@@ -64,7 +64,7 @@ public extension NSManagedObjectContext {
         return nil
     }
     
-    // MARK: Bot
+    // MARK: - Bot -
     
     /// Retrieves all `Bot` entities from the Core Data `NSManagedObjectContext`
     public func bots() -> [Bot] {
@@ -95,7 +95,7 @@ public extension NSManagedObjectContext {
         return nil
     }
     
-    // MARK: Integration
+    // MARK: - Integration -
     
     /// Retrieves all `Integration` entities from the Core Data `NSManagedObjectContext`
     public func integrations() -> [Integration] {
@@ -126,7 +126,7 @@ public extension NSManagedObjectContext {
         return nil
     }
     
-    // MARK: Repository
+    // MARK: - Repository -
     
     /// Retrieves all `Repository` entities from the Core Data `NSManagedObjectContext`
     public func repositories() -> [Repository] {
@@ -157,7 +157,7 @@ public extension NSManagedObjectContext {
         return nil
     }
     
-    // MARK: Commit
+    // MARK: - Commit -
     
     /// Retrieves all `Commit` entities from the Core Data `NSManagedObjectContext`
     public func commits() -> [Commit] {
@@ -188,7 +188,7 @@ public extension NSManagedObjectContext {
         return nil
     }
     
-    // MARK: Device
+    // MARK: - Device -
     
     /// Retrieves all `Device` entities from the Core Data `NSManagedObjectContext`
     public func devices() -> [Device] {
@@ -219,7 +219,7 @@ public extension NSManagedObjectContext {
         return nil
     }
     
-    // MARK: Revision Blueprints
+    // MARK: - Revision Blueprints -
     
     /// Retrieves all `RevisionBlueprint` entities from the Core Data `NSManagedObjectContext`
     public func revisionBlueprints() -> [RevisionBlueprint] {

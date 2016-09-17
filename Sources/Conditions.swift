@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class Conditions: SerializableManagedObject {
+public class Conditions: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, trigger: Trigger) {
         self.init(managedObjectContext: managedObjectContext)
         self.trigger = trigger
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "trigger":
             return nil
@@ -46,7 +46,7 @@ open class Conditions: SerializableManagedObject {
         }
     }
     
-    func update(withConditions conditions: ConditionsJSON) {
+    internal func update(withConditions conditions: ConditionsJSON) {
         self.status = conditions.status as NSNumber?
         self.onWarnings = conditions.onWarnings as NSNumber?
         self.onBuildErrors = conditions.onBuildErrors as NSNumber?

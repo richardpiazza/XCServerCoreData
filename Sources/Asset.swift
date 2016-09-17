@@ -32,9 +32,9 @@ import XCServerAPI
 
 /// ## Asset
 /// "Each integration on your server generates a number of files, known as assets. Assets include log files, Xcode archives and installable products like IPA or PKG files."
-open class Asset: SerializableManagedObject {
+public class Asset: SerializableManagedObject {
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "inverseArchive", "inverseBuildServiceLog", "inverseProduct", "inverseSourceControlLog", "inverseTriggerAssets", "inverseXcodebuildLog", "inverseXcodebuildOutput":
             return nil

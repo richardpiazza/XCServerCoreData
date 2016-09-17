@@ -27,24 +27,18 @@
 
 import Foundation
 
-public extension DateFormatter {
-    fileprivate static var _xcServerISO8601Formatter: DateFormatter?
+public extension ISO8601DateFormatter {
+    fileprivate struct shared {
+        static let instance = ISO8601DateFormatter(TimeZone(abbreviation: "UTC")!)
+    }
     
-    /// ## xcServerISO8601Formatter
-    /// Provides a statically referenced ISO8601 NSDateFormatter.
-    /// - note: This can be removed after iOS 10 is released with the new formatter.
-    public static var xcServerISO8601Formatter: DateFormatter {
-        if let formatter = _xcServerISO8601Formatter {
-            return formatter
-        }
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        formatter.timeZone = TimeZone(abbreviation: "UTC")
-        
-        _xcServerISO8601Formatter = formatter
-        
-        return formatter
+    public convenience init(_ timeZone: TimeZone) {
+        self.init()
+        self.timeZone = timeZone
+    }
+    
+    public static var sharedInstance: ISO8601DateFormatter {
+        return shared.instance
     }
 }
 

@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class Repository: SerializableManagedObject {
+public class Repository: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "configurations":
             return nil
@@ -46,7 +46,7 @@ open class Repository: SerializableManagedObject {
         }
     }
     
-    func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
+    internal func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
@@ -105,7 +105,7 @@ open class Repository: SerializableManagedObject {
         }
     }
     
-    func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
+    internal func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
         for integrationCommit in commits {
             for (key, value) in integrationCommit.commits {
                 guard key == self.identifier else {
@@ -117,7 +117,7 @@ open class Repository: SerializableManagedObject {
         }
     }
     
-    func update(withCommits commits: [CommitJSON]) {
+    internal func update(withCommits commits: [CommitJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return

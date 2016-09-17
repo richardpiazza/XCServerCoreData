@@ -33,21 +33,21 @@ import XCServerAPI
 /// An `XcodeServer` is one of the root elements in the object graph.
 /// This represents a single Xcode Server, uniquely identified by its
 /// FQDN (Fully Qualified Domain Name).
-open class XcodeServer: SerializableManagedObject {
+public class XcodeServer: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, fqdn: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.fqdn = fqdn
     }
     
-    func update(withVersion version: VersionJSON) {
+    internal func update(withVersion version: VersionJSON) {
         self.os = version.os
         self.server = version.server
         self.xcodeServer = version.xcodeServer
         self.xcode = version.xcode
     }
     
-    func update(withBots data: [BotJSON]) {
+    internal func update(withBots data: [BotJSON]) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
@@ -84,7 +84,7 @@ open class XcodeServer: SerializableManagedObject {
     
     /// The root API URL for this `XcodeServer`.
     /// Apple by default requires the HTTPS scheme and port 20343.
-    open var apiURL: URL? {
+    public var apiURL: URL? {
         return URL(string: "https://\(self.fqdn):20343/api")
     }
 }

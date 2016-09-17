@@ -29,7 +29,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class XCServerCoreData: CoreData {
+public class XCServerCoreData: CoreData {
     
     fileprivate struct Configuration {
         var applicationDocumentsDirectory: URL {
@@ -52,7 +52,7 @@ open class XCServerCoreData: CoreData {
         self.init(fromBundle: Bundle(for: XCServerCoreData.self), modelName: "XCServerCoreData", configuration: XCServerCoreData.config.config)
     }
     
-    open static var sharedInstance = XCServerCoreData()
+    public static var sharedInstance = XCServerCoreData()
     
     public typealias XCServerCoreDataCompletion = (_ error: NSError?) -> Void
     
@@ -94,7 +94,7 @@ open class XCServerCoreData: CoreData {
     
     /// Ping the Xcode Server.
     /// A Status code of '204' indicates success.
-    open static func ping(xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
+    public static func ping(xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
         api.getPing { (statusCode, response, responseObject, error) in
             guard statusCode == 204 else {
@@ -114,7 +114,7 @@ open class XCServerCoreData: CoreData {
     
     /// Retreive the version information about the `XcodeServer`
     /// Updates the supplied `XcodeServer` entity with the response.
-    open static func syncVersionData(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncVersionData(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = xcodeServer.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -148,7 +148,7 @@ open class XCServerCoreData: CoreData {
     
     /// Retrieves all `Bot`s from the `XcodeServer`
     /// Updates the supplied `XcodeServer` entity with the response.
-    open static func syncBots(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncBots(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = xcodeServer.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -182,7 +182,7 @@ open class XCServerCoreData: CoreData {
     
     /// Retrieves the information for a given `Bot` from the `XcodeServer`.
     /// Updates the supplied `Bot` entity with the response.
-    open static func syncBot(bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncBot(bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -221,7 +221,7 @@ open class XCServerCoreData: CoreData {
     
     /// Gets the cumulative integration stats for the specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
-    open static func syncStats(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncStats(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -259,7 +259,7 @@ open class XCServerCoreData: CoreData {
     
     /// Begin a new integration for the specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
-    open static func triggerIntegration(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
+    public static func triggerIntegration(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -298,7 +298,7 @@ open class XCServerCoreData: CoreData {
     
     /// Gets a list of `Integration` for a specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
-    open static func syncIntegrations(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncIntegrations(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -337,7 +337,7 @@ open class XCServerCoreData: CoreData {
     
     /// Gets a single `Integration` from the `XcodeServer`.
     /// Updates the supplied `Integration` entity with the response.
-    open static func syncIntegration(integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncIntegration(integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = integration.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -381,7 +381,7 @@ open class XCServerCoreData: CoreData {
     
     /// Retrieves the `Repository` commits for a specified `Integration`.
     /// Updates the supplied `Integration` entity with the response.
-    open static func syncCommits(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncCommits(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = integration.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return
@@ -430,7 +430,7 @@ open class XCServerCoreData: CoreData {
     
     /// Retrieves `Issue` related to a given `Integration`.
     /// Updates the supplied `Integration` entity with the response.
-    open static func syncIssues(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
+    public static func syncIssues(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = integration.managedObjectContext else {
             completion(self.invalidManagedObjectContext)
             return

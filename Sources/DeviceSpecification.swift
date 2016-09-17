@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class DeviceSpecification: SerializableManagedObject {
+public class DeviceSpecification: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "configuration":
             return nil
@@ -46,7 +46,7 @@ open class DeviceSpecification: SerializableManagedObject {
         }
     }
     
-    func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
+    internal func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return

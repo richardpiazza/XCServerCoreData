@@ -30,7 +30,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class Commit: SerializableManagedObject {
+public class Commit: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, repository: Repository) {
         self.init(managedObjectContext: managedObjectContext)
@@ -38,7 +38,7 @@ open class Commit: SerializableManagedObject {
         self.repository = repository
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "repository", "revisionBlueprints":
             return nil
@@ -47,7 +47,7 @@ open class Commit: SerializableManagedObject {
         }
     }
     
-    func update(withCommit commit: CommitJSON) {
+    internal func update(withCommit commit: CommitJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
@@ -77,11 +77,11 @@ open class Commit: SerializableManagedObject {
         }
     }
     
-    open var commitTimestamp: Date? {
+    public var commitTimestamp: Date? {
         guard let timestamp = self.timestamp else {
             return nil
         }
         
-        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
+        return ISO8601DateFormatter.sharedInstance.date(from: timestamp)
     }
 }

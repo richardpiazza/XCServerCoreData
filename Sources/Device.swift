@@ -30,14 +30,14 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-open class Device: SerializableManagedObject {
+public class Device: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String) {
         self.init(managedObjectContext: managedObjectContext)
         self.identifier = identifier
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "deviceSpecifications", "inverseActiveProxiedDevice", "integrations":
             return nil
@@ -46,7 +46,7 @@ open class Device: SerializableManagedObject {
         }
     }
     
-    func update(withDevice device: DeviceJSON) {
+    internal func update(withDevice device: DeviceJSON) {
         self.name = device.name
         self.deviceType = device.deviceType
         self.connected = device.connected as NSNumber?

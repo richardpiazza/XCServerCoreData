@@ -35,7 +35,7 @@ public typealias TestResult = (name: String, passed: Bool)
 /// ## Integration
 /// An Xcode Server Bot integration (run).
 /// "An integration is a single run of a bot. Integrations consist of building, analyzing, testing, and archiving the apps (or other software products) defined in your Xcode projects."
-open class Integration: SerializableManagedObject {
+public class Integration: SerializableManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
@@ -46,7 +46,7 @@ open class Integration: SerializableManagedObject {
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
     }
     
-    override open func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
+    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
         switch propertyName {
         case "bot", "inverseBestSuccessStreak", "inverseLastCleanIntegration":
             return nil
@@ -55,7 +55,7 @@ open class Integration: SerializableManagedObject {
         }
     }
     
-    func update(withIntegration integration: IntegrationJSON) {
+    internal func update(withIntegration integration: IntegrationJSON) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
@@ -113,7 +113,7 @@ open class Integration: SerializableManagedObject {
         }
     }
     
-    open var integrationNumber: Int {
+    public var integrationNumber: Int {
         guard let value = self.number else {
             return 0
         }
@@ -121,7 +121,7 @@ open class Integration: SerializableManagedObject {
         return value.intValue
     }
     
-    open var integrationStep: IntegrationStep {
+    public var integrationStep: IntegrationStep {
         guard let rawValue = self.currentStep else {
             return .Unknown
         }
@@ -133,7 +133,7 @@ open class Integration: SerializableManagedObject {
         return enumeration
     }
     
-    open var integrationResult: IntegrationResult {
+    public var integrationResult: IntegrationResult {
         guard let rawValue = self.result else {
             return .Unknown
         }
@@ -145,31 +145,31 @@ open class Integration: SerializableManagedObject {
         return enumeration
     }
     
-    open var queuedTimestamp: Date? {
+    public var queuedTimestamp: Date? {
         guard let timestamp = self.queuedDate else {
             return nil
         }
         
-        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
+        return ISO8601DateFormatter.sharedInstance.date(from: timestamp)
     }
     
-    open var startedTimestamp: Date? {
+    public var startedTimestamp: Date? {
         guard let timestamp = self.startedTime else {
             return nil
         }
         
-        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
+        return ISO8601DateFormatter.sharedInstance.date(from: timestamp)
     }
     
-    open var endedTimestamp: Date? {
+    public var endedTimestamp: Date? {
         guard let timestamp = self.endedTime else {
             return nil
         }
         
-        return DateFormatter.xcServerISO8601Formatter.date(from: timestamp)
+        return ISO8601DateFormatter.sharedInstance.date(from: timestamp)
     }
     
-    open var testResults: [TestResult]? {
+    public var testResults: [TestResult]? {
         guard let testHierachy = self.testHierachy as? [String : AnyObject] else {
             return nil
         }
