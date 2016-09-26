@@ -52,8 +52,8 @@ public class Filter: SerializableManagedObject {
             return
         }
         
-        self.filterType = filter.filterType
-        self.architectureType = filter.architectureType
+        self.filterType = filter.filterType as NSNumber?
+        self.architectureType = filter.architectureType as NSNumber?
         
         if let filterPlatform = filter.platform {
             if self.platform == nil {

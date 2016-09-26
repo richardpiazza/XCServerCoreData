@@ -27,18 +27,18 @@
 
 import Foundation
 
-public extension ISO8601DateFormatter {
-    fileprivate struct shared {
-        static let instance = ISO8601DateFormatter(TimeZone(abbreviation: "UTC")!)
+public extension DateFormatter {
+    fileprivate struct XCServerCoreDataDateFormatters {
+        static var xcodeServerDateFormatter: DateFormatter {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
+            formatter.timeZone = TimeZone(identifier: "GMT")
+            return formatter
+        }
     }
     
-    public convenience init(_ timeZone: TimeZone) {
-        self.init()
-        self.timeZone = timeZone
-    }
-    
-    public static var sharedInstance: ISO8601DateFormatter {
-        return shared.instance
+    public static var xcodeServerDateFormatter: DateFormatter {
+        return XCServerCoreDataDateFormatters.xcodeServerDateFormatter
     }
 }
 

@@ -64,7 +64,7 @@ public class Configuration: SerializableManagedObject {
         self.weeklyScheduleDay = configuration.weeklyScheduleDay as NSNumber?
         self.hourOfIntegration = configuration.hourOfIntegration as NSNumber?
         self.minutesAfterHourToIntegrate = configuration.minutesAfterHourToIntegrate as NSNumber?
-        self.codeCoveragePreference = configuration.codeCoveragePreference
+        self.codeCoveragePreference = configuration.codeCoveragePreference as NSNumber?
         
         // Repositories
         if let configurationBlueprint = configuration.sourceControlBlueprint {

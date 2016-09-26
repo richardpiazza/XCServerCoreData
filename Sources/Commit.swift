@@ -82,6 +82,6 @@ public class Commit: SerializableManagedObject {
             return nil
         }
         
-        return ISO8601DateFormatter.sharedInstance.date(from: timestamp)
+        return DateFormatter.xcodeServerDateFormatter.date(from: timestamp)
     }
 }
