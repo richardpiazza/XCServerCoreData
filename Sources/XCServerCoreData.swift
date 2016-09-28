@@ -39,8 +39,13 @@ public class XCServerCoreData: CoreData {
         
         var config: PersistentStoreConfiguration {
             var config = PersistentStoreConfiguration()
-            config.storeType = .sqlite
-            config.url = applicationDocumentsDirectory.appendingPathComponent("XCServerCoreData.sqlite")
+            #if os(tvOS)
+                config.storeType = .inMemory
+                config.url = nil
+            #else
+                config.storeType = .sqlite
+                config.url = applicationDocumentsDirectory.appendingPathComponent("XCServerCoreData.sqlite")
+            #endif
             config.options = [NSMigratePersistentStoresAutomaticallyOption : true as AnyObject, NSInferMappingModelAutomaticallyOption : true as AnyObject]
             return config
         }
