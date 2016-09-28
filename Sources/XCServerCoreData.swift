@@ -32,20 +32,25 @@ import XCServerAPI
 public class XCServerCoreData: CoreData {
     
     fileprivate struct Configuration {
-        var applicationDocumentsDirectory: URL {
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            return urls[urls.count-1]
+        var directory: URL {
+            var urls: [URL]
+            #if os(tvOS)
+                urls = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+            #else
+                urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            #endif
+            
+            guard let url = urls.last else {
+                fatalError("Could not find url for storage directory.")
+            }
+            
+            return url
         }
         
         var config: PersistentStoreConfiguration {
             var config = PersistentStoreConfiguration()
-            #if os(tvOS)
-                config.storeType = .inMemory
-                config.url = nil
-            #else
-                config.storeType = .sqlite
-                config.url = applicationDocumentsDirectory.appendingPathComponent("XCServerCoreData.sqlite")
-            #endif
+            config.storeType = .sqlite
+            config.url = directory.appendingPathComponent("XCServerCoreData.sqlite")
             config.options = [NSMigratePersistentStoresAutomaticallyOption : true as AnyObject, NSInferMappingModelAutomaticallyOption : true as AnyObject]
             return config
         }
