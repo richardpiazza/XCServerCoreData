@@ -92,10 +92,8 @@ public class Repository: SerializableManagedObject {
         var commit: Commit?
         if let c = moc.commit(withHash: commitHash) {
             commit = c
-            Logger.debug("Found commit with hash '\(commitHash)'", callingClass: Repository.self)
         } else if let c = Commit(managedObjectContext: moc, identifier: commitHash, repository: self) {
             commit = c
-            Logger.debug("Created commit with hash '\(commitHash)'", callingClass: Repository.self)
         }
         
         if let commit = commit {
@@ -129,10 +127,8 @@ public class Repository: SerializableManagedObject {
             var commit: Commit?
             if let c = moc.commit(withHash: commitsCommit.XCSCommitHash) {
                 commit = c
-                Logger.debug("Found commit with hash '\(commitsCommit.XCSCommitHash)'", callingClass: Repository.self)
             } else if let c = Commit(managedObjectContext: moc, identifier: commitsCommit.XCSCommitHash, repository: self) {
                 commit = c
-                Logger.debug("Created commit with hash '\(commitsCommit.XCSCommitHash)'", callingClass: Repository.self)
             }
             
             if let commit = commit {

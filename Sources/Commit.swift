@@ -77,13 +77,11 @@ public class Commit: SerializableManagedObject {
         }
         
         if let integration = integration {
-            if let _ = moc.revisionBlueprint(withCommit: self, andIntegration: integration) {
+            guard moc.revisionBlueprint(withCommit: self, andIntegration: integration) == nil else {
                 return
             }
             
-            if let blueprint = RevisionBlueprint(managedObjectContext: moc, commit: self, integration: integration) {
-                self.revisionBlueprints?.insert(blueprint)
-            }
+            let _ = RevisionBlueprint(managedObjectContext: moc, commit: self, integration: integration)
         }
     }
     
