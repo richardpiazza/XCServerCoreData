@@ -47,7 +47,7 @@ public class Commit: SerializableManagedObject {
         }
     }
     
-    internal func update(withCommit commit: CommitJSON) {
+    internal func update(withCommit commit: CommitJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
@@ -73,6 +73,16 @@ public class Commit: SerializableManagedObject {
             
             if let change = CommitChange(managedObjectContext: moc, commit: self) {
                 change.update(withCommitChange: commitChange)
+            }
+        }
+        
+        if let integration = integration {
+            if let _ = moc.revisionBlueprint(withCommit: self, andIntegration: integration) {
+                return
+            }
+            
+            if let blueprint = RevisionBlueprint(managedObjectContext: moc, commit: self, integration: integration) {
+                self.revisionBlueprints?.insert(blueprint)
             }
         }
     }

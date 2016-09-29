@@ -107,19 +107,19 @@ public class Repository: SerializableManagedObject {
         }
     }
     
-    internal func update(withIntegrationCommits commits: [IntegrationCommitJSON]) {
+    internal func update(withIntegrationCommits commits: [IntegrationCommitJSON], integration: Integration? = nil) {
         for integrationCommit in commits {
             for (key, value) in integrationCommit.commits {
                 guard key == self.identifier else {
                     continue
                 }
                 
-                self.update(withCommits: value)
+                self.update(withCommits: value, integration: integration)
             }
         }
     }
     
-    internal func update(withCommits commits: [CommitJSON]) {
+    internal func update(withCommits commits: [CommitJSON], integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
             return
@@ -136,7 +136,7 @@ public class Repository: SerializableManagedObject {
             }
             
             if let commit = commit {
-                commit.update(withCommit: commitsCommit)
+                commit.update(withCommit: commitsCommit, integration: integration)
             }
         }
     }
