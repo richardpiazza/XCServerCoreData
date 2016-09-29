@@ -425,7 +425,7 @@ public class XCServerCoreData: CoreData {
                 let repositories = privateContext.repositories()
                 
                 for repository in repositories {
-                    repository.update(withIntegrationCommits: commits)
+                    repository.update(withIntegrationCommits: commits, integration: integration)
                 }
                 
                 if let i = privateContext.object(with: integration.objectID) as? Integration {
