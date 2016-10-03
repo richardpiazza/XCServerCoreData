@@ -169,13 +169,13 @@ public class Integration: SerializableManagedObject {
         return DateFormatter.xcodeServerDateFormatter.date(from: timestamp)
     }
     
-    public var testResults: [TestResult]? {
+    public var testResults: [TestResult] {
         guard let testHierachy = self.testHierachy as? [String : AnyObject] else {
-            return nil
+            return []
         }
         
         guard testHierachy.keys.count > 0 else {
-            return nil
+            return []
         }
         
         var results = [TestResult]()
