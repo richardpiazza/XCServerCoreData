@@ -54,7 +54,7 @@ class MOCObjectTests: XCTestCase {
     override static func setUp() {
         super.setUp()
         
-        Logger.minimumConsoleLevel = .verbose
+        Log.consoleLevel = .debug
         
         if let apiResponse = Resources.Bots {
             server.update(withBots: apiResponse.results)

@@ -116,7 +116,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Pinged Server '\(xcodeServer.fqdn)'", callingClass: self)
+            Log.debug("Pinged Server '\(xcodeServer.fqdn)'")
             
             completion(nil)
         }
@@ -142,7 +142,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Version Data for Server '\(xcodeServer.fqdn)'", callingClass: self)
+            Log.debug("Retrieved Version Data for Server '\(xcodeServer.fqdn)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let server = privateContext.object(with: xcodeServer.objectID) as? XcodeServer {
@@ -176,7 +176,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Bots for Server '\(xcodeServer.fqdn)'", callingClass: self)
+            Log.debug("Retrieved Bots for Server '\(xcodeServer.fqdn)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let server = privateContext.object(with: xcodeServer.objectID) as? XcodeServer {
@@ -215,7 +215,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Bot '\(bot.identifier)'", callingClass: self)
+            Log.debug("Retrieved Bot '\(bot.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
@@ -254,7 +254,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Stats for Bot '\(bot.identifier)'", callingClass: self)
+            Log.debug("Retrieved Stats for Bot '\(bot.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
@@ -292,7 +292,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Triggered Integration for Bot '\(bot.identifier)'", callingClass: self)
+            Log.debug("Triggered Integration for Bot '\(bot.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
@@ -331,7 +331,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Integrations for Bot '\(bot.identifier)'", callingClass: self)
+            Log.debug("Retrieved Integrations for Bot '\(bot.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
@@ -375,7 +375,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Integration '\(integration.identifier)'", callingClass: self)
+            Log.debug("Retrieved Integration '\(integration.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let i = privateContext.object(with: integration.objectID) as? Integration {
@@ -419,7 +419,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Commits for Integration '\(integration.identifier)'", callingClass: self)
+            Log.debug("Retrieved Commits for Integration '\(integration.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 let repositories = privateContext.repositories()
@@ -467,7 +467,7 @@ public class XCServerCoreData: CoreData {
                 return
             }
             
-            Logger.debug("Retrieved Issues for Integration '\(integration.identifier)'", callingClass: self)
+            Log.debug("Retrieved Issues for Integration '\(integration.identifier)'")
             
             moc.mergeChanges(performingBlock: { (privateContext) in
                 if let i = privateContext.object(with: integration.objectID) as? Integration {

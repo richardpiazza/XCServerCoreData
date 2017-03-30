@@ -49,7 +49,7 @@ public class Commit: SerializableManagedObject {
     
     internal func update(withCommit commit: CommitJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         

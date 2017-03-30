@@ -48,7 +48,7 @@ public class Repository: SerializableManagedObject {
     
     internal func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
@@ -119,7 +119,7 @@ public class Repository: SerializableManagedObject {
     
     internal func update(withCommits commits: [CommitJSON], integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         

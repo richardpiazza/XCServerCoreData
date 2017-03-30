@@ -41,7 +41,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -58,7 +58,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil
@@ -72,7 +72,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -89,7 +89,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil
@@ -103,7 +103,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -120,7 +120,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil
@@ -134,7 +134,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -151,7 +151,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil
@@ -165,7 +165,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -182,7 +182,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil
@@ -196,7 +196,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -213,7 +213,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil
@@ -227,7 +227,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return []
@@ -244,7 +244,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Logger.error(error as NSError, message: "\(#function)", callingClass: type(of: self))
+            Log.error("\(#function)", error: error as NSError)
         }
         
         return nil

@@ -48,7 +48,7 @@ public class IntegrationIssues: SerializableManagedObject {
     
     internal func update(withIntegrationIssues issues: IntegrationIssuesResponse) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         

@@ -49,7 +49,7 @@ public class XcodeServer: SerializableManagedObject {
     
     internal func update(withBots data: [BotJSON]) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         

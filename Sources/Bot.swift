@@ -55,7 +55,7 @@ public class Bot: SerializableManagedObject {
     
     internal func update(withBot bot: BotJSON) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
@@ -83,7 +83,7 @@ public class Bot: SerializableManagedObject {
     
     internal func update(withIntegrations integrations: [IntegrationJSON]) {
         guard let moc = self.managedObjectContext else {
-            Logger.warn("\(#function) failed; MOC is nil", callingClass: type(of: self))
+            Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
