@@ -54,45 +54,61 @@ public class XCServerCoreData {
         case xcodeServer
         case bot
         case repository
+        
+        public var code: Int {
+            switch self {
+            case .unhandled: return 0
+            case .response: return 1
+            case .managedObjectContext: return 2
+            case .xcodeServer: return 3
+            case .bot: return 4
+            case .repository: return 5
+            }
+        }
+        
+        public var localizedDescription: String {
+            switch self {
+            case .unhandled: return "Unhandled Error"
+            case .response: return "Invalid Response"
+            case .managedObjectContext: return "Invalid NSManagedObjectContext"
+            case .xcodeServer: return "Invalid Xcode Server"
+            case .bot: return "Invalid Bot"
+            case .repository: return "Invalid Repository"
+            }
+        }
+        
+        public var localizedFailureReason: String {
+            switch self {
+            case .unhandled: return "An unknown error occured."
+            case .response: return "The API response was unexpectedly nil."
+            case .managedObjectContext: return "The parameter entity has an invalid NSManagedObjectContext."
+            case .xcodeServer: return "An Xcode Server could not be identified for the supplied parameter entity."
+            case .bot: return "A Bot could not be identified for the supplied parameter entity."
+            case .repository: return "A Repository could not be identified for the supplied parameter entity."
+            }
+        }
+        
+        public var localizedRecoverySuggestion: String {
+            switch self {
+            case .unhandled: return "Attempt your request again."
+            case .response: return "Please try your request again."
+            case .managedObjectContext: return "Retry the request with a valid entity."
+            case .xcodeServer: return "Retry the request with a valid entity."
+            case .bot: return "Retry the request with a valid entity."
+            case .repository: return "Retry the request with a valid entity."
+            }
+        }
+        
+        public var nsError: NSError {
+            return NSError(domain: String(describing: self), code: self.code, userInfo: [
+                NSLocalizedDescriptionKey : self.localizedDescription,
+                NSLocalizedFailureReasonErrorKey : self.localizedFailureReason,
+                NSLocalizedRecoverySuggestionErrorKey : self.localizedRecoverySuggestion
+                ])
+        }
     }
     
     public typealias XCServerCoreDataCompletion = (_ error: Error?) -> Void
-    
-    fileprivate static let unhandledError = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
-        NSLocalizedDescriptionKey : "Unhandled Error",
-        NSLocalizedFailureReasonErrorKey : "An unknown error occured.",
-        NSLocalizedRecoverySuggestionErrorKey : "Attempt your request again."
-        ])
-    
-    fileprivate static let invalidResponse = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
-        NSLocalizedDescriptionKey : "Invalid Response",
-        NSLocalizedFailureReasonErrorKey : "The API response was unexpectedly nil.",
-        NSLocalizedRecoverySuggestionErrorKey : "Please try your request again."
-        ])
-    
-    fileprivate static let invalidManagedObjectContext = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
-        NSLocalizedDescriptionKey : "Invalid NSManagedObjectContext",
-        NSLocalizedFailureReasonErrorKey : "The parameter entity has an invalid NSManagedObjectContext.",
-        NSLocalizedRecoverySuggestionErrorKey : "Retry the request with a valid entity."
-        ])
-    
-    fileprivate static let invalidXcodeServer = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
-        NSLocalizedDescriptionKey : "Invalid Xcode Server",
-        NSLocalizedFailureReasonErrorKey : "An Xcode Server could not be identified for the supplied parameter entity.",
-        NSLocalizedRecoverySuggestionErrorKey : "Retry the request with a valid entity."
-        ])
-    
-    fileprivate static let invalidBot = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
-        NSLocalizedDescriptionKey : "Invalid Bot",
-        NSLocalizedFailureReasonErrorKey : "A Bot could not be identified for the supplied parameter entity.",
-        NSLocalizedRecoverySuggestionErrorKey : "Retry the request with a valid entity."
-        ])
-    
-    fileprivate static let invalidRepository = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
-        NSLocalizedDescriptionKey : "Invalid Repository",
-        NSLocalizedFailureReasonErrorKey : "A Repository could not be identified for the supplied parameter entity.",
-        NSLocalizedRecoverySuggestionErrorKey : "Retry the request with a valid entity."
-        ])
     
     /// Ping the Xcode Server.
     /// A Status code of '204' indicates success.
@@ -103,7 +119,7 @@ public class XCServerCoreData {
                 if let e = error {
                     completion(e)
                 } else {
-                    completion(self.unhandledError)
+                    completion(Errors.unhandled)
                 }
                 return
             }
@@ -118,7 +134,7 @@ public class XCServerCoreData {
     /// Updates the supplied `XcodeServer` entity with the response.
     public static func syncVersionData(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = xcodeServer.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
@@ -130,7 +146,7 @@ public class XCServerCoreData {
             }
             
             guard let version = version else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -152,7 +168,7 @@ public class XCServerCoreData {
     /// Updates the supplied `XcodeServer` entity with the response.
     public static func syncBots(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = xcodeServer.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
@@ -164,7 +180,7 @@ public class XCServerCoreData {
             }
             
             guard let bots = bots else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -186,12 +202,12 @@ public class XCServerCoreData {
     /// Updates the supplied `Bot` entity with the response.
     public static func syncBot(bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -203,7 +219,7 @@ public class XCServerCoreData {
             }
             
             guard let responseBot = responseBot else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -225,12 +241,12 @@ public class XCServerCoreData {
     /// Updates the supplied `Bot` entity with the response.
     public static func syncStats(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -242,7 +258,7 @@ public class XCServerCoreData {
             }
             
             guard let stats = stats else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -263,12 +279,12 @@ public class XCServerCoreData {
     /// Updates the supplied `Bot` entity with the response.
     public static func triggerIntegration(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -280,7 +296,7 @@ public class XCServerCoreData {
             }
             
             guard let integration = integration else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -302,12 +318,12 @@ public class XCServerCoreData {
     /// Updates the supplied `Bot` entity with the response.
     public static func syncIntegrations(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = bot.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -319,7 +335,7 @@ public class XCServerCoreData {
             }
             
             guard let integrations = integrations else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -341,17 +357,17 @@ public class XCServerCoreData {
     /// Updates the supplied `Integration` entity with the response.
     public static func syncIntegration(integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = integration.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let bot = integration.bot else {
-            completion(self.invalidBot)
+            completion(Errors.bot)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -363,7 +379,7 @@ public class XCServerCoreData {
             }
             
             guard let responseIntegration = responseIntegration else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -385,17 +401,17 @@ public class XCServerCoreData {
     /// Updates the supplied `Integration` entity with the response.
     public static func syncCommits(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = integration.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let bot = integration.bot else {
-            completion(self.invalidBot)
+            completion(Errors.bot)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -407,7 +423,7 @@ public class XCServerCoreData {
             }
             
             guard let commits = commits else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
@@ -433,17 +449,17 @@ public class XCServerCoreData {
     /// Updates the supplied `Integration` entity with the response.
     public static func syncIssues(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let moc = integration.managedObjectContext else {
-            completion(self.invalidManagedObjectContext)
+            completion(Errors.managedObjectContext)
             return
         }
         
         guard let bot = integration.bot else {
-            completion(self.invalidBot)
+            completion(Errors.bot)
             return
         }
         
         guard let xcodeServer = bot.xcodeServer else {
-            completion(self.invalidXcodeServer)
+            completion(Errors.xcodeServer)
             return
         }
         
@@ -455,7 +471,7 @@ public class XCServerCoreData {
             }
             
             guard let issues = issues else {
-                completion(self.invalidResponse)
+                completion(Errors.response)
                 return
             }
             
