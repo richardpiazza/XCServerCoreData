@@ -30,19 +30,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Issue: SerializableManagedObject {
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "inverseBuildServiceErrors", "inverseBuildServiceWarnings",
-             "inverseFreshAnalyserWarnings", "inverseFreshErrors", "inverseFreshTestFailures", "inverseFreshWarnings",
-             "inverseResolvedAnalyserWarnings", "inverseResolvedErrors", "inverseResolvedFailures", "inverseResolvedWarnings",
-             "inverseUnresolvedAnalyserWarnings", "inverseUnresolvedErrors", "inverseUnresolvedFailures", "inverseUnresolvedWarnings":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
-    }
+public class Issue: NSManagedObject {
     
     internal func update(withIssue issue: XCServerAPI.Issue) {
         self.identifier = issue._id

@@ -30,20 +30,11 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class IntegrationAssets: SerializableManagedObject {
+public class IntegrationAssets: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, integration: Integration) {
         self.init(managedObjectContext: managedObjectContext)
         self.integration = integration
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "integration":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withIntegrationAssets assets: XCServerAPI.Assets) {

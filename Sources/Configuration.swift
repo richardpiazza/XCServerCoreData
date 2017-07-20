@@ -30,21 +30,12 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Configuration: SerializableManagedObject {
+public class Configuration: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
         self.deviceSpecification = DeviceSpecification(managedObjectContext: managedObjectContext, configuration: self)
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "bot", "repositories":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withConfiguration configuration: XCServerAPI.Configuration) {

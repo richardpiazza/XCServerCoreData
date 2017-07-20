@@ -30,17 +30,7 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class StatsBreakdown: SerializableManagedObject {
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "inverseAnalysisWarnings", "inverseAverageIntegrationTime", "inverseErrors", "inverseImprovedPerfTests",
-            "inverseRegressedPerfTests", "inverseTestFailures", "inverseTests", "inverseWarnings":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
-    }
+public class StatsBreakdown: NSManagedObject {
     
     internal func update(withStatsBreakdown breakdown: XCServerAPI.StatsSummary) {
         self.sum = breakdown.sum as NSNumber?

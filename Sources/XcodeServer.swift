@@ -33,7 +33,7 @@ import XCServerAPI
 /// An `XcodeServer` is one of the root elements in the object graph.
 /// This represents a single Xcode Server, uniquely identified by its
 /// FQDN (Fully Qualified Domain Name).
-public class XcodeServer: SerializableManagedObject {
+public class XcodeServer: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, fqdn: String) {
         self.init(managedObjectContext: managedObjectContext)

@@ -32,16 +32,7 @@ import XCServerAPI
 
 /// ## Asset
 /// "Each integration on your server generates a number of files, known as assets. Assets include log files, Xcode archives and installable products like IPA or PKG files."
-public class Asset: SerializableManagedObject {
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "inverseArchive", "inverseBuildServiceLog", "inverseProduct", "inverseSourceControlLog", "inverseTriggerAssets", "inverseXcodebuildLog", "inverseXcodebuildOutput":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
-    }
+public class Asset: NSManagedObject {
     
     func update(withAsset asset: XCServerAPI.IntegrationAsset) {
         self.allowAnonymousAccess = asset.allowAnonymousAccess as NSNumber?

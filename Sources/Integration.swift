@@ -35,7 +35,7 @@ public typealias TestResult = (name: String, passed: Bool)
 /// ## Integration
 /// An Xcode Server Bot integration (run).
 /// "An integration is a single run of a bot. Integrations consist of building, analyzing, testing, and archiving the apps (or other software products) defined in your Xcode projects."
-public class Integration: SerializableManagedObject {
+public class Integration: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
@@ -44,15 +44,6 @@ public class Integration: SerializableManagedObject {
         self.buildResultSummary = BuildResultSummary(managedObjectContext: managedObjectContext, integration: self)
         self.assets = IntegrationAssets(managedObjectContext: managedObjectContext)
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "bot", "inverseBestSuccessStreak", "inverseLastCleanIntegration":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withIntegration integration: XCServerAPI.IntegrationDocument) {

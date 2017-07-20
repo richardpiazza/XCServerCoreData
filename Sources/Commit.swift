@@ -30,21 +30,12 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Commit: SerializableManagedObject {
+public class Commit: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, repository: Repository) {
         self.init(managedObjectContext: managedObjectContext)
         self.commitHash = identifier
         self.repository = repository
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "repository", "revisionBlueprints":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withCommit commit: XCServerAPI.Commit, integration: Integration? = nil) {

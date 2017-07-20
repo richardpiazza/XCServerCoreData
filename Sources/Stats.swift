@@ -30,20 +30,11 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Stats: SerializableManagedObject {
+public class Stats: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, bot: Bot) {
         self.init(managedObjectContext: managedObjectContext)
         self.bot = bot
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "bot":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withStats stats: XCServerAPI.Stats) {

@@ -33,7 +33,7 @@ import XCServerAPI
 /// ## Bot
 /// Represents an Xcode Server Bot.
 /// "Bots are processes that Xcode Server runs to perform integrations on the current version of a project in a source code repository."
-public class Bot: SerializableManagedObject {
+public class Bot: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, identifier: String, server: XcodeServer) {
         self.init(managedObjectContext: managedObjectContext)
@@ -42,15 +42,6 @@ public class Bot: SerializableManagedObject {
         self.integrations = Set<Integration>()
         self.configuration = Configuration(managedObjectContext: managedObjectContext, bot: self)
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "xcodeServer":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withBot bot: XCServerAPI.BotDocument) {

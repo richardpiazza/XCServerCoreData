@@ -30,20 +30,11 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class Trigger: SerializableManagedObject {
+public class Trigger: NSManagedObject {
     
     public convenience init?(managedObjectContext: NSManagedObjectContext, configuration: Configuration) {
         self.init(managedObjectContext: managedObjectContext)
         self.configuration = configuration
-    }
-    
-    override public func serializedObject(forPropertyName propertyName: String, withData data: NSObject) -> NSObject? {
-        switch propertyName {
-        case "configuration":
-            return nil
-        default:
-            return super.serializedObject(forPropertyName: propertyName, withData: data)
-        }
     }
     
     internal func update(withTrigger trigger: XCServerAPI.Trigger) {
