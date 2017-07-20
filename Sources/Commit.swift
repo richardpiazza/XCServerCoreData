@@ -84,6 +84,6 @@ public class Commit: NSManagedObject {
             return nil
         }
         
-        return DateFormatter.xcodeServerDateFormatter.date(from: timestamp)
+        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
     }
 }

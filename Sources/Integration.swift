@@ -155,7 +155,7 @@ public class Integration: NSManagedObject {
             return nil
         }
         
-        return DateFormatter.xcodeServerDateFormatter.date(from: timestamp)
+        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
     }
     
     public var startedTimestamp: Date? {
@@ -163,7 +163,7 @@ public class Integration: NSManagedObject {
             return nil
         }
         
-        return DateFormatter.xcodeServerDateFormatter.date(from: timestamp)
+        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
     }
     
     public var endedTimestamp: Date? {
@@ -171,7 +171,7 @@ public class Integration: NSManagedObject {
             return nil
         }
         
-        return DateFormatter.xcodeServerDateFormatter.date(from: timestamp)
+        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
     }
     
     public var testResults: [TestResult] {

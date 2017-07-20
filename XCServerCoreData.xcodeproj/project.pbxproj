@@ -11,11 +11,6 @@
 		6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */; };
 		E1027E871F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E861F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift */; };
 		E1027E891F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E881F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift */; };
-		E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */; };
-		E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEC1D0B520700789436 /* pb_BotResponse.txt */; };
-		E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */; };
-		E1448FF11D0B527900789436 /* mep_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FF01D0B527900789436 /* mep_BotResponse.txt */; };
-		E1448FF31D0B52B700789436 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1448FF21D0B52B700789436 /* Resources.swift */; };
 		E162423B1CE3930F00283B2E /* XCServerCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = E162423A1CE3930F00283B2E /* XCServerCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16242421CE3930F00283B2E /* XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16242371CE3930F00283B2E /* XCServerCoreData.framework */; };
 		E16242531CE3935800283B2E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E16242511CE3935800283B2E /* Podfile */; };
@@ -27,26 +22,6 @@
 		E1A1D5151D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5141D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel */; };
 		E1BA57D51D08845000B82DFD /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D41D08845000B82DFD /* Enumerations.swift */; };
 		E1BA57F51D08A0B200B82DFD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F41D08A0B200B82DFD /* Extensions.swift */; };
-		E1BA57F71D0B62EF00B82DFD /* pb_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57F61D0B62EF00B82DFD /* pb_IntegrationsResponse.txt */; };
-		E1BA57F91D0B632800B82DFD /* bs_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57F81D0B632800B82DFD /* bs_IntegrationsResponse.txt */; };
-		E1BA57FB1D0B640000B82DFD /* cqk_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57FA1D0B640000B82DFD /* cqk_IntegrationsResponse.txt */; };
-		E1BA57FD1D0B642900B82DFD /* mep_IntegrationsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57FC1D0B642900B82DFD /* mep_IntegrationsResponse.txt */; };
-		E1BA57FF1D0B682900B82DFD /* pb_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA57FE1D0B682900B82DFD /* pb_Stats.txt */; };
-		E1BA58011D0B685700B82DFD /* bs_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58001D0B685700B82DFD /* bs_Stats.txt */; };
-		E1BA58031D0B687800B82DFD /* cqk_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58021D0B687800B82DFD /* cqk_Stats.txt */; };
-		E1BA58051D0B689B00B82DFD /* mep_Stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58041D0B689B00B82DFD /* mep_Stats.txt */; };
-		E1BA58071D0CA3CA00B82DFD /* pb_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58061D0CA3CA00B82DFD /* pb_Integration.txt */; };
-		E1BA58091D0CA41F00B82DFD /* bs_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58081D0CA41F00B82DFD /* bs_Integration.txt */; };
-		E1BA580B1D0CA43900B82DFD /* cqk_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA580A1D0CA43900B82DFD /* cqk_Integration.txt */; };
-		E1BA580D1D0CA45700B82DFD /* mep_Integration.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA580C1D0CA45700B82DFD /* mep_Integration.txt */; };
-		E1BA580F1D0CA54E00B82DFD /* pb_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA580E1D0CA54E00B82DFD /* pb_Commits.txt */; };
-		E1BA58111D0CA57400B82DFD /* bs_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58101D0CA57400B82DFD /* bs_Commits.txt */; };
-		E1BA58131D0CA58C00B82DFD /* cqk_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58121D0CA58C00B82DFD /* cqk_Commits.txt */; };
-		E1BA58151D0CA5B200B82DFD /* mep_Commits.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58141D0CA5B200B82DFD /* mep_Commits.txt */; };
-		E1BA58171D0CA66000B82DFD /* pb_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58161D0CA66000B82DFD /* pb_Issues.txt */; };
-		E1BA58191D0CA67900B82DFD /* bs_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA58181D0CA67900B82DFD /* bs_Issues.txt */; };
-		E1BA581B1D0CA69200B82DFD /* cqk_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA581A1D0CA69200B82DFD /* cqk_Issues.txt */; };
-		E1BA581D1D0CA6C100B82DFD /* mep_Issues.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1BA581C1D0CA6C100B82DFD /* mep_Issues.txt */; };
 		E1D825BE1CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */; };
 		E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */; };
 		E1D825C01CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */; };
@@ -94,8 +69,6 @@
 		E1D825EA1CEB6D5700BBF4F6 /* Trigger+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825BC1CEB6D5700BBF4F6 /* Trigger+CoreDataProperties.swift */; };
 		E1D825EB1CEB6D5700BBF4F6 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825BD1CEB6D5700BBF4F6 /* Trigger.swift */; };
 		E1D825ED1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */; };
-		E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */; };
-		E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,12 +90,7 @@
 		B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
 		E1027E861F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+XCServerCoreData.swift"; sourceTree = "<group>"; };
 		E1027E881F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryBlueprint+XCServerCoreData.swift"; sourceTree = "<group>"; };
-		E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCObjectTests.swift; sourceTree = "<group>"; };
 		E12682201D26D355006B4887 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E1448FEC1D0B520700789436 /* pb_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_BotResponse.txt; sourceTree = "<group>"; };
-		E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_BotResponse.txt; sourceTree = "<group>"; };
-		E1448FF01D0B527900789436 /* mep_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_BotResponse.txt; sourceTree = "<group>"; };
-		E1448FF21D0B52B700789436 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E16242371CE3930F00283B2E /* XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E162423A1CE3930F00283B2E /* XCServerCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCServerCoreData.h; sourceTree = "<group>"; };
 		E162423C1CE3930F00283B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -139,26 +107,6 @@
 		E1A1D5141D241D440082793F /* MappingModel1.0.0to1.2.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.0.0to1.2.0.xcmappingmodel; sourceTree = "<group>"; };
 		E1BA57D41D08845000B82DFD /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		E1BA57F41D08A0B200B82DFD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E1BA57F61D0B62EF00B82DFD /* pb_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_IntegrationsResponse.txt; sourceTree = "<group>"; };
-		E1BA57F81D0B632800B82DFD /* bs_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_IntegrationsResponse.txt; sourceTree = "<group>"; };
-		E1BA57FA1D0B640000B82DFD /* cqk_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_IntegrationsResponse.txt; sourceTree = "<group>"; };
-		E1BA57FC1D0B642900B82DFD /* mep_IntegrationsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_IntegrationsResponse.txt; sourceTree = "<group>"; };
-		E1BA57FE1D0B682900B82DFD /* pb_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Stats.txt; sourceTree = "<group>"; };
-		E1BA58001D0B685700B82DFD /* bs_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Stats.txt; sourceTree = "<group>"; };
-		E1BA58021D0B687800B82DFD /* cqk_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Stats.txt; sourceTree = "<group>"; };
-		E1BA58041D0B689B00B82DFD /* mep_Stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Stats.txt; sourceTree = "<group>"; };
-		E1BA58061D0CA3CA00B82DFD /* pb_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Integration.txt; sourceTree = "<group>"; };
-		E1BA58081D0CA41F00B82DFD /* bs_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Integration.txt; sourceTree = "<group>"; };
-		E1BA580A1D0CA43900B82DFD /* cqk_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Integration.txt; sourceTree = "<group>"; };
-		E1BA580C1D0CA45700B82DFD /* mep_Integration.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Integration.txt; sourceTree = "<group>"; };
-		E1BA580E1D0CA54E00B82DFD /* pb_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Commits.txt; sourceTree = "<group>"; };
-		E1BA58101D0CA57400B82DFD /* bs_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Commits.txt; sourceTree = "<group>"; };
-		E1BA58121D0CA58C00B82DFD /* cqk_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Commits.txt; sourceTree = "<group>"; };
-		E1BA58141D0CA5B200B82DFD /* mep_Commits.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Commits.txt; sourceTree = "<group>"; };
-		E1BA58161D0CA66000B82DFD /* pb_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_Issues.txt; sourceTree = "<group>"; };
-		E1BA58181D0CA67900B82DFD /* bs_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bs_Issues.txt; sourceTree = "<group>"; };
-		E1BA581A1D0CA69200B82DFD /* cqk_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_Issues.txt; sourceTree = "<group>"; };
-		E1BA581C1D0CA6C100B82DFD /* mep_Issues.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mep_Issues.txt; sourceTree = "<group>"; };
 		E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RevisionBlueprint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevisionBlueprint.swift; sourceTree = "<group>"; };
 		E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -206,8 +154,6 @@
 		E1D825BC1CEB6D5700BBF4F6 /* Trigger+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trigger+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1D825BD1CEB6D5700BBF4F6 /* Trigger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trigger.swift; sourceTree = "<group>"; };
 		E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+XCServerCoreData.swift"; sourceTree = "<group>"; };
-		E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BotsResponse.txt; sourceTree = "<group>"; };
-		E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cqk_BotResponse.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,33 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				E16242481CE3930F00283B2E /* Info.plist */,
-				E1D825F01CEB8EA000BBF4F6 /* BotsResponse.txt */,
-				E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */,
-				E1BA58101D0CA57400B82DFD /* bs_Commits.txt */,
-				E1BA58081D0CA41F00B82DFD /* bs_Integration.txt */,
-				E1BA57F81D0B632800B82DFD /* bs_IntegrationsResponse.txt */,
-				E1BA58181D0CA67900B82DFD /* bs_Issues.txt */,
-				E1BA58001D0B685700B82DFD /* bs_Stats.txt */,
-				E1D825F41CEB8ED500BBF4F6 /* cqk_BotResponse.txt */,
-				E1BA58121D0CA58C00B82DFD /* cqk_Commits.txt */,
-				E1BA580A1D0CA43900B82DFD /* cqk_Integration.txt */,
-				E1BA57FA1D0B640000B82DFD /* cqk_IntegrationsResponse.txt */,
-				E1BA581A1D0CA69200B82DFD /* cqk_Issues.txt */,
-				E1BA58021D0B687800B82DFD /* cqk_Stats.txt */,
-				E1448FF01D0B527900789436 /* mep_BotResponse.txt */,
-				E1BA58141D0CA5B200B82DFD /* mep_Commits.txt */,
-				E1BA580C1D0CA45700B82DFD /* mep_Integration.txt */,
-				E1BA57FC1D0B642900B82DFD /* mep_IntegrationsResponse.txt */,
-				E1BA581C1D0CA6C100B82DFD /* mep_Issues.txt */,
-				E1BA58041D0B689B00B82DFD /* mep_Stats.txt */,
-				E1448FEC1D0B520700789436 /* pb_BotResponse.txt */,
-				E1BA580E1D0CA54E00B82DFD /* pb_Commits.txt */,
-				E1BA58061D0CA3CA00B82DFD /* pb_Integration.txt */,
-				E1BA57F61D0B62EF00B82DFD /* pb_IntegrationsResponse.txt */,
-				E1BA58161D0CA66000B82DFD /* pb_Issues.txt */,
-				E1BA57FE1D0B682900B82DFD /* pb_Stats.txt */,
-				E1448FF21D0B52B700789436 /* Resources.swift */,
-				E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */,
 			);
 			path = XCServerCoreDataTests;
 			sourceTree = "<group>";
@@ -513,31 +432,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1448FF11D0B527900789436 /* mep_BotResponse.txt in Resources */,
-				E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */,
-				E1BA58151D0CA5B200B82DFD /* mep_Commits.txt in Resources */,
-				E1D825F11CEB8EA000BBF4F6 /* BotsResponse.txt in Resources */,
-				E1BA58111D0CA57400B82DFD /* bs_Commits.txt in Resources */,
-				E1BA58131D0CA58C00B82DFD /* cqk_Commits.txt in Resources */,
-				E1BA58011D0B685700B82DFD /* bs_Stats.txt in Resources */,
-				E1BA58171D0CA66000B82DFD /* pb_Issues.txt in Resources */,
-				E1BA58191D0CA67900B82DFD /* bs_Issues.txt in Resources */,
-				E1BA58051D0B689B00B82DFD /* mep_Stats.txt in Resources */,
-				E1BA57F91D0B632800B82DFD /* bs_IntegrationsResponse.txt in Resources */,
-				E1BA581D1D0CA6C100B82DFD /* mep_Issues.txt in Resources */,
-				E1BA58031D0B687800B82DFD /* cqk_Stats.txt in Resources */,
-				E1BA57FF1D0B682900B82DFD /* pb_Stats.txt in Resources */,
-				E1BA580D1D0CA45700B82DFD /* mep_Integration.txt in Resources */,
-				E1BA57FB1D0B640000B82DFD /* cqk_IntegrationsResponse.txt in Resources */,
-				E1BA580F1D0CA54E00B82DFD /* pb_Commits.txt in Resources */,
-				E1BA57F71D0B62EF00B82DFD /* pb_IntegrationsResponse.txt in Resources */,
-				E1BA581B1D0CA69200B82DFD /* cqk_Issues.txt in Resources */,
-				E1BA58071D0CA3CA00B82DFD /* pb_Integration.txt in Resources */,
-				E1BA580B1D0CA43900B82DFD /* cqk_Integration.txt in Resources */,
-				E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */,
-				E1BA58091D0CA41F00B82DFD /* bs_Integration.txt in Resources */,
-				E1BA57FD1D0B642900B82DFD /* mep_IntegrationsResponse.txt in Resources */,
-				E1D825F51CEB8ED500BBF4F6 /* cqk_BotResponse.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,8 +583,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1448FF31D0B52B700789436 /* Resources.swift in Sources */,
-				E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

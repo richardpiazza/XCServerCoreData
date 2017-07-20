@@ -27,21 +27,6 @@
 
 import Foundation
 
-public extension DateFormatter {
-    fileprivate struct XCServerCoreDataDateFormatters {
-        static var xcodeServerDateFormatter: DateFormatter {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"
-            formatter.timeZone = TimeZone(identifier: "GMT")
-            return formatter
-        }
-    }
-    
-    public static var xcodeServerDateFormatter: DateFormatter {
-        return XCServerCoreDataDateFormatters.xcodeServerDateFormatter
-    }
-}
-
 public extension String {
     /// Replaces a specified prefix string with the provied string.
     mutating public func replace(prefix: String, with: String?) {

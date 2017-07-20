@@ -27,16 +27,6 @@
 
 import Foundation
 
-/// ### DocumentType
-/// The various *types* of documents returned by the Xcode Server API.
-public enum DocumentType: String {
-    case Version = "version"
-    case Bot = "bot"
-    case Integration = "integration"
-    case Device = "device"
-    case Commit = "commit"
-}
-
 /// ### IntegrationStep
 /// Current state of the `Integration` as it moves through the lifecycle.
 public enum IntegrationStep: String {
