@@ -46,7 +46,7 @@ public class IntegrationIssues: SerializableManagedObject {
         }
     }
     
-    internal func update(withIntegrationIssues issues: IntegrationIssuesResponse) {
+    internal func update(withIntegrationIssues issues: XCServerWebAPI.Issues) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -60,10 +60,12 @@ public class IntegrationIssues: SerializableManagedObject {
             }
         }
         
-        for error in issues.buildServiceErrors {
-            if let issue = Issue(managedObjectContext: moc) {
-                issue.update(withIssue: error)
-                issue.inverseBuildServiceErrors = self
+        if let buildServiceErrors = issues.buildServiceErrors {
+            for error in buildServiceErrors {
+                if let issue = Issue(managedObjectContext: moc) {
+                    issue.update(withIssue: error)
+                    issue.inverseBuildServiceErrors = self
+                }
             }
         }
         
@@ -75,10 +77,12 @@ public class IntegrationIssues: SerializableManagedObject {
             }
         }
         
-        for warning in issues.buildServiceWarnings {
-            if let issue = Issue(managedObjectContext: moc) {
-                issue.update(withIssue: warning)
-                issue.inverseBuildServiceWarnings = self
+        if let buildServiceWarnings = issues.buildServiceWarnings {
+            for warning in buildServiceWarnings {
+                if let issue = Issue(managedObjectContext: moc) {
+                    issue.update(withIssue: warning)
+                    issue.inverseBuildServiceWarnings = self
+                }
             }
         }
         

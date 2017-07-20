@@ -47,18 +47,19 @@ public class Commit: SerializableManagedObject {
         }
     }
     
-    internal func update(withCommit commit: CommitJSON, integration: Integration? = nil) {
+    internal func update(withCommit commit: XCServerAPI.Commit, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
-        self.message = commit.XCSCommitMessage
-        if let commitTimestamp = commit.XCSCommitTimestamp {
-            self.timestamp = commitTimestamp
+        self.message = commit.message
+        if let commitTimestamp = commit.timestamp {
+            // TODO: Commit Timestamp should be a DATE!
+            self.timestamp = XCServerJSONDecoder.dateFormatter.string(from: commitTimestamp)
         }
         
-        if let contributor = commit.XCSCommitContributor {
+        if let contributor = commit.contributor {
             if self.commitContributor == nil {
                 self.commitContributor = CommitContributor(managedObjectContext: moc, commit: self)
             }
@@ -66,13 +67,15 @@ public class Commit: SerializableManagedObject {
             self.commitContributor?.update(withCommitContributor: contributor)
         }
         
-        for commitChange in commit.XCSCommitCommitChangeFilePaths {
-            guard self.commitChanges?.contains(where: { (cc: CommitChange) -> Bool in return cc.filePath == commitChange.filePath }) == false else {
-                continue
-            }
-            
-            if let change = CommitChange(managedObjectContext: moc, commit: self) {
-                change.update(withCommitChange: commitChange)
+        if let filePaths = commit.commitChangeFilePaths {
+            for commitChange in filePaths {
+                guard self.commitChanges?.contains(where: { (cc: CommitChange) -> Bool in return cc.filePath == commitChange.filePath }) == false else {
+                    continue
+                }
+                
+                if let change = CommitChange(managedObjectContext: moc, commit: self) {
+                    change.update(withCommitChange: commitChange)
+                }
             }
         }
         

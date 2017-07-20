@@ -46,7 +46,7 @@ public class Repository: SerializableManagedObject {
         }
     }
     
-    internal func update(withRevisionBlueprint blueprint: RevisionBlueprintJSON, integration: Integration? = nil) {
+    internal func update(withRevisionBlueprint blueprint: XCServerAPI.RepositoryBlueprint, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -56,36 +56,36 @@ public class Repository: SerializableManagedObject {
             return
         }
         
-        if let workingCopyStates = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey, let state = workingCopyStates[self.identifier] {
-            self.workingCopyState = state
+        if let workingCopyStates = blueprint.workingCopyStates, let state = workingCopyStates[self.identifier] {
+            self.workingCopyState = state as NSNumber?
         }
         
-        if let workingCopyPaths = blueprint.DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey, let path = workingCopyPaths[self.identifier] {
+        if let workingCopyPaths = blueprint.workingCopyPaths, let path = workingCopyPaths[self.identifier] {
             self.workingCopyPath = path
         }
         
-        if let remoteRepositorys = blueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
-            if let remoteRepository = remoteRepositorys.filter({ (repo: RemoteRepositoryJSON) -> Bool in
-                return repo.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey == self.identifier
+        if let remoteRepositorys = blueprint.remoteRepositories {
+            if let remoteRepository = remoteRepositorys.filter({ (repo: XCServerAPI.RemoteRepository) -> Bool in
+                return repo.identifier == self.identifier
             }).first {
-                self.system = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey
-                self.url = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey
+                self.system = remoteRepository.system
+                self.url = remoteRepository.url
             }
         }
         
-        guard let blueprintLocation = blueprint.DVTSourceControlWorkspaceBlueprintLocationsKey[self.identifier] else {
+        guard let blueprintLocation = blueprint.locations?[self.identifier] else {
             return
         }
         
-        self.branchIdentifier = blueprintLocation.DVTSourceControlBranchIdentifierKey
-        self.branchOptions = blueprintLocation.DVTSourceControlBranchOptionsKey as NSNumber?
-        self.locationType = blueprintLocation.DVTSourceControlWorkspaceBlueprintLocationTypeKey
+        self.branchIdentifier = blueprintLocation.branchIdentifier
+        self.branchOptions = blueprintLocation.branchOptions as NSNumber?
+        self.locationType = blueprintLocation.locationType
         
         guard let integration = integration else {
             return
         }
         
-        guard let commitHash = blueprintLocation.DVTSourceControlLocationRevisionKey else {
+        guard let commitHash = blueprintLocation.locationRevision else {
             return
         }
         
@@ -105,29 +105,35 @@ public class Repository: SerializableManagedObject {
         }
     }
     
-    internal func update(withIntegrationCommits commits: [IntegrationCommitJSON], integration: Integration? = nil) {
+    internal func update(withIntegrationCommits commits: [XCServerAPI.CommitDocument], integration: Integration? = nil) {
         for integrationCommit in commits {
-            for (key, value) in integrationCommit.commits {
-                guard key == self.identifier else {
-                    continue
+            if let integrationCommits = integrationCommit.commits {
+                for (key, value) in integrationCommits {
+                    guard key == self.identifier else {
+                        continue
+                    }
+                    
+                    self.update(withCommits: value, integration: integration)
                 }
-                
-                self.update(withCommits: value, integration: integration)
             }
         }
     }
     
-    internal func update(withCommits commits: [CommitJSON], integration: Integration? = nil) {
+    internal func update(withCommits commits: [XCServerAPI.Commit], integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
         for commitsCommit in commits {
+            guard let hash = commitsCommit.hash else {
+                continue
+            }
+            
             var commit: Commit?
-            if let c = moc.commit(withHash: commitsCommit.XCSCommitHash) {
+            if let c = moc.commit(withHash: hash) {
                 commit = c
-            } else if let c = Commit(managedObjectContext: moc, identifier: commitsCommit.XCSCommitHash, repository: self) {
+            } else if let c = Commit(managedObjectContext: moc, identifier: hash, repository: self) {
                 commit = c
             }
             

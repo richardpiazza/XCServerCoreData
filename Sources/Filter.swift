@@ -46,7 +46,7 @@ public class Filter: SerializableManagedObject {
         }
     }
     
-    internal func update(withFilter filter: FilterJSON) {
+    internal func update(withFilter filter: XCServerAPI.Filter) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

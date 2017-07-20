@@ -40,14 +40,14 @@ public class XcodeServer: SerializableManagedObject {
         self.fqdn = fqdn
     }
     
-    internal func update(withVersion version: VersionJSON) {
+    internal func update(withVersion version: XCServerAPI.VersionDocument) {
         self.os = version.os
         self.server = version.server
         self.xcodeServer = version.xcodeServer
         self.xcode = version.xcode
     }
     
-    internal func update(withBots data: [BotJSON]) {
+    internal func update(withBots data: [XCServerAPI.BotDocument]) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

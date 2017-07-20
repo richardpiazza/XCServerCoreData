@@ -41,7 +41,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -58,7 +58,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil
@@ -72,7 +72,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -89,7 +89,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil
@@ -103,7 +103,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -120,7 +120,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil
@@ -134,7 +134,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -151,7 +151,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil
@@ -165,7 +165,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -182,7 +182,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil
@@ -196,7 +196,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -213,7 +213,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil
@@ -227,7 +227,7 @@ public extension NSManagedObjectContext {
         do {
             return try self.fetch(fetchRequest)
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return []
@@ -244,7 +244,7 @@ public extension NSManagedObjectContext {
                 return result
             }
         } catch {
-            Log.error("\(#function)", error: error as NSError)
+            Log.error(error, message: "\(#function)")
         }
         
         return nil

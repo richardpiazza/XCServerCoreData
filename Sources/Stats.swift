@@ -46,19 +46,21 @@ public class Stats: SerializableManagedObject {
         }
     }
     
-    internal func update(withStats stats: StatsJSON) {
+    internal func update(withStats stats: XCServerAPI.Stats) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
-        self.numberOfIntegrations = stats.numberOfIntegrations
-        self.numberOfCommits = stats.numberOfCommits
-        self.testAdditionRate = stats.testAdditionRate
-        self.codeCoveragePercentageDelta = stats.codeCoveragePercentageDelta
-        self.sinceDate = stats.sinceDate
+        self.numberOfIntegrations = stats.numberOfIntegrations as NSNumber?
+        self.numberOfCommits = stats.numberOfCommits as NSNumber?
+        self.testAdditionRate = stats.testAdditionRate as NSNumber?
+        self.codeCoveragePercentageDelta = stats.codeCoveragePercentageDelta as NSNumber?
+        if let date = stats.sinceDate {
+            self.sinceDate = XCServerJSONDecoder.dateFormatter.string(from: date)
+        }
         
-        if let statsLastCleanIntegrationIdentifier = stats.lastCleanIntegration?.intergraionID {
+        if let statsLastCleanIntegrationIdentifier = stats.lastCleanIntegration?.integrationID {
             self.lastCleanIntegration = moc.integration(withIdentifier: statsLastCleanIntegrationIdentifier)
         }
         

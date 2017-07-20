@@ -44,15 +44,16 @@ public class Issue: SerializableManagedObject {
         }
     }
     
-    internal func update(withIssue issue: IssueJSON) {
+    internal func update(withIssue issue: XCServerAPI.Issue) {
         self.identifier = issue._id
         self.revision = issue._rev
         self.status = issue.status as NSNumber?
-        self.target = issue.target
-        self.testCase = issue.testCase
-        self.lineNumber = issue.lineNumber as NSNumber?
-        self.documentLocationData = issue.documentLocationData
-        self.documentFilePath = issue.documentFilePath
+        // TODO: Remove these
+//        self.target = issue.target
+//        self.testCase = issue.testCase
+//        self.lineNumber = issue.lineNumber as NSNumber?
+//        self.documentLocationData = issue.documentLocationData
+//        self.documentFilePath = issue.documentFilePath
         self.age = issue.age as NSNumber?
         self.type = issue.type
         self.issueType = issue.issueType

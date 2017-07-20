@@ -46,9 +46,9 @@ public class EmailConfiguration: SerializableManagedObject {
         }
     }
     
-    internal func update(withEmailConfiguration configuration: EmailConfigurationJSON) {
+    internal func update(withEmailConfiguration configuration: XCServerAPI.EmailConfiguration) {
         self.emailComitters = configuration.emailCommitters as NSNumber?
-        self.additionalRecipients = configuration.additionalRecipients.joined(separator: ",")
+        self.additionalRecipients = configuration.additionalRecipients?.joined(separator: ",")
         self.includeCommitMessages = configuration.includeCommitMessages as NSNumber?
         self.includeIssueDetails = configuration.includeIssueDetails as NSNumber?
     }

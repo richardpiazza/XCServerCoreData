@@ -46,7 +46,7 @@ public class IntegrationAssets: SerializableManagedObject {
         }
     }
     
-    internal func update(withIntegrationAssets assets: IntegrationAssetsJSON) {
+    internal func update(withIntegrationAssets assets: XCServerAPI.Assets) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

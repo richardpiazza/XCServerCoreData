@@ -46,7 +46,7 @@ public class BuildResultSummary: SerializableManagedObject {
         }
     }
     
-    internal func update(withBuildResultSummary summary: BuildResultSummaryJSON) {
+    internal func update(withBuildResultSummary summary: XCServerAPI.BuildResultSummary) {
         self.errorCount = summary.errorCount as NSNumber?
         self.errorChange = summary.errorChange as NSNumber?
         self.warningCount = summary.warningCount as NSNumber?

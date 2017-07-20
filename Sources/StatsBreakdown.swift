@@ -42,12 +42,12 @@ public class StatsBreakdown: SerializableManagedObject {
         }
     }
     
-    internal func update(withStatsBreakdown breakdown: StatsBreakdownJSON) {
-        self.sum = breakdown.sum
-        self.count = breakdown.count
-        self.min = breakdown.min
-        self.max = breakdown.max
-        self.avg = breakdown.avg
-        self.stdDev = breakdown.stdDev
+    internal func update(withStatsBreakdown breakdown: XCServerAPI.StatsSummary) {
+        self.sum = breakdown.sum as NSNumber?
+        self.count = breakdown.count as NSNumber?
+        self.min = breakdown.min as NSNumber?
+        self.max = breakdown.max as NSNumber?
+        self.avg = breakdown.avg as NSNumber?
+        self.stdDev = breakdown.stdDev as NSNumber?
     }
 }

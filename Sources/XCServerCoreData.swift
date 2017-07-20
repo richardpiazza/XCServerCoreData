@@ -56,7 +56,7 @@ public class XCServerCoreData {
         case repository
     }
     
-    public typealias XCServerCoreDataCompletion = (_ error: NSError?) -> Void
+    public typealias XCServerCoreDataCompletion = (_ error: Error?) -> Void
     
     fileprivate static let unhandledError = NSError(domain: String(describing: XCServerCoreData.self), code: 0, userInfo: [
         NSLocalizedDescriptionKey : "Unhandled Error",
@@ -98,7 +98,7 @@ public class XCServerCoreData {
     /// A Status code of '204' indicates success.
     public static func ping(xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getPing { (statusCode, response, responseObject, error) in
+        api.ping { (statusCode, headers, data, error) in
             guard statusCode == 204 else {
                 if let e = error {
                     completion(e)
@@ -123,7 +123,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getVersion { (version, error) in
+        api.versions { (version, apiVersion, error) in
             if let e = error {
                 completion(e)
                 return
@@ -157,7 +157,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getBots { (bots, error) in
+        api.bots { (bots, error) in
             if let e = error {
                 completion(e)
                 return
@@ -196,7 +196,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getBot(bot: bot.identifier) { (responseBot, error) in
+        api.bot(withIdentifier: bot.identifier) { (responseBot, error) in
             if let e = error {
                 completion(e)
                 return
@@ -235,7 +235,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getStats(forBot: bot.identifier) { (stats, error) in
+        api.stats(forBotWithIdentifier: bot.identifier) { (stats, error) in
             if let e = error {
                 completion(e)
                 return
@@ -273,7 +273,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.postBot(forBot: bot.identifier) { (integration, error) in
+        api.runIntegration(forBotWithIdentifier: bot.identifier) { (integration, error) in
             if let e = error {
                 completion(e)
                 return
@@ -312,7 +312,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getIntegrations(forBot: bot.identifier) { (integrations, error) in
+        api.integrations(forBotWithIdentifier: bot.identifier) { (integrations, error) in
             if let e = error {
                 completion(e)
                 return
@@ -356,7 +356,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getIntegration(integration: integration.identifier) { (responseIntegration, error) in
+        api.integration(withIdentifier: integration.identifier) { (responseIntegration, error) in
             if let e = error {
                 completion(e)
                 return
@@ -400,7 +400,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getCommits(forIntegration: integration.identifier) { (commits, error) in
+        api.commits(forIntegrationWithIdentifier: integration.identifier) { (commits, error) in
             if let e = error {
                 completion(e)
                 return
@@ -448,7 +448,7 @@ public class XCServerCoreData {
         }
         
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
-        api.getIssues(forIntegration: integration.identifier) { (issues, error) in
+        api.issues(forIntegrationWithIdentifier: integration.identifier) { (issues, error) in
             if let e = error {
                 completion(e)
                 return

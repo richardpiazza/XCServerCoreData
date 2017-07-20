@@ -47,24 +47,24 @@ public class Configuration: SerializableManagedObject {
         }
     }
     
-    internal func update(withConfiguration configuration: ConfigurationJSON) {
+    internal func update(withConfiguration configuration: XCServerAPI.Configuration) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
         self.schemeName = configuration.schemeName
-        self.builtFromClean = configuration.builtFromClean as NSNumber?
+        self.builtFromClean = configuration.builtFromClean?.rawValue as NSNumber?
         self.performsTestAction = configuration.performsTestAction as NSNumber?
         self.performsAnalyzeAction = configuration.performsAnalyzeAction as NSNumber?
         self.performsArchiveAction = configuration.performsArchiveAction as NSNumber?
         self.testingDestinationType = configuration.testingDestinationType as NSNumber?
-        self.scheduleType = configuration.scheduleType as NSNumber?
-        self.periodicScheduleInterval = configuration.periodicScheduleInterval as NSNumber?
+        self.scheduleType = configuration.scheduleType?.rawValue as NSNumber?
+        self.periodicScheduleInterval = configuration.periodicScheduleInterval.rawValue as NSNumber?
         self.weeklyScheduleDay = configuration.weeklyScheduleDay as NSNumber?
         self.hourOfIntegration = configuration.hourOfIntegration as NSNumber?
         self.minutesAfterHourToIntegrate = configuration.minutesAfterHourToIntegrate as NSNumber?
-        self.codeCoveragePreference = configuration.codeCoveragePreference as NSNumber?
+        self.codeCoveragePreference = configuration.codeCoveragePreference?.rawValue as NSNumber?
         
         // Repositories
         if let configurationBlueprint = configuration.sourceControlBlueprint {
@@ -74,9 +74,9 @@ public class Configuration: SerializableManagedObject {
                 }
             }
             
-            if let remoteRepositories = configurationBlueprint.DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey {
+            if let remoteRepositories = configurationBlueprint.remoteRepositories {
                 for remoteRepository in remoteRepositories {
-                    guard let identifier = remoteRepository.DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey else {
+                    guard let identifier = remoteRepository.identifier else {
                         continue
                     }
                     
@@ -115,9 +115,11 @@ public class Configuration: SerializableManagedObject {
             }
         }
         
-        for configurationTrigger in configuration.triggers {
-            if let trigger = Trigger(managedObjectContext: moc, configuration: self) {
-                trigger.update(withTrigger: configurationTrigger)
+        if let configTriggers = configuration.triggers {
+            for configurationTrigger in configTriggers {
+                if let trigger = Trigger(managedObjectContext: moc, configuration: self) {
+                    trigger.update(withTrigger: configurationTrigger)
+                }
             }
         }
     }

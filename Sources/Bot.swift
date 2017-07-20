@@ -53,7 +53,7 @@ public class Bot: SerializableManagedObject {
         }
     }
     
-    internal func update(withBot bot: BotJSON) {
+    internal func update(withBot bot: XCServerAPI.BotDocument) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -66,7 +66,8 @@ public class Bot: SerializableManagedObject {
             self.configuration?.update(withConfiguration: configuration)
         }
         
-        self.update(withIntegrations: bot.integrations)
+        // TODO: Does some other logic need to be performed here?
+//        self.update(withIntegrations: bot.integrations)
         
         if let blueprint = bot.lastRevisionBlueprint {
             for id in blueprint.repositoryIds {
@@ -81,7 +82,7 @@ public class Bot: SerializableManagedObject {
         }
     }
     
-    internal func update(withIntegrations integrations: [IntegrationJSON]) {
+    internal func update(withIntegrations integrations: [XCServerAPI.IntegrationDocument]) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

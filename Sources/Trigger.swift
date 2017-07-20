@@ -46,15 +46,15 @@ public class Trigger: SerializableManagedObject {
         }
     }
     
-    internal func update(withTrigger trigger: TriggerJSON) {
+    internal func update(withTrigger trigger: XCServerAPI.Trigger) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
         }
         
         self.name = trigger.name
-        self.type = trigger.type as NSNumber?
-        self.phase = trigger.phase as NSNumber?
+        self.type = trigger.type?.rawValue as NSNumber?
+        self.phase = trigger.phase?.rawValue as NSNumber?
         self.scriptBody = trigger.scriptBody
         
         if let triggerConditions = trigger.conditions {

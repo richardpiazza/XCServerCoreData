@@ -46,7 +46,7 @@ public class DeviceSpecification: SerializableManagedObject {
         }
     }
     
-    internal func update(withDeviceSpecification specification: DeviceSpecificationJSON) {
+    internal func update(withDeviceSpecification specification: XCServerAPI.DeviceSpecification) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -67,7 +67,7 @@ public class DeviceSpecification: SerializableManagedObject {
             }
         }
         
-        if let specificationDeviceIdentifiers = specification.deviceIdentifers {
+        if let specificationDeviceIdentifiers = specification.deviceIdentifiers {
             if let devices = self.devices {
                 for device in devices {
                     device.deviceSpecifications?.insert(self)

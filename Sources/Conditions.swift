@@ -46,11 +46,12 @@ public class Conditions: SerializableManagedObject {
         }
     }
     
-    internal func update(withConditions conditions: ConditionsJSON) {
+    internal func update(withConditions conditions: XCServerAPI.Conditions) {
         self.status = conditions.status as NSNumber?
         self.onWarnings = conditions.onWarnings as NSNumber?
         self.onBuildErrors = conditions.onBuildErrors as NSNumber?
-        self.onInternalErrors = conditions.onInternalErrors as NSNumber?
+        // TODO: Verify?
+//        self.onInternalErrors = conditions.onInternalErrors as NSNumber?
         self.onAnalyzerWarnings = conditions.onAnalyzerWarnings as NSNumber?
         self.onFailingTests = conditions.onFailingTests as NSNumber?
         self.onSucess = conditions.onSuccess as NSNumber?

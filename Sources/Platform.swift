@@ -46,7 +46,7 @@ public class Platform: SerializableManagedObject {
         }
     }
     
-    internal func update(withPlatform platform: PlatformJSON) {
+    internal func update(withPlatform platform: XCServerAPI.Platform) {
         self.identifier = platform._id
         self.revision = platform._rev
         self.displayName = platform.displayName

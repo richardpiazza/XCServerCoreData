@@ -55,7 +55,7 @@ public class Integration: SerializableManagedObject {
         }
     }
     
-    internal func update(withIntegration integration: IntegrationJSON) {
+    internal func update(withIntegration integration: XCServerAPI.IntegrationDocument) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -63,17 +63,25 @@ public class Integration: SerializableManagedObject {
         
         self.number = integration.number as NSNumber?
         self.shouldClean = integration.shouldClean as NSNumber?
-        self.currentStep = integration.currentStep
-        self.result = integration.result
-        self.queuedDate = integration.queuedDate
-        self.startedTime = integration.startedTime
-        self.endedTime = integration.endedTime
+        self.currentStep = integration.currentStep.rawValue
+        self.result = integration.result.rawValue
+        // TODO: Fix these dates!
+        if let date = integration.queuedDate {
+            self.queuedDate = XCServerJSONDecoder.dateFormatter.string(from: date)
+        }
+        if let date = integration.startedTime {
+            self.startedTime = XCServerJSONDecoder.dateFormatter.string(from: date)
+        }
+        if let date = integration.endedTime {
+            self.endedTime = XCServerJSONDecoder.dateFormatter.string(from: date)
+        }
         self.duration = integration.duration as NSNumber?
-        self.success_streak = integration.success_streak as NSNumber?
+        self.success_streak = integration.successStreak as NSNumber?
         if let value = integration.testHierarchy {
             self.testHierachy = value as NSObject?
         }
-        self.hasCoverageData = integration.hasCoverageData as NSNumber?
+        // TODO: hasCoverageData was removed.
+//        self.hasCoverageData = integration.hasCoverageData as NSNumber?
         
         // Build Results Summary
         if let summary = integration.buildResultSummary {
@@ -86,15 +94,21 @@ public class Integration: SerializableManagedObject {
         }
         
         // Tested Devices
-        for testedDevice in integration.testedDevices {
-            if let device = moc.device(withIdentifier: testedDevice.ID) {
-                self.testedDevices?.insert(device)
-                continue
-            }
-            
-            if let device = Device(managedObjectContext: moc, identifier: testedDevice.ID) {
-                device.update(withDevice: testedDevice)
-                self.testedDevices?.insert(device)
+        if let devices = integration.testedDevices {
+            for testedDevice in devices {
+                guard let identifier = testedDevice.identifier else {
+                    continue
+                }
+                
+                if let device = moc.device(withIdentifier: identifier) {
+                    self.testedDevices?.insert(device)
+                    continue
+                }
+                
+                if let device = Device(managedObjectContext: moc, identifier: identifier) {
+                    device.update(withDevice: testedDevice)
+                    self.testedDevices?.insert(device)
+                }
             }
         }
         

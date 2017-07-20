@@ -46,7 +46,7 @@ public class Device: SerializableManagedObject {
         }
     }
     
-    internal func update(withDevice device: DeviceJSON) {
+    internal func update(withDevice device: XCServerAPI.DeviceDocument) {
         self.name = device.name
         self.deviceType = device.deviceType
         self.connected = device.connected as NSNumber?

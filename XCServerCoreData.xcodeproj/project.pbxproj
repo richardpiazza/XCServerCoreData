@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5CEFEA4FBED6851A7764AB02 /* Pods_XCServerCoreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */; };
 		6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */; };
+		E1027E871F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E861F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift */; };
+		E1027E891F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E881F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift */; };
 		E11D0D431CEBB956008F2C72 /* MOCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */; };
 		E1448FED1D0B520700789436 /* pb_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEC1D0B520700789436 /* pb_BotResponse.txt */; };
 		E1448FEF1D0B524B00789436 /* bs_BotResponse.txt in Resources */ = {isa = PBXBuildFile; fileRef = E1448FEE1D0B524B00789436 /* bs_BotResponse.txt */; };
@@ -113,6 +115,8 @@
 		9730B4BB5CFE81B9C72334DD /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
+		E1027E861F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+XCServerCoreData.swift"; sourceTree = "<group>"; };
+		E1027E881F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RepositoryBlueprint+XCServerCoreData.swift"; sourceTree = "<group>"; };
 		E11D0D421CEBB956008F2C72 /* MOCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOCObjectTests.swift; sourceTree = "<group>"; };
 		E12682201D26D355006B4887 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E1448FEC1D0B520700789436 /* pb_BotResponse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pb_BotResponse.txt; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				E16242561CE3956A00283B2E /* XCServerCoreData.swift */,
+				E1027E861F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift */,
 				E1D825EC1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift */,
 				E1D825A21CEB6D5700BBF4F6 /* Asset+CoreDataProperties.swift */,
 				E1D825A31CEB6D5700BBF4F6 /* Asset.swift */,
@@ -376,6 +381,7 @@
 				E1D825BD1CEB6D5700BBF4F6 /* Trigger.swift */,
 				E1D825B61CEB6D5700BBF4F6 /* XcodeServer+CoreDataProperties.swift */,
 				E1D825B71CEB6D5700BBF4F6 /* XcodeServer.swift */,
+				E1027E881F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -550,7 +556,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5DB144CECCD2D29257BC2CB0 /* [CP] Embed Pods Frameworks */ = {
@@ -610,7 +616,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -652,7 +658,9 @@
 				E1D825CF1CEB6D5700BBF4F6 /* CommitContributor.swift in Sources */,
 				E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */,
 				E1D825EB1CEB6D5700BBF4F6 /* Trigger.swift in Sources */,
+				E1027E871F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift in Sources */,
 				E1D825ED1CEB81EF00BBF4F6 /* NSManagedObjectContext+XCServerCoreData.swift in Sources */,
+				E1027E891F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift in Sources */,
 				E1D825D61CEB6D5700BBF4F6 /* EmailConfiguration+CoreDataProperties.swift in Sources */,
 				E1D825DC1CEB6D5700BBF4F6 /* Bot+CoreDataProperties.swift in Sources */,
 				E1D825C31CEB6D5700BBF4F6 /* Configuration.swift in Sources */,

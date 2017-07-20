@@ -1,22 +1,22 @@
 PODS:
-  - CodeQuickKit (4.2.1):
-    - CodeQuickKit/iOS (= 4.2.1)
-  - CodeQuickKit/CoreData (4.2.1):
+  - CodeQuickKit (5.0.3):
+    - CodeQuickKit/iOS (= 5.0.3)
+  - CodeQuickKit/CoreData (5.0.3):
     - CodeQuickKit/Foundation
-  - CodeQuickKit/Foundation (4.2.1)
-  - CodeQuickKit/iOS (4.2.1):
+  - CodeQuickKit/Foundation (5.0.3)
+  - CodeQuickKit/iOS (5.0.3):
     - CodeQuickKit/Foundation
-  - XCServerAPI (2.2.0):
-    - CodeQuickKit (~> 4.2)
+  - XCServerAPI (3.0.1):
+    - CodeQuickKit (~> 5.0)
 
 DEPENDENCIES:
-  - CodeQuickKit/CoreData (~> 4.2)
-  - XCServerAPI (~> 2.2)
+  - CodeQuickKit/CoreData (~> 5.0)
+  - XCServerAPI (~> 3.0)
 
 SPEC CHECKSUMS:
-  CodeQuickKit: 27bf6f135ebda72504506183e703df5999b67c43
-  XCServerAPI: 802fefe916f6a01b417d4c908e4f317b3926f87f
+  CodeQuickKit: 1a93019176bff93b5547de239ea691ccdcfdc226
+  XCServerAPI: 05360d6bfbec11f92271093ce896948b4c79ef15
 
-PODFILE CHECKSUM: d05f7193e19d8ef5d50f469bf718968ae29bc38a
+PODFILE CHECKSUM: 4f9ca08741f4da4ca3e6868b8619e484db6532c9
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1

@@ -46,10 +46,10 @@ public class CommitContributor: SerializableManagedObject {
         }
     }
     
-    internal func update(withCommitContributor contributor: CommitContributorJSON) {
-        self.name = contributor.XCSContributorName
-        self.displayName = contributor.XCSContributorDisplayName
-        self.emails = contributor.XCSContributorEmails as NSObject?
+    internal func update(withCommitContributor contributor: XCServerAPI.CommitContributor) {
+        self.name = contributor.name
+        self.displayName = contributor.displayName
+        self.emails = contributor.emails as NSObject?
     }
     
     public var initials: String? {

@@ -46,7 +46,7 @@ public class CommitChange: SerializableManagedObject {
         }
     }
     
-    internal func update(withCommitChange change: CommitChangeJSON) {
+    internal func update(withCommitChange change: XCServerAPI.CommitChangeFilePath) {
         self.status = change.status as NSNumber?
         self.filePath = change.filePath
     }

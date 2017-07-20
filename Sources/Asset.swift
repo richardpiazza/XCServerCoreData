@@ -43,11 +43,12 @@ public class Asset: SerializableManagedObject {
         }
     }
     
-    func update(withAsset asset: AssetJSON) {
-        self.allowAnonymousAccess = asset.allowAnonymousAccess
+    func update(withAsset asset: XCServerAPI.IntegrationAsset) {
+        self.allowAnonymousAccess = asset.allowAnonymousAccess as NSNumber?
         self.fileName = asset.fileName
-        self.infoDictionary = asset.infoDictionary
+        // TODO: Remove infoDictionary
+//        self.infoDictionary = asset.infoDictionary
         self.relativePath = asset.relativePath
-        self.size = asset.size
+        self.size = asset.size as NSNumber?
     }
 }
