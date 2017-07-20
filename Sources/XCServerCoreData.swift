@@ -29,40 +29,32 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
-public class XCServerCoreData: CoreData {
+public class XCServerCoreData {
     
-    fileprivate struct Configuration {
-        var directory: URL {
-            var urls: [URL]
-            #if os(tvOS)
-                urls = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-            #else
-                urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            #endif
-            
-            guard let url = urls.last else {
-                fatalError("Could not find url for storage directory.")
-            }
-            
-            return url
+    public static var sharedInstance: NSPersistentContainer {
+        let bundle = Bundle(for: XCServerCoreData.self)
+        guard let url = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
+            fatalError("Could not Locate XCServerCoreData MOMD")
         }
-        
-        var config: PersistentStoreConfiguration {
-            var config = PersistentStoreConfiguration()
-            config.storeType = .sqlite
-            config.url = directory.appendingPathComponent("XCServerCoreData.sqlite")
-            config.options = [NSMigratePersistentStoresAutomaticallyOption : true as AnyObject, NSInferMappingModelAutomaticallyOption : true as AnyObject]
-            return config
+        guard let model = NSManagedObjectModel(contentsOf: url) else {
+            fatalError("Failed to load XCServerCoreData Model")
         }
+        let instance = NSPersistentContainer(name: "XCServerCoreData", managedObjectModel: model)
+        let description = NSPersistentStoreDescription()
+        description.shouldInferMappingModelAutomatically = true
+        description.shouldMigrateStoreAutomatically = true
+        instance.persistentStoreDescriptions = [description]
+        return instance
     }
     
-    fileprivate static let config = Configuration()
-    
-    public convenience init() {
-        self.init(fromBundle: Bundle(for: XCServerCoreData.self), modelName: "XCServerCoreData", configuration: XCServerCoreData.config.config)
+    public enum Errors: Error {
+        case unhandled
+        case response
+        case managedObjectContext
+        case xcodeServer
+        case bot
+        case repository
     }
-    
-    public static var sharedInstance = XCServerCoreData()
     
     public typealias XCServerCoreDataCompletion = (_ error: NSError?) -> Void
     
