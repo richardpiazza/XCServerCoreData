@@ -50,15 +50,13 @@ public class Bot: NSManagedObject {
             return
         }
         
+        self.revision = bot._rev
         self.name = bot.name
         self.type = bot.type as NSNumber?
         
         if let configuration = bot.configuration {
             self.configuration?.update(withConfiguration: configuration)
         }
-        
-        // TODO: Does some other logic need to be performed here?
-//        self.update(withIntegrations: bot.integrations)
         
         if let blueprint = bot.lastRevisionBlueprint {
             for id in blueprint.repositoryIds {

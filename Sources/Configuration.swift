@@ -45,17 +45,47 @@ public class Configuration: NSManagedObject {
         }
         
         self.schemeName = configuration.schemeName
+        
         self.builtFromClean = configuration.builtFromClean?.rawValue as NSNumber?
-        self.performsTestAction = configuration.performsTestAction as NSNumber?
-        self.performsAnalyzeAction = configuration.performsAnalyzeAction as NSNumber?
+        self.disableAppThinning = configuration.disableAppThinning as NSNumber?
+        self.codeCoveragePreference = configuration.codeCoveragePreference?.rawValue as NSNumber?
+        self.useParallelDeviceTesting = configuration.useParallelDeviceTesting as NSNumber?
         self.performsArchiveAction = configuration.performsArchiveAction as NSNumber?
+        self.performsAnalyzeAction = configuration.performsAnalyzeAction as NSNumber?
+        self.exportsProductFromArchive = configuration.exportsProductFromArchive as NSNumber?
+        
+        self.performsTestAction = configuration.performsTestAction as NSNumber?
+        self.runOnlyDisabledTests = configuration.runOnlyDisabledTests as NSNumber?
         self.testingDestinationType = configuration.testingDestinationType as NSNumber?
+        // TODO: testLocalizations?
+        
         self.scheduleType = configuration.scheduleType?.rawValue as NSNumber?
         self.periodicScheduleInterval = configuration.periodicScheduleInterval.rawValue as NSNumber?
         self.weeklyScheduleDay = configuration.weeklyScheduleDay as NSNumber?
         self.hourOfIntegration = configuration.hourOfIntegration as NSNumber?
         self.minutesAfterHourToIntegrate = configuration.minutesAfterHourToIntegrate as NSNumber?
-        self.codeCoveragePreference = configuration.codeCoveragePreference?.rawValue as NSNumber?
+        self.performsUpgradeIntegration = configuration.performsUpgradeIntegration as NSNumber?
+        
+        if let provConfig = configuration.provisioningConfiguration {
+            self.addMissingDeviceToTeams = provConfig.addMissingDevicesToTeams as NSNumber
+            self.manageCertsAndProfiles = provConfig.manageCertsAndProfiles as NSNumber
+        }
+        
+        if let buildArgs = configuration.additionalBuildArguments {
+            do {
+                self.additionalBuildArgumentsData = try XCServerCoreData.jsonEncoder.encode(buildArgs)
+            } catch {
+                Log.error(error, message: "Failed to encode Configuration BuildArgurments")
+            }
+        }
+        
+        if let envVars = configuration.buildEnvironmentVariables {
+            do {
+                self.buildEnvironmentVariablesData = try XCServerCoreData.jsonEncoder.encode(envVars)
+            } catch {
+                Log.error(error, message: "Failed to encode Configuratoin EnvironmentVariables")
+            }
+        }
         
         // Repositories
         if let configurationBlueprint = configuration.sourceControlBlueprint {

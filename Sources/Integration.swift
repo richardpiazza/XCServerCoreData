@@ -52,27 +52,19 @@ public class Integration: NSManagedObject {
             return
         }
         
+        self.revision = integration._rev
         self.number = integration.number as NSNumber?
         self.shouldClean = integration.shouldClean as NSNumber?
         self.currentStep = integration.currentStep.rawValue
         self.result = integration.result.rawValue
-        // TODO: Fix these dates!
-        if let date = integration.queuedDate {
-            self.queuedDate = XCServerJSONDecoder.dateFormatter.string(from: date)
-        }
-        if let date = integration.startedTime {
-            self.startedTime = XCServerJSONDecoder.dateFormatter.string(from: date)
-        }
-        if let date = integration.endedTime {
-            self.endedTime = XCServerJSONDecoder.dateFormatter.string(from: date)
-        }
+        self.queuedDate = integration.queuedDate
+        self.startedTime = integration.startedTime
+        self.endedTime = integration.endedTime
         self.duration = integration.duration as NSNumber?
-        self.success_streak = integration.successStreak as NSNumber?
+        self.successStreak = integration.successStreak as NSNumber?
         if let value = integration.testHierarchy {
             self.testHierachy = value as NSObject?
         }
-        // TODO: hasCoverageData was removed.
-//        self.hasCoverageData = integration.hasCoverageData as NSNumber?
         
         // Build Results Summary
         if let summary = integration.buildResultSummary {
@@ -148,30 +140,6 @@ public class Integration: NSManagedObject {
         }
         
         return enumeration
-    }
-    
-    public var queuedTimestamp: Date? {
-        guard let timestamp = self.queuedDate else {
-            return nil
-        }
-        
-        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
-    }
-    
-    public var startedTimestamp: Date? {
-        guard let timestamp = self.startedTime else {
-            return nil
-        }
-        
-        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
-    }
-    
-    public var endedTimestamp: Date? {
-        guard let timestamp = self.endedTime else {
-            return nil
-        }
-        
-        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
     }
     
     public var testResults: [TestResult] {

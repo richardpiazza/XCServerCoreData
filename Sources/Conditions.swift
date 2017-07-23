@@ -41,10 +41,9 @@ public class Conditions: NSManagedObject {
         self.status = conditions.status as NSNumber?
         self.onWarnings = conditions.onWarnings as NSNumber?
         self.onBuildErrors = conditions.onBuildErrors as NSNumber?
-        // TODO: Verify?
-//        self.onInternalErrors = conditions.onInternalErrors as NSNumber?
         self.onAnalyzerWarnings = conditions.onAnalyzerWarnings as NSNumber?
         self.onFailingTests = conditions.onFailingTests as NSNumber?
         self.onSucess = conditions.onSuccess as NSNumber?
+        self.onAllIssuesResolved = conditions.onAllIssuesResolved as NSNumber?
     }
 }

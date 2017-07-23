@@ -37,9 +37,8 @@ public class Asset: NSManagedObject {
     func update(withAsset asset: XCServerAPI.IntegrationAsset) {
         self.allowAnonymousAccess = asset.allowAnonymousAccess as NSNumber?
         self.fileName = asset.fileName
-        // TODO: Remove infoDictionary
-//        self.infoDictionary = asset.infoDictionary
         self.relativePath = asset.relativePath
         self.size = asset.size as NSNumber?
+        self.triggerName = asset.triggerName
     }
 }

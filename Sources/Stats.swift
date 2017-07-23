@@ -45,6 +45,7 @@ public class Stats: NSManagedObject {
         
         self.numberOfIntegrations = stats.numberOfIntegrations as NSNumber?
         self.numberOfCommits = stats.numberOfCommits as NSNumber?
+        self.numberOfSuccessfulIntegrations = stats.numberOfSuccessfulIntegrations as NSNumber?
         self.testAdditionRate = stats.testAdditionRate as NSNumber?
         self.codeCoveragePercentageDelta = stats.codeCoveragePercentageDelta as NSNumber?
         if let date = stats.sinceDate {

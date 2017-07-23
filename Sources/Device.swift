@@ -49,5 +49,6 @@ public class Device: NSManagedObject {
         self.isServer = device.isServer as NSNumber?
         self.platformIdentifier = device.platformIdentifier
         self.retina = device.retina as NSNumber?
+        self.revision = device.revision
     }
 }

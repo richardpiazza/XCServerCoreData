@@ -36,16 +36,11 @@ public class Issue: NSManagedObject {
         self.identifier = issue._id
         self.revision = issue._rev
         self.status = issue.status as NSNumber?
-        // TODO: Remove these
-//        self.target = issue.target
-//        self.testCase = issue.testCase
-//        self.lineNumber = issue.lineNumber as NSNumber?
-//        self.documentLocationData = issue.documentLocationData
-//        self.documentFilePath = issue.documentFilePath
         self.age = issue.age as NSNumber?
         self.type = issue.type
         self.issueType = issue.issueType
         self.message = issue.message
+        self.fixItType = issue.fixItType
     }
     
     public var typeOfIssue: IssueType {

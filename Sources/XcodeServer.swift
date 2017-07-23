@@ -40,11 +40,14 @@ public class XcodeServer: NSManagedObject {
         self.fqdn = fqdn
     }
     
-    internal func update(withVersion version: XCServerAPI.VersionDocument) {
+    internal func update(withVersion version: XCServerAPI.VersionDocument, api: Int? = nil) {
         self.os = version.os
         self.server = version.server
         self.xcodeServer = version.xcodeServer
         self.xcode = version.xcode
+        if let api = api {
+            self.apiVersion = api as NSNumber
+        }
     }
     
     internal func update(withBots data: [XCServerAPI.BotDocument]) {
