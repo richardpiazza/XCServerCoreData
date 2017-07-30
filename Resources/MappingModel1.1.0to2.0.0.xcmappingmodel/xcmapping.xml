@@ -1042,15 +1042,15 @@ CBMUGRoiJywtMDRVJG51bGzVCQoLDA0ODxAREllOU09wZXJhbmReTlNTZWxlY3Rvck5hbWVfEBBOU0V4
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z312"></relationship>
     </object>
     <object type="XDDEVENTITYMAPPING" id="z306">
-        <attribute name="migrationpolicyclassname" type="string">IntegrationStringToDateMigrationPolicy</attribute>
+        <attribute name="migrationpolicyclassname" type="string">XCServerCoreData.IntegrationStringToDateMigrationPolicy</attribute>
         <attribute name="sourcename" type="string">Integration</attribute>
         <attribute name="mappingtypename" type="string">Undefined</attribute>
         <attribute name="mappingnumber" type="int16">15</attribute>
         <attribute name="destinationname" type="string">Integration</attribute>
         <attribute name="autogenerateexpression" type="bool">1</attribute>
         <relationship name="mappingmodel" type="1/1" destination="XDDEVMAPPINGMODEL" idrefs="z155"></relationship>
-        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z266 z301 z232 z134 z331 z204 z365 z216 z126 z256 z358 z384 z196 z278 z327 z107"></relationship>
-        <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z348 z282 z236 z179 z137 z115 z191 z369"></relationship>
+        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z384 z331 z232 z278 z327 z204 z107 z216 z126 z196 z256 z266 z358 z134 z365 z301"></relationship>
+        <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z137 z236 z191 z369 z348 z115 z179 z282"></relationship>
     </object>
     <object type="XDDEVATTRIBUTEMAPPING" id="z307">
         <attribute name="name" type="string">periodicScheduleInterval</attribute>

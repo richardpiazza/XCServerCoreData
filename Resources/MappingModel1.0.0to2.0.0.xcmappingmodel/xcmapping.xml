@@ -83,15 +83,15 @@
         <relationship name="entitymapping" type="1/1" destination="XDDEVENTITYMAPPING" idrefs="z209"></relationship>
     </object>
     <object type="XDDEVENTITYMAPPING" id="z110">
-        <attribute name="migrationpolicyclassname" type="string">IntegrationStringToDateMigrationPolicy</attribute>
+        <attribute name="migrationpolicyclassname" type="string">XCServerCoreData.IntegrationStringToDateMigrationPolicy</attribute>
         <attribute name="sourcename" type="string">Integration</attribute>
         <attribute name="mappingtypename" type="string">Undefined</attribute>
         <attribute name="mappingnumber" type="int16">20</attribute>
         <attribute name="destinationname" type="string">Integration</attribute>
         <attribute name="autogenerateexpression" type="bool">1</attribute>
         <relationship name="mappingmodel" type="1/1" destination="XDDEVMAPPINGMODEL" idrefs="z265"></relationship>
-        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z325 z365 z280 z231 z305 z254 z152 z222 z166 z392 z189 z116 z370 z156 z223 z176"></relationship>
-        <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z289 z308 z385 z382 z375 z286 z267 z238"></relationship>
+        <relationship name="attributemappings" type="0/0" destination="XDDEVATTRIBUTEMAPPING" idrefs="z254 z176 z305 z222 z325 z392 z152 z166 z370 z189 z365 z116 z156 z280 z223 z231"></relationship>
+        <relationship name="relationshipmappings" type="0/0" destination="XDDEVRELATIONSHIPMAPPING" idrefs="z238 z375 z385 z286 z289 z308 z382 z267"></relationship>
     </object>
     <object type="XDDEVATTRIBUTEMAPPING" id="z111">
         <attribute name="name" type="string">fixItType</attribute>

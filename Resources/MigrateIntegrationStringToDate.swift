@@ -31,10 +31,8 @@ import CodeQuickKit
 
 public class IntegrationStringToDateMigrationPolicy: NSEntityMigrationPolicy {
     public override func createDestinationInstances(forSource sInstance: NSManagedObject, in mapping: NSEntityMapping, manager: NSMigrationManager) throws {
-        try super.createDestinationInstances(forSource: sInstance, in: mapping, manager: manager)
-        
         guard sInstance.entity.name == Integration.entityName else {
-            Log.debug("Integration Migration skipped: non-Integration entity.")
+            try super.createDestinationInstances(forSource: sInstance, in: mapping, manager: manager)
             return
         }
         
@@ -43,21 +41,34 @@ public class IntegrationStringToDateMigrationPolicy: NSEntityMigrationPolicy {
             return
         }
         
-        guard let destinationIntegration = manager.destinationContext.integration(withIdentifier: identifier) else {
-            Log.warn("IntegrationMigration error: Destination Integration not found.")
+        guard let destinationIntegration = Integration(managedObjectContext: manager.destinationContext, identifier: identifier) else {
+            Log.warn("IngtegrationMigration error: Destination Integration nil.")
             return
         }
         
-        if let queuedDate = sInstance.value(forKey: "queuedDate") as? String, queuedDate != "" {
-            destinationIntegration.queuedDate = XCServerCoreData.dateFormatter.date(from: queuedDate)
-        }
-        
-        if let startedDate = sInstance.value(forKey: "startedTime") as? String, startedDate != "" {
-            destinationIntegration.startedTime = XCServerCoreData.dateFormatter.date(from: startedDate)
-        }
-        
+        destinationIntegration.currentStep = sInstance.value(forKey: "currentStep") as? String
+        destinationIntegration.duration = sInstance.value(forKey: "duration") as? NSNumber
         if let endedDate = sInstance.value(forKey: "endedTime") as? String, endedDate != "" {
             destinationIntegration.endedTime = XCServerCoreData.dateFormatter.date(from: endedDate)
         }
+        destinationIntegration.number = sInstance.value(forKey: "number") as? NSNumber
+        if let queuedDate = sInstance.value(forKey: "queuedDate") as? String, queuedDate != "" {
+            destinationIntegration.queuedDate = XCServerCoreData.dateFormatter.date(from: queuedDate)
+        }
+        destinationIntegration.result = sInstance.value(forKey: "result") as? String
+        destinationIntegration.shouldClean = sInstance.value(forKey: "shouldClean") as? NSNumber
+        if let startedDate = sInstance.value(forKey: "startedTime") as? String, startedDate != "" {
+            destinationIntegration.startedTime = XCServerCoreData.dateFormatter.date(from: startedDate)
+        }
+        destinationIntegration.successStreak = sInstance.value(forKey: "success_streak") as? NSNumber
+        
+        // Not mapping additional references. Should be auto filled on background sync operations.
+        
+        destinationIntegration.hasRetrievedAssets = false
+        destinationIntegration.hasRetrievedCommits = false
+        destinationIntegration.hasRetrievedIssues = false
+        destinationIntegration.lastUpdate = nil
+        
+        manager.associate(sourceInstance: sInstance, withDestinationInstance: destinationIntegration, for: mapping)
     }
 }

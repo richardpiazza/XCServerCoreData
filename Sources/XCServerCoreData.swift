@@ -33,14 +33,22 @@ public class XCServerCoreData {
     
     public static var sharedInstance: NSPersistentContainer {
         let bundle = Bundle(for: XCServerCoreData.self)
-        guard let url = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
+        guard let modelURL = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
             fatalError("Could not Locate XCServerCoreData MOMD")
         }
-        guard let model = NSManagedObjectModel(contentsOf: url) else {
+        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Failed to load XCServerCoreData Model")
         }
+        var storeURL: URL
+        do {
+            storeURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("XCServerCoreData.sqlite")
+        } catch {
+            print(error)
+            fatalError("")
+        }
+        
         let instance = NSPersistentContainer(name: "XCServerCoreData", managedObjectModel: model)
-        let description = NSPersistentStoreDescription()
+        let description = NSPersistentStoreDescription(url: storeURL)
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
         instance.persistentStoreDescriptions = [description]
