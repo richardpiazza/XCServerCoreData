@@ -32,7 +32,8 @@ extension NSManagedObject {
     open static var entityName: String {
         var entityName = NSStringFromClass(self)
         if let lastPeriodRange = entityName.range(of: ".", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
-            entityName = entityName.substring(from: lastPeriodRange.upperBound)
+            let range = lastPeriodRange.upperBound..<entityName.endIndex
+            entityName = String(entityName[range])
         }
         
         return entityName

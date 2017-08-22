@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.resources = 'Resources/*'
   s.frameworks = 'Foundation', 'CoreData'
   s.requires_arc = true
-  s.dependency 'CodeQuickKit/CoreData', '~> 5.0'
+  s.dependency 'CodeQuickKit/CoreData', '~> 5.1'
   s.dependency 'XCServerAPI', '~> 3.0'
 
   s.osx.deployment_target = "10.13"

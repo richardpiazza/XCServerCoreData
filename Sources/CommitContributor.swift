@@ -63,8 +63,9 @@ public class CommitContributor: NSManagedObject {
                 continue
             }
             
-            let character = component.substring(to: component.characters.index(component.startIndex, offsetBy: 1))
-            initials.append(character)
+            if let character = component.first {
+                initials.append(character)
+            }
         }
         
         return initials

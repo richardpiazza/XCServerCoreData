@@ -62,7 +62,8 @@ public extension String {
             return false
         }
         
-        let c = self.utf16[self.utf16.startIndex.advanced(by: index)]
+        let characterIndex = self.utf16.index(self.utf16.startIndex, offsetBy: index)
+        let c = self.utf16[characterIndex]
         return characterSet.contains(UnicodeScalar(c)!)
     }
     
