@@ -27,7 +27,7 @@
 
 import Foundation
 import CoreData
-import CodeQuickKit
+//import CodeQuickKit
 
 public class IntegrationStringToDateMigrationPolicy: NSEntityMigrationPolicy {
     public override func createDestinationInstances(forSource sInstance: NSManagedObject, in mapping: NSEntityMapping, manager: NSMigrationManager) throws {
@@ -37,12 +37,12 @@ public class IntegrationStringToDateMigrationPolicy: NSEntityMigrationPolicy {
         }
         
         guard let identifier = sInstance.value(forKey: "identifier") as? String else {
-            Log.warn("IngtegrationMigration error: Source Identifier nil.")
+//            Log.warn("IngtegrationMigration error: Source Identifier nil.")
             return
         }
         
         guard let destinationIntegration = Integration(managedObjectContext: manager.destinationContext, identifier: identifier) else {
-            Log.warn("IngtegrationMigration error: Destination Integration nil.")
+//            Log.warn("IngtegrationMigration error: Destination Integration nil.")
             return
         }
         

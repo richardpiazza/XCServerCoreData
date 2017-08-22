@@ -1,7 +1,7 @@
 use_frameworks!
 
 def common_pods
-  pod 'CodeQuickKit/CoreData', '~> 5.1'
+  pod 'CodeQuickKit/Foundation', '~> 5.1'
   pod 'XCServerAPI', '~> 3.0'
 end
 

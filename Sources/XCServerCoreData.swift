@@ -52,6 +52,7 @@ public class XCServerCoreData {
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
         instance.persistentStoreDescriptions = [description]
+        instance.viewContext.automaticallyMergesChangesFromParent = true
         return instance
     }
     
@@ -159,11 +160,6 @@ public class XCServerCoreData {
     /// Retreive the version information about the `XcodeServer`
     /// Updates the supplied `XcodeServer` entity with the response.
     public static func syncVersionData(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = xcodeServer.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
         api.versions { (version, apiVersion, error) in
             if let e = error {
@@ -177,15 +173,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Version Data for Server '\(xcodeServer.fqdn)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let server = privateContext.object(with: xcodeServer.objectID) as? XcodeServer {
                     server.update(withVersion: version)
                     server.lastUpdate = Date()
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -193,11 +196,6 @@ public class XCServerCoreData {
     /// Retrieves all `Bot`s from the `XcodeServer`
     /// Updates the supplied `XcodeServer` entity with the response.
     public static func syncBots(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = xcodeServer.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         let api = XCServerWebAPI.api(forFQDN: xcodeServer.fqdn)
         api.bots { (bots, error) in
             if let e = error {
@@ -211,15 +209,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Bots for Server '\(xcodeServer.fqdn)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let server = privateContext.object(with: xcodeServer.objectID) as? XcodeServer {
                     server.update(withBots: bots)
                     server.lastUpdate = Date()
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -227,11 +232,6 @@ public class XCServerCoreData {
     /// Retrieves the information for a given `Bot` from the `XcodeServer`.
     /// Updates the supplied `Bot` entity with the response.
     public static func syncBot(bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = bot.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
             return
@@ -250,15 +250,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Bot '\(bot.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
                     b.update(withBot: responseBot)
                     b.lastUpdate = Date()
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -266,11 +273,6 @@ public class XCServerCoreData {
     /// Gets the cumulative integration stats for the specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
     public static func syncStats(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = bot.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
             return
@@ -289,14 +291,21 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Stats for Bot '\(bot.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
                     b.stats?.update(withStats: stats)
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -304,11 +313,6 @@ public class XCServerCoreData {
     /// Begin a new integration for the specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
     public static func triggerIntegration(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = bot.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
             return
@@ -327,15 +331,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Triggered Integration for Bot '\(bot.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
                     b.update(withIntegrations: [integration])
                     b.lastUpdate = Date()
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -343,11 +354,6 @@ public class XCServerCoreData {
     /// Gets a list of `Integration` for a specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
     public static func syncIntegrations(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = bot.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
             return
@@ -366,15 +372,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Integrations for Bot '\(bot.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let b = privateContext.object(with: bot.objectID) as? Bot {
                     b.update(withIntegrations: integrations)
                     b.lastUpdate = Date()
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -382,11 +395,6 @@ public class XCServerCoreData {
     /// Gets a single `Integration` from the `XcodeServer`.
     /// Updates the supplied `Integration` entity with the response.
     public static func syncIntegration(integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = integration.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let bot = integration.bot else {
             completion(Errors.bot)
             return
@@ -410,15 +418,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Integration '\(integration.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let i = privateContext.object(with: integration.objectID) as? Integration {
                     i.update(withIntegration: responseIntegration)
                     i.lastUpdate = Date()
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -426,11 +441,6 @@ public class XCServerCoreData {
     /// Retrieves the `Repository` commits for a specified `Integration`.
     /// Updates the supplied `Integration` entity with the response.
     public static func syncCommits(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = integration.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let bot = integration.bot else {
             completion(Errors.bot)
             return
@@ -454,8 +464,9 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Commits for Integration '\(integration.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 let repositories = privateContext.repositories()
                 let privateContextIntegration = privateContext.object(with: integration.objectID) as? Integration
                 
@@ -465,8 +476,14 @@ public class XCServerCoreData {
                 
                 privateContextIntegration?.hasRetrievedCommits = true
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }
@@ -474,11 +491,6 @@ public class XCServerCoreData {
     /// Retrieves `Issue` related to a given `Integration`.
     /// Updates the supplied `Integration` entity with the response.
     public static func syncIssues(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
-        guard let moc = integration.managedObjectContext else {
-            completion(Errors.managedObjectContext)
-            return
-        }
-        
         guard let bot = integration.bot else {
             completion(Errors.bot)
             return
@@ -502,15 +514,22 @@ public class XCServerCoreData {
             }
             
             Log.debug("Retrieved Issues for Integration '\(integration.identifier)'")
-            
-            moc.mergeChanges(performingBlock: { (privateContext) in
+            sharedInstance.performBackgroundTask({ (privateContext) in
+                privateContext.automaticallyMergesChangesFromParent = true
+                
                 if let i = privateContext.object(with: integration.objectID) as? Integration {
                     i.issues?.update(withIntegrationIssues: issues)
                     i.hasRetrievedIssues = true
                 }
                 
-                }, withCompletion: { (error) in
+                do {
+                    try privateContext.save()
+                } catch {
                     completion(error)
+                    return
+                }
+                
+                completion(nil)
             })
         }
     }

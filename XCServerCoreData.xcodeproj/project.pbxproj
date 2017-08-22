@@ -12,14 +12,11 @@
 		E1027E871F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E861F20E5EC00B1E7AF /* NSManagedObject+XCServerCoreData.swift */; };
 		E1027E891F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E881F20E8FA00B1E7AF /* RepositoryBlueprint+XCServerCoreData.swift */; };
 		E1027E911F23916900B1E7AF /* MappingModel1.1.0to1.2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E901F23916900B1E7AF /* MappingModel1.1.0to1.2.0.xcmappingmodel */; };
-		E1027E931F24DD9A00B1E7AF /* MigrateIntegrationStringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E921F24DD9A00B1E7AF /* MigrateIntegrationStringToDate.swift */; };
 		E1027E951F24E25E00B1E7AF /* MappingModel1.0.0to2.0.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E941F24E25E00B1E7AF /* MappingModel1.0.0to2.0.0.xcmappingmodel */; };
 		E1027E971F24E29F00B1E7AF /* MappingModel1.1.0to2.0.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E961F24E29F00B1E7AF /* MappingModel1.1.0to2.0.0.xcmappingmodel */; };
 		E1027E991F24E2B700B1E7AF /* MappingModel1.2.0to2.0.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E981F24E2B700B1E7AF /* MappingModel1.2.0to2.0.0.xcmappingmodel */; };
 		E162423B1CE3930F00283B2E /* XCServerCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = E162423A1CE3930F00283B2E /* XCServerCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16242421CE3930F00283B2E /* XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16242371CE3930F00283B2E /* XCServerCoreData.framework */; };
-		E16242531CE3935800283B2E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = E16242511CE3935800283B2E /* Podfile */; };
-		E16242551CE3943F00283B2E /* XCServerCoreData.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E16242541CE3943F00283B2E /* XCServerCoreData.podspec */; };
 		E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16242561CE3956A00283B2E /* XCServerCoreData.swift */; };
 		E1A1D5061D21E0130082793F /* XCServerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5031D21E0130082793F /* XCServerCoreData.xcdatamodeld */; };
 		E1A1D5081D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A1D5071D21E04F0082793F /* MappingModel1.0.0to1.1.0.xcmappingmodel */; };
@@ -32,6 +29,7 @@
 		E1BA57D51D08845000B82DFD /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57D41D08845000B82DFD /* Enumerations.swift */; };
 		E1BA57F51D08A0B200B82DFD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA57F41D08A0B200B82DFD /* Extensions.swift */; };
 		E1C2EEE41F4C648B0036C274 /* CommonExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C2EEE31F4C648B0036C274 /* CommonExtensionTests.swift */; };
+		E1C2EEE51F4C73CE0036C274 /* MigrateIntegrationStringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1027E921F24DD9A00B1E7AF /* MigrateIntegrationStringToDate.swift */; };
 		E1D825BE1CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825901CEB6D5700BBF4F6 /* RevisionBlueprint+CoreDataProperties.swift */; };
 		E1D825BF1CEB6D5700BBF4F6 /* RevisionBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825911CEB6D5700BBF4F6 /* RevisionBlueprint.swift */; };
 		E1D825C01CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D825921CEB6D5700BBF4F6 /* Commit+CoreDataProperties.swift */; };
@@ -484,8 +482,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16242531CE3935800283B2E /* Podfile in Resources */,
-				E16242551CE3943F00283B2E /* XCServerCoreData.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,10 +591,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C2EEE51F4C73CE0036C274 /* MigrateIntegrationStringToDate.swift in Sources */,
 				E1D825C11CEB6D5700BBF4F6 /* Commit.swift in Sources */,
 				E1D825D91CEB6D5700BBF4F6 /* Filter.swift in Sources */,
 				E1D825C71CEB6D5700BBF4F6 /* IntegrationAssets.swift in Sources */,
-				E1027E931F24DD9A00B1E7AF /* MigrateIntegrationStringToDate.swift in Sources */,
 				E1D825E41CEB6D5700BBF4F6 /* XcodeServer+CoreDataProperties.swift in Sources */,
 				E1D825E01CEB6D5700BBF4F6 /* BuildResultSummary+CoreDataProperties.swift in Sources */,
 				E1D825E61CEB6D5700BBF4F6 /* Issue+CoreDataProperties.swift in Sources */,
@@ -730,8 +726,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -781,8 +777,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2,3,4";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
