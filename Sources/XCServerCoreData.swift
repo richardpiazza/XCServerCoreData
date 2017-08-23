@@ -41,11 +41,13 @@ public class XCServerCoreData {
         }
         var storeURL: URL
         do {
-            #if !os(tvOS)
-                storeURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("XCServerCoreData.sqlite")
+            var searchPathDirectory: FileManager.SearchPathDirectory
+            #if os(tvOS)
+                searchPathDirectory = .cachesDirectory
             #else
-                storeURL = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendPathComponent("XCServerCoreData.sqlite")
+                searchPathDirectory = .documentDirectory
             #endif
+            storeURL = try FileManager.default.url(for: searchPathDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("XCServerCoreData.sqlite")
         } catch {
             print(error)
             fatalError(error.localizedDescription)
