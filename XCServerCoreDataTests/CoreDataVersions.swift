@@ -3,10 +3,15 @@ import Foundation
 class CoreDataVersions {
     
     public static var v_1_2_0 = V_1_2_0()
+    public static var v_1_2_0_empty = V_1_2_0_Empty()
     public static var v_2_0_0_empty = V_2_0_0_Empty()
     
     struct V_1_2_0: CoreDataVersion {
         var resource: String = "XCServerCoreData_1.2.0"
+    }
+    
+    struct V_1_2_0_Empty: CoreDataVersion {
+        var resource: String = "XCServerCoreData_1.2.0_empty"
     }
     
     struct V_2_0_0_Empty: CoreDataVersion {

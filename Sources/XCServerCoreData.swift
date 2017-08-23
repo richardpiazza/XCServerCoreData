@@ -41,10 +41,14 @@ public class XCServerCoreData {
         }
         var storeURL: URL
         do {
-            storeURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("XCServerCoreData.sqlite")
+            #if !os(tvOS)
+                storeURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("XCServerCoreData.sqlite")
+            #else
+                storeURL = try FileManager.default.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendPathComponent("XCServerCoreData.sqlite")
+            #endif
         } catch {
             print(error)
-            fatalError("")
+            fatalError(error.localizedDescription)
         }
         
         let instance = NSPersistentContainer(name: "XCServerCoreData", managedObjectModel: model)

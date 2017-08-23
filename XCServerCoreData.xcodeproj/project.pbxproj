@@ -15,6 +15,9 @@
 		E1027E951F24E25E00B1E7AF /* MappingModel1.0.0to2.0.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E941F24E25E00B1E7AF /* MappingModel1.0.0to2.0.0.xcmappingmodel */; };
 		E1027E971F24E29F00B1E7AF /* MappingModel1.1.0to2.0.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E961F24E29F00B1E7AF /* MappingModel1.1.0to2.0.0.xcmappingmodel */; };
 		E1027E991F24E2B700B1E7AF /* MappingModel1.2.0to2.0.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1027E981F24E2B700B1E7AF /* MappingModel1.2.0to2.0.0.xcmappingmodel */; };
+		E132D7F31F4E251600DF76EC /* XCServerCoreData_1.2.0_empty.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E132D7F01F4E251400DF76EC /* XCServerCoreData_1.2.0_empty.sqlite */; };
+		E132D7F41F4E251600DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E132D7F11F4E251500DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-shm */; };
+		E132D7F51F4E251600DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E132D7F21F4E251500DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-wal */; };
 		E162423B1CE3930F00283B2E /* XCServerCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = E162423A1CE3930F00283B2E /* XCServerCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16242421CE3930F00283B2E /* XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16242371CE3930F00283B2E /* XCServerCoreData.framework */; };
 		E16242571CE3956A00283B2E /* XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16242561CE3956A00283B2E /* XCServerCoreData.swift */; };
@@ -105,6 +108,9 @@
 		E1027E961F24E29F00B1E7AF /* MappingModel1.1.0to2.0.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.1.0to2.0.0.xcmappingmodel; sourceTree = "<group>"; };
 		E1027E981F24E2B700B1E7AF /* MappingModel1.2.0to2.0.0.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.2.0to2.0.0.xcmappingmodel; sourceTree = "<group>"; };
 		E12682201D26D355006B4887 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E132D7F01F4E251400DF76EC /* XCServerCoreData_1.2.0_empty.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCServerCoreData_1.2.0_empty.sqlite; sourceTree = "<group>"; };
+		E132D7F11F4E251500DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XCServerCoreData_1.2.0_empty.sqlite-shm"; sourceTree = "<group>"; };
+		E132D7F21F4E251500DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "XCServerCoreData_1.2.0_empty.sqlite-wal"; sourceTree = "<group>"; };
 		E16242371CE3930F00283B2E /* XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E162423A1CE3930F00283B2E /* XCServerCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCServerCoreData.h; sourceTree = "<group>"; };
 		E162423C1CE3930F00283B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,6 +278,9 @@
 		E16242451CE3930F00283B2E /* XCServerCoreDataTests */ = {
 			isa = PBXGroup;
 			children = (
+				E132D7F01F4E251400DF76EC /* XCServerCoreData_1.2.0_empty.sqlite */,
+				E132D7F11F4E251500DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-shm */,
+				E132D7F21F4E251500DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-wal */,
 				E1D179801F2E1244003D0FD6 /* XCServerCoreData_2.0.0_empty.sqlite */,
 				E1D1797F1F2E1244003D0FD6 /* XCServerCoreData_2.0.0_empty.sqlite-shm */,
 				E1D1797E1F2E1244003D0FD6 /* XCServerCoreData_2.0.0_empty.sqlite-wal */,
@@ -489,7 +498,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E132D7F41F4E251600DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-shm in Resources */,
+				E132D7F31F4E251600DF76EC /* XCServerCoreData_1.2.0_empty.sqlite in Resources */,
 				E1A488BF1F2632CA005040EE /* XCServerCoreData_1.2.0.sqlite in Resources */,
+				E132D7F51F4E251600DF76EC /* XCServerCoreData_1.2.0_empty.sqlite-wal in Resources */,
 				E1A488C01F2632CA005040EE /* XCServerCoreData_1.2.0.sqlite-shm in Resources */,
 				E1A488C11F2632CA005040EE /* XCServerCoreData_1.2.0.sqlite-wal in Resources */,
 			);
