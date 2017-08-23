@@ -29,6 +29,12 @@ import Foundation
 import CoreData
 
 public class IntegrationStringToDateMigrationPolicy: NSEntityMigrationPolicy {
+    fileprivate static var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        return formatter
+    }
+    
     public override func createDestinationInstances(forSource sInstance: NSManagedObject, in mapping: NSEntityMapping, manager: NSMigrationManager) throws {
         guard sInstance.entity.name == "Integration" else {
             try super.createDestinationInstances(forSource: sInstance, in: mapping, manager: manager)
@@ -61,16 +67,16 @@ public class IntegrationStringToDateMigrationPolicy: NSEntityMigrationPolicy {
         destinationIntegration.setValue(sInstance.value(forKey: "currentStep"), forKey: "currentStep")
         destinationIntegration.setValue(sInstance.value(forKey: "duration"), forKey: "duration")
         if let endedDate = sInstance.value(forKey: "endedTime") as? String, endedDate != "" {
-            destinationIntegration.setValue(XCServerCoreData.dateFormatter.date(from: endedDate), forKey: "endedTime")
+            destinationIntegration.setValue(type(of: self).dateFormatter.date(from: endedDate), forKey: "endedTime")
         }
         destinationIntegration.setValue(sInstance.value(forKey: "number"), forKey: "number")
         if let queuedDate = sInstance.value(forKey: "queuedDate") as? String, queuedDate != "" {
-            destinationIntegration.setValue(XCServerCoreData.dateFormatter.date(from: queuedDate), forKey: "queuedDate")
+            destinationIntegration.setValue(type(of: self).dateFormatter.date(from: queuedDate), forKey: "queuedDate")
         }
         destinationIntegration.setValue(sInstance.value(forKey: "result"), forKey: "result")
         destinationIntegration.setValue(sInstance.value(forKey: "shouldClean"), forKey: "shouldClean")
         if let startedDate = sInstance.value(forKey: "startedTime") as? String, startedDate != "" {
-            destinationIntegration.setValue(XCServerCoreData.dateFormatter.date(from: startedDate), forKey: "startedTime")
+            destinationIntegration.setValue(type(of: self).dateFormatter.date(from: startedDate), forKey: "startedTime")
         }
         destinationIntegration.setValue(sInstance.value(forKey: "success_streak"), forKey: "successStreak")
         
