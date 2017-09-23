@@ -102,10 +102,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BZipper/BZipCompression.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CodeQuickKit/CodeQuickKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XCServerAPI/XCServerAPI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/BZipper/BZipCompression.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CodeQuickKit/CodeQuickKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XCServerAPI/XCServerAPI.framework"
 fi

@@ -34,7 +34,7 @@ public struct UbiquityDocuments {
     var addedDocumentPaths: [String]?
 }
 
-public typealias UbiquityDocumentsCompletion = (_ documents: UbiquityDocuments?, _ error: NSError?) -> Void
+public typealias UbiquityDocumentsCompletion = (_ documents: UbiquityDocuments?, _ error: Error?) -> Void
 
 public class DocumentsUbiquityContainer: UbiquityContainer {
     public struct Keys {
@@ -153,7 +153,7 @@ public class DocumentsUbiquityContainer: UbiquityContainer {
         endUbiquityDocumentsQuery()
         
         guard ubiquityState == .available else {
-            completion(nil, UbiquityState.invalidUbiquityState)
+            completion(nil, UbiquityError.invalidState)
             return
         }
         

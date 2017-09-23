@@ -1,9 +1,9 @@
 //===----------------------------------------------------------------------===//
 //
-// NSObject.swift
+// CoverageTarget.swift
 //
-// Copyright (c) 2016 Richard Piazza
-// https://github.com/richardpiazza/CodeQuickKit
+// Copyright (c) 2017 Richard Piazza
+// https://github.com/richardpiazza/XCServerAPI
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -27,25 +27,20 @@
 
 import Foundation
 
-public extension NSObject {
-    /// Returns a probable Obj-C setter for the specified property name.
-    public func setter(forPropertyName propertyName: String) -> Selector? {
-        guard propertyName.lengthOfBytes(using: String.Encoding.utf8) > 0 else {
-            return nil
-        }
-        
-        let range = propertyName.startIndex..<propertyName.characters.index(propertyName.startIndex, offsetBy: 1)
-        let character = propertyName[range].uppercased()
-        let setter = propertyName.replacingCharacters(in: range, with: character)
-        
-        return NSSelectorFromString("set\(setter):")
+public struct CoverageTarget: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case results = "dvcs"
+        case percent = "lnp"
+        case delta = "lnpd"
+        case files = "fls"
+        case count = "cnt"
     }
     
-    public func respondsToSetter(forPropertyName propertyName: String) -> Bool {
-        guard let selector = setter(forPropertyName: propertyName) else {
-            return false
-        }
-        
-        return responds(to: selector)
-    }
+    public var results: [CoverageResult]?
+    public var files: [String : CoverageFile]?
+    public var percent: Double?
+    public var delta: Double?
+    public var count: Int?
 }
+

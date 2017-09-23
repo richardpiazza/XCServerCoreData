@@ -71,19 +71,21 @@ public class Configuration: NSManagedObject {
             self.manageCertsAndProfiles = provConfig.manageCertsAndProfiles as NSNumber
         }
         
-        if let buildArgs = configuration.additionalBuildArguments {
-            do {
-                self.additionalBuildArgumentsData = try XCServerCoreData.jsonEncoder.encode(buildArgs)
-            } catch {
-                Log.error(error, message: "Failed to encode Configuration BuildArgurments")
+        if #available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
+            if let buildArgs = configuration.additionalBuildArguments {
+                do {
+                    self.additionalBuildArgumentsData = try XCServerCoreData.jsonEncoder.encode(buildArgs)
+                } catch {
+                    Log.error(error, message: "Failed to encode Configuration BuildArgurments")
+                }
             }
-        }
-        
-        if let envVars = configuration.buildEnvironmentVariables {
-            do {
-                self.buildEnvironmentVariablesData = try XCServerCoreData.jsonEncoder.encode(envVars)
-            } catch {
-                Log.error(error, message: "Failed to encode Configuratoin EnvironmentVariables")
+            
+            if let envVars = configuration.buildEnvironmentVariables {
+                do {
+                    self.buildEnvironmentVariablesData = try XCServerCoreData.jsonEncoder.encode(envVars)
+                } catch {
+                    Log.error(error, message: "Failed to encode Configuratoin EnvironmentVariables")
+                }
             }
         }
         

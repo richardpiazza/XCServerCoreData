@@ -1,9 +1,9 @@
 //===----------------------------------------------------------------------===//
 //
-// Downloader+UIKit.swift
+// CoverageFile.swift
 //
-// Copyright (c) 2016 Richard Piazza
-// https://github.com/richardpiazza/CodeQuickKit
+// Copyright (c) 2017 Richard Piazza
+// https://github.com/richardpiazza/XCServerAPI
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,34 +25,24 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if os(iOS)
+import Foundation
 
-import UIKit
-
-public typealias DownloaderImageCompletion = (_ statusCode: Int, _ responseImage: UIImage?, _ error: NSError?) -> Void
-
-/// A wrapper for `NSURLSession` similar to `WebAPI` for general purpose
-/// downloading of data and images.
-public extension Downloader {
-    public func getImageAtPath(_ path: String, cachePolicy: NSURLRequest.CachePolicy, completion: @escaping DownloaderImageCompletion) {
-        guard let url = self.urlForPath(path) else {
-            completion(0, nil, invalidBaseURL)
-            return
-        }
-        
-        self.getImageAtURL(url, cachePolicy: cachePolicy, completion: completion)
+public struct CoverageFile: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "tte"
+        case results = "dvs"
+        case percent = "lnp"
+        case delta = "lnpd"
+        case methods = "mth"
+        case count = "cnt"
     }
     
-    public func getImageAtURL(_ url: URL, cachePolicy: NSURLRequest.CachePolicy, completion: @escaping DownloaderImageCompletion) {
-        self.getDataAtURL(url, cachePolicy: cachePolicy) { (statusCode, responseData, error) -> Void in
-            var image: UIImage?
-            if responseData != nil {
-                image = UIImage(data: responseData!)
-            }
-            
-            completion(statusCode, image, error)
-        }
-    }
+    public var name: String?
+    public var results: [CoverageResult]?
+    public var methods: [CoverageMethod]?
+    public var percent: Double?
+    public var delta: Double?
+    public var count: Int?
 }
 
-#endif

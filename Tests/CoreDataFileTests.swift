@@ -21,6 +21,7 @@ class CoreDataFileTests: XCTestCase {
         super.tearDown()
     }
     
+    @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
     func testMigrateV120toV200() {
         CoreDataVersions.overwriteSQL(withVersion: CoreDataVersions.v_1_2_0)
         

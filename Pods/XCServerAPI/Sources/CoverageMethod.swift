@@ -1,9 +1,9 @@
 //===----------------------------------------------------------------------===//
 //
-// Bundle+UIKit.swift
+// CoverageMethod.swift
 //
-// Copyright (c) 2016 Richard Piazza
-// https://github.com/richardpiazza/CodeQuickKit
+// Copyright (c) 2017 Richard Piazza
+// https://github.com/richardpiazza/XCServerAPI
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -25,28 +25,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if os(iOS)
+import Foundation
 
-import UIKit
-
-public extension Bundle {
-    /// This call potentially throws an execption that cannot be caught.
-    public var launchScreenStoryboard: UIStoryboard? {
-        guard let name = launchScreenStoryboardName else {
-            return nil
-        }
-        
-        return UIStoryboard(name: name, bundle: self)
+public struct CoverageMethod: Codable {
+    
+    enum CodingKeys: String, CodingKey {
+        case signature = "tte"
+        case results = "dvs"
+        case percent = "lnp"
+        case delta = "lnpd"
     }
     
-    /// This call potentially throws an execption that cannot be caught.
-    public var mainStoryboard: UIStoryboard? {
-        guard let name = mainStoryboardName else {
-            return nil
-        }
-        
-        return UIStoryboard(name: name, bundle: self)
-    }
+    public var signature: String?
+    public var results: [CoverageResult]?
+    public var percent: Double?
+    public var delta: Double?
 }
 
-#endif

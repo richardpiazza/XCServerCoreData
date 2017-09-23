@@ -67,25 +67,29 @@ protocol CoreDataVersion {
 }
 
 extension CoreDataVersion {
-    var bundleSQLite: URL {
-        guard let url = Bundle(for: CoreDataVersions.self).url(forResource: resource, withExtension: CoreDataExtension.sqlite.rawValue) else {
-            fatalError()
+    func url(for res: String, extension ext: CoreDataExtension) -> URL {
+        let bundle = Bundle(for: CoreDataVersions.self)
+        if let url = bundle.url(forResource: res, withExtension: ext.rawValue) {
+            return url
+        }
+        
+        let path = FileManager.default.currentDirectoryPath
+        let url = URL(fileURLWithPath: path).appendingPathComponent("Tests").appendingPathComponent(res).appendingPathExtension(ext.rawValue)
+        
+        if !FileManager.default.fileExists(atPath: url.path) {
+            fatalError("Failed to locate resource \(res).\(ext.rawValue)")
         }
         
         return url
+    }
+    
+    var bundleSQLite: URL {
+        return self.url(for: resource, extension: .sqlite)
     }
     var bundleSHM: URL {
-        guard let url = Bundle(for: CoreDataVersions.self).url(forResource: resource, withExtension: CoreDataExtension.shm.rawValue) else {
-            fatalError()
-        }
-        
-        return url
+        return self.url(for: resource, extension: .shm)
     }
     var bundleWAL: URL {
-        guard let url = Bundle(for: CoreDataVersions.self).url(forResource: resource, withExtension: CoreDataExtension.wal.rawValue) else {
-            fatalError()
-        }
-        
-        return url
+        return self.url(for: resource, extension: .wal)
     }
 }

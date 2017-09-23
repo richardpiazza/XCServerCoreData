@@ -29,12 +29,16 @@ import CoreData
 import CodeQuickKit
 import XCServerAPI
 
+@available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
 public class XCServerCoreData {
     
     public static var sharedInstance: NSPersistentContainer {
+        var modelURL: URL
         let bundle = Bundle(for: XCServerCoreData.self)
-        guard let modelURL = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
-            fatalError("Could not Locate XCServerCoreData MOMD")
+        if let url = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") {
+            modelURL = url
+        } else {
+            modelURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent("Resources").appendingPathExtension("XCServerCoreData.momd")
         }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Failed to load XCServerCoreData Model")
