@@ -32,7 +32,7 @@ import XCServerAPI
 @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
 public class XCServerCoreData {
     
-    public static var sharedInstance: NSPersistentContainer {
+    public static var sharedInstance: NSPersistentContainer = {
         let bundle = Bundle(for: XCServerCoreData.self)
         guard let modelURL = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
             fatalError("Failed to locate XCServerCoreData.momd")
@@ -54,14 +54,21 @@ public class XCServerCoreData {
             fatalError(error.localizedDescription)
         }
         
-        let instance = NSPersistentContainer(name: "XCServerCoreData", managedObjectModel: model)
+        let container = NSPersistentContainer(name: "XCServerCoreData", managedObjectModel: model)
         let description = NSPersistentStoreDescription(url: storeURL)
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
-        instance.persistentStoreDescriptions = [description]
-        instance.viewContext.automaticallyMergesChangesFromParent = true
-        return instance
-    }
+        container.persistentStoreDescriptions = [description]
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        
+        container.loadPersistentStores { (_, error) in
+            if let e = error {
+                fatalError(e.localizedDescription)
+            }
+        }
+        
+        return container
+    }()
     
     public enum Errors: Error {
         case unhandled

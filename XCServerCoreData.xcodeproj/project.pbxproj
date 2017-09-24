@@ -812,7 +812,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6BDF2BB4F6C3425C772ED3F2 /* Pods-XCServerCoreDataTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = XCServerCoreDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -827,7 +826,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 241E97D293A69C76BE38BE80 /* Pods-XCServerCoreDataTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = XCServerCoreDataTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

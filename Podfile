@@ -6,10 +6,14 @@ def common_pods
 end
 
 target 'XCServerCoreData' do
+  platform :ios, '11.0'
+  
   common_pods
 end
 
 target 'XCServerCoreDataTests' do
+  platform :ios, '11.0'
+  
   common_pods
 end
 
