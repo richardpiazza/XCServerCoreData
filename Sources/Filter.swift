@@ -37,7 +37,7 @@ public class Filter: NSManagedObject {
         self.deviceSpecification = deviceSpecification
     }
     
-    internal func update(withFilter filter: XCServerAPI.Filter) {
+    internal func update(withFilter filter: XCSFilter) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

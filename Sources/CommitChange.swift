@@ -37,7 +37,7 @@ public class CommitChange: NSManagedObject {
         self.commit = commit
     }
     
-    internal func update(withCommitChange change: XCServerAPI.CommitChangeFilePath) {
+    internal func update(withCommitChange change: XCSCommitChangeFilePath) {
         self.status = change.status as NSNumber?
         self.filePath = change.filePath
     }

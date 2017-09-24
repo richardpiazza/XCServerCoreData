@@ -34,7 +34,7 @@ import XCServerAPI
 /// "Each integration on your server generates a number of files, known as assets. Assets include log files, Xcode archives and installable products like IPA or PKG files."
 public class Asset: NSManagedObject {
     
-    func update(withAsset asset: XCServerAPI.IntegrationAsset) {
+    func update(withAsset asset: XCSIntegrationAsset) {
         self.allowAnonymousAccess = asset.allowAnonymousAccess as NSNumber?
         self.fileName = asset.fileName
         self.relativePath = asset.relativePath

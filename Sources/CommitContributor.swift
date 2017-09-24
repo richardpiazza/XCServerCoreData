@@ -37,7 +37,7 @@ public class CommitContributor: NSManagedObject {
         self.commit = commit
     }
     
-    internal func update(withCommitContributor contributor: XCServerAPI.CommitContributor) {
+    internal func update(withCommitContributor contributor: XCSCommitContributor) {
         self.name = contributor.name
         self.displayName = contributor.displayName
         self.emails = contributor.emails as NSObject?

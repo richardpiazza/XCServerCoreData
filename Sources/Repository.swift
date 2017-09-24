@@ -37,7 +37,7 @@ public class Repository: NSManagedObject {
         self.identifier = identifier
     }
     
-    internal func update(withRevisionBlueprint blueprint: XCServerAPI.RepositoryBlueprint, integration: Integration? = nil) {
+    internal func update(withRevisionBlueprint blueprint: XCSRepositoryBlueprint, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -56,7 +56,7 @@ public class Repository: NSManagedObject {
         }
         
         if let remoteRepositorys = blueprint.remoteRepositories {
-            if let remoteRepository = remoteRepositorys.filter({ (repo: XCServerAPI.RemoteRepository) -> Bool in
+            if let remoteRepository = remoteRepositorys.filter({ (repo: XCSRemoteRepository) -> Bool in
                 return repo.identifier == self.identifier
             }).first {
                 self.system = remoteRepository.system
@@ -96,7 +96,7 @@ public class Repository: NSManagedObject {
         }
     }
     
-    internal func update(withIntegrationCommits commits: [XCServerAPI.CommitDocument], integration: Integration? = nil) {
+    internal func update(withIntegrationCommits commits: [XCSCommit], integration: Integration? = nil) {
         for integrationCommit in commits {
             if let integrationCommits = integrationCommit.commits {
                 for (key, value) in integrationCommits {
@@ -110,7 +110,7 @@ public class Repository: NSManagedObject {
         }
     }
     
-    internal func update(withCommits commits: [XCServerAPI.Commit], integration: Integration? = nil) {
+    internal func update(withCommits commits: [XCSRepositoryCommit], integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

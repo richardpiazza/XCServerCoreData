@@ -37,7 +37,7 @@ public class IntegrationAssets: NSManagedObject {
         self.integration = integration
     }
     
-    internal func update(withIntegrationAssets assets: XCServerAPI.Assets) {
+    internal func update(withIntegrationAssets assets: XCSAssets) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

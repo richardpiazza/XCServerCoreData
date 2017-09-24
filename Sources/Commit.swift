@@ -38,7 +38,7 @@ public class Commit: NSManagedObject {
         self.repository = repository
     }
     
-    internal func update(withCommit commit: XCServerAPI.Commit, integration: Integration? = nil) {
+    internal func update(withCommit commit: XCSRepositoryCommit, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

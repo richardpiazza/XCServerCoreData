@@ -40,7 +40,7 @@ public class XcodeServer: NSManagedObject {
         self.fqdn = fqdn
     }
     
-    internal func update(withVersion version: XCServerAPI.VersionDocument, api: Int? = nil) {
+    internal func update(withVersion version: XCSVersion, api: Int? = nil) {
         self.os = version.os
         self.server = version.server
         self.xcodeServer = version.xcodeServer
@@ -50,7 +50,7 @@ public class XcodeServer: NSManagedObject {
         }
     }
     
-    internal func update(withBots data: [XCServerAPI.BotDocument]) {
+    internal func update(withBots data: [XCSBot]) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

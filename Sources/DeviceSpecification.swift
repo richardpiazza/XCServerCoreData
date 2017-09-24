@@ -37,7 +37,7 @@ public class DeviceSpecification: NSManagedObject {
         self.configuration = configuration
     }
     
-    internal func update(withDeviceSpecification specification: XCServerAPI.DeviceSpecification) {
+    internal func update(withDeviceSpecification specification: XCSDeviceSpecification) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

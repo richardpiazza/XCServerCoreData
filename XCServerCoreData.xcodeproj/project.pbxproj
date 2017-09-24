@@ -51,7 +51,7 @@
 		E1BA0C1E1F77D476000FA5C3 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD11F77D475000FA5C3 /* Platform.swift */; };
 		E1BA0C1F1F77D476000FA5C3 /* Repository+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD21F77D475000FA5C3 /* Repository+CoreDataProperties.swift */; };
 		E1BA0C201F77D476000FA5C3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD31F77D475000FA5C3 /* Repository.swift */; };
-		E1BA0C211F77D476000FA5C3 /* RepositoryBlueprint+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD41F77D475000FA5C3 /* RepositoryBlueprint+XCServerCoreData.swift */; };
+		E1BA0C211F77D476000FA5C3 /* XCSRepositoryBlueprint+XCServerCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD41F77D475000FA5C3 /* XCSRepositoryBlueprint+XCServerCoreData.swift */; };
 		E1BA0C221F77D476000FA5C3 /* RevisionBlueprint+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD51F77D475000FA5C3 /* RevisionBlueprint+CoreDataProperties.swift */; };
 		E1BA0C231F77D476000FA5C3 /* RevisionBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD61F77D475000FA5C3 /* RevisionBlueprint.swift */; };
 		E1BA0C241F77D476000FA5C3 /* Stats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BD71F77D475000FA5C3 /* Stats+CoreDataProperties.swift */; };
@@ -159,7 +159,7 @@
 		E1BA0BD11F77D475000FA5C3 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		E1BA0BD21F77D475000FA5C3 /* Repository+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Repository+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1BA0BD31F77D475000FA5C3 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		E1BA0BD41F77D475000FA5C3 /* RepositoryBlueprint+XCServerCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RepositoryBlueprint+XCServerCoreData.swift"; sourceTree = "<group>"; };
+		E1BA0BD41F77D475000FA5C3 /* XCSRepositoryBlueprint+XCServerCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCSRepositoryBlueprint+XCServerCoreData.swift"; sourceTree = "<group>"; };
 		E1BA0BD51F77D475000FA5C3 /* RevisionBlueprint+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RevisionBlueprint+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1BA0BD61F77D475000FA5C3 /* RevisionBlueprint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RevisionBlueprint.swift; sourceTree = "<group>"; };
 		E1BA0BD71F77D475000FA5C3 /* Stats+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Stats+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -316,7 +316,7 @@
 				E1BA0BD11F77D475000FA5C3 /* Platform.swift */,
 				E1BA0BD21F77D475000FA5C3 /* Repository+CoreDataProperties.swift */,
 				E1BA0BD31F77D475000FA5C3 /* Repository.swift */,
-				E1BA0BD41F77D475000FA5C3 /* RepositoryBlueprint+XCServerCoreData.swift */,
+				E1BA0BD41F77D475000FA5C3 /* XCSRepositoryBlueprint+XCServerCoreData.swift */,
 				E1BA0BD51F77D475000FA5C3 /* RevisionBlueprint+CoreDataProperties.swift */,
 				E1BA0BD61F77D475000FA5C3 /* RevisionBlueprint.swift */,
 				E1BA0BD71F77D475000FA5C3 /* Stats+CoreDataProperties.swift */,
@@ -589,7 +589,7 @@
 				E1BA0C111F77D476000FA5C3 /* Filter+CoreDataProperties.swift in Sources */,
 				E1BA0C1B1F77D476000FA5C3 /* NSManagedObject+XCServerCoreData.swift in Sources */,
 				E1BA0C001F77D476000FA5C3 /* Commit.swift in Sources */,
-				E1BA0C211F77D476000FA5C3 /* RepositoryBlueprint+XCServerCoreData.swift in Sources */,
+				E1BA0C211F77D476000FA5C3 /* XCSRepositoryBlueprint+XCServerCoreData.swift in Sources */,
 				E1BA0C1D1F77D476000FA5C3 /* Platform+CoreDataProperties.swift in Sources */,
 				E1BA0C271F77D476000FA5C3 /* StatsBreakdown.swift in Sources */,
 				E1BA0C2B1F77D476000FA5C3 /* XcodeServer.swift in Sources */,

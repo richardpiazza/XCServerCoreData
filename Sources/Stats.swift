@@ -37,7 +37,7 @@ public class Stats: NSManagedObject {
         self.bot = bot
     }
     
-    internal func update(withStats stats: XCServerAPI.Stats) {
+    internal func update(withStats stats: XCSStats) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

@@ -7,107 +7,107 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03988F9908B86611FAE8A99E4ABD8E6D /* XCServerWebAPI+Coverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D7EC838F85B496F9E311059306435F /* XCServerWebAPI+Coverage.swift */; };
-		06EA92023436B491ED9D3862D15C34AE /* IntegrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B673293AFBCE4E9B892BFDD7023142 /* IntegrationResult.swift */; };
+		06AD7EB52504FD6877DF08ACF06FB79D /* XCSProxiedDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5597EE71B4815B73DA75EC635B21E143 /* XCSProxiedDevice.swift */; };
 		087F6AE304DFD17BF96B2E547CAD4B08 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14C7802ADE59A0F9CA46F586219056 /* Storyboarded.swift */; };
-		0A60F166BD7E9202AA9BDAFB8A5B123C /* BuildResultSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F1366B47E832CB35293D484F59C5D /* BuildResultSummary.swift */; };
-		0C68D8F1537B068524859FD8979F9E3F /* XCServerAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DACAF6C0493ACD2F8E71E87370911E4D /* XCServerAPI-dummy.m */; };
-		0D7CB7B28B5C41DBF4BA7F9625FBA431 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3116DE9750D926D7C1583CEDD6BA671B /* Group.swift */; };
+		0CA86FAB8AB4D5693031113A1916AF33 /* XCServerWebAPI+Commits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B078F327D7054AC2B85E288F3DDA7C /* XCServerWebAPI+Commits.swift */; };
 		102992D416614365BF4E436032B9BE45 /* BZipCompression.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C90275532B1CECF13F700DE4B301D1 /* BZipCompression.framework */; };
-		13FD9D145F3B245A5B2ABE516C2E1BC7 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B612AAC9EF889E849B7B104E72E44A9E /* Filter.swift */; };
+		117DAA57A70D0CE9AD128C9951D4FC16 /* XCServerWebAPI+Bots.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94C723483094548A7459342E54D50B8 /* XCServerWebAPI+Bots.swift */; };
+		11C26F9D635B66B00A3CEB2A57CFBBBD /* XCSIssueStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3275DCAB4302FBD0DAC5FEF36292DF /* XCSIssueStatus.swift */; };
 		14D37F00D2346B14305BDB34C8662444 /* Pods-XCServerCoreData-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 64B3F6BBDDC96CE8A3D9AA0F6DF8381C /* Pods-XCServerCoreData-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15A566392C85C9A871975E58408930FF /* XCSEmailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDCBCC30159CF33E15A19531654AE40 /* XCSEmailType.swift */; };
 		15D79E522C05ADFFFA56E3A241025911 /* WebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCF9616454C1DC4381AAFFCB98F8155 /* WebAPI.swift */; };
-		18F796255B7ABFD3450B009569118EC4 /* CommitChangeFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E07B02CA094CD9572F420C108E2D83 /* CommitChangeFilePath.swift */; };
-		1F840EFF4D4FD50839891B95F092CE9E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63770D59F6B121AFEEFDECF09E4E99FB /* Configuration.swift */; };
+		185E605923A4E936F75583DBD048E5E5 /* XCSRepositoryBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5E9D31C74903018C693899541ABA73 /* XCSRepositoryBlueprint.swift */; };
+		1891F0CE0FC052E21A5B431C976A829C /* XCSIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA31D635B70602BB096178DFE786B21 /* XCSIssue.swift */; };
+		1F9E826C99A200B82AC9CF042DEFAF52 /* XCSIssueGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FF9C6201CE783705CB6A8A72A0DFB9 /* XCSIssueGroup.swift */; };
+		20194F6DFA70B5A14BDEF45466BFC52A /* XCSPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6151231C0DCBF6D8689314EE612869 /* XCSPlatform.swift */; };
+		22E3CEA1B57B39FBE3D6D0527BE67648 /* XCSCoverageTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF54D0D02E5ABC5448F685C281A690A9 /* XCSCoverageTarget.swift */; };
 		24CC6D314EE9F6C289051BFA0E4D1DCB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B516B5831477D18393AC6AF181821C9 /* Foundation.framework */; };
-		3828C24A303D29BF2EEE9E9E23A34DAC /* XCServerWebAPI+Bots.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0ADCF4E5362E0E926F95D01D3EA6BEF /* XCServerWebAPI+Bots.swift */; };
-		3AE8EA3D759511D995187B3F124AECFE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE669C894C188BEB13F1B72CF2DF23AD /* Platform.swift */; };
-		3DDCBAED4363C02649456E1E91F37022 /* IntegrationSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C33CC23D459A42915DA4ADA5DE829E8 /* IntegrationSnippet.swift */; };
-		3E00B959DC5A36EF556A03A500220C82 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422758234BFAF846969CCC32D289509 /* Assets.swift */; };
-		3F1F6CF626FAFDC34F7328E4E77F5DD2 /* ProxiedDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6C4A3921996EFE26A7D7A2B53F556C /* ProxiedDevice.swift */; };
-		42A2A5BD75EDC65AF5375363CF6236E5 /* SuspectStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17AFD75DE8880DC745E8F747ED90F4D /* SuspectStrategy.swift */; };
-		434CAF9CB864C2DE3E2584933EC355FF /* RemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78EB83F1AA043D6EE1FD17487183888 /* RemoteRepository.swift */; };
-		48C4EBF289430A196DD6ED893FFEA93D /* VersionDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8CF0EE7C9D14F9D85C1C84B436FF0E /* VersionDocument.swift */; };
-		48E8251FC6599C47D21A53B8F553EA5D /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98C4539C8653B03654E1D5E61ECA23 /* Trigger.swift */; };
+		25B482BA7BFF5674CD3D293C3F2C5E5C /* XCSCodeCoveragePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C345621C9A801442CBFF451EFB8DE59 /* XCSCodeCoveragePreference.swift */; };
+		27F69B34FF2C66C988C777FDA67049FB /* XCSIntegrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396FC2FF5CF4AEA8A2EC107CA7F0A065 /* XCSIntegrationResult.swift */; };
+		2CB4D5418A428AD7B6B43477BCD37D8E /* XCSIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4270CFF932912BBABC759A986855D041 /* XCSIntegration.swift */; };
+		30DF449B7F501E34662B8A8EA6701FE0 /* XCSRemoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F4A8780FCBE84EEE4C546EC5B3E0 /* XCSRemoteRepository.swift */; };
+		315972E91008E080A3E9111EFDF8A27F /* XCSCleanSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E04229B3FCD7F784BBE630AB5E655D /* XCSCleanSchedule.swift */; };
+		39C5E20ABFE1B04768CC5A2C64F31557 /* XCSCommitChangeFilePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B5DBB1F765F31165C0286CBB9AC4E /* XCSCommitChangeFilePath.swift */; };
+		3C1F6535557C941540CC9C89F58832C6 /* XCSCoverageHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529CC2C5B1E08ED17E5C5E91D89377B /* XCSCoverageHierarchy.swift */; };
+		493905F8C39BEFDDF60A9DD0EA149F8C /* XCSAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1F5D6305A70936FEE1030895A39039 /* XCSAssets.swift */; };
 		496B6EBD6BAFC783106D6FB7B5BC4AD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B516B5831477D18393AC6AF181821C9 /* Foundation.framework */; };
+		4C368FD49D7ACCAC314619C4458323C1 /* XCSTestLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3C7089B85E4ACE21AD14398FBA55A4 /* XCSTestLocalization.swift */; };
 		51610C2D2DC48F06B7CD2171C50658BD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD9B9C3A692A7D54391F234B1BC0227 /* Log.swift */; };
-		521BD62B5C8A74A159D45291811D634F /* XCServerWebAPI+Commits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC4F03EECE9FDACDCB952791D81741 /* XCServerWebAPI+Commits.swift */; };
-		5694FE7E6F46EE24592D6D4410EDE520 /* AuthenticationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7FA8DC081162A9BB179AA7083006ED /* AuthenticationStrategy.swift */; };
-		59BCC12B95FFEE99411CCD23F0DC283E /* BotDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666E46BB658DE175DE353D1EBB22365C /* BotDocument.swift */; };
-		5BF9A9808C2821A7CCB19875C301EC15 /* BlueprintLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C44666C36AC34EA6061357A1D231F9 /* BlueprintLocation.swift */; };
-		5F2DF027B2A0C91B00425B2D48688E2C /* XCServerWebAPI+Integrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D67A2BD61FFD41ACF8C2B4D86A2F70 /* XCServerWebAPI+Integrations.swift */; };
+		5A24B90E7013E90352DE193413FCDCA8 /* XCSBuildResultSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFEFE87D3BC4E3E2C79DB5BDF4CA4FCF /* XCSBuildResultSummary.swift */; };
+		5E6471BC49D44460083E982ACEA517C4 /* XCSBlueprintLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95E26B0FB3B6B1B3154D55DAEBA2D79 /* XCSBlueprintLocation.swift */; };
+		5FB41FC71642871E2B4F0E177DE831B7 /* XCSCommitContributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FBC5C048740443A093D1BDD1FA8177 /* XCSCommitContributor.swift */; };
 		600846CFF45E048CA6AC0E2878F94545 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224F353D6D862D2A4C5EF82C2911BCB8 /* Reusable.swift */; };
-		608AF4C55989B79FDD7EC6E32048D38F /* XCServerAPI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D62EBD6F1C0CE23497339CCEB33FB1A2 /* XCServerAPI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		62FB1F1F8A433987F7BE0FEDCD7A4224 /* CoverageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C72C3EB23AFCDA2896E488893A17B3 /* CoverageFile.swift */; };
-		642DB9D772FDE1E72A59CCE214DD0EEF /* RepositoryLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378219C21B569DD9E97F5281C0F0201 /* RepositoryLocation.swift */; };
-		6649A3511842DEE7EAB92B52E98B3083 /* IssueAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F3D603E519F7A9DBDE8FABE63B71DD /* IssueAuthor.swift */; };
-		67379D0E32E1AE7245A1001184728570 /* IntegrationAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1700A6AA390AB12A0854465091DE77E6 /* IntegrationAsset.swift */; };
-		69411D6A8073643D412A24F37626FA0F /* StatsSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAC58ECC028752B1230DD758FE0D3 /* StatsSummary.swift */; };
+		608AF4C55989B79FDD7EC6E32048D38F /* XCServerAPI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68DDA6830C661C14CCEF5F4BF27D7F90 /* XCServerAPI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A7CB0B9C4707E1E43294B1B46DD86F3 /* XCSAuthenticationStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FD160969641E441B476A978AEAEEB7 /* XCSAuthenticationStrategy.swift */; };
 		6BE4496B651BD627BA6DE285F4175B95 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88F6FC4F8DF75E67690B2A927718668 /* NSObject.swift */; };
-		6D559577FF6E6463FB4722320B037701 /* Decodable+XCServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61453059F7C40D830FBAA808136E6007 /* Decodable+XCServerAPI.swift */; };
+		6E414FF588BA140BF4E988C3AE76AF20 /* XCSBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267D6CAD7723FC35A6F8A45B8797820 /* XCSBot.swift */; };
 		6E76DCDE7D39480DCF8DAEF9F0F8E23E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076EF150AEE8199C961374F01AAD98E0 /* Date.swift */; };
 		7185703BA903C47546896906A31B5858 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7A4C4F60E324198A9A71AB7A78B542 /* UserDefaults.swift */; };
 		71F2AEB11C3770465E3E18979F971054 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B516B5831477D18393AC6AF181821C9 /* Foundation.framework */; };
+		72D5DC4AECE2EB6452924ACC449951BA /* XCSIntegrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001B4083BFBA1C17EEA4CB627BC0A160 /* XCSIntegrationStep.swift */; };
 		74CBB943674EA5450BAAB03F099C661C /* NSMetadataQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99AEB282B88AB75138282524CB28B8 /* NSMetadataQuery.swift */; };
 		74F56CC118E3824E0D5F8BA4B75BE176 /* Pods-XCServerCoreDataTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DDA1BF8A95AE370A6E1336E6A4633CE /* Pods-XCServerCoreDataTests-dummy.m */; };
-		76E2CFAA2655C75A04F9D430DE349647 /* ProvisioningConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233C3F705389C2A0D5788A1228B0B1A /* ProvisioningConfiguration.swift */; };
 		76FE74634CE73384A7B013849DDFEF9E /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ECF471940422892ED4C45802CDE188 /* Downloader.swift */; };
 		777A443B1F96A32658476D39E42FD829 /* ProgrammaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2459FF18394B0FC0975BDE36DEA48CD4 /* ProgrammaticView.swift */; };
-		77FFA1BA32ABFE89F9FF1C00287C54E6 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FAD99AA64681304FC4FAF4D24C9341 /* Issue.swift */; };
-		7E027FCD325FCC453FC1A5D4AA5DA87C /* DeviceSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC5D43AE8367CACCB2C47A59D7D4E91 /* DeviceSpecification.swift */; };
-		80471565FC126491B1B39FDB9F2EC595 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49673E012691185CC3EF058E1AFA24EC /* Commit.swift */; };
-		840EFF39AD3851071C375E116674CCA8 /* BuildArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C5B65606808ACD7CAE579D7FB74E8 /* BuildArgument.swift */; };
+		7AD9CDA9402CC69CBC52A015180DB97F /* XCSTestHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C897C2282F9315002FD59D37BCC6810 /* XCSTestHierarchy.swift */; };
+		7D6716A631BFC9EB81461BB5C3FC29A6 /* XCSTriggerPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8EBFDC6F90FA5CB776C955EFD5B84 /* XCSTriggerPhase.swift */; };
+		7E3E21E41DBA9688F15B234640BA2E15 /* XCSConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2F40C3EEFB57294E6F448E2685357 /* XCSConfiguration.swift */; };
+		830B2D3F890FA96D5C711DBD5841994E /* XCSRepositoryLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E07A066382DB8FBE439788C628426E /* XCSRepositoryLocation.swift */; };
+		876CFBF630ED42A889A851980069472F /* XCSProvisioningConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0DD9C4FABC4CF7FCBD23508BAB4F83 /* XCSProvisioningConfiguration.swift */; };
+		8BE9250B01F27A97030BC044093D8627 /* XCSTriggerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7E751CAD40F21A8F603CD032A1528 /* XCSTriggerType.swift */; };
 		8CDFB47DB66AFFF7D6D46135C84595F5 /* CodeQuickKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 861968244D7432C4B0519BE884EA8889 /* CodeQuickKit-dummy.m */; };
 		8DBEFEA87F3B1C0E9AF755DE947792AC /* BZipper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1074711FB6F66750389E5DDBBC0C188C /* BZipper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F075E771DCB776E8DD033BDFC71375A /* XCSCoverageMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B289B7E70FE0DD0CECD8D86A372E40 /* XCSCoverageMethod.swift */; };
+		8FE1BF575AC86CF855173255A1777C18 /* XCServerWebAPI+Issues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBD6C65463F3499A4A49B553BC1E8ED /* XCServerWebAPI+Issues.swift */; };
+		9089F5816470C44578E325F60DE18D3C /* XCSBotSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC734570655F6DF9340CA125FCEB023 /* XCSBotSchedule.swift */; };
+		90DA64E3CFB1D2C87DF4DA3823860902 /* XCSConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103FA722ABCA9887FD887DF56334F613 /* XCSConditions.swift */; };
 		9139FCD28A106FE8088476C5346C8CE7 /* CodeQuickKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 69EDE554C539DC5D2A584811B834A4C8 /* CodeQuickKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9222F81E734D83057CEE163CAE982EEB /* IssueStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346184E61756ACCF756FB5D8D4FCD69 /* IssueStatus.swift */; };
-		92646CBC1B220AFC342034CB8C59F16B /* CoverageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E7BA735C1FF25100A3E0ECA327426 /* CoverageResult.swift */; };
 		94696683C9D17E99EC7BCDBAF5E3C58B /* Ubiquity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D678D0E2495A8D1FEE88CB0D7E64AC /* Ubiquity.swift */; };
-		94AB3AB443878E73011CA8981A010BE7 /* XCServerWebAPI+Issues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA092E8F0348CB909796D85A83A7378 /* XCServerWebAPI+Issues.swift */; };
 		94DFD6C1BA359E4F7F2A4782F4B67EB7 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BB45D7BCC9EC4D7FA3E71AC83F6F25 /* Bundle.swift */; };
-		972B57CC72C55DD78C16836FBA9C82D9 /* XCServerWebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A7B5CB56DCD621D5FDA474E73B9CF /* XCServerWebAPI.swift */; };
-		9D2F5606970A3FB714B41928D86D788D /* TriggerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5EDBBDAF41CADA114BF1230BC96CE50 /* TriggerType.swift */; };
+		9F62EA6261DF5A6C43BF753DD862C7AE /* XCSCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9B17267A5D9FA9A60D257D0B9AA928 /* XCSCommit.swift */; };
 		A076F5ABBB297D4217140A7C73A55009 /* BZipCompression.m in Sources */ = {isa = PBXBuildFile; fileRef = A870139B7DDDD89652797DD8F37D8799 /* BZipCompression.m */; };
-		A58800C8F39CDACCA71CDADB383AF715 /* ReportSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442759C6AAC8A92EECDF5834966EC079 /* ReportSchedule.swift */; };
-		A7197B218EE2A236A2F931C008B9E2CF /* IntegrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663DE5E11AC5C48202658A5C14C49500 /* IntegrationStep.swift */; };
 		A9825144A339875A63DCB95F5D8D573C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B516B5831477D18393AC6AF181821C9 /* Foundation.framework */; };
+		AC7A14ADEF58204320B344B5596CAA23 /* XCSGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4FC657A0F9A14FD63E7651FC9579C5 /* XCSGroup.swift */; };
+		AF2AEEF10B140BE843596EAF05256D37 /* XCSCoverageResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58F87FBDAB4287B26D89AAE6C642D02 /* XCSCoverageResult.swift */; };
+		B0C0684A00524FF8337462BEFAC3A3CF /* XCSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86F550C3B089A54E676A97B06425B /* XCSDevice.swift */; };
 		B188F506B981D11972D61BEA2E78D2AF /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED56B2B8CF898B4E55E1D6B93372B6D /* UIViewController.swift */; };
 		B2BF7608DEA61F42B9C68552D802757C /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5DE89A69773F7F44BDAA31C5980B56 /* NumberFormatter.swift */; };
 		B2DE23FA9156D930877AE5D97BC9F8E2 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE117ECD85AD9431B7294DAC805A423D /* UITableView.swift */; };
+		B49BA73E4CBEBE1F3E8A284226DE85A4 /* XCSPeriodicScheduleInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D354F6C592AE652696AA224407CAED /* XCSPeriodicScheduleInterval.swift */; };
+		B51A9FA67FFEEA0F367650635E793586 /* XCServerAPI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE41F33FB23B134A92DC8C222BECFC1 /* XCServerAPI-dummy.m */; };
+		B5E6B3A07DE34E738486B90720F751BD /* XCSStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090DFAE718DC32B69F9A81593D414168 /* XCSStats.swift */; };
+		B77958F9FCB9AEECB068F950BEC12566 /* Decodable+XCServerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F87E55D073252E1E2BB2B92E2D9BE /* Decodable+XCServerAPI.swift */; };
+		B794A8490BA19656433E3E8FE37DA27B /* XCSRepositoryCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3F10F9FBDD9B04A8A3B394FE1AC6A8 /* XCSRepositoryCommit.swift */; };
+		B7B36E971A014DF83542E776BF5678C9 /* XCServerWebAPI+Coverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9810BC5D632527C9A36AA3E993578058 /* XCServerWebAPI+Coverage.swift */; };
+		B7FE28CBF5E6F093519A637FC761723E /* XCSIssueAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135652D1ABACDCDDD034E4138F6357B9 /* XCSIssueAuthor.swift */; };
 		B8E593BDDFE7574677510681C531BA8A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B516B5831477D18393AC6AF181821C9 /* Foundation.framework */; };
-		B93F8D90300A525C3A7FCD9F252F3385 /* XCServerJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6918BB4787AAC53FFFC53541EEB3ED4B /* XCServerJSONDecoder.swift */; };
+		B8F5FA6C615DE46DF4B4D838ADCB28F0 /* XCSIntegrationSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1940042AF7EF54E1AC1B2EEEDD3C510E /* XCSIntegrationSnippet.swift */; };
 		B999C49FBC79D8FE2E03A47FC587E64E /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED205513C683F02CC7D3590C8CA880ED /* FileManager.swift */; };
-		BADB59A8D97711951A356B01B66BF68F /* CoverageHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3759E47BA0A064750E44DA3E8C4019A6 /* CoverageHierarchy.swift */; };
+		B9EDAF7A798E4D8AAE41A52BAC325141 /* XCSIntegrationAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA795CCF2019038EA36EBC703F502CE /* XCSIntegrationAsset.swift */; };
+		C03D96187805AC530353436C0AC92189 /* XCServerWebAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F76147F69D39A368341E74EEB0135E1 /* XCServerWebAPI.swift */; };
 		C2C4522BA964DF9A0374D92572EDECBE /* BZipper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 10156F88D3C4503EAC4E33F3B3A35E7D /* BZipper-dummy.m */; };
-		C35EEC53F93EE27F2FA7801F0431F827 /* IntegrationDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556992A07ED906A3B4C8F81688341D0 /* IntegrationDocument.swift */; };
-		C47BAA3DDEC88AF349B1EEF8B8813007 /* EmailConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5F32567C2934E2B4D727B480F9957B /* EmailConfiguration.swift */; };
-		C6BBB5BB734E83C386894D5389701152 /* CoverageMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04278EC2CF0A2264B83141818272D77 /* CoverageMethod.swift */; };
+		C3545221AEC6DC2409B6EEE15E4DE402 /* XCSBuildArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FE36FB8876EEEC751692C4DE8CBE2 /* XCSBuildArgument.swift */; };
+		C42B3EBF83DFCF0DC892D80D9BC20212 /* XCSVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC080502D0831E70B0217BC068E82A2 /* XCSVersion.swift */; };
+		C4F3FCAAA7D38F65F3457E280656BCEC /* XCSFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463166253D0970AB84DCE1A8CB5EE6A /* XCSFilter.swift */; };
 		C6D7043BA31B6FA6F35B21E443EB8F15 /* Pods-XCServerCoreData-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4AFE334602328B220CC1F4B9072AC2 /* Pods-XCServerCoreData-dummy.m */; };
-		C73BFF9F6AA02759C8E49D2900E3EA22 /* CoverageTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FFBA4024A79A4698E37E887AF29094 /* CoverageTarget.swift */; };
-		CBFFC8EA52ED687F3B6225569C3BD03D /* TestHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377D741D007C994C8FF576566C372605 /* TestHierarchy.swift */; };
-		CD78C3B21D346D2EBA89A9A7F9E5C975 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B370D21BF73430C9A1081F3962E23A9E /* Stats.swift */; };
-		D071B5B9E847377DEAAF11D7D334D9B4 /* CodeCoveragePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3900E581E1BA2422BA9568F1A71E10 /* CodeCoveragePreference.swift */; };
+		D0E1A1568A6D0B938F4668416EAFA0EB /* XCSDeviceSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA1F75257E1C74D305C93A726564673 /* XCSDeviceSpecification.swift */; };
 		D12538D3A796DE799825560D5A5C6348 /* PausableTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473D9E4C0BA57B38BAD23E66CD7F5856 /* PausableTimer.swift */; };
-		D4AED7E4E7B6AAB6560F8A3DB2A84E48 /* TriggerPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55614132C4A7C09ABAC9EFCEE12E45F4 /* TriggerPhase.swift */; };
-		DB06FFFC3DB6B81166A187CAF997286E /* CommitContributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4528D7D356EC0C2DD5C5E55BEE1BBEA /* CommitContributor.swift */; };
+		D3EF8D6AE52496AF7A8E1D565B0599C9 /* XCSSuspectStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C3D8BF247318686D5AF881681BB13 /* XCSSuspectStrategy.swift */; };
+		D7764430F826798803B6038263DF4D89 /* XCSStatsSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54D138F8A4C36AB95E05C51FF6ABA1 /* XCSStatsSummary.swift */; };
+		DA25B5F9269AE46DE007A4C7FC1454B3 /* XCSCoverageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2486EDEA50E92D3D3519178B6E3412 /* XCSCoverageFile.swift */; };
 		DD999DE70665976F26FEA78978C6ECA4 /* CodeQuickKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED99F024521264FA25D563E4A06B973 /* CodeQuickKit.framework */; };
-		DE7E426ACF8038BC1FB6D5A39AC05573 /* CleanSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44792ACBA32333753C4CF23B8E8CAFEB /* CleanSchedule.swift */; };
-		E50B8E162932AA012849F8101CDD29BB /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95A3999BFC993E3A05A422AAF8EBAFD /* Conditions.swift */; };
-		E552BDC8415A61292CF8B11A839DDE9F /* IssueGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B029A3FCB3DFE56C8941E1E5E8EAB1 /* IssueGroup.swift */; };
-		E5607EC3229393D1C1E04A3C19286B66 /* CommitDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4015FF75AE367F3BB3F062E003849000 /* CommitDocument.swift */; };
-		E5AF7D7757C0944B9FA688817B07B2A0 /* DeviceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B841970154214A2DB6A32C91EB3CC62 /* DeviceDocument.swift */; };
+		DDA2D6BF49D581FCDE57132A06AEB221 /* XCSReportSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511D4BA5FCDD11324DE034B437EC2C1 /* XCSReportSchedule.swift */; };
 		E63EED217066F34176E61C3607B0B1DF /* UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF788AD04C0B73ECB6185FD7C357607 /* UIPickerView.swift */; };
-		E7B1DB32AA6D8BC4D1FB33063FF7E01D /* EmailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F21545BBB2C5D60A7B392630BD537 /* EmailType.swift */; };
-		EF61B2B9A19C3CDB20ECF98819411990 /* PeriodicScheduleInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4B027D62591D55DC4F7FB9F3F26F5 /* PeriodicScheduleInterval.swift */; };
-		F03758C8E7473B54A761B393A81AE56E /* BotSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8545855D67F59800578676E39E159664 /* BotSchedule.swift */; };
-		F4B9EC0EBA65CA3D1CF0B37E2D140D26 /* RepositoryBlueprint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C8FB4E1A2AA5EFBD89D5A6A8E88323 /* RepositoryBlueprint.swift */; };
+		F45E5128F8136578E311829D9FA972B1 /* XCServerWebAPI+Integrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D348319F305268315995CC7E8F86AA /* XCServerWebAPI+Integrations.swift */; };
 		F6C2CB0CE57DB6767096A7B82965FAF4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97C2A2F500E72D9775FCC4C750C6F89 /* Environment.swift */; };
 		F7335A759E4D07DA836D11DAEFFD9B31 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F45A247EF970B1A50BDDAFF693301994 /* UIKit.framework */; };
 		F82FF5887AF1D7439B10A2C72E8517BA /* Pods-XCServerCoreDataTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9354A03EF6E1C6BFDBA69E2BD723736C /* Pods-XCServerCoreDataTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9F33A740136744C71C0C8C9A35F4B45 /* XCSEmailConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7EEEB3E9812C0082A4797B8524C9DD /* XCSEmailConfiguration.swift */; };
+		FA5BF9FC8C16FAC292C722BE4F9CAAFA /* XCServerJSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEBB4C546A2EED452EAE338D05A6ADD /* XCServerJSONDecoder.swift */; };
 		FA5DF0E9CA8397F82CCB7FFF34676A84 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415E117C139B8805D5C9C681ECCF6D27 /* UIAlertController.swift */; };
 		FC878BC32F49529B95978E5B2F7FA7BF /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92788F6DCECF598F93184DB0E537CFF /* DateFormatter.swift */; };
+		FCCED9C42E12B01A40C21EC5F60F91B8 /* XCSTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4855F1E642F543EECBD716AAE70EFCA /* XCSTrigger.swift */; };
 		FD6097A80BF1CD2352A03E9EF38FFC1B /* BZipCompression.h in Headers */ = {isa = PBXBuildFile; fileRef = D6FF9174EAFC7992D9517915C7B71266 /* BZipCompression.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FEF0F1666C5E580D242BE7CCC604774D /* TestLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87D84F67F3F7235E55AFCD51A69698 /* TestLocalization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,135 +170,135 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001B4083BFBA1C17EEA4CB627BC0A160 /* XCSIntegrationStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIntegrationStep.swift; path = Sources/XCSIntegrationStep.swift; sourceTree = "<group>"; };
+		018C3D8BF247318686D5AF881681BB13 /* XCSSuspectStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSSuspectStrategy.swift; path = Sources/XCSSuspectStrategy.swift; sourceTree = "<group>"; };
+		01B289B7E70FE0DD0CECD8D86A372E40 /* XCSCoverageMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCoverageMethod.swift; path = Sources/XCSCoverageMethod.swift; sourceTree = "<group>"; };
 		02232C27AAD87687468C2847EA38E502 /* Pods_XCServerCoreDataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XCServerCoreDataTests.framework; path = "Pods-XCServerCoreDataTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04FBC5C048740443A093D1BDD1FA8177 /* XCSCommitContributor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCommitContributor.swift; path = Sources/XCSCommitContributor.swift; sourceTree = "<group>"; };
 		076EF150AEE8199C961374F01AAD98E0 /* Date.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Sources/Date.swift; sourceTree = "<group>"; };
-		07D67A2BD61FFD41ACF8C2B4D86A2F70 /* XCServerWebAPI+Integrations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Integrations.swift"; path = "Sources/XCServerWebAPI+Integrations.swift"; sourceTree = "<group>"; };
+		07E07A066382DB8FBE439788C628426E /* XCSRepositoryLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSRepositoryLocation.swift; path = Sources/XCSRepositoryLocation.swift; sourceTree = "<group>"; };
+		090DFAE718DC32B69F9A81593D414168 /* XCSStats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSStats.swift; path = Sources/XCSStats.swift; sourceTree = "<group>"; };
 		0A5DE89A69773F7F44BDAA31C5980B56 /* NumberFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NumberFormatter.swift; path = Sources/NumberFormatter.swift; sourceTree = "<group>"; };
 		0B7A65CA87F69341433B416251C33B70 /* CodeQuickKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CodeQuickKit.modulemap; sourceTree = "<group>"; };
+		0C3F10F9FBDD9B04A8A3B394FE1AC6A8 /* XCSRepositoryCommit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSRepositoryCommit.swift; path = Sources/XCSRepositoryCommit.swift; sourceTree = "<group>"; };
 		0CCA83F0FE7CA54C9C9E224D597D3E82 /* Pods-XCServerCoreDataTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XCServerCoreDataTests-resources.sh"; sourceTree = "<group>"; };
 		10156F88D3C4503EAC4E33F3B3A35E7D /* BZipper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BZipper-dummy.m"; sourceTree = "<group>"; };
+		103FA722ABCA9887FD887DF56334F613 /* XCSConditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSConditions.swift; path = Sources/XCSConditions.swift; sourceTree = "<group>"; };
 		1074711FB6F66750389E5DDBBC0C188C /* BZipper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BZipper-umbrella.h"; sourceTree = "<group>"; };
 		11FB8D37C3C334C308544B1A0E376B8B /* Pods-XCServerCoreData-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XCServerCoreData-acknowledgements.plist"; sourceTree = "<group>"; };
-		1233C3F705389C2A0D5788A1228B0B1A /* ProvisioningConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProvisioningConfiguration.swift; path = Sources/ProvisioningConfiguration.swift; sourceTree = "<group>"; };
-		12FAD99AA64681304FC4FAF4D24C9341 /* Issue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Issue.swift; path = Sources/Issue.swift; sourceTree = "<group>"; };
+		122F87E55D073252E1E2BB2B92E2D9BE /* Decodable+XCServerAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Decodable+XCServerAPI.swift"; path = "Sources/Decodable+XCServerAPI.swift"; sourceTree = "<group>"; };
+		135652D1ABACDCDDD034E4138F6357B9 /* XCSIssueAuthor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIssueAuthor.swift; path = Sources/XCSIssueAuthor.swift; sourceTree = "<group>"; };
 		14583B77FAA25AF1AF07A37195CF13D8 /* Pods-XCServerCoreDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XCServerCoreDataTests.release.xcconfig"; sourceTree = "<group>"; };
-		1700A6AA390AB12A0854465091DE77E6 /* IntegrationAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegrationAsset.swift; path = Sources/IntegrationAsset.swift; sourceTree = "<group>"; };
-		1E3900E581E1BA2422BA9568F1A71E10 /* CodeCoveragePreference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodeCoveragePreference.swift; path = Sources/CodeCoveragePreference.swift; sourceTree = "<group>"; };
-		1E63B4D0E66F9D0B0328273BBB0A6AEF /* XCServerAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCServerAPI-prefix.pch"; sourceTree = "<group>"; };
+		14D348319F305268315995CC7E8F86AA /* XCServerWebAPI+Integrations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Integrations.swift"; path = "Sources/XCServerWebAPI+Integrations.swift"; sourceTree = "<group>"; };
+		1940042AF7EF54E1AC1B2EEEDD3C510E /* XCSIntegrationSnippet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIntegrationSnippet.swift; path = Sources/XCSIntegrationSnippet.swift; sourceTree = "<group>"; };
+		1F16FA226E55453CD1687D97EC28BA80 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		224F353D6D862D2A4C5EF82C2911BCB8 /* Reusable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reusable.swift; path = Sources/Reusable.swift; sourceTree = "<group>"; };
+		24346D5443BFAB08334A79A27B4761AC /* XCServerAPI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XCServerAPI.xcconfig; sourceTree = "<group>"; };
 		2459FF18394B0FC0975BDE36DEA48CD4 /* ProgrammaticView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProgrammaticView.swift; path = Sources/ProgrammaticView.swift; sourceTree = "<group>"; };
-		24AAAC58ECC028752B1230DD758FE0D3 /* StatsSummary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StatsSummary.swift; path = Sources/StatsSummary.swift; sourceTree = "<group>"; };
-		2B841970154214A2DB6A32C91EB3CC62 /* DeviceDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceDocument.swift; path = Sources/DeviceDocument.swift; sourceTree = "<group>"; };
+		24FF9C6201CE783705CB6A8A72A0DFB9 /* XCSIssueGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIssueGroup.swift; path = Sources/XCSIssueGroup.swift; sourceTree = "<group>"; };
 		2BD1948621EA8476B8A830F23190953B /* Pods-XCServerCoreData.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-XCServerCoreData.modulemap"; sourceTree = "<group>"; };
 		2BF788AD04C0B73ECB6185FD7C357607 /* UIPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIPickerView.swift; path = Sources/UIPickerView.swift; sourceTree = "<group>"; };
-		2BFC4F03EECE9FDACDCB952791D81741 /* XCServerWebAPI+Commits.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Commits.swift"; path = "Sources/XCServerWebAPI+Commits.swift"; sourceTree = "<group>"; };
-		3116DE9750D926D7C1583CEDD6BA671B /* Group.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Group.swift; path = Sources/Group.swift; sourceTree = "<group>"; };
-		317A7B5CB56DCD621D5FDA474E73B9CF /* XCServerWebAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCServerWebAPI.swift; path = Sources/XCServerWebAPI.swift; sourceTree = "<group>"; };
-		32E07B02CA094CD9572F420C108E2D83 /* CommitChangeFilePath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommitChangeFilePath.swift; path = Sources/CommitChangeFilePath.swift; sourceTree = "<group>"; };
-		32F4B027D62591D55DC4F7FB9F3F26F5 /* PeriodicScheduleInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PeriodicScheduleInterval.swift; path = Sources/PeriodicScheduleInterval.swift; sourceTree = "<group>"; };
-		33C8FB4E1A2AA5EFBD89D5A6A8E88323 /* RepositoryBlueprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RepositoryBlueprint.swift; path = Sources/RepositoryBlueprint.swift; sourceTree = "<group>"; };
+		2C897C2282F9315002FD59D37BCC6810 /* XCSTestHierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSTestHierarchy.swift; path = Sources/XCSTestHierarchy.swift; sourceTree = "<group>"; };
+		2FA1F75257E1C74D305C93A726564673 /* XCSDeviceSpecification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSDeviceSpecification.swift; path = Sources/XCSDeviceSpecification.swift; sourceTree = "<group>"; };
 		355F1398D6D012DA32AD90F99A4F8607 /* Pods-XCServerCoreDataTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XCServerCoreDataTests-frameworks.sh"; sourceTree = "<group>"; };
 		365A3495A8811203E2236300E18AF854 /* BZipCompression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BZipCompression.framework; path = BZipper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3759E47BA0A064750E44DA3E8C4019A6 /* CoverageHierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverageHierarchy.swift; path = Sources/CoverageHierarchy.swift; sourceTree = "<group>"; };
-		377D741D007C994C8FF576566C372605 /* TestHierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TestHierarchy.swift; path = Sources/TestHierarchy.swift; sourceTree = "<group>"; };
+		396FC2FF5CF4AEA8A2EC107CA7F0A065 /* XCSIntegrationResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIntegrationResult.swift; path = Sources/XCSIntegrationResult.swift; sourceTree = "<group>"; };
+		3A1F5D6305A70936FEE1030895A39039 /* XCSAssets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSAssets.swift; path = Sources/XCSAssets.swift; sourceTree = "<group>"; };
 		3A4AFE334602328B220CC1F4B9072AC2 /* Pods-XCServerCoreData-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XCServerCoreData-dummy.m"; sourceTree = "<group>"; };
-		3C33CC23D459A42915DA4ADA5DE829E8 /* IntegrationSnippet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegrationSnippet.swift; path = Sources/IntegrationSnippet.swift; sourceTree = "<group>"; };
-		3F5F32567C2934E2B4D727B480F9957B /* EmailConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailConfiguration.swift; path = Sources/EmailConfiguration.swift; sourceTree = "<group>"; };
-		4015FF75AE367F3BB3F062E003849000 /* CommitDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommitDocument.swift; path = Sources/CommitDocument.swift; sourceTree = "<group>"; };
+		3EA31D635B70602BB096178DFE786B21 /* XCSIssue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIssue.swift; path = Sources/XCSIssue.swift; sourceTree = "<group>"; };
+		3FBD6C65463F3499A4A49B553BC1E8ED /* XCServerWebAPI+Issues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Issues.swift"; path = "Sources/XCServerWebAPI+Issues.swift"; sourceTree = "<group>"; };
 		415E117C139B8805D5C9C681ECCF6D27 /* UIAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIAlertController.swift; path = Sources/UIAlertController.swift; sourceTree = "<group>"; };
+		4270CFF932912BBABC759A986855D041 /* XCSIntegration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIntegration.swift; path = Sources/XCSIntegration.swift; sourceTree = "<group>"; };
 		43B397287EEDEA0F89EDCF298135FF56 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		442759C6AAC8A92EECDF5834966EC079 /* ReportSchedule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReportSchedule.swift; path = Sources/ReportSchedule.swift; sourceTree = "<group>"; };
-		44792ACBA32333753C4CF23B8E8CAFEB /* CleanSchedule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CleanSchedule.swift; path = Sources/CleanSchedule.swift; sourceTree = "<group>"; };
+		4529CC2C5B1E08ED17E5C5E91D89377B /* XCSCoverageHierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCoverageHierarchy.swift; path = Sources/XCSCoverageHierarchy.swift; sourceTree = "<group>"; };
 		45CBC21A43C7C0F9DF326CEFC1973590 /* XCServerAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XCServerAPI.framework; path = XCServerAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45FD80206DE19B48F5A296C1AEF4A52F /* XCServerAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = XCServerAPI.modulemap; sourceTree = "<group>"; };
 		46CC25C440179AD193E4C856881F2E23 /* Pods-XCServerCoreData-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XCServerCoreData-resources.sh"; sourceTree = "<group>"; };
 		473D9E4C0BA57B38BAD23E66CD7F5856 /* PausableTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PausableTimer.swift; path = Sources/PausableTimer.swift; sourceTree = "<group>"; };
-		48C72C3EB23AFCDA2896E488893A17B3 /* CoverageFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverageFile.swift; path = Sources/CoverageFile.swift; sourceTree = "<group>"; };
-		49673E012691185CC3EF058E1AFA24EC /* Commit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Commit.swift; path = Sources/Commit.swift; sourceTree = "<group>"; };
+		4AC080502D0831E70B0217BC068E82A2 /* XCSVersion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSVersion.swift; path = Sources/XCSVersion.swift; sourceTree = "<group>"; };
 		4AD94C4F571895D0E80C91384AB16DE3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DD9B9C3A692A7D54391F234B1BC0227 /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Sources/Log.swift; sourceTree = "<group>"; };
 		4F92B1B77C0EE131F87FF088055A789E /* CodeQuickKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CodeQuickKit.xcconfig; sourceTree = "<group>"; };
 		4FB90DE2D77D2E99EBE61FB077BDC0C8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50F3D603E519F7A9DBDE8FABE63B71DD /* IssueAuthor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IssueAuthor.swift; path = Sources/IssueAuthor.swift; sourceTree = "<group>"; };
-		5346184E61756ACCF756FB5D8D4FCD69 /* IssueStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IssueStatus.swift; path = Sources/IssueStatus.swift; sourceTree = "<group>"; };
-		5556992A07ED906A3B4C8F81688341D0 /* IntegrationDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegrationDocument.swift; path = Sources/IntegrationDocument.swift; sourceTree = "<group>"; };
-		55614132C4A7C09ABAC9EFCEE12E45F4 /* TriggerPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriggerPhase.swift; path = Sources/TriggerPhase.swift; sourceTree = "<group>"; };
+		51B078F327D7054AC2B85E288F3DDA7C /* XCServerWebAPI+Commits.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Commits.swift"; path = "Sources/XCServerWebAPI+Commits.swift"; sourceTree = "<group>"; };
+		5463166253D0970AB84DCE1A8CB5EE6A /* XCSFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSFilter.swift; path = Sources/XCSFilter.swift; sourceTree = "<group>"; };
+		5597EE71B4815B73DA75EC635B21E143 /* XCSProxiedDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSProxiedDevice.swift; path = Sources/XCSProxiedDevice.swift; sourceTree = "<group>"; };
 		5B1E98AB6E2C68B93D9C9357DC9105B4 /* Pods-XCServerCoreDataTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XCServerCoreDataTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		5B98C4539C8653B03654E1D5E61ECA23 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sources/Trigger.swift; sourceTree = "<group>"; };
-		5CC5D43AE8367CACCB2C47A59D7D4E91 /* DeviceSpecification.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeviceSpecification.swift; path = Sources/DeviceSpecification.swift; sourceTree = "<group>"; };
-		5D0A68E8BC46E91241A663955EB9CC35 /* XCServerAPI.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XCServerAPI.xcconfig; sourceTree = "<group>"; };
-		61453059F7C40D830FBAA808136E6007 /* Decodable+XCServerAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Decodable+XCServerAPI.swift"; path = "Sources/Decodable+XCServerAPI.swift"; sourceTree = "<group>"; };
+		5B3275DCAB4302FBD0DAC5FEF36292DF /* XCSIssueStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIssueStatus.swift; path = Sources/XCSIssueStatus.swift; sourceTree = "<group>"; };
+		5CE41F33FB23B134A92DC8C222BECFC1 /* XCServerAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XCServerAPI-dummy.m"; sourceTree = "<group>"; };
+		61A7E751CAD40F21A8F603CD032A1528 /* XCSTriggerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSTriggerType.swift; path = Sources/XCSTriggerType.swift; sourceTree = "<group>"; };
 		61C90275532B1CECF13F700DE4B301D1 /* BZipCompression.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BZipCompression.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63770D59F6B121AFEEFDECF09E4E99FB /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Configuration.swift; sourceTree = "<group>"; };
+		61F86F550C3B089A54E676A97B06425B /* XCSDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSDevice.swift; path = Sources/XCSDevice.swift; sourceTree = "<group>"; };
 		64B3F6BBDDC96CE8A3D9AA0F6DF8381C /* Pods-XCServerCoreData-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XCServerCoreData-umbrella.h"; sourceTree = "<group>"; };
-		663DE5E11AC5C48202658A5C14C49500 /* IntegrationStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegrationStep.swift; path = Sources/IntegrationStep.swift; sourceTree = "<group>"; };
-		666E46BB658DE175DE353D1EBB22365C /* BotDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BotDocument.swift; path = Sources/BotDocument.swift; sourceTree = "<group>"; };
-		6918BB4787AAC53FFFC53541EEB3ED4B /* XCServerJSONDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCServerJSONDecoder.swift; path = Sources/XCServerJSONDecoder.swift; sourceTree = "<group>"; };
+		6511D4BA5FCDD11324DE034B437EC2C1 /* XCSReportSchedule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSReportSchedule.swift; path = Sources/XCSReportSchedule.swift; sourceTree = "<group>"; };
+		67D354F6C592AE652696AA224407CAED /* XCSPeriodicScheduleInterval.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSPeriodicScheduleInterval.swift; path = Sources/XCSPeriodicScheduleInterval.swift; sourceTree = "<group>"; };
+		68DDA6830C661C14CCEF5F4BF27D7F90 /* XCServerAPI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCServerAPI-umbrella.h"; sourceTree = "<group>"; };
 		69EDE554C539DC5D2A584811B834A4C8 /* CodeQuickKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CodeQuickKit-umbrella.h"; sourceTree = "<group>"; };
-		6E5F21545BBB2C5D60A7B392630BD537 /* EmailType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailType.swift; path = Sources/EmailType.swift; sourceTree = "<group>"; };
-		6E8F1366B47E832CB35293D484F59C5D /* BuildResultSummary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BuildResultSummary.swift; path = Sources/BuildResultSummary.swift; sourceTree = "<group>"; };
+		6C54D138F8A4C36AB95E05C51FF6ABA1 /* XCSStatsSummary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSStatsSummary.swift; path = Sources/XCSStatsSummary.swift; sourceTree = "<group>"; };
+		6F76147F69D39A368341E74EEB0135E1 /* XCServerWebAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCServerWebAPI.swift; path = Sources/XCServerWebAPI.swift; sourceTree = "<group>"; };
 		74D32E573799E75D2171F8D4F300D7B8 /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		78673B94AD9D9CA08B390190C4D51894 /* Pods-XCServerCoreData-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XCServerCoreData-acknowledgements.markdown"; sourceTree = "<group>"; };
 		7B516B5831477D18393AC6AF181821C9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7B5555F105EDD8E9FA392A759F2494B1 /* BZipper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BZipper-prefix.pch"; sourceTree = "<group>"; };
 		7C18BA311CE47C37EC0578DCCB99A2D3 /* Pods-XCServerCoreDataTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XCServerCoreDataTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7DA092E8F0348CB909796D85A83A7378 /* XCServerWebAPI+Issues.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Issues.swift"; path = "Sources/XCServerWebAPI+Issues.swift"; sourceTree = "<group>"; };
+		7C345621C9A801442CBFF451EFB8DE59 /* XCSCodeCoveragePreference.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCodeCoveragePreference.swift; path = Sources/XCSCodeCoveragePreference.swift; sourceTree = "<group>"; };
 		7DCF9616454C1DC4381AAFFCB98F8155 /* WebAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebAPI.swift; path = Sources/WebAPI.swift; sourceTree = "<group>"; };
 		8104084A6E5C2011B579E506BC56913F /* CodeQuickKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CodeQuickKit.framework; path = CodeQuickKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8422758234BFAF846969CCC32D289509 /* Assets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assets.swift; path = Sources/Assets.swift; sourceTree = "<group>"; };
-		8545855D67F59800578676E39E159664 /* BotSchedule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BotSchedule.swift; path = Sources/BotSchedule.swift; sourceTree = "<group>"; };
 		85836F0FC8333F18883C19FFF64417D1 /* BZipper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BZipper.xcconfig; sourceTree = "<group>"; };
 		861968244D7432C4B0519BE884EA8889 /* CodeQuickKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CodeQuickKit-dummy.m"; sourceTree = "<group>"; };
-		87B029A3FCB3DFE56C8941E1E5E8EAB1 /* IssueGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IssueGroup.swift; path = Sources/IssueGroup.swift; sourceTree = "<group>"; };
-		8B7FA8DC081162A9BB179AA7083006ED /* AuthenticationStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationStrategy.swift; path = Sources/AuthenticationStrategy.swift; sourceTree = "<group>"; };
+		91D50759B7A6B94C318F902562E8E144 /* XCServerAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCServerAPI-prefix.pch"; sourceTree = "<group>"; };
 		9354A03EF6E1C6BFDBA69E2BD723736C /* Pods-XCServerCoreDataTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XCServerCoreDataTests-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9810BC5D632527C9A36AA3E993578058 /* XCServerWebAPI+Coverage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Coverage.swift"; path = "Sources/XCServerWebAPI+Coverage.swift"; sourceTree = "<group>"; };
+		9CC734570655F6DF9340CA125FCEB023 /* XCSBotSchedule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSBotSchedule.swift; path = Sources/XCSBotSchedule.swift; sourceTree = "<group>"; };
+		9CEBB4C546A2EED452EAE338D05A6ADD /* XCServerJSONDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCServerJSONDecoder.swift; path = Sources/XCServerJSONDecoder.swift; sourceTree = "<group>"; };
 		9DDA1BF8A95AE370A6E1336E6A4633CE /* Pods-XCServerCoreDataTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XCServerCoreDataTests-dummy.m"; sourceTree = "<group>"; };
-		A378219C21B569DD9E97F5281C0F0201 /* RepositoryLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RepositoryLocation.swift; path = Sources/RepositoryLocation.swift; sourceTree = "<group>"; };
+		9F3C7089B85E4ACE21AD14398FBA55A4 /* XCSTestLocalization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSTestLocalization.swift; path = Sources/XCSTestLocalization.swift; sourceTree = "<group>"; };
+		9FDCBCC30159CF33E15A19531654AE40 /* XCSEmailType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSEmailType.swift; path = Sources/XCSEmailType.swift; sourceTree = "<group>"; };
+		A1E04229B3FCD7F784BBE630AB5E655D /* XCSCleanSchedule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCleanSchedule.swift; path = Sources/XCSCleanSchedule.swift; sourceTree = "<group>"; };
+		A1FD160969641E441B476A978AEAEEB7 /* XCSAuthenticationStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSAuthenticationStrategy.swift; path = Sources/XCSAuthenticationStrategy.swift; sourceTree = "<group>"; };
 		A4D678D0E2495A8D1FEE88CB0D7E64AC /* Ubiquity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Ubiquity.swift; path = Sources/Ubiquity.swift; sourceTree = "<group>"; };
-		A78EB83F1AA043D6EE1FD17487183888 /* RemoteRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RemoteRepository.swift; path = Sources/RemoteRepository.swift; sourceTree = "<group>"; };
+		A58F87FBDAB4287B26D89AAE6C642D02 /* XCSCoverageResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCoverageResult.swift; path = Sources/XCSCoverageResult.swift; sourceTree = "<group>"; };
+		A5A2F4A8780FCBE84EEE4C546EC5B3E0 /* XCSRemoteRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSRemoteRepository.swift; path = Sources/XCSRemoteRepository.swift; sourceTree = "<group>"; };
 		A870139B7DDDD89652797DD8F37D8799 /* BZipCompression.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BZipCompression.m; path = Sources/BZipCompression/BZipCompression.m; sourceTree = "<group>"; };
 		A920059F1626EDCA8535A7FF202E5B69 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
-		A95A3999BFC993E3A05A422AAF8EBAFD /* Conditions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Conditions.swift; path = Sources/Conditions.swift; sourceTree = "<group>"; };
+		A95E26B0FB3B6B1B3154D55DAEBA2D79 /* XCSBlueprintLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSBlueprintLocation.swift; path = Sources/XCSBlueprintLocation.swift; sourceTree = "<group>"; };
 		A97C2A2F500E72D9775FCC4C750C6F89 /* Environment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Environment.swift; path = Sources/Environment.swift; sourceTree = "<group>"; };
 		AB99AEB282B88AB75138282524CB28B8 /* NSMetadataQuery.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSMetadataQuery.swift; path = Sources/NSMetadataQuery.swift; sourceTree = "<group>"; };
+		ABA795CCF2019038EA36EBC703F502CE /* XCSIntegrationAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSIntegrationAsset.swift; path = Sources/XCSIntegrationAsset.swift; sourceTree = "<group>"; };
 		AE117ECD85AD9431B7294DAC805A423D /* UITableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableView.swift; path = Sources/UITableView.swift; sourceTree = "<group>"; };
-		AE669C894C188BEB13F1B72CF2DF23AD /* Platform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Sources/Platform.swift; sourceTree = "<group>"; };
 		AE7A4C4F60E324198A9A71AB7A78B542 /* UserDefaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaults.swift; path = Sources/UserDefaults.swift; sourceTree = "<group>"; };
 		AED99F024521264FA25D563E4A06B973 /* CodeQuickKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CodeQuickKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B10E7BA735C1FF25100A3E0ECA327426 /* CoverageResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverageResult.swift; path = Sources/CoverageResult.swift; sourceTree = "<group>"; };
+		AF54D0D02E5ABC5448F685C281A690A9 /* XCSCoverageTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCoverageTarget.swift; path = Sources/XCSCoverageTarget.swift; sourceTree = "<group>"; };
 		B2170BB8333BC92E82CC60FA8E211119 /* Pods-XCServerCoreDataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XCServerCoreDataTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B370D21BF73430C9A1081F3962E23A9E /* Stats.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Stats.swift; path = Sources/Stats.swift; sourceTree = "<group>"; };
 		B3BB45D7BCC9EC4D7FA3E71AC83F6F25 /* Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Bundle.swift; path = Sources/Bundle.swift; sourceTree = "<group>"; };
 		B46D3C69EF217603862F1CBB7D188320 /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XCServerCoreData.framework; path = "Pods-XCServerCoreData.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5B673293AFBCE4E9B892BFDD7023142 /* IntegrationResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegrationResult.swift; path = Sources/IntegrationResult.swift; sourceTree = "<group>"; };
-		B612AAC9EF889E849B7B104E72E44A9E /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
-		BB8CF0EE7C9D14F9D85C1C84B436FF0E /* VersionDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VersionDocument.swift; path = Sources/VersionDocument.swift; sourceTree = "<group>"; };
+		BCB8EBFDC6F90FA5CB776C955EFD5B84 /* XCSTriggerPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSTriggerPhase.swift; path = Sources/XCSTriggerPhase.swift; sourceTree = "<group>"; };
 		BCB99BC72A31D5BD54CA81C4DA5B40C7 /* CodeQuickKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CodeQuickKit-prefix.pch"; sourceTree = "<group>"; };
-		BD6C4A3921996EFE26A7D7A2B53F556C /* ProxiedDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ProxiedDevice.swift; path = Sources/ProxiedDevice.swift; sourceTree = "<group>"; };
 		BE14C7802ADE59A0F9CA46F586219056 /* Storyboarded.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storyboarded.swift; path = Sources/Storyboarded.swift; sourceTree = "<group>"; };
+		BEF2F40C3EEFB57294E6F448E2685357 /* XCSConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSConfiguration.swift; path = Sources/XCSConfiguration.swift; sourceTree = "<group>"; };
 		C0291E7CF74CF587AA2E5E8C0CEA22E0 /* Pods-XCServerCoreDataTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-XCServerCoreDataTests.modulemap"; sourceTree = "<group>"; };
-		C17AFD75DE8880DC745E8F747ED90F4D /* SuspectStrategy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuspectStrategy.swift; path = Sources/SuspectStrategy.swift; sourceTree = "<group>"; };
 		C1F9C1230B7E377CA36B75DC8E38B91F /* BZipper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = BZipper.modulemap; sourceTree = "<group>"; };
-		C3FFBA4024A79A4698E37E887AF29094 /* CoverageTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverageTarget.swift; path = Sources/CoverageTarget.swift; sourceTree = "<group>"; };
-		C4528D7D356EC0C2DD5C5E55BEE1BBEA /* CommitContributor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CommitContributor.swift; path = Sources/CommitContributor.swift; sourceTree = "<group>"; };
-		C4C162481EC3D8BC6B3469BB650F309A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D04278EC2CF0A2264B83141818272D77 /* CoverageMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoverageMethod.swift; path = Sources/CoverageMethod.swift; sourceTree = "<group>"; };
-		D0ADCF4E5362E0E926F95D01D3EA6BEF /* XCServerWebAPI+Bots.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Bots.swift"; path = "Sources/XCServerWebAPI+Bots.swift"; sourceTree = "<group>"; };
-		D0C44666C36AC34EA6061357A1D231F9 /* BlueprintLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlueprintLocation.swift; path = Sources/BlueprintLocation.swift; sourceTree = "<group>"; };
-		D1996CFA4F5F150878F3BC730484CB62 /* XCServerAPI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = XCServerAPI.modulemap; sourceTree = "<group>"; };
-		D62EBD6F1C0CE23497339CCEB33FB1A2 /* XCServerAPI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCServerAPI-umbrella.h"; sourceTree = "<group>"; };
+		C94C723483094548A7459342E54D50B8 /* XCServerWebAPI+Bots.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Bots.swift"; path = "Sources/XCServerWebAPI+Bots.swift"; sourceTree = "<group>"; };
+		CB0DD9C4FABC4CF7FCBD23508BAB4F83 /* XCSProvisioningConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSProvisioningConfiguration.swift; path = Sources/XCSProvisioningConfiguration.swift; sourceTree = "<group>"; };
+		CF7EEEB3E9812C0082A4797B8524C9DD /* XCSEmailConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSEmailConfiguration.swift; path = Sources/XCSEmailConfiguration.swift; sourceTree = "<group>"; };
+		CFEFE87D3BC4E3E2C79DB5BDF4CA4FCF /* XCSBuildResultSummary.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSBuildResultSummary.swift; path = Sources/XCSBuildResultSummary.swift; sourceTree = "<group>"; };
+		D18B5DBB1F765F31165C0286CBB9AC4E /* XCSCommitChangeFilePath.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCommitChangeFilePath.swift; path = Sources/XCSCommitChangeFilePath.swift; sourceTree = "<group>"; };
+		D4855F1E642F543EECBD716AAE70EFCA /* XCSTrigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSTrigger.swift; path = Sources/XCSTrigger.swift; sourceTree = "<group>"; };
 		D6FF9174EAFC7992D9517915C7B71266 /* BZipCompression.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BZipCompression.h; path = Sources/BZipCompression/include/BZipCompression.h; sourceTree = "<group>"; };
 		D92788F6DCECF598F93184DB0E537CFF /* DateFormatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = Sources/DateFormatter.swift; sourceTree = "<group>"; };
-		DACAF6C0493ACD2F8E71E87370911E4D /* XCServerAPI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XCServerAPI-dummy.m"; sourceTree = "<group>"; };
-		E14C5B65606808ACD7CAE579D7FB74E8 /* BuildArgument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BuildArgument.swift; path = Sources/BuildArgument.swift; sourceTree = "<group>"; };
+		DA2486EDEA50E92D3D3519178B6E3412 /* XCSCoverageFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCoverageFile.swift; path = Sources/XCSCoverageFile.swift; sourceTree = "<group>"; };
+		DB6151231C0DCBF6D8689314EE612869 /* XCSPlatform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSPlatform.swift; path = Sources/XCSPlatform.swift; sourceTree = "<group>"; };
+		DE4FC657A0F9A14FD63E7651FC9579C5 /* XCSGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSGroup.swift; path = Sources/XCSGroup.swift; sourceTree = "<group>"; };
+		E18FE36FB8876EEEC751692C4DE8CBE2 /* XCSBuildArgument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSBuildArgument.swift; path = Sources/XCSBuildArgument.swift; sourceTree = "<group>"; };
+		E267D6CAD7723FC35A6F8A45B8797820 /* XCSBot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSBot.swift; path = Sources/XCSBot.swift; sourceTree = "<group>"; };
 		E6ECF471940422892ED4C45802CDE188 /* Downloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Downloader.swift; path = Sources/Downloader.swift; sourceTree = "<group>"; };
 		E86A92F924B77839BD2758DAF1E82475 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB87D84F67F3F7235E55AFCD51A69698 /* TestLocalization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TestLocalization.swift; path = Sources/TestLocalization.swift; sourceTree = "<group>"; };
+		EA9B17267A5D9FA9A60D257D0B9AA928 /* XCSCommit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSCommit.swift; path = Sources/XCSCommit.swift; sourceTree = "<group>"; };
 		ED205513C683F02CC7D3590C8CA880ED /* FileManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileManager.swift; path = Sources/FileManager.swift; sourceTree = "<group>"; };
 		F45A247EF970B1A50BDDAFF693301994 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F4D7EC838F85B496F9E311059306435F /* XCServerWebAPI+Coverage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "XCServerWebAPI+Coverage.swift"; path = "Sources/XCServerWebAPI+Coverage.swift"; sourceTree = "<group>"; };
-		F5EDBBDAF41CADA114BF1230BC96CE50 /* TriggerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriggerType.swift; path = Sources/TriggerType.swift; sourceTree = "<group>"; };
 		F88F6FC4F8DF75E67690B2A927718668 /* NSObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSObject.swift; path = Sources/NSObject.swift; sourceTree = "<group>"; };
+		FB5E9D31C74903018C693899541ABA73 /* XCSRepositoryBlueprint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XCSRepositoryBlueprint.swift; path = Sources/XCSRepositoryBlueprint.swift; sourceTree = "<group>"; };
 		FED56B2B8CF898B4E55E1D6B93372B6D /* UIViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Sources/UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +361,75 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1FAC09594B029453F05D29C11C7149A0 /* XCServerAPI */ = {
+			isa = PBXGroup;
+			children = (
+				122F87E55D073252E1E2BB2B92E2D9BE /* Decodable+XCServerAPI.swift */,
+				3A1F5D6305A70936FEE1030895A39039 /* XCSAssets.swift */,
+				A1FD160969641E441B476A978AEAEEB7 /* XCSAuthenticationStrategy.swift */,
+				A95E26B0FB3B6B1B3154D55DAEBA2D79 /* XCSBlueprintLocation.swift */,
+				E267D6CAD7723FC35A6F8A45B8797820 /* XCSBot.swift */,
+				9CC734570655F6DF9340CA125FCEB023 /* XCSBotSchedule.swift */,
+				E18FE36FB8876EEEC751692C4DE8CBE2 /* XCSBuildArgument.swift */,
+				CFEFE87D3BC4E3E2C79DB5BDF4CA4FCF /* XCSBuildResultSummary.swift */,
+				A1E04229B3FCD7F784BBE630AB5E655D /* XCSCleanSchedule.swift */,
+				7C345621C9A801442CBFF451EFB8DE59 /* XCSCodeCoveragePreference.swift */,
+				EA9B17267A5D9FA9A60D257D0B9AA928 /* XCSCommit.swift */,
+				D18B5DBB1F765F31165C0286CBB9AC4E /* XCSCommitChangeFilePath.swift */,
+				04FBC5C048740443A093D1BDD1FA8177 /* XCSCommitContributor.swift */,
+				103FA722ABCA9887FD887DF56334F613 /* XCSConditions.swift */,
+				BEF2F40C3EEFB57294E6F448E2685357 /* XCSConfiguration.swift */,
+				DA2486EDEA50E92D3D3519178B6E3412 /* XCSCoverageFile.swift */,
+				4529CC2C5B1E08ED17E5C5E91D89377B /* XCSCoverageHierarchy.swift */,
+				01B289B7E70FE0DD0CECD8D86A372E40 /* XCSCoverageMethod.swift */,
+				A58F87FBDAB4287B26D89AAE6C642D02 /* XCSCoverageResult.swift */,
+				AF54D0D02E5ABC5448F685C281A690A9 /* XCSCoverageTarget.swift */,
+				61F86F550C3B089A54E676A97B06425B /* XCSDevice.swift */,
+				2FA1F75257E1C74D305C93A726564673 /* XCSDeviceSpecification.swift */,
+				CF7EEEB3E9812C0082A4797B8524C9DD /* XCSEmailConfiguration.swift */,
+				9FDCBCC30159CF33E15A19531654AE40 /* XCSEmailType.swift */,
+				9CEBB4C546A2EED452EAE338D05A6ADD /* XCServerJSONDecoder.swift */,
+				6F76147F69D39A368341E74EEB0135E1 /* XCServerWebAPI.swift */,
+				C94C723483094548A7459342E54D50B8 /* XCServerWebAPI+Bots.swift */,
+				51B078F327D7054AC2B85E288F3DDA7C /* XCServerWebAPI+Commits.swift */,
+				9810BC5D632527C9A36AA3E993578058 /* XCServerWebAPI+Coverage.swift */,
+				14D348319F305268315995CC7E8F86AA /* XCServerWebAPI+Integrations.swift */,
+				3FBD6C65463F3499A4A49B553BC1E8ED /* XCServerWebAPI+Issues.swift */,
+				5463166253D0970AB84DCE1A8CB5EE6A /* XCSFilter.swift */,
+				DE4FC657A0F9A14FD63E7651FC9579C5 /* XCSGroup.swift */,
+				4270CFF932912BBABC759A986855D041 /* XCSIntegration.swift */,
+				ABA795CCF2019038EA36EBC703F502CE /* XCSIntegrationAsset.swift */,
+				396FC2FF5CF4AEA8A2EC107CA7F0A065 /* XCSIntegrationResult.swift */,
+				1940042AF7EF54E1AC1B2EEEDD3C510E /* XCSIntegrationSnippet.swift */,
+				001B4083BFBA1C17EEA4CB627BC0A160 /* XCSIntegrationStep.swift */,
+				3EA31D635B70602BB096178DFE786B21 /* XCSIssue.swift */,
+				135652D1ABACDCDDD034E4138F6357B9 /* XCSIssueAuthor.swift */,
+				24FF9C6201CE783705CB6A8A72A0DFB9 /* XCSIssueGroup.swift */,
+				5B3275DCAB4302FBD0DAC5FEF36292DF /* XCSIssueStatus.swift */,
+				67D354F6C592AE652696AA224407CAED /* XCSPeriodicScheduleInterval.swift */,
+				DB6151231C0DCBF6D8689314EE612869 /* XCSPlatform.swift */,
+				CB0DD9C4FABC4CF7FCBD23508BAB4F83 /* XCSProvisioningConfiguration.swift */,
+				5597EE71B4815B73DA75EC635B21E143 /* XCSProxiedDevice.swift */,
+				A5A2F4A8780FCBE84EEE4C546EC5B3E0 /* XCSRemoteRepository.swift */,
+				6511D4BA5FCDD11324DE034B437EC2C1 /* XCSReportSchedule.swift */,
+				FB5E9D31C74903018C693899541ABA73 /* XCSRepositoryBlueprint.swift */,
+				0C3F10F9FBDD9B04A8A3B394FE1AC6A8 /* XCSRepositoryCommit.swift */,
+				07E07A066382DB8FBE439788C628426E /* XCSRepositoryLocation.swift */,
+				090DFAE718DC32B69F9A81593D414168 /* XCSStats.swift */,
+				6C54D138F8A4C36AB95E05C51FF6ABA1 /* XCSStatsSummary.swift */,
+				018C3D8BF247318686D5AF881681BB13 /* XCSSuspectStrategy.swift */,
+				2C897C2282F9315002FD59D37BCC6810 /* XCSTestHierarchy.swift */,
+				9F3C7089B85E4ACE21AD14398FBA55A4 /* XCSTestLocalization.swift */,
+				D4855F1E642F543EECBD716AAE70EFCA /* XCSTrigger.swift */,
+				BCB8EBFDC6F90FA5CB776C955EFD5B84 /* XCSTriggerPhase.swift */,
+				61A7E751CAD40F21A8F603CD032A1528 /* XCSTriggerType.swift */,
+				4AC080502D0831E70B0217BC068E82A2 /* XCSVersion.swift */,
+				DFA6B4ABB7572E3A50E555FE724E53AC /* Support Files */,
+			);
+			name = XCServerAPI;
+			path = XCServerAPI;
+			sourceTree = "<group>";
+		};
 		2B52A3AD4E5AAB2173FCCC20F6AC964E /* Pods-XCServerCoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,78 +461,9 @@
 			children = (
 				8C2BF5FB6355D2EBDB755B34E0FB032F /* BZipper */,
 				BB1589C3B3672956F27E0951C74269E7 /* CodeQuickKit */,
-				460548006A459D9CCF3737A54D41B5E9 /* XCServerAPI */,
+				1FAC09594B029453F05D29C11C7149A0 /* XCServerAPI */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		460548006A459D9CCF3737A54D41B5E9 /* XCServerAPI */ = {
-			isa = PBXGroup;
-			children = (
-				8422758234BFAF846969CCC32D289509 /* Assets.swift */,
-				8B7FA8DC081162A9BB179AA7083006ED /* AuthenticationStrategy.swift */,
-				D0C44666C36AC34EA6061357A1D231F9 /* BlueprintLocation.swift */,
-				666E46BB658DE175DE353D1EBB22365C /* BotDocument.swift */,
-				8545855D67F59800578676E39E159664 /* BotSchedule.swift */,
-				E14C5B65606808ACD7CAE579D7FB74E8 /* BuildArgument.swift */,
-				6E8F1366B47E832CB35293D484F59C5D /* BuildResultSummary.swift */,
-				44792ACBA32333753C4CF23B8E8CAFEB /* CleanSchedule.swift */,
-				1E3900E581E1BA2422BA9568F1A71E10 /* CodeCoveragePreference.swift */,
-				49673E012691185CC3EF058E1AFA24EC /* Commit.swift */,
-				32E07B02CA094CD9572F420C108E2D83 /* CommitChangeFilePath.swift */,
-				C4528D7D356EC0C2DD5C5E55BEE1BBEA /* CommitContributor.swift */,
-				4015FF75AE367F3BB3F062E003849000 /* CommitDocument.swift */,
-				A95A3999BFC993E3A05A422AAF8EBAFD /* Conditions.swift */,
-				63770D59F6B121AFEEFDECF09E4E99FB /* Configuration.swift */,
-				48C72C3EB23AFCDA2896E488893A17B3 /* CoverageFile.swift */,
-				3759E47BA0A064750E44DA3E8C4019A6 /* CoverageHierarchy.swift */,
-				D04278EC2CF0A2264B83141818272D77 /* CoverageMethod.swift */,
-				B10E7BA735C1FF25100A3E0ECA327426 /* CoverageResult.swift */,
-				C3FFBA4024A79A4698E37E887AF29094 /* CoverageTarget.swift */,
-				61453059F7C40D830FBAA808136E6007 /* Decodable+XCServerAPI.swift */,
-				2B841970154214A2DB6A32C91EB3CC62 /* DeviceDocument.swift */,
-				5CC5D43AE8367CACCB2C47A59D7D4E91 /* DeviceSpecification.swift */,
-				3F5F32567C2934E2B4D727B480F9957B /* EmailConfiguration.swift */,
-				6E5F21545BBB2C5D60A7B392630BD537 /* EmailType.swift */,
-				B612AAC9EF889E849B7B104E72E44A9E /* Filter.swift */,
-				3116DE9750D926D7C1583CEDD6BA671B /* Group.swift */,
-				1700A6AA390AB12A0854465091DE77E6 /* IntegrationAsset.swift */,
-				5556992A07ED906A3B4C8F81688341D0 /* IntegrationDocument.swift */,
-				B5B673293AFBCE4E9B892BFDD7023142 /* IntegrationResult.swift */,
-				3C33CC23D459A42915DA4ADA5DE829E8 /* IntegrationSnippet.swift */,
-				663DE5E11AC5C48202658A5C14C49500 /* IntegrationStep.swift */,
-				12FAD99AA64681304FC4FAF4D24C9341 /* Issue.swift */,
-				50F3D603E519F7A9DBDE8FABE63B71DD /* IssueAuthor.swift */,
-				87B029A3FCB3DFE56C8941E1E5E8EAB1 /* IssueGroup.swift */,
-				5346184E61756ACCF756FB5D8D4FCD69 /* IssueStatus.swift */,
-				32F4B027D62591D55DC4F7FB9F3F26F5 /* PeriodicScheduleInterval.swift */,
-				AE669C894C188BEB13F1B72CF2DF23AD /* Platform.swift */,
-				1233C3F705389C2A0D5788A1228B0B1A /* ProvisioningConfiguration.swift */,
-				BD6C4A3921996EFE26A7D7A2B53F556C /* ProxiedDevice.swift */,
-				A78EB83F1AA043D6EE1FD17487183888 /* RemoteRepository.swift */,
-				442759C6AAC8A92EECDF5834966EC079 /* ReportSchedule.swift */,
-				33C8FB4E1A2AA5EFBD89D5A6A8E88323 /* RepositoryBlueprint.swift */,
-				A378219C21B569DD9E97F5281C0F0201 /* RepositoryLocation.swift */,
-				B370D21BF73430C9A1081F3962E23A9E /* Stats.swift */,
-				24AAAC58ECC028752B1230DD758FE0D3 /* StatsSummary.swift */,
-				C17AFD75DE8880DC745E8F747ED90F4D /* SuspectStrategy.swift */,
-				377D741D007C994C8FF576566C372605 /* TestHierarchy.swift */,
-				EB87D84F67F3F7235E55AFCD51A69698 /* TestLocalization.swift */,
-				5B98C4539C8653B03654E1D5E61ECA23 /* Trigger.swift */,
-				55614132C4A7C09ABAC9EFCEE12E45F4 /* TriggerPhase.swift */,
-				F5EDBBDAF41CADA114BF1230BC96CE50 /* TriggerType.swift */,
-				BB8CF0EE7C9D14F9D85C1C84B436FF0E /* VersionDocument.swift */,
-				6918BB4787AAC53FFFC53541EEB3ED4B /* XCServerJSONDecoder.swift */,
-				317A7B5CB56DCD621D5FDA474E73B9CF /* XCServerWebAPI.swift */,
-				D0ADCF4E5362E0E926F95D01D3EA6BEF /* XCServerWebAPI+Bots.swift */,
-				2BFC4F03EECE9FDACDCB952791D81741 /* XCServerWebAPI+Commits.swift */,
-				F4D7EC838F85B496F9E311059306435F /* XCServerWebAPI+Coverage.swift */,
-				07D67A2BD61FFD41ACF8C2B4D86A2F70 /* XCServerWebAPI+Integrations.swift */,
-				7DA092E8F0348CB909796D85A83A7378 /* XCServerWebAPI+Issues.swift */,
-				79FE153E58E63DBA055F78359EF7E94C /* Support Files */,
-			);
-			name = XCServerAPI;
-			path = XCServerAPI;
 			sourceTree = "<group>";
 		};
 		4AD777079D8E67C97FA1ACFA342CA553 /* Pods-XCServerCoreDataTests */ = {
@@ -506,20 +506,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/CodeQuickKit";
-			sourceTree = "<group>";
-		};
-		79FE153E58E63DBA055F78359EF7E94C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C4C162481EC3D8BC6B3469BB650F309A /* Info.plist */,
-				D1996CFA4F5F150878F3BC730484CB62 /* XCServerAPI.modulemap */,
-				5D0A68E8BC46E91241A663955EB9CC35 /* XCServerAPI.xcconfig */,
-				DACAF6C0493ACD2F8E71E87370911E4D /* XCServerAPI-dummy.m */,
-				1E63B4D0E66F9D0B0328273BBB0A6AEF /* XCServerAPI-prefix.pch */,
-				D62EBD6F1C0CE23497339CCEB33FB1A2 /* XCServerAPI-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/XCServerAPI";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -595,6 +581,20 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/BZipper";
+			sourceTree = "<group>";
+		};
+		DFA6B4ABB7572E3A50E555FE724E53AC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F16FA226E55453CD1687D97EC28BA80 /* Info.plist */,
+				45FD80206DE19B48F5A296C1AEF4A52F /* XCServerAPI.modulemap */,
+				24346D5443BFAB08334A79A27B4761AC /* XCServerAPI.xcconfig */,
+				5CE41F33FB23B134A92DC8C222BECFC1 /* XCServerAPI-dummy.m */,
+				91D50759B7A6B94C318F902562E8E144 /* XCServerAPI-prefix.pch */,
+				68DDA6830C661C14CCEF5F4BF27D7F90 /* XCServerAPI-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/XCServerAPI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -722,7 +722,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F21476A513932C987AC62547F4F115EA /* Build configuration list for PBXNativeTarget "XCServerAPI" */;
 			buildPhases = (
-				493111F312A85E86E82E56B8FC77E9F3 /* Sources */,
+				4A4C8E626BC91ABFDCEBA026CDC5EDF5 /* Sources */,
 				3A31E20FBEC83A11EF238F5A8D30C3BD /* Frameworks */,
 				104DF17E6FC4E39585B80452B15B9638 /* Headers */,
 			);
@@ -776,71 +776,71 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		493111F312A85E86E82E56B8FC77E9F3 /* Sources */ = {
+		4A4C8E626BC91ABFDCEBA026CDC5EDF5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E00B959DC5A36EF556A03A500220C82 /* Assets.swift in Sources */,
-				5694FE7E6F46EE24592D6D4410EDE520 /* AuthenticationStrategy.swift in Sources */,
-				5BF9A9808C2821A7CCB19875C301EC15 /* BlueprintLocation.swift in Sources */,
-				59BCC12B95FFEE99411CCD23F0DC283E /* BotDocument.swift in Sources */,
-				F03758C8E7473B54A761B393A81AE56E /* BotSchedule.swift in Sources */,
-				840EFF39AD3851071C375E116674CCA8 /* BuildArgument.swift in Sources */,
-				0A60F166BD7E9202AA9BDAFB8A5B123C /* BuildResultSummary.swift in Sources */,
-				DE7E426ACF8038BC1FB6D5A39AC05573 /* CleanSchedule.swift in Sources */,
-				D071B5B9E847377DEAAF11D7D334D9B4 /* CodeCoveragePreference.swift in Sources */,
-				80471565FC126491B1B39FDB9F2EC595 /* Commit.swift in Sources */,
-				18F796255B7ABFD3450B009569118EC4 /* CommitChangeFilePath.swift in Sources */,
-				DB06FFFC3DB6B81166A187CAF997286E /* CommitContributor.swift in Sources */,
-				E5607EC3229393D1C1E04A3C19286B66 /* CommitDocument.swift in Sources */,
-				E50B8E162932AA012849F8101CDD29BB /* Conditions.swift in Sources */,
-				1F840EFF4D4FD50839891B95F092CE9E /* Configuration.swift in Sources */,
-				62FB1F1F8A433987F7BE0FEDCD7A4224 /* CoverageFile.swift in Sources */,
-				BADB59A8D97711951A356B01B66BF68F /* CoverageHierarchy.swift in Sources */,
-				C6BBB5BB734E83C386894D5389701152 /* CoverageMethod.swift in Sources */,
-				92646CBC1B220AFC342034CB8C59F16B /* CoverageResult.swift in Sources */,
-				C73BFF9F6AA02759C8E49D2900E3EA22 /* CoverageTarget.swift in Sources */,
-				6D559577FF6E6463FB4722320B037701 /* Decodable+XCServerAPI.swift in Sources */,
-				E5AF7D7757C0944B9FA688817B07B2A0 /* DeviceDocument.swift in Sources */,
-				7E027FCD325FCC453FC1A5D4AA5DA87C /* DeviceSpecification.swift in Sources */,
-				C47BAA3DDEC88AF349B1EEF8B8813007 /* EmailConfiguration.swift in Sources */,
-				E7B1DB32AA6D8BC4D1FB33063FF7E01D /* EmailType.swift in Sources */,
-				13FD9D145F3B245A5B2ABE516C2E1BC7 /* Filter.swift in Sources */,
-				0D7CB7B28B5C41DBF4BA7F9625FBA431 /* Group.swift in Sources */,
-				67379D0E32E1AE7245A1001184728570 /* IntegrationAsset.swift in Sources */,
-				C35EEC53F93EE27F2FA7801F0431F827 /* IntegrationDocument.swift in Sources */,
-				06EA92023436B491ED9D3862D15C34AE /* IntegrationResult.swift in Sources */,
-				3DDCBAED4363C02649456E1E91F37022 /* IntegrationSnippet.swift in Sources */,
-				A7197B218EE2A236A2F931C008B9E2CF /* IntegrationStep.swift in Sources */,
-				77FFA1BA32ABFE89F9FF1C00287C54E6 /* Issue.swift in Sources */,
-				6649A3511842DEE7EAB92B52E98B3083 /* IssueAuthor.swift in Sources */,
-				E552BDC8415A61292CF8B11A839DDE9F /* IssueGroup.swift in Sources */,
-				9222F81E734D83057CEE163CAE982EEB /* IssueStatus.swift in Sources */,
-				EF61B2B9A19C3CDB20ECF98819411990 /* PeriodicScheduleInterval.swift in Sources */,
-				3AE8EA3D759511D995187B3F124AECFE /* Platform.swift in Sources */,
-				76E2CFAA2655C75A04F9D430DE349647 /* ProvisioningConfiguration.swift in Sources */,
-				3F1F6CF626FAFDC34F7328E4E77F5DD2 /* ProxiedDevice.swift in Sources */,
-				434CAF9CB864C2DE3E2584933EC355FF /* RemoteRepository.swift in Sources */,
-				A58800C8F39CDACCA71CDADB383AF715 /* ReportSchedule.swift in Sources */,
-				F4B9EC0EBA65CA3D1CF0B37E2D140D26 /* RepositoryBlueprint.swift in Sources */,
-				642DB9D772FDE1E72A59CCE214DD0EEF /* RepositoryLocation.swift in Sources */,
-				CD78C3B21D346D2EBA89A9A7F9E5C975 /* Stats.swift in Sources */,
-				69411D6A8073643D412A24F37626FA0F /* StatsSummary.swift in Sources */,
-				42A2A5BD75EDC65AF5375363CF6236E5 /* SuspectStrategy.swift in Sources */,
-				CBFFC8EA52ED687F3B6225569C3BD03D /* TestHierarchy.swift in Sources */,
-				FEF0F1666C5E580D242BE7CCC604774D /* TestLocalization.swift in Sources */,
-				48E8251FC6599C47D21A53B8F553EA5D /* Trigger.swift in Sources */,
-				D4AED7E4E7B6AAB6560F8A3DB2A84E48 /* TriggerPhase.swift in Sources */,
-				9D2F5606970A3FB714B41928D86D788D /* TriggerType.swift in Sources */,
-				48C4EBF289430A196DD6ED893FFEA93D /* VersionDocument.swift in Sources */,
-				0C68D8F1537B068524859FD8979F9E3F /* XCServerAPI-dummy.m in Sources */,
-				B93F8D90300A525C3A7FCD9F252F3385 /* XCServerJSONDecoder.swift in Sources */,
-				3828C24A303D29BF2EEE9E9E23A34DAC /* XCServerWebAPI+Bots.swift in Sources */,
-				521BD62B5C8A74A159D45291811D634F /* XCServerWebAPI+Commits.swift in Sources */,
-				03988F9908B86611FAE8A99E4ABD8E6D /* XCServerWebAPI+Coverage.swift in Sources */,
-				5F2DF027B2A0C91B00425B2D48688E2C /* XCServerWebAPI+Integrations.swift in Sources */,
-				94AB3AB443878E73011CA8981A010BE7 /* XCServerWebAPI+Issues.swift in Sources */,
-				972B57CC72C55DD78C16836FBA9C82D9 /* XCServerWebAPI.swift in Sources */,
+				B77958F9FCB9AEECB068F950BEC12566 /* Decodable+XCServerAPI.swift in Sources */,
+				493905F8C39BEFDDF60A9DD0EA149F8C /* XCSAssets.swift in Sources */,
+				6A7CB0B9C4707E1E43294B1B46DD86F3 /* XCSAuthenticationStrategy.swift in Sources */,
+				5E6471BC49D44460083E982ACEA517C4 /* XCSBlueprintLocation.swift in Sources */,
+				6E414FF588BA140BF4E988C3AE76AF20 /* XCSBot.swift in Sources */,
+				9089F5816470C44578E325F60DE18D3C /* XCSBotSchedule.swift in Sources */,
+				C3545221AEC6DC2409B6EEE15E4DE402 /* XCSBuildArgument.swift in Sources */,
+				5A24B90E7013E90352DE193413FCDCA8 /* XCSBuildResultSummary.swift in Sources */,
+				315972E91008E080A3E9111EFDF8A27F /* XCSCleanSchedule.swift in Sources */,
+				25B482BA7BFF5674CD3D293C3F2C5E5C /* XCSCodeCoveragePreference.swift in Sources */,
+				9F62EA6261DF5A6C43BF753DD862C7AE /* XCSCommit.swift in Sources */,
+				39C5E20ABFE1B04768CC5A2C64F31557 /* XCSCommitChangeFilePath.swift in Sources */,
+				5FB41FC71642871E2B4F0E177DE831B7 /* XCSCommitContributor.swift in Sources */,
+				90DA64E3CFB1D2C87DF4DA3823860902 /* XCSConditions.swift in Sources */,
+				7E3E21E41DBA9688F15B234640BA2E15 /* XCSConfiguration.swift in Sources */,
+				DA25B5F9269AE46DE007A4C7FC1454B3 /* XCSCoverageFile.swift in Sources */,
+				3C1F6535557C941540CC9C89F58832C6 /* XCSCoverageHierarchy.swift in Sources */,
+				8F075E771DCB776E8DD033BDFC71375A /* XCSCoverageMethod.swift in Sources */,
+				AF2AEEF10B140BE843596EAF05256D37 /* XCSCoverageResult.swift in Sources */,
+				22E3CEA1B57B39FBE3D6D0527BE67648 /* XCSCoverageTarget.swift in Sources */,
+				B0C0684A00524FF8337462BEFAC3A3CF /* XCSDevice.swift in Sources */,
+				D0E1A1568A6D0B938F4668416EAFA0EB /* XCSDeviceSpecification.swift in Sources */,
+				F9F33A740136744C71C0C8C9A35F4B45 /* XCSEmailConfiguration.swift in Sources */,
+				15A566392C85C9A871975E58408930FF /* XCSEmailType.swift in Sources */,
+				B51A9FA67FFEEA0F367650635E793586 /* XCServerAPI-dummy.m in Sources */,
+				FA5BF9FC8C16FAC292C722BE4F9CAAFA /* XCServerJSONDecoder.swift in Sources */,
+				117DAA57A70D0CE9AD128C9951D4FC16 /* XCServerWebAPI+Bots.swift in Sources */,
+				0CA86FAB8AB4D5693031113A1916AF33 /* XCServerWebAPI+Commits.swift in Sources */,
+				B7B36E971A014DF83542E776BF5678C9 /* XCServerWebAPI+Coverage.swift in Sources */,
+				F45E5128F8136578E311829D9FA972B1 /* XCServerWebAPI+Integrations.swift in Sources */,
+				8FE1BF575AC86CF855173255A1777C18 /* XCServerWebAPI+Issues.swift in Sources */,
+				C03D96187805AC530353436C0AC92189 /* XCServerWebAPI.swift in Sources */,
+				C4F3FCAAA7D38F65F3457E280656BCEC /* XCSFilter.swift in Sources */,
+				AC7A14ADEF58204320B344B5596CAA23 /* XCSGroup.swift in Sources */,
+				2CB4D5418A428AD7B6B43477BCD37D8E /* XCSIntegration.swift in Sources */,
+				B9EDAF7A798E4D8AAE41A52BAC325141 /* XCSIntegrationAsset.swift in Sources */,
+				27F69B34FF2C66C988C777FDA67049FB /* XCSIntegrationResult.swift in Sources */,
+				B8F5FA6C615DE46DF4B4D838ADCB28F0 /* XCSIntegrationSnippet.swift in Sources */,
+				72D5DC4AECE2EB6452924ACC449951BA /* XCSIntegrationStep.swift in Sources */,
+				1891F0CE0FC052E21A5B431C976A829C /* XCSIssue.swift in Sources */,
+				B7FE28CBF5E6F093519A637FC761723E /* XCSIssueAuthor.swift in Sources */,
+				1F9E826C99A200B82AC9CF042DEFAF52 /* XCSIssueGroup.swift in Sources */,
+				11C26F9D635B66B00A3CEB2A57CFBBBD /* XCSIssueStatus.swift in Sources */,
+				B49BA73E4CBEBE1F3E8A284226DE85A4 /* XCSPeriodicScheduleInterval.swift in Sources */,
+				20194F6DFA70B5A14BDEF45466BFC52A /* XCSPlatform.swift in Sources */,
+				876CFBF630ED42A889A851980069472F /* XCSProvisioningConfiguration.swift in Sources */,
+				06AD7EB52504FD6877DF08ACF06FB79D /* XCSProxiedDevice.swift in Sources */,
+				30DF449B7F501E34662B8A8EA6701FE0 /* XCSRemoteRepository.swift in Sources */,
+				DDA2D6BF49D581FCDE57132A06AEB221 /* XCSReportSchedule.swift in Sources */,
+				185E605923A4E936F75583DBD048E5E5 /* XCSRepositoryBlueprint.swift in Sources */,
+				B794A8490BA19656433E3E8FE37DA27B /* XCSRepositoryCommit.swift in Sources */,
+				830B2D3F890FA96D5C711DBD5841994E /* XCSRepositoryLocation.swift in Sources */,
+				B5E6B3A07DE34E738486B90720F751BD /* XCSStats.swift in Sources */,
+				D7764430F826798803B6038263DF4D89 /* XCSStatsSummary.swift in Sources */,
+				D3EF8D6AE52496AF7A8E1D565B0599C9 /* XCSSuspectStrategy.swift in Sources */,
+				7AD9CDA9402CC69CBC52A015180DB97F /* XCSTestHierarchy.swift in Sources */,
+				4C368FD49D7ACCAC314619C4458323C1 /* XCSTestLocalization.swift in Sources */,
+				FCCED9C42E12B01A40C21EC5F60F91B8 /* XCSTrigger.swift in Sources */,
+				7D6716A631BFC9EB81461BB5C3FC29A6 /* XCSTriggerPhase.swift in Sources */,
+				8BE9250B01F27A97030BC044093D8627 /* XCSTriggerType.swift in Sources */,
+				C42B3EBF83DFCF0DC892D80D9BC20212 /* XCSVersion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,7 +990,7 @@
 		};
 		2BA400F5B91C6D8835B0BB685795DBA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D0A68E8BC46E91241A663955EB9CC35 /* XCServerAPI.xcconfig */;
+			baseConfigurationReference = 24346D5443BFAB08334A79A27B4761AC /* XCServerAPI.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1025,7 +1025,7 @@
 		};
 		38841DB924BDD70BC40AEB32EC36448C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D0A68E8BC46E91241A663955EB9CC35 /* XCServerAPI.xcconfig */;
+			baseConfigurationReference = 24346D5443BFAB08334A79A27B4761AC /* XCServerAPI.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
