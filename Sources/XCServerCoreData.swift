@@ -33,12 +33,9 @@ import XCServerAPI
 public class XCServerCoreData {
     
     public static var sharedInstance: NSPersistentContainer {
-        var modelURL: URL
         let bundle = Bundle(for: XCServerCoreData.self)
-        if let url = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") {
-            modelURL = url
-        } else {
-            modelURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath).appendingPathComponent("Resources").appendingPathExtension("XCServerCoreData.momd")
+        guard let modelURL = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
+            fatalError("Failed to locate XCServerCoreData.momd")
         }
         guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Failed to load XCServerCoreData Model")

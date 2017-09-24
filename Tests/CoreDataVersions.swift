@@ -1,4 +1,6 @@
 import Foundation
+import CoreData
+import XCServerCoreData
 
 class CoreDataVersions {
     
@@ -26,6 +28,10 @@ class CoreDataVersions {
         }
     }
     
+    static var tempDirectory: URL {
+        return documentsDirectory.appendingPathComponent("temp")
+    }
+    
     static var baseResource: String = "XCServerCoreData"
     
     static var documentsSQLite: URL {
@@ -40,19 +46,114 @@ class CoreDataVersions {
         return documentsDirectory.appendingPathComponent(baseResource).appendingPathExtension(CoreDataExtension.wal.rawValue)
     }
     
-    static func overwriteSQL(withVersion version: CoreDataVersion) {
+    static var tempSQLite: URL {
+        return tempDirectory.appendingPathComponent(baseResource).appendingPathExtension(CoreDataExtension.sqlite.rawValue)
+    }
+    
+    static var tempSHM: URL {
+        return tempDirectory.appendingPathComponent(baseResource).appendingPathExtension(CoreDataExtension.shm.rawValue)
+    }
+    
+    static var tempWAL: URL {
+        return tempDirectory.appendingPathComponent(baseResource).appendingPathExtension(CoreDataExtension.wal.rawValue)
+    }
+    
+    static func overwriteSQL(withVersion version: CoreDataVersion) -> Bool {
         let fileManager = FileManager.default
-        let replacementOptions = FileManager.ItemReplacementOptions()
         
-        print("Overwriting SQL at url: \(documentsSQLite.absoluteString)")
+        if !fileManager.fileExists(atPath: tempDirectory.path) {
+            do {
+                print("Creating TEMP directory")
+                try fileManager.createDirectory(at: tempDirectory, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error)
+                return false
+            }
+        }
         
+        print("Clearing TEMP directory")
         do {
-            try fileManager.replaceItem(at: documentsSQLite, withItemAt: version.bundleSQLite, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
-            try fileManager.replaceItem(at: documentsSHM, withItemAt: version.bundleSHM, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
-            try fileManager.replaceItem(at: documentsWAL, withItemAt: version.bundleWAL, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
+            if fileManager.fileExists(atPath: tempSQLite.path) {
+                try fileManager.removeItem(at: tempSQLite)
+            }
+            if fileManager.fileExists(atPath: tempSHM.path) {
+                try fileManager.removeItem(at: tempSHM)
+            }
+            if fileManager.fileExists(atPath: tempWAL.path) {
+                try fileManager.removeItem(at: tempWAL)
+            }
         } catch {
             print(error)
+            return false
         }
+        
+        print("Copying SQL files to TEMP")
+        do {
+            try fileManager.copyItem(at: version.bundleSQLite, to: tempSQLite)
+            try fileManager.copyItem(at: version.bundleSHM, to: tempSHM)
+            try fileManager.copyItem(at: version.bundleWAL, to: tempWAL)
+        } catch {
+            print(error)
+            return false
+        }
+        
+        print("Overwriting SQL at url: \(documentsSQLite.path)")
+        let replacementOptions = FileManager.ItemReplacementOptions()
+        
+        do {
+            try fileManager.replaceItem(at: documentsSQLite, withItemAt: tempSQLite, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
+            try fileManager.replaceItem(at: documentsSHM, withItemAt: tempSHM, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
+            try fileManager.replaceItem(at: documentsWAL, withItemAt: tempWAL, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
+        } catch {
+            print(error)
+            return false
+        }
+        
+        return true
+    }
+    
+    @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    static var persistentContainer: NSPersistentContainer {
+        let fileManager = FileManager.default
+        
+        var modelURL: URL
+        
+        let bundle = Bundle(for: XCServerCoreData.self)
+        if let url = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") {
+            modelURL = url
+        } else {
+            modelURL = URL(fileURLWithPath: fileManager.currentDirectoryPath).appendingPathComponent("Tests").appendingPathComponent("XCServerCoreData.momd")
+        }
+        
+        guard fileManager.fileExists(atPath: modelURL.path) else {
+            fatalError("Failed to locate XCServerCoreData.momd\n\(modelURL.path)")
+        }
+        
+        guard let model = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Failed to load XCServerCoreData Model")
+        }
+        
+        var storeURL: URL
+        do {
+            var searchPathDirectory: FileManager.SearchPathDirectory
+            #if os(tvOS)
+                searchPathDirectory = .cachesDirectory
+            #else
+                searchPathDirectory = .documentDirectory
+            #endif
+            storeURL = try FileManager.default.url(for: searchPathDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("XCServerCoreData.sqlite")
+        } catch {
+            print(error)
+            fatalError(error.localizedDescription)
+        }
+        
+        let instance = NSPersistentContainer(name: "XCServerCoreData", managedObjectModel: model)
+        let description = NSPersistentStoreDescription(url: storeURL)
+        description.shouldInferMappingModelAutomatically = true
+        description.shouldMigrateStoreAutomatically = true
+        instance.persistentStoreDescriptions = [description]
+        instance.viewContext.automaticallyMergesChangesFromParent = true
+        return instance
     }
 }
 

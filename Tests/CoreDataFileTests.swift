@@ -23,11 +23,14 @@ class CoreDataFileTests: XCTestCase {
     
     @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
     func testMigrateV120toV200() {
-        CoreDataVersions.overwriteSQL(withVersion: CoreDataVersions.v_1_2_0)
+        guard CoreDataVersions.overwriteSQL(withVersion: CoreDataVersions.v_1_2_0) else {
+            XCTFail()
+            return
+        }
         
         let loadExpectation = expectation(description: "Load CoreData Persistent Store")
         
-        let coreData = XCServerCoreData.sharedInstance
+        let coreData = CoreDataVersions.persistentContainer
         coreData.loadPersistentStores { (description, error) in
             if let e = error {
                 print(e)
