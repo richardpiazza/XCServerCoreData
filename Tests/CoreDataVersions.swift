@@ -118,7 +118,7 @@ class CoreDataVersions {
         
         var modelURL: URL
         
-        let bundle = Bundle(for: XCSCD.self)
+        let bundle = Bundle(for: XCServerCoreData.self)
         if let url = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") {
             modelURL = url
         } else {

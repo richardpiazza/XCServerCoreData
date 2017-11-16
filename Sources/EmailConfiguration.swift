@@ -14,14 +14,14 @@ public class EmailConfiguration: NSManagedObject {
         if #available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             if let ccas = configuration.ccAddresses {
                 do {
-                    self.ccAddressesData = try XCSCD.jsonEncoder.encode(ccas)
+                    self.ccAddressesData = try XCServerCoreData.jsonEncoder.encode(ccas)
                 } catch {
                     Log.error(error, message: "Failed to encode EmailConfiguration ccAddresses")
                 }
             }
             if let adn = configuration.allowedDomainNames {
                 do {
-                    self.allowedDomainNamesData = try XCSCD.jsonEncoder.encode(adn)
+                    self.allowedDomainNamesData = try XCServerCoreData.jsonEncoder.encode(adn)
                 } catch {
                     Log.error(error, message: "Failed to encode EmailConfiguration allowedDomainNames")
                 }

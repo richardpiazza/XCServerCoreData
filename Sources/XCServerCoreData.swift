@@ -30,10 +30,10 @@ import CodeQuickKit
 import XCServerAPI
 
 @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
-public class XCSCD {
+public class XCServerCoreData {
     
     public static var sharedInstance: NSPersistentContainer = {
-        let bundle = Bundle(for: XCSCD.self)
+        let bundle = Bundle(for: XCServerCoreData.self)
         guard let modelURL = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
             fatalError("Failed to locate XCServerCoreData.momd")
         }

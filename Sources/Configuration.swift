@@ -47,7 +47,7 @@ public class Configuration: NSManagedObject {
         if #available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             if let buildArgs = configuration.additionalBuildArguments {
                 do {
-                    self.additionalBuildArgumentsData = try XCSCD.jsonEncoder.encode(buildArgs)
+                    self.additionalBuildArgumentsData = try XCServerCoreData.jsonEncoder.encode(buildArgs)
                 } catch {
                     Log.error(error, message: "Failed to encode Configuration BuildArgurments")
                 }
@@ -55,7 +55,7 @@ public class Configuration: NSManagedObject {
             
             if let envVars = configuration.buildEnvironmentVariables {
                 do {
-                    self.buildEnvironmentVariablesData = try XCSCD.jsonEncoder.encode(envVars)
+                    self.buildEnvironmentVariablesData = try XCServerCoreData.jsonEncoder.encode(envVars)
                 } catch {
                     Log.error(error, message: "Failed to encode Configuratoin EnvironmentVariables")
                 }

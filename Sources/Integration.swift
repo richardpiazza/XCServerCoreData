@@ -35,9 +35,9 @@ public class Integration: NSManagedObject {
         self.endedTime = integration.endedTime
         self.duration = integration.duration as NSNumber?
         self.successStreak = integration.successStreak as NSNumber?
-        if let value = integration.testHierarchy {
-            self.testHierachy = value as NSObject?
-        }
+//        if let value = integration.testHierarchy {
+//            self.testHierachy = value as NSObject?
+//        }
         
         // Build Results Summary
         if let summary = integration.buildResultSummary {
