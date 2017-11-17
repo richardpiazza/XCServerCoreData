@@ -13,7 +13,14 @@ public class CommitContributor: NSManagedObject {
     internal func update(withCommitContributor contributor: XCSCommitContributor) {
         self.name = contributor.name
         self.displayName = contributor.displayName
-        self.emails = contributor.emails as NSObject?
+        if let emails = contributor.emails {
+            do {
+                let data = try JSONSerialization.data(withJSONObject: emails, options: JSONSerialization.WritingOptions())
+                self.emailsData = data
+            } catch {
+                Log.error(error, message: "Failed to serialize XCSCommitContributor.emails: \(emails)")
+            }
+        }
     }
     
     public var initials: String? {
@@ -45,10 +52,19 @@ public class CommitContributor: NSManagedObject {
     }
     
     public var emailAddresses: [String] {
-        guard let emails = self.emails as? [String] else {
+        guard let data = self.emailsData else {
             return []
         }
         
-        return emails
+        do {
+            guard let emails = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String] else {
+                return []
+            }
+            
+            return emails
+        } catch {
+            Log.error(error, message: "Failed to deserialze CommitContributor.emailsData")
+            return []
+        }
     }
 }
