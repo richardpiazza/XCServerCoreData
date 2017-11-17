@@ -20,9 +20,9 @@ public class Repository: NSManagedObject {
             return
         }
         
-        if let workingCopyStates = blueprint.workingCopyStates, let state = workingCopyStates[self.identifier] {
-            self.workingCopyState = state as NSNumber?
-        }
+//        if let workingCopyStates = blueprint.workingCopyStates, let state = workingCopyStates[self.identifier] {
+//            self.workingCopyState = state as NSNumber?
+//        }
         
         if let workingCopyPaths = blueprint.workingCopyPaths, let path = workingCopyPaths[self.identifier] {
             self.workingCopyPath = path
