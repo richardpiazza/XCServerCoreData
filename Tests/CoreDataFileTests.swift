@@ -22,7 +22,7 @@ class CoreDataFileTests: XCTestCase {
     }
     
     @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
-    func testMigrateV120toV200() {
+    func testMigrateV120toCurrent() {
         guard CoreDataVersions.overwriteSQL(withVersion: CoreDataVersions.v_1_2_0) else {
             XCTFail()
             return
@@ -55,5 +55,33 @@ class CoreDataFileTests: XCTestCase {
         
         XCTAssertNotNil(integration.bot)
         XCTAssertNotNil(integration.startedTime)
+    }
+    
+    @available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    func testMigrateV200toCurrent() {
+        guard CoreDataVersions.overwriteSQL(withVersion: CoreDataVersions.v_2_0_0_empty) else {
+            XCTFail()
+            return
+        }
+        
+        let loadExpectation = expectation(description: "Load CoreData Persistent Store")
+        
+        let coreData = CoreDataVersions.persistentContainer
+        coreData.loadPersistentStores { (description, error) in
+            if let e = error {
+                print(e)
+                XCTFail()
+                return
+            }
+            
+            loadExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { (error) in
+            if let e = error {
+                print(e)
+                XCTFail()
+            }
+        }
     }
 }

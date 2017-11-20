@@ -35,9 +35,13 @@ public class Integration: NSManagedObject {
         self.endedTime = integration.endedTime
         self.duration = integration.duration as NSNumber?
         self.successStreak = integration.successStreak as NSNumber?
-//        if let value = integration.testHierarchy {
-//            self.testHierachy = value as NSObject?
-//        }
+        if let value = integration.testHierarchy {
+            do {
+                self.testHierachyData = try XCServerCoreData.jsonEncoder.encode(value)
+            } catch {
+                Log.error(error, message: "Failed to serialze Integration.testHierarchy: \(value)")
+            }
+        }
         
         // Build Results Summary
         if let summary = integration.buildResultSummary {
@@ -116,7 +120,15 @@ public class Integration: NSManagedObject {
     }
     
     public var testResults: [TestResult] {
-        guard let testHierachy = self.testHierachy as? [String : AnyObject] else {
+        guard let data = self.testHierachyData else {
+            return []
+        }
+        
+        let testHierachy: [String : Any]
+        do {
+            testHierachy = try XCServerCoreData.jsonDecoder.decode([String : Any].self, from: data)
+        } catch {
+            Log.error(error, message: "Failed to deserialized Integration.testHierarchy")
             return []
         }
         

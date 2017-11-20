@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "XCServerCoreData"
-  s.version = "5.2.2"
+  s.version = "5.3.0"
   s.summary = "A Core Data framework that models the Xcode Server API entities."
   s.description = <<-DESC
   This framework models most of the Xcode Server REST API entities into a Core Data object graph.

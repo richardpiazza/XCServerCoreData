@@ -22,6 +22,7 @@ public extension Integration {
     @NSManaged public var startedTime: Date?
     @NSManaged public var successStreak: NSNumber?
     @NSManaged public var testHierachy: NSObject?
+    @NSManaged public var testHierachyData: Data?
     @NSManaged public var revision: String?
     @NSManaged public var assets: IntegrationAssets?
     @NSManaged public var bot: Bot?

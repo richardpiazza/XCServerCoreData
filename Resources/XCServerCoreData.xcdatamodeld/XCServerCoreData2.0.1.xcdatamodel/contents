@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B48" minimumToolsVersion="Xcode 7.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Asset" representedClassName=".Asset" syncable="YES">
         <attribute name="allowAnonymousAccess" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,7 +15,7 @@
         <relationship name="inverseXcodebuildOutput" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="xcodebuildOutput" inverseEntity="IntegrationAssets" syncable="YES"/>
     </entity>
     <entity name="Bot" representedClassName=".Bot" syncable="YES">
-        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="revision" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,9 +24,6 @@
         <relationship name="integrations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Integration" inverseName="bot" inverseEntity="Integration" syncable="YES"/>
         <relationship name="stats" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stats" inverseName="bot" inverseEntity="Stats" syncable="YES"/>
         <relationship name="xcodeServer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XcodeServer" inverseName="bots" inverseEntity="XcodeServer" syncable="YES"/>
-        <fetchIndex name="byIdentifierIndex">
-            <fetchIndexElement property="identifier" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="BuildResultSummary" representedClassName=".BuildResultSummary" syncable="YES">
         <attribute name="analyzerWarningChange" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
@@ -46,16 +43,13 @@
         <relationship name="integration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="buildResultSummary" inverseEntity="Integration" syncable="YES"/>
     </entity>
     <entity name="Commit" representedClassName=".Commit" syncable="YES">
-        <attribute name="commitHash" attributeType="String" defaultValueString="_commitHash" syncable="YES"/>
+        <attribute name="commitHash" attributeType="String" defaultValueString="_commitHash" indexed="YES" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="commitChanges" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CommitChange" inverseName="commit" inverseEntity="CommitChange" syncable="YES"/>
         <relationship name="commitContributor" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CommitContributor" inverseName="commit" inverseEntity="CommitContributor" syncable="YES"/>
         <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="commits" inverseEntity="Repository" syncable="YES"/>
         <relationship name="revisionBlueprints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RevisionBlueprint" inverseName="commit" inverseEntity="RevisionBlueprint" syncable="YES"/>
-        <fetchIndex name="byCommitHashIndex">
-            <fetchIndexElement property="commitHash" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="CommitChange" representedClassName=".CommitChange" syncable="YES">
         <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
@@ -113,7 +107,7 @@
         <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="deviceType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="enabledForDevelopment" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
         <attribute name="isServer" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="modelCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
@@ -130,9 +124,6 @@
         <relationship name="deviceSpecifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeviceSpecification" inverseName="devices" inverseEntity="DeviceSpecification" syncable="YES"/>
         <relationship name="integrations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Integration" inverseName="testedDevices" inverseEntity="Integration" syncable="YES"/>
         <relationship name="inverseActiveProxiedDevice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="activeProxiedDevice" inverseEntity="Device" syncable="YES"/>
-        <fetchIndex name="byIdentifierIndex">
-            <fetchIndexElement property="identifier" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="DeviceSpecification" representedClassName=".DeviceSpecification" syncable="YES">
         <relationship name="configuration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="deviceSpecification" inverseEntity="Configuration" syncable="YES"/>
@@ -170,7 +161,7 @@
         <attribute name="hasRetrievedAssets" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="hasRetrievedCommits" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="hasRetrievedIssues" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="queuedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -180,6 +171,7 @@
         <attribute name="startedTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="successStreak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="testHierachy" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="testHierachyData" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="assets" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IntegrationAssets" inverseName="integration" inverseEntity="IntegrationAssets" syncable="YES"/>
         <relationship name="bot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bot" inverseName="integrations" inverseEntity="Bot" syncable="YES"/>
         <relationship name="buildResultSummary" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BuildResultSummary" inverseName="integration" inverseEntity="BuildResultSummary" syncable="YES"/>
@@ -188,9 +180,6 @@
         <relationship name="issues" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IntegrationIssues" inverseName="integration" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="revisionBlueprints" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RevisionBlueprint" inverseName="integration" inverseEntity="RevisionBlueprint" syncable="YES"/>
         <relationship name="testedDevices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Device" inverseName="integrations" inverseEntity="Device" syncable="YES"/>
-        <fetchIndex name="byIdentifierIndex">
-            <fetchIndexElement property="identifier" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="IntegrationAssets" representedClassName=".IntegrationAssets" syncable="YES">
         <relationship name="archive" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseArchive" inverseEntity="Asset" syncable="YES"/>
@@ -222,7 +211,7 @@
     <entity name="Issue" representedClassName=".Issue" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fixItType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
         <attribute name="issueType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lineNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
@@ -244,9 +233,6 @@
         <relationship name="inverseUnresolvedErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseUnresolvedTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedTestFailures" inverseEntity="IntegrationIssues" syncable="YES"/>
         <relationship name="inverseUnresolvedWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
-        <fetchIndex name="byIdentifierIndex">
-            <fetchIndexElement property="identifier" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="Platform" representedClassName=".Platform" syncable="YES">
         <attribute name="buildNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -261,7 +247,7 @@
     <entity name="Repository" representedClassName=".Repository" syncable="YES">
         <attribute name="branchIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="branchOptions" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
         <attribute name="locationType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="system" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
@@ -269,9 +255,6 @@
         <attribute name="workingCopyState" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="commits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Commit" inverseName="repository" inverseEntity="Commit" syncable="YES"/>
         <relationship name="configurations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Configuration" inverseName="repositories" inverseEntity="Configuration" syncable="YES"/>
-        <fetchIndex name="byIdentifierIndex">
-            <fetchIndexElement property="identifier" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <entity name="RevisionBlueprint" representedClassName=".RevisionBlueprint" syncable="YES">
         <relationship name="commit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Commit" inverseName="revisionBlueprints" inverseEntity="Commit" syncable="YES"/>
@@ -323,16 +306,13 @@
     </entity>
     <entity name="XcodeServer" representedClassName=".XcodeServer" syncable="YES">
         <attribute name="apiVersion" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="fqdn" attributeType="String" defaultValueString="_fqdn" syncable="YES"/>
+        <attribute name="fqdn" attributeType="String" defaultValueString="_fqdn" indexed="YES" syncable="YES"/>
         <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="os" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="server" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="xcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="xcodeServer" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bot" inverseName="xcodeServer" inverseEntity="Bot" syncable="YES"/>
-        <fetchIndex name="byFqdnIndex">
-            <fetchIndexElement property="fqdn" type="Binary" order="ascending"/>
-        </fetchIndex>
     </entity>
     <elements>
         <element name="Asset" positionX="-531" positionY="-81" width="128" height="223"/>
@@ -347,7 +327,7 @@
         <element name="DeviceSpecification" positionX="783" positionY="-331" width="128" height="88"/>
         <element name="EmailConfiguration" positionX="999" positionY="-63" width="128" height="285"/>
         <element name="Filter" positionX="952" positionY="-468" width="128" height="103"/>
-        <element name="Integration" positionX="-36" positionY="-202" width="128" height="403"/>
+        <element name="Integration" positionX="-36" positionY="-202" width="128" height="420"/>
         <element name="IntegrationAssets" positionX="-306" positionY="-81" width="128" height="163"/>
         <element name="IntegrationIssues" positionX="187" positionY="210" width="128" height="268"/>
         <element name="Issue" positionX="475" positionY="188" width="128" height="403"/>

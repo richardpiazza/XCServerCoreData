@@ -83,6 +83,8 @@
 		E1BA0C3E1F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA81F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite */; };
 		E1BA0C3F1F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA91F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm */; };
 		E1BA0C401F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BAA1F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal */; };
+		E1E3251C1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1E3251B1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel */; };
+		E1E3251E1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1E3251D1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel */; };
 		E1E3605E1FC39050009DAF2E /* IntegrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3605D1FC39050009DAF2E /* IntegrationStep.swift */; };
 		E1E360601FC3907F009DAF2E /* IntegrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3605F1FC3907F009DAF2E /* IntegrationResult.swift */; };
 		E1E360621FC3909B009DAF2E /* IssueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E360611FC3909B009DAF2E /* IssueType.swift */; };
@@ -190,6 +192,9 @@
 		E1BA0BEA1F77D476000FA5C3 /* XCServerCoreData1.1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData1.1.0.xcdatamodel; sourceTree = "<group>"; };
 		E1BA0BEB1F77D476000FA5C3 /* XCServerCoreData1.2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData1.2.0.xcdatamodel; sourceTree = "<group>"; };
 		E1BA0BEC1F77D476000FA5C3 /* XCServerCoreData2.0.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData2.0.0.xcdatamodel; sourceTree = "<group>"; };
+		E1E3251A1FC39A000005B324 /* XCServerCoreData2.0.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData2.0.1.xcdatamodel; sourceTree = "<group>"; };
+		E1E3251B1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.2.0to2.0.1.xcmappingmodel; sourceTree = "<group>"; };
+		E1E3251D1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel2.0.0to2.0.1.xcmappingmodel; sourceTree = "<group>"; };
 		E1E3605D1FC39050009DAF2E /* IntegrationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationStep.swift; sourceTree = "<group>"; };
 		E1E3605F1FC3907F009DAF2E /* IntegrationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationResult.swift; sourceTree = "<group>"; };
 		E1E360611FC3909B009DAF2E /* IssueType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueType.swift; sourceTree = "<group>"; };
@@ -360,6 +365,8 @@
 				E1BA0BE41F77D476000FA5C3 /* MappingModel1.1.0to1.2.0.xcmappingmodel */,
 				E1BA0BE51F77D476000FA5C3 /* MappingModel1.1.0to2.0.0.xcmappingmodel */,
 				E1BA0BE61F77D476000FA5C3 /* MappingModel1.2.0to2.0.0.xcmappingmodel */,
+				E1E3251B1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel */,
+				E1E3251D1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel */,
 				E1BA0BE71F77D476000FA5C3 /* MigrateIntegrationStringToDate.swift */,
 				E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */,
 			);
@@ -635,11 +642,13 @@
 				E1BA0C051F77D476000FA5C3 /* Conditions+CoreDataProperties.swift in Sources */,
 				E1BA0C151F77D476000FA5C3 /* IntegrationAssets+CoreDataProperties.swift in Sources */,
 				E1BA0C0D1F77D476000FA5C3 /* EmailConfiguration+CoreDataProperties.swift in Sources */,
+				E1E3251C1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel in Sources */,
 				E1BA0C1C1F77D476000FA5C3 /* NSManagedObjectContext+XCServerCoreData.swift in Sources */,
 				E1BA0C181F77D476000FA5C3 /* IntegrationIssues.swift in Sources */,
 				E1BA0C141F77D476000FA5C3 /* Integration.swift in Sources */,
 				E1BA0C1E1F77D476000FA5C3 /* Platform.swift in Sources */,
 				E1BA0C331F77D476000FA5C3 /* MigrateIntegrationStringToDate.swift in Sources */,
+				E1E3251E1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel in Sources */,
 				E1BA0C251F77D476000FA5C3 /* Stats.swift in Sources */,
 				E1BA0C241F77D476000FA5C3 /* Stats+CoreDataProperties.swift in Sources */,
 				E1BA0BFD1F77D476000FA5C3 /* BuildResultSummary+CoreDataProperties.swift in Sources */,
@@ -893,12 +902,13 @@
 		E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E1E3251A1FC39A000005B324 /* XCServerCoreData2.0.1.xcdatamodel */,
 				E1BA0BE91F77D476000FA5C3 /* XCServerCoreData.xcdatamodel */,
 				E1BA0BEA1F77D476000FA5C3 /* XCServerCoreData1.1.0.xcdatamodel */,
 				E1BA0BEB1F77D476000FA5C3 /* XCServerCoreData1.2.0.xcdatamodel */,
 				E1BA0BEC1F77D476000FA5C3 /* XCServerCoreData2.0.0.xcdatamodel */,
 			);
-			currentVersion = E1BA0BEC1F77D476000FA5C3 /* XCServerCoreData2.0.0.xcdatamodel */;
+			currentVersion = E1E3251A1FC39A000005B324 /* XCServerCoreData2.0.1.xcdatamodel */;
 			path = XCServerCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
