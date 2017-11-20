@@ -93,11 +93,11 @@ public class Integration: NSManagedObject {
     
     public var integrationStep: IntegrationStep {
         guard let rawValue = self.currentStep else {
-            return .Unknown
+            return .unknown
         }
         
         guard let enumeration = IntegrationStep(rawValue: rawValue) else {
-            return .Unknown
+            return .unknown
         }
         
         return enumeration
@@ -105,11 +105,11 @@ public class Integration: NSManagedObject {
     
     public var integrationResult: IntegrationResult {
         guard let rawValue = self.result else {
-            return .Unknown
+            return .unknown
         }
         
         guard let enumeration = IntegrationResult(rawValue: rawValue) else {
-            return .Unknown
+            return .unknown
         }
         
         return enumeration

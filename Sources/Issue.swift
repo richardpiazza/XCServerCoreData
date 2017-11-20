@@ -18,11 +18,11 @@ public class Issue: NSManagedObject {
     
     public var typeOfIssue: IssueType {
         guard let rawValue = self.type else {
-            return .Unknown
+            return .unknown
         }
         
         guard let enumeration = IssueType(rawValue: rawValue) else {
-            return .Unknown
+            return .unknown
         }
         
         return enumeration
