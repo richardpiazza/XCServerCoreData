@@ -124,9 +124,9 @@ public class Integration: NSManagedObject {
             return []
         }
         
-        let testHierachy: [String : Any]
+        let testHierachy: XCSTestHierarchy
         do {
-            testHierachy = try XCServerCoreData.jsonDecoder.decode([String : Any].self, from: data)
+            testHierachy = try XCServerCoreData.jsonDecoder.decode(XCSTestHierarchy.self, from: data)
         } catch {
             Log.error(error, message: "Failed to deserialized Integration.testHierarchy")
             return []
@@ -139,7 +139,7 @@ public class Integration: NSManagedObject {
         var results = [TestResult]()
         
         for target in testHierachy.keys {
-            guard let suite = testHierachy[target] as? [String : AnyObject] else {
+            guard let suite = testHierachy[target] else {
                 continue
             }
             
@@ -148,27 +148,46 @@ public class Integration: NSManagedObject {
             })
             
             for suiteClass in suiteClasses {
-                guard let classMethods = suite[suiteClass] as? [String : AnyObject] else {
+                guard let classMethods = suite[suiteClass] else {
                     continue
                 }
                 
-                let methodNames = classMethods.keys.filter({ (key: String) -> Bool in
-                    return !key.hasPrefix("_")
-                })
+                var methodNames: [String]
                 
-                for method in methodNames {
-                    guard let devices = classMethods[method] as? [String : Bool] else {
-                        continue
-                    }
+                switch classMethods {
+                case .method(let methodResults):
+                    methodNames = methodResults.keys.filter({ (key: String) -> Bool in
+                        return !key.hasPrefix("_")
+                    })
                     
-                    var passed = true
-                    for device in devices {
-                        if device.1 == false {
-                            passed = false
+                    for method in methodNames {
+                        guard let devices = methodResults[method] else {
+                            continue
                         }
+                        
+                        var passed = true
+                        for device in devices {
+                            if device.value == 0 {
+                                passed = false
+                            }
+                        }
+                        
+                        results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
                     }
+                case .device(let deviceResults):
+                    methodNames = deviceResults.keys.filter({ (key: String) -> Bool in
+                        return !key.hasPrefix("_")
+                    })
                     
-                    results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
+                    for method in methodNames {
+                        guard let device = deviceResults[method] else {
+                            continue
+                        }
+                        
+                        let passed = (device == 1)
+                        
+                        results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
+                    }
                 }
             }
         }
