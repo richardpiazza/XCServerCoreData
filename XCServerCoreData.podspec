@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "XCServerCoreData"
-  s.version = "5.3.1"
+  s.version = "5.3.2"
   s.summary = "A Core Data framework that models the Xcode Server API entities."
   s.description = <<-DESC
   This framework models most of the Xcode Server REST API entities into a Core Data object graph.
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'Foundation', 'CoreData'
   s.requires_arc = true
   s.dependency 'CodeQuickKit', '~> 6.0'
-  s.dependency 'XCServerAPI', '~> 4.0'
+  s.dependency 'XCServerAPI', '~> 4.1'
 
   s.osx.deployment_target = "10.13"
   s.ios.deployment_target = "11.0"

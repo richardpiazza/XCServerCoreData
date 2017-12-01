@@ -43,7 +43,7 @@ public class XCServerCoreData {
         return container
     }()
     
-    public enum Errors: Error {
+    public enum Errors: Error, LocalizedError {
         case unhandled
         case response
         case managedObjectContext
@@ -51,29 +51,7 @@ public class XCServerCoreData {
         case bot
         case repository
         
-        public var code: Int {
-            switch self {
-            case .unhandled: return 0
-            case .response: return 1
-            case .managedObjectContext: return 2
-            case .xcodeServer: return 3
-            case .bot: return 4
-            case .repository: return 5
-            }
-        }
-        
-        public var localizedDescription: String {
-            switch self {
-            case .unhandled: return "Unhandled Error"
-            case .response: return "Invalid Response"
-            case .managedObjectContext: return "Invalid NSManagedObjectContext"
-            case .xcodeServer: return "Invalid Xcode Server"
-            case .bot: return "Invalid Bot"
-            case .repository: return "Invalid Repository"
-            }
-        }
-        
-        public var localizedFailureReason: String {
+        public var errorDescription: String? {
             switch self {
             case .unhandled: return "An unknown error occured."
             case .response: return "The API response was unexpectedly nil."
@@ -82,25 +60,6 @@ public class XCServerCoreData {
             case .bot: return "A Bot could not be identified for the supplied parameter entity."
             case .repository: return "A Repository could not be identified for the supplied parameter entity."
             }
-        }
-        
-        public var localizedRecoverySuggestion: String {
-            switch self {
-            case .unhandled: return "Attempt your request again."
-            case .response: return "Please try your request again."
-            case .managedObjectContext: return "Retry the request with a valid entity."
-            case .xcodeServer: return "Retry the request with a valid entity."
-            case .bot: return "Retry the request with a valid entity."
-            case .repository: return "Retry the request with a valid entity."
-            }
-        }
-        
-        public var nsError: NSError {
-            return NSError(domain: String(describing: self), code: self.code, userInfo: [
-                NSLocalizedDescriptionKey : self.localizedDescription,
-                NSLocalizedFailureReasonErrorKey : self.localizedFailureReason,
-                NSLocalizedRecoverySuggestionErrorKey : self.localizedRecoverySuggestion
-                ])
         }
     }
     

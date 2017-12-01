@@ -9,7 +9,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/richardpiazza/CodeQuickKit.git", from: "6.0.0"),
-        .package(url: "https://github.com/richardpiazza/XCServerAPI.git", from: "4.0.0")
+        .package(url: "https://github.com/richardpiazza/XCServerAPI.git", from: "4.1.0")
     ],
     targets: [
         .target(name: "XCServerCoreData", dependencies: ["CodeQuickKit", "XCServerAPI"], path: "Sources"),

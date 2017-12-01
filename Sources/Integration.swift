@@ -188,6 +188,9 @@ public class Integration: NSManagedObject {
                         
                         results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
                     }
+                case .aggregate(let aggregateResults):
+                    let _ = aggregateResults
+                    break
                 }
             }
         }
