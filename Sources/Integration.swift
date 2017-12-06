@@ -132,65 +132,16 @@ public class Integration: NSManagedObject {
             return []
         }
         
-        guard testHierachy.keys.count > 0 else {
+        guard testHierachy.suites.count > 0 else {
             return []
         }
         
         var results = [TestResult]()
         
-        for target in testHierachy.keys {
-            guard let suite = testHierachy[target] else {
-                continue
-            }
-            
-            let suiteClasses = suite.keys.filter({ (key: String) -> Bool in
-                return !key.hasPrefix("_")
-            })
-            
-            for suiteClass in suiteClasses {
-                guard let classMethods = suite[suiteClass] else {
-                    continue
-                }
-                
-                var methodNames: [String]
-                
-                switch classMethods {
-                case .method(let methodResults):
-                    methodNames = methodResults.keys.filter({ (key: String) -> Bool in
-                        return !key.hasPrefix("_")
-                    })
-                    
-                    for method in methodNames {
-                        guard let devices = methodResults[method] else {
-                            continue
-                        }
-                        
-                        var passed = true
-                        for device in devices {
-                            if device.value == 0 {
-                                passed = false
-                            }
-                        }
-                        
-                        results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
-                    }
-                case .device(let deviceResults):
-                    methodNames = deviceResults.keys.filter({ (key: String) -> Bool in
-                        return !key.hasPrefix("_")
-                    })
-                    
-                    for method in methodNames {
-                        guard let device = deviceResults[method] else {
-                            continue
-                        }
-                        
-                        let passed = (device == 1)
-                        
-                        results.append(TestResult(name: method.xcServerTestMethodName, passed: passed))
-                    }
-                case .aggregate(let aggregateResults):
-                    let _ = aggregateResults
-                    break
+        for suite in testHierachy.suites {
+            for `class` in suite.classes {
+                for method in `class`.methods {
+                    results.append(TestResult(name: method.name.xcServerTestMethodName, passed: !method.hasFailures))
                 }
             }
         }

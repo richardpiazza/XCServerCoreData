@@ -243,9 +243,9 @@
 				E1BA0B9E1F77D475000FA5C3 /* Tests */,
 				E16242391CE3930F00283B2E /* XCServerCoreData */,
 				E16242451CE3930F00283B2E /* XCServerCoreDataTests */,
+				C0EA240D215F436C7CA6A6DE /* Frameworks */,
 				E16242381CE3930F00283B2E /* Products */,
 				F49CC9175CF2907348293CB5 /* Pods */,
-				C0EA240D215F436C7CA6A6DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
