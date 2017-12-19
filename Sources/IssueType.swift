@@ -25,4 +25,11 @@ public enum IssueType: String {
         default: return false
         }
     }
+    
+    public var isAnalyzerIssue: Bool {
+        switch self {
+        case .analyzerWarning: return true
+        default: return false
+        }
+    }
 }

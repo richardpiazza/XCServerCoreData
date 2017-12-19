@@ -115,7 +115,7 @@
 		E18B44A61FBDFAE100FC4459 /* XCServerCoreData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XCServerCoreData.podspec; sourceTree = "<group>"; };
 		E18B44A71FBDFAE100FC4459 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E18B44A81FBDFAE100FC4459 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		E18B44A91FBDFAE100FC4459 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E18B44A91FBDFAE100FC4459 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E18B44AA1FBDFAE100FC4459 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E1BA0B9F1F77D475000FA5C3 /* CommonExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensionTests.swift; sourceTree = "<group>"; };
 		E1BA0BA01F77D475000FA5C3 /* CoreDataFileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFileTests.swift; sourceTree = "<group>"; };
