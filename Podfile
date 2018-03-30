@@ -1,8 +1,8 @@
 use_frameworks!
 
 def common_pods
-  pod 'CodeQuickKit', '~> 6.0'
-  pod 'XCServerAPI', '~> 4.2'
+  pod 'CodeQuickKit', '~> 6.1'
+  pod 'XCServerAPI', '~> 4.3'
 end
 
 target 'XCServerCoreData' do
