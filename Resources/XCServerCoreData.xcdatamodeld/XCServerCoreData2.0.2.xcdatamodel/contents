@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Xcode 7.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Asset" representedClassName=".Asset" syncable="YES">
+        <attribute name="allowAnonymousAccess" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="relativePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="triggerName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inverseArchive" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="archive" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="inverseBuildServiceLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="buildServiceLog" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="inverseProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="product" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="inverseSourceControlLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="sourceControlLog" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="inverseTriggerAssets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="triggerAssets" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="inverseXcodebuildLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="xcodebuildLog" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="inverseXcodebuildOutput" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationAssets" inverseName="xcodebuildOutput" inverseEntity="IntegrationAssets" syncable="YES"/>
+    </entity>
+    <entity name="Bot" representedClassName=".Bot" syncable="YES">
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revision" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="configuration" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Configuration" inverseName="bot" inverseEntity="Configuration" syncable="YES"/>
+        <relationship name="integrations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Integration" inverseName="bot" inverseEntity="Integration" syncable="YES"/>
+        <relationship name="stats" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stats" inverseName="bot" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="xcodeServer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XcodeServer" inverseName="bots" inverseEntity="XcodeServer" syncable="YES"/>
+    </entity>
+    <entity name="BuildResultSummary" representedClassName=".BuildResultSummary" syncable="YES">
+        <attribute name="analyzerWarningChange" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="analyzerWarningCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="codeCoveragePercentage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="codeCoveragePercentageDelta" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="errorChange" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="errorCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="improvedPerfTestCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="regressedPerfTestCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="testFailureChange" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="testFailureCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="testsChange" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="testsCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="warningChange" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="warningCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="integration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="buildResultSummary" inverseEntity="Integration" syncable="YES"/>
+    </entity>
+    <entity name="Commit" representedClassName=".Commit" syncable="YES">
+        <attribute name="commitHash" attributeType="String" defaultValueString="_commitHash" indexed="YES" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="commitChanges" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CommitChange" inverseName="commit" inverseEntity="CommitChange" syncable="YES"/>
+        <relationship name="commitContributor" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CommitContributor" inverseName="commit" inverseEntity="CommitContributor" syncable="YES"/>
+        <relationship name="repository" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Repository" inverseName="commits" inverseEntity="Repository" syncable="YES"/>
+        <relationship name="revisionBlueprints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RevisionBlueprint" inverseName="commit" inverseEntity="RevisionBlueprint" syncable="YES"/>
+    </entity>
+    <entity name="CommitChange" representedClassName=".CommitChange" syncable="YES">
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="commit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Commit" inverseName="commitChanges" inverseEntity="Commit" syncable="YES"/>
+    </entity>
+    <entity name="CommitContributor" representedClassName=".CommitContributor" syncable="YES">
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailsData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="commit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Commit" inverseName="commitContributor" inverseEntity="Commit" syncable="YES"/>
+    </entity>
+    <entity name="Conditions" representedClassName=".Conditions" syncable="YES">
+        <attribute name="onAllIssuesResolved" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="onAnalyzerWarnings" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="onBuildErrors" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="onFailingTests" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="onInternalErrors" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="onSucess" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="onWarnings" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="trigger" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Trigger" inverseName="conditions" inverseEntity="Trigger" syncable="YES"/>
+    </entity>
+    <entity name="Configuration" representedClassName=".Configuration" syncable="YES">
+        <attribute name="additionalBuildArgumentsData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="addMissingDeviceToTeams" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="buildEnvironmentVariablesData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="builtFromClean" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="codeCoveragePreference" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="disableAppThinning" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="exportsProductFromArchive" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hourOfIntegration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="manageCertsAndProfiles" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="minutesAfterHourToIntegrate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="performsAnalyzeAction" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="performsArchiveAction" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="performsTestAction" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="performsUpgradeIntegration" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="periodicScheduleInterval" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="runOnlyDisabledTests" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="scheduleType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="schemeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testingDestinationType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="testingDestinationTypeRawValue" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="useParallelDeviceTesting" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="weeklyScheduleDay" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="bot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bot" inverseName="configuration" inverseEntity="Bot" syncable="YES"/>
+        <relationship name="deviceSpecification" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DeviceSpecification" inverseName="configuration" inverseEntity="DeviceSpecification" syncable="YES"/>
+        <relationship name="repositories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Repository" inverseName="configurations" inverseEntity="Repository" syncable="YES"/>
+        <relationship name="triggers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trigger" inverseName="configuration" inverseEntity="Trigger" syncable="YES"/>
+    </entity>
+    <entity name="Device" representedClassName=".Device" syncable="YES">
+        <attribute name="architecture" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="connected" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deviceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enabledForDevelopment" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
+        <attribute name="isServer" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="modelCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelUTI" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="osVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="platformIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retina" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="revision" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="simulator" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="supported" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="trusted" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="activeProxiedDevice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="inverseActiveProxiedDevice" inverseEntity="Device" syncable="YES"/>
+        <relationship name="deviceSpecifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DeviceSpecification" inverseName="devices" inverseEntity="DeviceSpecification" syncable="YES"/>
+        <relationship name="integrations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Integration" inverseName="testedDevices" inverseEntity="Integration" syncable="YES"/>
+        <relationship name="inverseActiveProxiedDevice" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="activeProxiedDevice" inverseEntity="Device" syncable="YES"/>
+    </entity>
+    <entity name="DeviceSpecification" representedClassName=".DeviceSpecification" syncable="YES">
+        <relationship name="configuration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="deviceSpecification" inverseEntity="Configuration" syncable="YES"/>
+        <relationship name="devices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Device" inverseName="deviceSpecifications" inverseEntity="Device" syncable="YES"/>
+        <relationship name="filters" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Filter" inverseName="deviceSpecification" inverseEntity="Filter" syncable="YES"/>
+    </entity>
+    <entity name="EmailConfiguration" representedClassName=".EmailConfiguration" syncable="YES">
+        <attribute name="additionalRecipients" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="allowedDomainNamesData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="ccAddressesData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="emailComitters" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="emailTypeRawValue" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fromAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="includeBotConfiguration" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="includeCommitMessages" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="includeIssueDetails" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="includeLogs" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="includeResolvedIssues" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="minutesAfterHour" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="replyToAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weeklyScheduleDay" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="trigger" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trigger" inverseName="emailConfiguration" inverseEntity="Trigger" syncable="YES"/>
+    </entity>
+    <entity name="Filter" representedClassName=".Filter" syncable="YES">
+        <attribute name="architectureType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="filterType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="deviceSpecification" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeviceSpecification" inverseName="filters" inverseEntity="DeviceSpecification" syncable="YES"/>
+        <relationship name="platform" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Platform" inverseName="filter" inverseEntity="Platform" syncable="YES"/>
+    </entity>
+    <entity name="Integration" representedClassName=".Integration" syncable="YES">
+        <attribute name="currentStep" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endedTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hasRetrievedAssets" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hasRetrievedCommits" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hasRetrievedIssues" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="queuedDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="result" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revision" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shouldClean" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startedTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="successStreak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="testHierachy" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="testHierachyData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="assets" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IntegrationAssets" inverseName="integration" inverseEntity="IntegrationAssets" syncable="YES"/>
+        <relationship name="bot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bot" inverseName="integrations" inverseEntity="Bot" syncable="YES"/>
+        <relationship name="buildResultSummary" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="BuildResultSummary" inverseName="integration" inverseEntity="BuildResultSummary" syncable="YES"/>
+        <relationship name="inverseBestSuccessStreak" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="bestSuccessStreak" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseLastCleanIntegration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="lastCleanIntegration" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="issues" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="IntegrationIssues" inverseName="integration" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="revisionBlueprints" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RevisionBlueprint" inverseName="integration" inverseEntity="RevisionBlueprint" syncable="YES"/>
+        <relationship name="testedDevices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Device" inverseName="integrations" inverseEntity="Device" syncable="YES"/>
+    </entity>
+    <entity name="IntegrationAssets" representedClassName=".IntegrationAssets" syncable="YES">
+        <relationship name="archive" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseArchive" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="buildServiceLog" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseBuildServiceLog" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="integration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="assets" inverseEntity="Integration" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseProduct" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="sourceControlLog" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseSourceControlLog" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="triggerAssets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseTriggerAssets" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="xcodebuildLog" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseXcodebuildLog" inverseEntity="Asset" syncable="YES"/>
+        <relationship name="xcodebuildOutput" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Asset" inverseName="inverseXcodebuildOutput" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="IntegrationIssues" representedClassName=".IntegrationIssues" syncable="YES">
+        <relationship name="buildServiceErrors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseBuildServiceErrors" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="buildServiceWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseBuildServiceWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="freshAnalyzerWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshAnalyserWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="freshErrors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshErrors" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="freshTestFailures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshTestFailures" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="freshWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseFreshWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="integration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="issues" inverseEntity="Integration" syncable="YES"/>
+        <relationship name="resolvedAnalyzerWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseResolvedAnalyzerWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="resolvedErrors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseResolvedErrors" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="resolvedTestFailures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseResolvedTestFailures" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="resolvedWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseResolvedWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="unresolvedAnalyzerWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseUnresolvedAnalyzerWarnings" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="unresolvedErrors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseUnresolvedErrors" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="unresolvedTestFailures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseUnresolvedTestFailures" inverseEntity="Issue" syncable="YES"/>
+        <relationship name="unresolvedWarnings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Issue" inverseName="inverseUnresolvedWarnings" inverseEntity="Issue" syncable="YES"/>
+    </entity>
+    <entity name="Issue" representedClassName=".Issue" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="documentFilePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documentLocationData" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fixItType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
+        <attribute name="issueType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lineNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revision" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="target" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testCase" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inverseBuildServiceErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="buildServiceErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseBuildServiceWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="buildServiceWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseFreshAnalyserWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshAnalyzerWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseFreshErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseFreshTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshTestFailures" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseFreshWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="freshWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseResolvedAnalyzerWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedAnalyzerWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseResolvedErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseResolvedTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedTestFailures" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseResolvedWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="resolvedWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseUnresolvedAnalyzerWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedAnalyzerWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseUnresolvedErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedErrors" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseUnresolvedTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedTestFailures" inverseEntity="IntegrationIssues" syncable="YES"/>
+        <relationship name="inverseUnresolvedWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IntegrationIssues" inverseName="unresolvedWarnings" inverseEntity="IntegrationIssues" syncable="YES"/>
+    </entity>
+    <entity name="Platform" representedClassName=".Platform" syncable="YES">
+        <attribute name="buildNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="platformIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="revision" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="simulatorIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="filter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Filter" inverseName="platform" inverseEntity="Filter" syncable="YES"/>
+    </entity>
+    <entity name="Repository" representedClassName=".Repository" syncable="YES">
+        <attribute name="branchIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="branchOptions" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" attributeType="String" defaultValueString="_identifier" indexed="YES" syncable="YES"/>
+        <attribute name="locationType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="system" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workingCopyPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workingCopyState" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="commits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Commit" inverseName="repository" inverseEntity="Commit" syncable="YES"/>
+        <relationship name="configurations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Configuration" inverseName="repositories" inverseEntity="Configuration" syncable="YES"/>
+    </entity>
+    <entity name="RevisionBlueprint" representedClassName=".RevisionBlueprint" syncable="YES">
+        <relationship name="commit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Commit" inverseName="revisionBlueprints" inverseEntity="Commit" syncable="YES"/>
+        <relationship name="integration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="revisionBlueprints" inverseEntity="Integration" syncable="YES"/>
+    </entity>
+    <entity name="Stats" representedClassName=".Stats" syncable="YES">
+        <attribute name="codeCoveragePercentageDelta" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="numberOfCommits" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="numberOfIntegrations" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="numberOfSuccessfulIntegrations" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sinceDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="testAdditionRate" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="analysisWarnings" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseAnalysisWarnings" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="averageIntegrationTime" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseAverageIntegrationTime" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="bestSuccessStreak" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="inverseBestSuccessStreak" inverseEntity="Integration" syncable="YES"/>
+        <relationship name="bot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bot" inverseName="stats" inverseEntity="Bot" syncable="YES"/>
+        <relationship name="errors" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseErrors" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="improvedPerfTests" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseImprovedPerfTests" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="lastCleanIntegration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Integration" inverseName="inverseLastCleanIntegration" inverseEntity="Integration" syncable="YES"/>
+        <relationship name="regressedPerfTests" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseRegressedPerfTests" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="testFailures" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseTestFailures" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="tests" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseTests" inverseEntity="StatsBreakdown" syncable="YES"/>
+        <relationship name="warnings" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StatsBreakdown" inverseName="inverseWarnings" inverseEntity="StatsBreakdown" syncable="YES"/>
+    </entity>
+    <entity name="StatsBreakdown" representedClassName=".StatsBreakdown" syncable="YES">
+        <attribute name="avg" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="max" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="min" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="stdDev" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="sum" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="inverseAnalysisWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="analysisWarnings" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseAverageIntegrationTime" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="averageIntegrationTime" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseErrors" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="errors" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseImprovedPerfTests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="improvedPerfTests" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseRegressedPerfTests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="regressedPerfTests" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseTestFailures" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="testFailures" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseTests" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="tests" inverseEntity="Stats" syncable="YES"/>
+        <relationship name="inverseWarnings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stats" inverseName="warnings" inverseEntity="Stats" syncable="YES"/>
+    </entity>
+    <entity name="Trigger" representedClassName=".Trigger" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phase" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="scriptBody" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="conditions" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Conditions" inverseName="trigger" inverseEntity="Conditions" syncable="YES"/>
+        <relationship name="configuration" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Configuration" inverseName="triggers" inverseEntity="Configuration" syncable="YES"/>
+        <relationship name="emailConfiguration" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="EmailConfiguration" inverseName="trigger" inverseEntity="EmailConfiguration" syncable="YES"/>
+    </entity>
+    <entity name="XcodeServer" representedClassName=".XcodeServer" syncable="YES">
+        <attribute name="apiVersion" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fqdn" attributeType="String" defaultValueString="_fqdn" indexed="YES" syncable="YES"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="os" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="server" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xcode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xcodeServer" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bots" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bot" inverseName="xcodeServer" inverseEntity="Bot" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="-531" positionY="-81" width="128" height="223"/>
+        <element name="Bot" positionX="216" positionY="-462" width="128" height="178"/>
+        <element name="BuildResultSummary" positionX="189" positionY="-198" width="128" height="268"/>
+        <element name="Commit" positionX="603" positionY="-22" width="128" height="148"/>
+        <element name="CommitChange" positionX="810" positionY="45" width="128" height="88"/>
+        <element name="CommitContributor" positionX="774" positionY="153" width="128" height="103"/>
+        <element name="Conditions" positionX="970" positionY="-255" width="128" height="178"/>
+        <element name="Configuration" positionX="592" positionY="-576" width="128" height="433"/>
+        <element name="Device" positionX="-216" positionY="207" width="128" height="373"/>
+        <element name="DeviceSpecification" positionX="783" positionY="-331" width="128" height="88"/>
+        <element name="EmailConfiguration" positionX="999" positionY="-63" width="128" height="285"/>
+        <element name="Filter" positionX="952" positionY="-468" width="128" height="103"/>
+        <element name="Integration" positionX="-36" positionY="-202" width="128" height="420"/>
+        <element name="IntegrationAssets" positionX="-306" positionY="-81" width="128" height="163"/>
+        <element name="IntegrationIssues" positionX="187" positionY="210" width="128" height="268"/>
+        <element name="Issue" positionX="475" positionY="188" width="128" height="450"/>
+        <element name="Platform" positionX="1123" positionY="-531" width="128" height="163"/>
+        <element name="Repository" positionX="385" positionY="-172" width="128" height="193"/>
+        <element name="RevisionBlueprint" positionX="261" positionY="99" width="128" height="73"/>
+        <element name="Stats" positionX="-272" positionY="-441" width="128" height="298"/>
+        <element name="StatsBreakdown" positionX="-497" positionY="-432" width="128" height="253"/>
+        <element name="Trigger" positionX="792" positionY="-177" width="128" height="148"/>
+        <element name="XcodeServer" positionX="403" positionY="-495" width="128" height="163"/>
+    </elements>
+</model>

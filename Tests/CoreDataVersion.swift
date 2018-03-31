@@ -2,22 +2,17 @@ import Foundation
 import CoreData
 import XCServerCoreData
 
-class CoreDataVersions {
+class CoreDataVersion {
     
-    public static var v_1_2_0 = V_1_2_0()
-    public static var v_1_2_0_empty = V_1_2_0_Empty()
-    public static var v_2_0_0_empty = V_2_0_0_Empty()
+    public static var v_1_2_0 = CoreDataVersion(with: "XCServerCoreData_1.2.0")
+    public static var v_1_2_0_empty = CoreDataVersion(with: "XCServerCoreData_1.2.0_empty")
+    public static var v_2_0_0_empty = CoreDataVersion(with: "XCServerCoreData_2.0.0_empty")
+    public static var v_2_0_1 = CoreDataVersion(with: "XCServerCoreData_2.0.1")
     
-    struct V_1_2_0: CoreDataVersion {
-        var resource: String = "XCServerCoreData_1.2.0"
-    }
+    public var resource: String
     
-    struct V_1_2_0_Empty: CoreDataVersion {
-        var resource: String = "XCServerCoreData_1.2.0_empty"
-    }
-    
-    struct V_2_0_0_Empty: CoreDataVersion {
-        var resource: String = "XCServerCoreData_2.0.0_empty"
+    public init(with resource: String) {
+        self.resource = resource
     }
     
     static var documentsDirectory: URL {
@@ -87,26 +82,35 @@ class CoreDataVersions {
             return false
         }
         
-        print("Copying SQL files to TEMP")
+        let replacementOptions = FileManager.ItemReplacementOptions()
+        
+        print("Copying/Overwriting SQLite File")
         do {
-            try fileManager.copyItem(at: version.bundleSQLite, to: tempSQLite)
-            try fileManager.copyItem(at: version.bundleSHM, to: tempSHM)
-            try fileManager.copyItem(at: version.bundleWAL, to: tempWAL)
+            try fileManager.copyItem(at: version.bundleSQLite!, to: tempSQLite)
+            try fileManager.replaceItem(at: documentsSQLite, withItemAt: tempSQLite, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
         } catch {
             print(error)
             return false
         }
         
-        print("Overwriting SQL at url: \(documentsSQLite.path)")
-        let replacementOptions = FileManager.ItemReplacementOptions()
+        if let url = version.bundleSHM {
+            print("Copying/Overwriting SHM File")
+            do {
+                try fileManager.copyItem(at: url, to: tempSHM)
+                try fileManager.replaceItem(at: documentsSHM, withItemAt: tempSHM, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
+            } catch {
+                print(error)
+            }
+        }
         
-        do {
-            try fileManager.replaceItem(at: documentsSQLite, withItemAt: tempSQLite, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
-            try fileManager.replaceItem(at: documentsSHM, withItemAt: tempSHM, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
-            try fileManager.replaceItem(at: documentsWAL, withItemAt: tempWAL, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
-        } catch {
-            print(error)
-            return false
+        if let url = version.bundleWAL {
+            print("Copying/Overwriting WAL File")
+            do {
+                try fileManager.copyItem(at: url, to: tempWAL)
+                try fileManager.replaceItem(at: documentsWAL, withItemAt: tempWAL, backupItemName: nil, options: replacementOptions, resultingItemURL: nil)
+            } catch {
+                print(error)
+            }
         }
         
         return true
@@ -163,13 +167,9 @@ enum CoreDataExtension: String {
     case wal = "sqlite-wal"
 }
 
-protocol CoreDataVersion {
-    var resource: String { get }
-}
-
 extension CoreDataVersion {
-    func url(for res: String, extension ext: CoreDataExtension) -> URL {
-        let bundle = Bundle(for: CoreDataVersions.self)
+    func url(for res: String, extension ext: CoreDataExtension) -> URL? {
+        let bundle = Bundle(for: CoreDataVersion.self)
         if let url = bundle.url(forResource: res, withExtension: ext.rawValue) {
             return url
         }
@@ -178,19 +178,20 @@ extension CoreDataVersion {
         let url = URL(fileURLWithPath: path).appendingPathComponent("Tests").appendingPathComponent(res).appendingPathExtension(ext.rawValue)
         
         if !FileManager.default.fileExists(atPath: url.path) {
-            fatalError("Failed to locate resource \(res).\(ext.rawValue)")
+            print("Unable to locate resource \(res).\(ext.rawValue)")
+            return nil
         }
         
         return url
     }
     
-    var bundleSQLite: URL {
+    var bundleSQLite: URL? {
         return self.url(for: resource, extension: .sqlite)
     }
-    var bundleSHM: URL {
+    var bundleSHM: URL? {
         return self.url(for: resource, extension: .shm)
     }
-    var bundleWAL: URL {
+    var bundleWAL: URL? {
         return self.url(for: resource, extension: .wal)
     }
 }

@@ -14,6 +14,9 @@ public class Issue: NSManagedObject {
         self.issueType = issue.issueType
         self.message = issue.message
         self.fixItType = issue.fixItType
+        self.testCase = issue.testCase
+        self.documentFilePath = issue.documentFilePath
+        self.documentLocationData = issue.documentLocationData
     }
     
     public var typeOfIssue: IssueType {

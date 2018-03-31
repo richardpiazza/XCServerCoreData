@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		5CEFEA4FBED6851A7764AB02 /* Pods_XCServerCoreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */; };
 		6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */; };
+		E1120819206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1120818206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel */; };
+		E112081B206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E112081A206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel */; };
+		E112081D206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E112081C206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel */; };
+		E1120820206FEE7400FF669F /* XCServerCoreData_2.0.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E112081E206FE75F00FF669F /* XCServerCoreData_2.0.1.sqlite */; };
 		E162423B1CE3930F00283B2E /* XCServerCoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = E162423A1CE3930F00283B2E /* XCServerCoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E16242421CE3930F00283B2E /* XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16242371CE3930F00283B2E /* XCServerCoreData.framework */; };
 		E1BA0BF91F77D476000FA5C3 /* Asset+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BAC1F77D475000FA5C3 /* Asset+CoreDataProperties.swift */; };
@@ -73,16 +77,10 @@
 		E1BA0C341F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */; };
 		E1BA0C351F77D485000FA5C3 /* CommonExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0B9F1F77D475000FA5C3 /* CommonExtensionTests.swift */; };
 		E1BA0C361F77D485000FA5C3 /* CoreDataFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BA01F77D475000FA5C3 /* CoreDataFileTests.swift */; };
-		E1BA0C371F77D485000FA5C3 /* CoreDataVersions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BA11F77D475000FA5C3 /* CoreDataVersions.swift */; };
+		E1BA0C371F77D485000FA5C3 /* CoreDataVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BA0BA11F77D475000FA5C3 /* CoreDataVersion.swift */; };
 		E1BA0C381F77D485000FA5C3 /* XCServerCoreData_1.2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA21F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite */; };
-		E1BA0C391F77D485000FA5C3 /* XCServerCoreData_1.2.0.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA31F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite-shm */; };
-		E1BA0C3A1F77D485000FA5C3 /* XCServerCoreData_1.2.0.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA41F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite-wal */; };
 		E1BA0C3B1F77D485000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA51F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite */; };
-		E1BA0C3C1F77D485000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA61F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-shm */; };
-		E1BA0C3D1F77D485000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA71F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-wal */; };
 		E1BA0C3E1F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA81F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite */; };
-		E1BA0C3F1F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BA91F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm */; };
-		E1BA0C401F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = E1BA0BAA1F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal */; };
 		E1E3251C1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1E3251B1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel */; };
 		E1E3251E1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1E3251D1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel */; };
 		E1E3605E1FC39050009DAF2E /* IntegrationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3605D1FC39050009DAF2E /* IntegrationStep.swift */; };
@@ -107,6 +105,11 @@
 		9730B4BB5CFE81B9C72334DD /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
+		E1120817206FD46100FF669F /* XCServerCoreData2.0.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData2.0.2.xcdatamodel; sourceTree = "<group>"; };
+		E1120818206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel2.0.1to2.0.2.xcmappingmodel; sourceTree = "<group>"; };
+		E112081A206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel2.0.0to2.0.2.xcmappingmodel; sourceTree = "<group>"; };
+		E112081C206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.2.0to2.0.2.xcmappingmodel; sourceTree = "<group>"; };
+		E112081E206FE75F00FF669F /* XCServerCoreData_2.0.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCServerCoreData_2.0.1.sqlite; sourceTree = "<group>"; };
 		E16242371CE3930F00283B2E /* XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E162423A1CE3930F00283B2E /* XCServerCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCServerCoreData.h; sourceTree = "<group>"; };
 		E162423C1CE3930F00283B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,16 +122,10 @@
 		E18B44AA1FBDFAE100FC4459 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E1BA0B9F1F77D475000FA5C3 /* CommonExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensionTests.swift; sourceTree = "<group>"; };
 		E1BA0BA01F77D475000FA5C3 /* CoreDataFileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFileTests.swift; sourceTree = "<group>"; };
-		E1BA0BA11F77D475000FA5C3 /* CoreDataVersions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataVersions.swift; sourceTree = "<group>"; };
+		E1BA0BA11F77D475000FA5C3 /* CoreDataVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataVersion.swift; sourceTree = "<group>"; };
 		E1BA0BA21F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCServerCoreData_1.2.0.sqlite; sourceTree = "<group>"; };
-		E1BA0BA31F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XCServerCoreData_1.2.0.sqlite-shm"; sourceTree = "<group>"; };
-		E1BA0BA41F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XCServerCoreData_1.2.0.sqlite-wal"; sourceTree = "<group>"; };
 		E1BA0BA51F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCServerCoreData_1.2.0_empty.sqlite; sourceTree = "<group>"; };
-		E1BA0BA61F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XCServerCoreData_1.2.0_empty.sqlite-shm"; sourceTree = "<group>"; };
-		E1BA0BA71F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "XCServerCoreData_1.2.0_empty.sqlite-wal"; sourceTree = "<group>"; };
 		E1BA0BA81F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = XCServerCoreData_2.0.0_empty.sqlite; sourceTree = "<group>"; };
-		E1BA0BA91F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "XCServerCoreData_2.0.0_empty.sqlite-shm"; sourceTree = "<group>"; };
-		E1BA0BAA1F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "XCServerCoreData_2.0.0_empty.sqlite-wal"; sourceTree = "<group>"; };
 		E1BA0BAC1F77D475000FA5C3 /* Asset+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Asset+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1BA0BAD1F77D475000FA5C3 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		E1BA0BAE1F77D475000FA5C3 /* Bot+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bot+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -280,16 +277,11 @@
 			children = (
 				E1BA0B9F1F77D475000FA5C3 /* CommonExtensionTests.swift */,
 				E1BA0BA01F77D475000FA5C3 /* CoreDataFileTests.swift */,
-				E1BA0BA11F77D475000FA5C3 /* CoreDataVersions.swift */,
+				E1BA0BA11F77D475000FA5C3 /* CoreDataVersion.swift */,
 				E1BA0BA21F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite */,
-				E1BA0BA31F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite-shm */,
-				E1BA0BA41F77D475000FA5C3 /* XCServerCoreData_1.2.0.sqlite-wal */,
 				E1BA0BA51F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite */,
-				E1BA0BA61F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-shm */,
-				E1BA0BA71F77D475000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-wal */,
 				E1BA0BA81F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite */,
-				E1BA0BA91F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm */,
-				E1BA0BAA1F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal */,
+				E112081E206FE75F00FF669F /* XCServerCoreData_2.0.1.sqlite */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -366,7 +358,10 @@
 				E1BA0BE51F77D476000FA5C3 /* MappingModel1.1.0to2.0.0.xcmappingmodel */,
 				E1BA0BE61F77D476000FA5C3 /* MappingModel1.2.0to2.0.0.xcmappingmodel */,
 				E1E3251B1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel */,
+				E112081C206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel */,
 				E1E3251D1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel */,
+				E112081A206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel */,
+				E1120818206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel */,
 				E1BA0BE71F77D476000FA5C3 /* MigrateIntegrationStringToDate.swift */,
 				E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */,
 			);
@@ -489,15 +484,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1BA0C3C1F77D485000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-shm in Resources */,
+				E1120820206FEE7400FF669F /* XCServerCoreData_2.0.1.sqlite in Resources */,
 				E1BA0C3B1F77D485000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite in Resources */,
 				E1BA0C381F77D485000FA5C3 /* XCServerCoreData_1.2.0.sqlite in Resources */,
-				E1BA0C3D1F77D485000FA5C3 /* XCServerCoreData_1.2.0_empty.sqlite-wal in Resources */,
-				E1BA0C3F1F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-shm in Resources */,
-				E1BA0C3A1F77D485000FA5C3 /* XCServerCoreData_1.2.0.sqlite-wal in Resources */,
-				E1BA0C401F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite-wal in Resources */,
 				E1BA0C3E1F77D485000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite in Resources */,
-				E1BA0C391F77D485000FA5C3 /* XCServerCoreData_1.2.0.sqlite-shm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +596,7 @@
 				E1BA0C131F77D476000FA5C3 /* Integration+CoreDataProperties.swift in Sources */,
 				E1BA0C121F77D476000FA5C3 /* Filter.swift in Sources */,
 				E1BA0BF91F77D476000FA5C3 /* Asset+CoreDataProperties.swift in Sources */,
+				E112081D206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel in Sources */,
 				E1BA0C071F77D476000FA5C3 /* Configuration+CoreDataProperties.swift in Sources */,
 				E1BA0C201F77D476000FA5C3 /* Repository.swift in Sources */,
 				E1BA0C081F77D476000FA5C3 /* Configuration.swift in Sources */,
@@ -623,6 +614,8 @@
 				E1BA0C061F77D476000FA5C3 /* Conditions.swift in Sources */,
 				E1BA0BFC1F77D476000FA5C3 /* Bot.swift in Sources */,
 				E1BA0BFA1F77D476000FA5C3 /* Asset.swift in Sources */,
+				E1120819206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel in Sources */,
+				E112081B206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel in Sources */,
 				E1BA0C1A1F77D476000FA5C3 /* Issue.swift in Sources */,
 				E1BA0C0F1F77D476000FA5C3 /* TriggerPhase.swift in Sources */,
 				E1BA0C161F77D476000FA5C3 /* IntegrationAssets.swift in Sources */,
@@ -673,7 +666,7 @@
 			files = (
 				E1BA0C361F77D485000FA5C3 /* CoreDataFileTests.swift in Sources */,
 				E1BA0C351F77D485000FA5C3 /* CommonExtensionTests.swift in Sources */,
-				E1BA0C371F77D485000FA5C3 /* CoreDataVersions.swift in Sources */,
+				E1BA0C371F77D485000FA5C3 /* CoreDataVersion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,13 +895,14 @@
 		E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E1120817206FD46100FF669F /* XCServerCoreData2.0.2.xcdatamodel */,
 				E1E3251A1FC39A000005B324 /* XCServerCoreData2.0.1.xcdatamodel */,
 				E1BA0BE91F77D476000FA5C3 /* XCServerCoreData.xcdatamodel */,
 				E1BA0BEA1F77D476000FA5C3 /* XCServerCoreData1.1.0.xcdatamodel */,
 				E1BA0BEB1F77D476000FA5C3 /* XCServerCoreData1.2.0.xcdatamodel */,
 				E1BA0BEC1F77D476000FA5C3 /* XCServerCoreData2.0.0.xcdatamodel */,
 			);
-			currentVersion = E1E3251A1FC39A000005B324 /* XCServerCoreData2.0.1.xcdatamodel */;
+			currentVersion = E1120817206FD46100FF669F /* XCServerCoreData2.0.2.xcdatamodel */;
 			path = XCServerCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -10,6 +10,9 @@ public extension Issue {
     @NSManaged public var age: NSNumber?
     @NSManaged public var identifier: String?
     @NSManaged public var issueType: String?
+    @NSManaged public var testCase: String?
+    @NSManaged public var documentFilePath: String?
+    @NSManaged public var documentLocationData: String?
     @NSManaged public var lineNumber: NSNumber?
     @NSManaged public var message: String?
     @NSManaged public var revision: String?
