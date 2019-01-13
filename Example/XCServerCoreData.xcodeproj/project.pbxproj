@@ -115,11 +115,11 @@
 		E162423C1CE3930F00283B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E16242411CE3930F00283B2E /* XCServerCoreDataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCServerCoreDataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16242481CE3930F00283B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E18B44A61FBDFAE100FC4459 /* XCServerCoreData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XCServerCoreData.podspec; sourceTree = "<group>"; };
-		E18B44A71FBDFAE100FC4459 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E18B44A81FBDFAE100FC4459 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		E18B44A61FBDFAE100FC4459 /* XCServerCoreData.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = XCServerCoreData.podspec; path = ../XCServerCoreData.podspec; sourceTree = "<group>"; };
+		E18B44A71FBDFAE100FC4459 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E18B44A81FBDFAE100FC4459 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		E18B44A91FBDFAE100FC4459 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E18B44AA1FBDFAE100FC4459 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E18B44AA1FBDFAE100FC4459 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E1BA0B9F1F77D475000FA5C3 /* CommonExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensionTests.swift; sourceTree = "<group>"; };
 		E1BA0BA01F77D475000FA5C3 /* CoreDataFileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFileTests.swift; sourceTree = "<group>"; };
 		E1BA0BA11F77D475000FA5C3 /* CoreDataVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataVersion.swift; sourceTree = "<group>"; };
@@ -283,7 +283,8 @@
 				E1BA0BA81F77D475000FA5C3 /* XCServerCoreData_2.0.0_empty.sqlite */,
 				E112081E206FE75F00FF669F /* XCServerCoreData_2.0.1.sqlite */,
 			);
-			path = Tests;
+			name = Tests;
+			path = ../Tests;
 			sourceTree = "<group>";
 		};
 		E1BA0BAB1F77D475000FA5C3 /* Sources */ = {
@@ -345,7 +346,8 @@
 				E1BA0BDE1F77D475000FA5C3 /* XcodeServer.swift */,
 				E1BA0BDF1F77D475000FA5C3 /* XCServerCoreData.swift */,
 			);
-			path = Sources;
+			name = Sources;
+			path = ../Sources;
 			sourceTree = "<group>";
 		};
 		E1BA0BE01F77D475000FA5C3 /* Resources */ = {
@@ -365,7 +367,8 @@
 				E1BA0BE71F77D476000FA5C3 /* MigrateIntegrationStringToDate.swift */,
 				E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */,
 			);
-			path = Resources;
+			name = Resources;
+			path = ../Resources;
 			sourceTree = "<group>";
 		};
 		F49CC9175CF2907348293CB5 /* Pods */ = {

@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 extension NSManagedObject {
-    open static var entityName: String {
+    public static var entityName: String {
         var entityName = NSStringFromClass(self)
         if let lastPeriodRange = entityName.range(of: ".", options: NSString.CompareOptions.backwards, range: nil, locale: nil) {
             let range = lastPeriodRange.upperBound..<entityName.endIndex
