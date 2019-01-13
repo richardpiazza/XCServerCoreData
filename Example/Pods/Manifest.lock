@@ -1,19 +1,25 @@
 PODS:
   - BZipper (1.0.3)
-  - CodeQuickKit (6.1.1)
-  - XCServerAPI (4.3.0):
+  - CodeQuickKit (6.4.1)
+  - XCServerAPI (5.0.0):
     - BZipper (~> 1.0.3)
-    - CodeQuickKit (~> 6.1)
+    - CodeQuickKit (~> 6.4)
 
 DEPENDENCIES:
-  - CodeQuickKit (~> 6.1)
-  - XCServerAPI (~> 4.3)
+  - CodeQuickKit (~> 6.4)
+  - XCServerAPI (~> 5.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BZipper
+    - CodeQuickKit
+    - XCServerAPI
 
 SPEC CHECKSUMS:
   BZipper: 33b4dd36545a2a817f44214d6558659656185366
-  CodeQuickKit: 6f9e1e4f6147e4288430cd455d4b88d4d181b64c
-  XCServerAPI: 3e8e5b4bed92244bb76a82bdc180005dc4957e10
+  CodeQuickKit: c3c84e055fc251598e97efda66a7dd1cb5ac2a36
+  XCServerAPI: 452f42f9645249e91c2f808bd57a143436824cff
 
-PODFILE CHECKSUM: 859e52836d54022c9dd061f2a89ad351a9083a69
+PODFILE CHECKSUM: 5fdbd8ba92777e65a4aa9bf3e73fadb7df0ced62
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.2

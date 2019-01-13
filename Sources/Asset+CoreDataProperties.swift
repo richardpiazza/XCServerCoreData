@@ -9,6 +9,7 @@ public extension Asset {
     
     @NSManaged public var allowAnonymousAccess: NSNumber?
     @NSManaged public var fileName: String?
+    @NSManaged public var isDirectory: NSNumber?
     @NSManaged public var relativePath: String?
     @NSManaged public var size: NSNumber?
     @NSManaged public var triggerName: String?

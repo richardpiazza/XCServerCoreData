@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5CEFEA4FBED6851A7764AB02 /* Pods_XCServerCoreDataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */; };
 		6EE76FFA4215C9D5E96128BD /* Pods_XCServerCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */; };
+		73C422D121EB9F5700904B02 /* MappingModel2.0.2to2.0.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 73C422D021EB9F5700904B02 /* MappingModel2.0.2to2.0.3.xcmappingmodel */; };
+		73C422D321EBA02000904B02 /* MappingModel1.2.0to2.0.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 73C422D221EBA02000904B02 /* MappingModel1.2.0to2.0.3.xcmappingmodel */; };
+		73C422D521EBA1C900904B02 /* MappingModel2.0.1to2.0.3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 73C422D421EBA1C900904B02 /* MappingModel2.0.1to2.0.3.xcmappingmodel */; };
 		E1120819206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1120818206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel */; };
 		E112081B206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E112081A206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel */; };
 		E112081D206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = E112081C206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel */; };
@@ -102,6 +105,10 @@
 		0076955174737FC3BB5C7F0D /* Pods_XCServerCoreDataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreDataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		241E97D293A69C76BE38BE80 /* Pods-XCServerCoreDataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreDataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests.release.xcconfig"; sourceTree = "<group>"; };
 		6BDF2BB4F6C3425C772ED3F2 /* Pods-XCServerCoreDataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreDataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests.debug.xcconfig"; sourceTree = "<group>"; };
+		73C422CF21EB9EDD00904B02 /* XCServerCoreData2.0.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCServerCoreData2.0.3.xcdatamodel; sourceTree = "<group>"; };
+		73C422D021EB9F5700904B02 /* MappingModel2.0.2to2.0.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel2.0.2to2.0.3.xcmappingmodel; sourceTree = "<group>"; };
+		73C422D221EBA02000904B02 /* MappingModel1.2.0to2.0.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel1.2.0to2.0.3.xcmappingmodel; sourceTree = "<group>"; };
+		73C422D421EBA1C900904B02 /* MappingModel2.0.1to2.0.3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel2.0.1to2.0.3.xcmappingmodel; sourceTree = "<group>"; };
 		9730B4BB5CFE81B9C72334DD /* Pods-XCServerCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		AEB5707657641BBC68AEF58A /* Pods_XCServerCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XCServerCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F8F1B2AA7D40A2552E1604 /* Pods-XCServerCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XCServerCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData.release.xcconfig"; sourceTree = "<group>"; };
@@ -361,9 +368,12 @@
 				E1BA0BE61F77D476000FA5C3 /* MappingModel1.2.0to2.0.0.xcmappingmodel */,
 				E1E3251B1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel */,
 				E112081C206FE32500FF669F /* MappingModel1.2.0to2.0.2.xcmappingmodel */,
+				73C422D221EBA02000904B02 /* MappingModel1.2.0to2.0.3.xcmappingmodel */,
 				E1E3251D1FC39DCF0005B324 /* MappingModel2.0.0to2.0.1.xcmappingmodel */,
 				E112081A206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel */,
 				E1120818206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel */,
+				73C422D421EBA1C900904B02 /* MappingModel2.0.1to2.0.3.xcmappingmodel */,
+				73C422D021EB9F5700904B02 /* MappingModel2.0.2to2.0.3.xcmappingmodel */,
 				E1BA0BE71F77D476000FA5C3 /* MigrateIntegrationStringToDate.swift */,
 				E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */,
 			);
@@ -405,7 +415,6 @@
 				E16242331CE3930F00283B2E /* Frameworks */,
 				E16242341CE3930F00283B2E /* Headers */,
 				E16242351CE3930F00283B2E /* Resources */,
-				8A282B916545EDCEAC16028E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -425,7 +434,6 @@
 				E162423E1CE3930F00283B2E /* Frameworks */,
 				E162423F1CE3930F00283B2E /* Resources */,
 				5DB144CECCD2D29257BC2CB0 /* [CP] Embed Pods Frameworks */,
-				7E07A15E0BB900754E31B86F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,7 +452,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Richard Piazza";
 				TargetAttributes = {
 					E16242361CE3930F00283B2E = {
@@ -521,7 +529,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BZipper/BZipCompression.framework",
 				"${BUILT_PRODUCTS_DIR}/CodeQuickKit/CodeQuickKit.framework",
 				"${BUILT_PRODUCTS_DIR}/XCServerAPI/XCServerAPI.framework",
@@ -534,37 +542,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7E07A15E0BB900754E31B86F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A282B916545EDCEAC16028E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XCServerCoreData/Pods-XCServerCoreData-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XCServerCoreDataTests/Pods-XCServerCoreDataTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B92A8381D9619482033629D0 /* [CP] Check Pods Manifest.lock */ = {
@@ -618,9 +596,11 @@
 				E1BA0BFC1F77D476000FA5C3 /* Bot.swift in Sources */,
 				E1BA0BFA1F77D476000FA5C3 /* Asset.swift in Sources */,
 				E1120819206FE0BA00FF669F /* MappingModel2.0.1to2.0.2.xcmappingmodel in Sources */,
+				73C422D121EB9F5700904B02 /* MappingModel2.0.2to2.0.3.xcmappingmodel in Sources */,
 				E112081B206FE13100FF669F /* MappingModel2.0.0to2.0.2.xcmappingmodel in Sources */,
 				E1BA0C1A1F77D476000FA5C3 /* Issue.swift in Sources */,
 				E1BA0C0F1F77D476000FA5C3 /* TriggerPhase.swift in Sources */,
+				73C422D521EBA1C900904B02 /* MappingModel2.0.1to2.0.3.xcmappingmodel in Sources */,
 				E1BA0C161F77D476000FA5C3 /* IntegrationAssets.swift in Sources */,
 				E1BA0C2A1F77D476000FA5C3 /* XcodeServer+CoreDataProperties.swift in Sources */,
 				E1BA0C291F77D476000FA5C3 /* Trigger.swift in Sources */,
@@ -636,6 +616,7 @@
 				E1E360601FC3907F009DAF2E /* IntegrationResult.swift in Sources */,
 				E1BA0C041F77D476000FA5C3 /* CommitContributor.swift in Sources */,
 				E1BA0C051F77D476000FA5C3 /* Conditions+CoreDataProperties.swift in Sources */,
+				73C422D321EBA02000904B02 /* MappingModel1.2.0to2.0.3.xcmappingmodel in Sources */,
 				E1BA0C151F77D476000FA5C3 /* IntegrationAssets+CoreDataProperties.swift in Sources */,
 				E1BA0C0D1F77D476000FA5C3 /* EmailConfiguration+CoreDataProperties.swift in Sources */,
 				E1E3251C1FC39CAE0005B324 /* MappingModel1.2.0to2.0.1.xcmappingmodel in Sources */,
@@ -697,12 +678,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -755,12 +738,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -898,6 +883,7 @@
 		E1BA0BE81F77D476000FA5C3 /* XCServerCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				73C422CF21EB9EDD00904B02 /* XCServerCoreData2.0.3.xcdatamodel */,
 				E1120817206FD46100FF669F /* XCServerCoreData2.0.2.xcdatamodel */,
 				E1E3251A1FC39A000005B324 /* XCServerCoreData2.0.1.xcdatamodel */,
 				E1BA0BE91F77D476000FA5C3 /* XCServerCoreData.xcdatamodel */,
@@ -905,7 +891,7 @@
 				E1BA0BEB1F77D476000FA5C3 /* XCServerCoreData1.2.0.xcdatamodel */,
 				E1BA0BEC1F77D476000FA5C3 /* XCServerCoreData2.0.0.xcdatamodel */,
 			);
-			currentVersion = E1120817206FD46100FF669F /* XCServerCoreData2.0.2.xcdatamodel */;
+			currentVersion = 73C422CF21EB9EDD00904B02 /* XCServerCoreData2.0.3.xcdatamodel */;
 			path = XCServerCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

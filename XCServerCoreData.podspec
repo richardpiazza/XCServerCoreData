@@ -15,6 +15,8 @@ Pod::Spec.new do |s|
   s.resources = 'Resources/*'
   s.frameworks = 'Foundation', 'CoreData'
   s.requires_arc = true
+  s.swift_version = '4.2'
+  
   s.dependency 'CodeQuickKit', '~> 6.4'
   s.dependency 'XCServerAPI', '~> 5.0'
 

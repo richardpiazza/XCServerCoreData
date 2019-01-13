@@ -22,7 +22,7 @@ public class Stats: NSManagedObject {
         self.testAdditionRate = stats.testAdditionRate as NSNumber?
         self.codeCoveragePercentageDelta = stats.codeCoveragePercentageDelta as NSNumber?
         if let date = stats.sinceDate {
-            self.sinceDate = XCServerJSONDecoder.dateFormatter.string(from: date)
+            self.sinceDate = XCServerCoreData.dateFormatter.string(from: date)
         }
         
         if let statsLastCleanIntegrationIdentifier = stats.lastCleanIntegration?.integrationID {

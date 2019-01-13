@@ -20,7 +20,7 @@ public class Commit: NSManagedObject {
         self.message = commit.message
         if let commitTimestamp = commit.timestamp {
             // TODO: Commit Timestamp should be a DATE!
-            self.timestamp = XCServerJSONDecoder.dateFormatter.string(from: commitTimestamp)
+            self.timestamp = XCServerCoreData.dateFormatter.string(from: commitTimestamp)
         }
         
         if let contributor = commit.contributor {
@@ -57,6 +57,6 @@ public class Commit: NSManagedObject {
             return nil
         }
         
-        return XCServerJSONDecoder.dateFormatter.date(from: timestamp)
+        return XCServerCoreData.dateFormatter.date(from: timestamp)
     }
 }
