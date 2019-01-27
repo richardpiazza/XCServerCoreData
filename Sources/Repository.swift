@@ -10,7 +10,7 @@ public class Repository: NSManagedObject {
         self.identifier = identifier
     }
     
-    internal func update(withRevisionBlueprint blueprint: XCSRepositoryBlueprint, integration: Integration? = nil) {
+    public func update(withRevisionBlueprint blueprint: XCSRepositoryBlueprint, integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -69,7 +69,7 @@ public class Repository: NSManagedObject {
         }
     }
     
-    internal func update(withIntegrationCommits commits: [XCSCommit], integration: Integration? = nil) {
+    public func update(withIntegrationCommits commits: [XCSCommit], integration: Integration? = nil) {
         for integrationCommit in commits {
             if let integrationCommits = integrationCommit.commits {
                 for (key, value) in integrationCommits {
@@ -83,7 +83,7 @@ public class Repository: NSManagedObject {
         }
     }
     
-    internal func update(withCommits commits: [XCSRepositoryCommit], integration: Integration? = nil) {
+    public func update(withCommits commits: [XCSRepositoryCommit], integration: Integration? = nil) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

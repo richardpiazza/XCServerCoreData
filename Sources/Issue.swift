@@ -5,7 +5,7 @@ import XCServerAPI
 
 public class Issue: NSManagedObject {
     
-    internal func update(withIssue issue: XCSIssue) {
+    public func update(withIssue issue: XCSIssue) {
         self.identifier = issue._id
         self.revision = issue._rev
         self.status = issue.status as NSNumber?

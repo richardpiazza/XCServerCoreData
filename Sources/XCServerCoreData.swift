@@ -5,6 +5,7 @@ import XCServerAPI
 
 public class XCServerCoreData {
     
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static var sharedInstance: NSPersistentContainer = {
         let bundle = Bundle(for: XCServerCoreData.self)
         guard let modelURL = bundle.url(forResource: "XCServerCoreData", withExtension: "momd") else {
@@ -32,12 +33,14 @@ public class XCServerCoreData {
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
         container.persistentStoreDescriptions = [description]
-        container.viewContext.automaticallyMergesChangesFromParent = true
         
         container.loadPersistentStores { (_, error) in
             if let e = error {
                 fatalError(e.localizedDescription)
             }
+            
+            container.viewContext.automaticallyMergesChangesFromParent = true
+            container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
         }
         
         return container
@@ -107,6 +110,7 @@ public class XCServerCoreData {
     
     /// Retreive the version information about the `XcodeServer`
     /// Updates the supplied `XcodeServer` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncVersionData(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         let client: XCServerClient
         do {
@@ -145,6 +149,7 @@ public class XCServerCoreData {
     
     /// Retrieves all `Bot`s from the `XcodeServer`
     /// Updates the supplied `XcodeServer` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncBots(forXcodeServer xcodeServer: XcodeServer, completion: @escaping XCServerCoreDataCompletion) {
         let client: XCServerClient
         do {
@@ -183,6 +188,7 @@ public class XCServerCoreData {
     
     /// Retrieves the information for a given `Bot` from the `XcodeServer`.
     /// Updates the supplied `Bot` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncBot(bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
@@ -226,6 +232,7 @@ public class XCServerCoreData {
     
     /// Gets the cumulative integration stats for the specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncStats(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
@@ -268,6 +275,7 @@ public class XCServerCoreData {
     
     /// Begin a new integration for the specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func triggerIntegration(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
@@ -311,6 +319,7 @@ public class XCServerCoreData {
     
     /// Gets a list of `Integration` for a specified `Bot`.
     /// Updates the supplied `Bot` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncIntegrations(forBot bot: Bot, completion: @escaping XCServerCoreDataCompletion) {
         guard let xcodeServer = bot.xcodeServer else {
             completion(Errors.xcodeServer)
@@ -354,6 +363,7 @@ public class XCServerCoreData {
     
     /// Gets a single `Integration` from the `XcodeServer`.
     /// Updates the supplied `Integration` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncIntegration(integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let bot = integration.bot else {
             completion(Errors.bot)
@@ -402,6 +412,7 @@ public class XCServerCoreData {
     
     /// Retrieves the `Repository` commits for a specified `Integration`.
     /// Updates the supplied `Integration` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncCommits(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let bot = integration.bot else {
             completion(Errors.bot)
@@ -454,6 +465,7 @@ public class XCServerCoreData {
     
     /// Retrieves `Issue` related to a given `Integration`.
     /// Updates the supplied `Integration` entity with the response.
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     public static func syncIssues(forIntegration integration: Integration, completion: @escaping XCServerCoreDataCompletion) {
         guard let bot = integration.bot else {
             completion(Errors.bot)
@@ -497,5 +509,6 @@ public class XCServerCoreData {
                     completion(nil)
                 })
             }
-        }    }
+        }
+    }
 }

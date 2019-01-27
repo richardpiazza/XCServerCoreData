@@ -10,7 +10,7 @@ public class CommitChange: NSManagedObject {
         self.commit = commit
     }
     
-    internal func update(withCommitChange change: XCSCommitChangeFilePath) {
+    public func update(withCommitChange change: XCSCommitChangeFilePath) {
         self.status = change.status as NSNumber?
         self.filePath = change.filePath
     }

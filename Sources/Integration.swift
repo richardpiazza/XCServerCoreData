@@ -19,7 +19,7 @@ public class Integration: NSManagedObject {
         self.issues = IntegrationIssues(managedObjectContext: managedObjectContext)
     }
     
-    internal func update(withIntegration integration: XCSIntegration) {
+    public func update(withIntegration integration: XCSIntegration) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

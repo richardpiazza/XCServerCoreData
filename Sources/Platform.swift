@@ -10,7 +10,7 @@ public class Platform: NSManagedObject {
         self.filter = filter
     }
     
-    internal func update(withPlatform platform: XCSPlatform) {
+    public func update(withPlatform platform: XCSPlatform) {
         self.identifier = platform._id
         self.revision = platform._rev
         self.displayName = platform.displayName

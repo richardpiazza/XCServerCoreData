@@ -5,7 +5,7 @@ import XCServerAPI
 
 public class StatsBreakdown: NSManagedObject {
     
-    internal func update(withStatsBreakdown breakdown: XCSStatsSummary) {
+    public func update(withStatsBreakdown breakdown: XCSStatsSummary) {
         self.sum = breakdown.sum as NSNumber?
         self.count = breakdown.count as NSNumber?
         self.min = breakdown.min as NSNumber?

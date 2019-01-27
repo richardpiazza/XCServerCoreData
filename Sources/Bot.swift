@@ -17,7 +17,7 @@ public class Bot: NSManagedObject {
         self.stats = Stats(managedObjectContext: managedObjectContext, bot: self)
     }
     
-    internal func update(withBot bot: XCSBot) {
+    public func update(withBot bot: XCSBot) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return
@@ -44,7 +44,7 @@ public class Bot: NSManagedObject {
         }
     }
     
-    internal func update(withIntegrations integrations: [XCSIntegration]) {
+    public func update(withIntegrations integrations: [XCSIntegration]) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

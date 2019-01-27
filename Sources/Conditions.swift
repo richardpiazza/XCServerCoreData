@@ -10,7 +10,7 @@ public class Conditions: NSManagedObject {
         self.trigger = trigger
     }
     
-    internal func update(withConditions conditions: XCSConditions) {
+    public func update(withConditions conditions: XCSConditions) {
         self.status = conditions.status as NSNumber?
         self.onWarnings = conditions.onWarnings as NSNumber?
         self.onBuildErrors = conditions.onBuildErrors as NSNumber?

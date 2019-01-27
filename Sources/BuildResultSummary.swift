@@ -10,7 +10,7 @@ public class BuildResultSummary: NSManagedObject {
         self.integration = integration
     }
     
-    internal func update(withBuildResultSummary summary: XCSBuildResultSummary) {
+    public func update(withBuildResultSummary summary: XCSBuildResultSummary) {
         self.errorCount = summary.errorCount as NSNumber?
         self.errorChange = summary.errorChange as NSNumber?
         self.warningCount = summary.warningCount as NSNumber?

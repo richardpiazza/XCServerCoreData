@@ -10,7 +10,7 @@ public class EmailConfiguration: NSManagedObject {
         self.trigger = trigger
     }
     
-    internal func update(withEmailConfiguration configuration: XCSEmailConfiguration) {
+    public func update(withEmailConfiguration configuration: XCSEmailConfiguration) {
         if #available(macOS 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *) {
             if let ccas = configuration.ccAddresses {
                 do {

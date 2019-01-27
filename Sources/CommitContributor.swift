@@ -10,7 +10,7 @@ public class CommitContributor: NSManagedObject {
         self.commit = commit
     }
     
-    internal func update(withCommitContributor contributor: XCSCommitContributor) {
+    public func update(withCommitContributor contributor: XCSCommitContributor) {
         self.name = contributor.name
         self.displayName = contributor.displayName
         if let emails = contributor.emails {

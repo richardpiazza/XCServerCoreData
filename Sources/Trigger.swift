@@ -10,7 +10,7 @@ public class Trigger: NSManagedObject {
         self.configuration = configuration
     }
     
-    internal func update(withTrigger trigger: XCSTrigger) {
+    public func update(withTrigger trigger: XCSTrigger) {
         guard let moc = self.managedObjectContext else {
             Log.warn("\(#function) failed; MOC is nil")
             return

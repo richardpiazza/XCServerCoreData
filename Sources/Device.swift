@@ -10,7 +10,7 @@ public class Device: NSManagedObject {
         self.identifier = identifier
     }
     
-    internal func update(withDevice device: XCSDevice) {
+    public func update(withDevice device: XCSDevice) {
         self.name = device.name
         self.deviceType = device.deviceType
         self.connected = device.connected as NSNumber?
