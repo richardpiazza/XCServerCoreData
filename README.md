@@ -5,6 +5,12 @@
 An CoreData Storage framework for working with Xcode Server.
 Depends on the XCServerAPI project for interacting with the API.
 
+## NOTICE
+
+This project is being deprecated, and the work is being folded into a new framework. Checkout the 'XcodeServer' framework [here](https://github.com/richardpiazza/XcodeServer)
+
+---
+
 #### XCServerCoreData.swift
 
 Provided the main interaction with the `XCServerCoreData` framework.
